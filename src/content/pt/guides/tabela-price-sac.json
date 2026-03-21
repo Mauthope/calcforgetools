@@ -1,0 +1,55 @@
+{
+  "slug": "tabela-price-sac",
+  "meta_title": "Tabela Price vs SAC: Qual a Melhor Escolha? | Guia CalcForge",
+  "meta_description": "Entenda a diferença matemática entre financiamentos pela Tabela Price e SAC, e descubra qual sistema de amortização é o melhor para você.",
+  "hero": {
+    "title": "Tabela Price vs SAC: A Batalha dos Financiamentos",
+    "subtitle": "Como o banco calcula as suas parcelas e por que a sua escolha inicial altera completamente o valor final pago."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Ao assinar o contrato do seu primeiro financiamento imobiliário ou veicular, você inevitavelmente se depara com uma escolha técnica que a maioria das pessoas não entende: \"Você prefere Tabela Price ou SAC?\"."
+    },
+    {
+      "type": "heading",
+      "text": "O que é a Tabela SAC?"
+    },
+    {
+      "type": "paragraph",
+      "text": "O Sistema de Amortização Constante (SAC) é o queridinho dos economistas. Como o próprio nome diz, a parcela de amortização (o dinheiro que efetivamente abate a sua dívida original) é constante do início ao fim."
+    },
+    {
+      "type": "paragraph",
+      "text": "O resultado? A sua primeira parcela é muito mais alta, mas as parcelas seguintes vão caindo progressivamente mês a mês, conforme o seu saldo devedor diminui e os juros despencam."
+    },
+    {
+      "type": "heading",
+      "text": "E a Tabela Price?"
+    },
+    {
+      "type": "paragraph",
+      "text": "A Tabela Price (ou Sistema Francês) opera de forma contrária: as parcelas são sempre fixas de trás para frente. Você paga exatamente o mesmo valor da primeira à última prestação."
+    },
+    {
+      "type": "paragraph",
+      "text": "O perigo mora nos detalhes matemáticos: nas primeiras prestações, quase todo o seu dinheiro vai puramente para pagar juros ao banco, enquanto a sua \"dívida real\" quase não se move."
+    },
+    {
+      "type": "quote",
+      "text": "Financiar na Tabela Price dá a ilusão de poder de compra, mas custa milhares de reais a mais em juros no longo prazo.",
+      "author": "Equipe de Engenharia Financeira"
+    },
+    {
+      "type": "heading",
+      "text": "Veredito: Qual Escolher?"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Escolha SAC se: Você tiver fôlego financeiro inicial e quiser economizar muito dinheiro em juros a longo prazo.",
+        "Escolha Price se: Seu orçamento mensal for muito engessado e você precisar de parcelas menores hoje (sabendo que pagará mais juros acumulados)."
+      ]
+    }
+  ]
+}

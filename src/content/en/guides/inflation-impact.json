@@ -1,0 +1,28 @@
+{
+  "slug": "inflation-impact",
+  "meta_title": "Understanding Inflations Silent Impact on Savings",
+  "meta_description": "Learn why nominal interest rates don't always accurately reflect your true purchasing power.",
+  "hero": {
+    "title": "The Silent Tax on Your Purchasing Power",
+    "subtitle": "How inflation covertly erodes your bank account balance while you sleep."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "A 5% savings rate sounds incredible on paper, but if the broader economy experiences a 4% inflation spike, your \"real return\" collapses into a mere 1%. You barely broke even."
+    },
+    {
+      "type": "heading",
+      "text": "Real vs Nominal Rates"
+    },
+    {
+      "type": "paragraph",
+      "text": "Your nominal rate is the sticker price the bank gave you. Your real rate is determined by the Fisher Equation, subtracting out the insidious bleed of CPI increases."
+    },
+    {
+      "type": "quote",
+      "text": "Inflation destroys savings, creates artificial booms, and redistributes wealth to the leveraged.",
+      "author": "Economic Theory"
+    }
+  ]
+}

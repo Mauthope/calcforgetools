@@ -1,0 +1,44 @@
+{
+  "slug": "como-funcionam-os-juros-compostos",
+  "meta_title": "Como Funcionam os Juros Compostos? | A Oitava Maravilha do Mundo",
+  "meta_description": "Aprenda a fórmula oficial e descubra como a 8ª maravilha do mundo pode trabalhar para o crescimento exponencial do seu patrimônio.",
+  "hero": {
+    "title": "A Máquina de Fazer Dinheiro: Juros Compostos",
+    "subtitle": "Entenda a mecânica dos juros sobre juros e como o tempo é o fator mais importante nos seus investimentos."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Albert Einstein supostamente chamou os juros compostos de \"a oitava maravilha do mundo\". Aquele que os entende, ganha; aquele que não os entende, paga."
+    },
+    {
+      "type": "heading",
+      "text": "A Matemática do Crescimento Exponencial"
+    },
+    {
+      "type": "paragraph",
+      "text": "Diferente dos juros simples, onde você ganha um valor fixo sempre sobre o capital original, nos juros compostos o seu rendimento incide sobre o rendimento anterior. É um efeito bola de neve."
+    },
+    {
+      "type": "paragraph",
+      "text": "A fórmula universal é M = C (1 + i)^t, onde o tempo (t) é o expoente."
+    },
+    {
+      "type": "quote",
+      "text": "A curva de crescimento dos juros compostos é plana e tediosa por anos, até que atinge um ponto de inflexão e explode para cima.",
+      "author": "O Segredo dos Investidores"
+    },
+    {
+      "type": "heading",
+      "text": "Lições Práticas"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Comece Cedo: R$ 50 investidos hoje valem matematicamente mais do que R$ 200 investidos daqui a 10 anos.",
+        "A Frequência Importa: Quanto mais vezes os juros compostos são capitalizados (diariamente, mensalmente, anualmente), maior o seu montante final.",
+        "Paciência: O grande prêmio dos juros compostos sempre fica reservado para os últimos 20% do período de investimento."
+      ]
+    }
+  ]
+}

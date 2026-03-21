@@ -1,0 +1,61 @@
+{
+  "calculator_id": "roi",
+  "slug": "roi-calculator",
+  "title": "ROI Calculator",
+  "meta_title": "ROI Calculator | Business Return on Investment - CalcForgeTools",
+  "meta_description": "Calculate Return on Investment automatically. Evaluate business decisions, investments, and more seamlessly.",
+  "hero": {
+    "title": "ROI Calculator",
+    "subtitle": "Make informed financial decisions. Calculate the percentage return on your initial investment efficiently."
+  },
+  "inputs": [
+    {
+      "name": "amountInvested",
+      "label": "Amount Invested",
+      "type": "number",
+      "defaultValue": 5000
+    },
+    {
+      "name": "amountReturned",
+      "label": "Amount Returned",
+      "type": "number",
+      "defaultValue": 6500
+    }
+  ],
+  "formula": "ROI = [(Ending Value - Initial Value) / Initial Value] * 100%",
+  "outputs": [
+    "netProfit",
+    "roiPercentage"
+  ],
+  "chart_type": "comparison",
+  "formula_explanation": "ROI effectively measures the simple ratio of your net profit to your total initial investment cost, yielding a universally understood percentage.",
+  "example": "Spending $5,000 on a marketing campaign that yields $6,500 in new sales creates a net profit of $1,500, delivering a solid 30% ROI.",
+  "faq": [
+    {
+      "question": "What is a good ROI?",
+      "answer": "It varies vastly by industry and risk tolerance. Typically, an annualized ROI of 7% to 10% is considered good for standard market investments."
+    },
+    {
+      "question": "What is considered a good ROI?",
+      "answer": "It depends completely on the asset class and risk. For broad stock market indexes (like the S&P 500), an annualized ROI of 7-10% is historically standard."
+    },
+    {
+      "question": "Does ROI take time into account?",
+      "answer": "Basic ROI does not. A 50% ROI could take 1 month or 10 years. To account for time, you must calculate the Annualized ROI (often called CAGR)."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Compound Interest Calculator",
+      "href": "/en/calculators/compound-interest-calculator",
+      "description": "See how ROI compounds over years."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "How to Accurately Calculate ROI",
+      "href": "/en/guides/how-to-calculate-roi",
+      "description": "Learn the official formula and discover how to analyze your investment ventures like a professional."
+    }
+  ]
+}

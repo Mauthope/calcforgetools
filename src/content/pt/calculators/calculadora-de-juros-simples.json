@@ -1,0 +1,67 @@
+{
+  "calculator_id": "interest",
+  "slug": "calculadora-de-juros-simples",
+  "title": "Calculadora de Juros Simples",
+  "meta_title": "Calculadora de Juros Simples | Rápida e Gratuita - CalcForgeTools",
+  "meta_description": "Calcule juros simples sobre qualquer capital, em qualquer período de tempo, de forma rápida e precisa.",
+  "hero": {
+    "title": "Calculadora de Juros Simples",
+    "subtitle": "Uma ferramenta direta para determinar os juros exatos acumulados sobre um capital inicial sem capitalização."
+  },
+  "inputs": [
+    {
+      "name": "principal",
+      "label": "Capital (Valor Inicial)",
+      "type": "number",
+      "defaultValue": 1000
+    },
+    {
+      "name": "rate",
+      "label": "Taxa Anual (%)",
+      "type": "number",
+      "defaultValue": 5
+    },
+    {
+      "name": "time",
+      "label": "Tempo (Anos)",
+      "type": "number",
+      "defaultValue": 2
+    }
+  ],
+  "formula": "J = C * i * t",
+  "outputs": [
+    "totalInterest",
+    "finalAmount"
+  ],
+  "chart_type": "comparison",
+  "formula_explanation": "Os juros simples são calculados unicamente sobre o capital original. Os juros não sofrem capitalização nem crescem exponencialmente ao longo do tempo.",
+  "example": "Se você investir R$ 1.000 a uma taxa simples de 5% ao ano por 2 anos, ganhará exatamente R$ 100 em juros (R$ 50 a cada ano).",
+  "faq": [
+    {
+      "question": "Qual a diferença entre juros simples e compostos?",
+      "answer": "Os juros simples são calculados apenas sobre o capital inicial. Os juros compostos são calculados sobre o capital acrescido dos juros acumulados."
+    },
+    {
+      "question": "Onde os juros simples são aplicados na prática?",
+      "answer": "São comuns em descontos de boletos atrasados, juros de mora de 1% ao mês, e alguns tipos de notas promissórias e debêntures curtas."
+    },
+    {
+      "question": "Por que os juros compostos são mais comuns?",
+      "answer": "Porque eles remuneram o capital já acrescido dos juros passados, o que reflete de forma mais justa o valor do dinheiro no tempo para os bancos."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Juros Compostos",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
+      "description": "Compare seus juros simples com juros sobre juros."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Juros Simples vs Juros Compostos",
+      "href": "/pt/guides/juros-simples-vs-compostos",
+      "description": "Entenda a diferença estrutural e matemática entre os dois formatos de rentabilidade no mercado."
+    }
+  ]
+}

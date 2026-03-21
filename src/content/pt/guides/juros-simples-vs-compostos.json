@@ -1,0 +1,36 @@
+{
+  "slug": "juros-simples-vs-compostos",
+  "meta_title": "Juros Simples vs Juros Compostos | Guia Definitivo",
+  "meta_description": "Entenda a diferença estrutural e matemática entre os dois formatos de rentabilidade no mercado de crédito.",
+  "hero": {
+    "title": "Simples ou Compostos? Entenda a Engrenagem",
+    "subtitle": "O embate clássico: linearidade versus curva exponencial na engenharia financeira."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Tanto juros simples quanto compostos cobram o \"aluguel\" pelo dinheiro no tempo, mas a forma com que essa conta escala ao longo dos anos os torna criaturas completamente distintas."
+    },
+    {
+      "type": "heading",
+      "text": "Juros Simples: A Linha Reta"
+    },
+    {
+      "type": "paragraph",
+      "text": "Aqui, a taxa incide apenas sobre o capital inicial. Se você investiu R$ 100 a 10% ao ano, você ganhará exatamente R$ 10 em todos os anos. É justo, linear e previsível, geralmente usado para descontos comerciais e multas de atraso."
+    },
+    {
+      "type": "heading",
+      "text": "Juros Compostos: O Juro Sobre Juro"
+    },
+    {
+      "type": "paragraph",
+      "text": "Neste sistema padrão dos bancos e das corretoras, a taxa incide sobre o montante acumulado do período anterior. No segundo ano, você ganha 10% sobre R$ 110, gerando R$ 11. No terceiro ano, 10% sobre R$ 121, e assim por diante."
+    },
+    {
+      "type": "quote",
+      "text": "Se o banco te empresta, ele cobra compostos. Se você empresta para o amigo, costuma cobrar simples.",
+      "author": "Mercado Financeiro"
+    }
+  ]
+}

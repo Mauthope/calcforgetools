@@ -1,0 +1,72 @@
+{
+  "calculator_id": "debt_payoff",
+  "slug": "calculadora-de-quitacao-de-divida",
+  "title": "Calculadora de Quitação de Dívida",
+  "meta_title": "Calculadora de Quitação de Dívida | Planeje sua Liberdade Financeira",
+  "meta_description": "Descubra exatamente quanto tempo levará para quitar seu cartão de crédito ou dívida com nossa Calculadora interativa.",
+  "hero": {
+    "title": "Calculadora de Quitação de Dívida",
+    "subtitle": "Descubra quanto tempo levará para ficar livre das dívidas calculando sua data de quitação estimada e o total de juros."
+  },
+  "inputs": [
+    {
+      "name": "balance",
+      "label": "Saldo Devedor",
+      "type": "number",
+      "defaultValue": 10000
+    },
+    {
+      "name": "interestRate",
+      "label": "Taxa de Juros Anual (%)",
+      "type": "number",
+      "defaultValue": 18.9
+    },
+    {
+      "name": "monthlyPayment",
+      "label": "Pagamento Mensal",
+      "type": "number",
+      "defaultValue": 250
+    }
+  ],
+  "formula": "N = -log(1 - (i * saldo / parcela)) / log(1 + i)",
+  "outputs": [
+    "monthsToPayoff",
+    "totalInterestPaid",
+    "totalPaid"
+  ],
+  "chart_type": "comparison",
+  "formula_explanation": "Esta fórmula prevê o número exato de meses necessários para amortizar uma dívida considerando um pagamento fixo. Ela mostra como altas taxas neutralizam pagamentos baixos.",
+  "example": "Se você deve R$ 10.000 a 18,9% de juros e paga R$ 250 por mês, levará 62 meses para quitar a dívida - e isso custará quase R$ 5.400 só em juros.",
+  "faq": [
+    {
+      "question": "O que acontece se meu pagamento for muito baixo?",
+      "answer": "Se o seu pagamento mensal não cobrir a cobrança de juros daquele mês, sua dívida crescerá infinitamente em vez de diminuir."
+    },
+    {
+      "question": "Devo pagar a dívida ou investir?",
+      "answer": "Como regra geral, é financeiramente mais inteligente pagar dívidas com taxas altas (como cartão de crédito ou cheque especial) antes de fazer investimentos padrão."
+    },
+    {
+      "question": "Devo pagar a dívida mais cara ou a menor primeiro?",
+      "answer": "O método 'Avalanche' foca na dívida com maior taxa de juros (melhor matemática). O método 'Bola de Neve' foca na menor dívida para gerar motivação psicológica."
+    },
+    {
+      "question": "Consolidar dívidas é uma boa ideia?",
+      "answer": "Se você puder pegar um único empréstimo com juros menores (como consignado) para quitar dívidas agressivas (como cartão de crédito), sim."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Empréstimo",
+      "href": "/pt/calculators/calculadora-de-emprestimo",
+      "description": "Simule um novo crédito com taxas menores."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Método Snowball vs Avalanche",
+      "href": "/pt/guides/metodos-quitacao-divida",
+      "description": "Estratégias matemáticas e psicológicas mundialmente comprovadas para você eliminar suas dívidas mais rápido."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "calculator_id": "loan",
+  "slug": "calculadora-de-emprestimo",
+  "title": "Calculadora de Empréstimo",
+  "meta_title": "Calculadora de Empréstimo e Financiamento | CalcForgeTools",
+  "meta_description": "Estime parcelas mensais, juros totais e o cronograma de amortização do seu financiamento com nossa calculadora gratuita.",
+  "hero": {
+    "title": "Calculadora de Empréstimo",
+    "subtitle": "Planeje seu crédito com segurança, calculando exatamente quanto você pagará por mês e o total de juros."
+  },
+  "inputs": [
+    {
+      "name": "loanAmount",
+      "label": "Valor do Empréstimo",
+      "type": "number",
+      "defaultValue": 250000
+    },
+    {
+      "name": "interestRate",
+      "label": "Taxa de Juros Anual (%)",
+      "type": "number",
+      "defaultValue": 5.5
+    },
+    {
+      "name": "loanTermYears",
+      "label": "Prazo (Anos)",
+      "type": "number",
+      "defaultValue": 30
+    },
+    {
+      "name": "extraPayment",
+      "label": "Amortização Extra Mensal",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "PMT = P * [r(1+r)^n] / [(1+r)^n - 1]",
+  "outputs": [
+    "monthlyBasePayment",
+    "totalMonthlyPayment",
+    "totalInterest",
+    "interestSaved",
+    "monthsSaved",
+    "totalPayment"
+  ],
+  "chart_type": "loan",
+  "formula_explanation": "Esta fórmula padrão de amortização (Tabela Price) calcula a parcela mensal fixa necessária para quitar totalmente um empréstimo em um prazo específico.",
+  "example": "Um financiamento imobiliário de R$ 250.000 a 5,5% ao ano por 30 anos custará R$ 1.419,47 por mês, resultando em R$ 261.010 de juros pagos ao longo do prazo.",
+  "faq": [
+    {
+      "question": "O que é amortização?",
+      "answer": "Amortização é o processo de pagamento gradual de uma dívida através de parcelas periódicas. A parcela é fixa, mas a proporção entre juros e principal muda a cada mês."
+    },
+    {
+      "question": "Como posso diminuir os juros pagos?",
+      "answer": "Você pode reduzir os juros totais buscando uma taxa menor, escolhendo um prazo mais curto ou adiantando pagamentos (amortização extraordinária)."
+    },
+    {
+      "question": "Qual a diferença entre a Tabela Price e SAC?",
+      "answer": "Na Tabela Price as parcelas são fixas do início ao fim. Na tabela SAC, a parcela começa mais alta e vai diminuindo com o tempo, gerando menos juros finais."
+    },
+    {
+      "question": "Vale a pena fazer amortizações extras?",
+      "answer": "Sim. Qualquer valor adicional pago reduz diretamente o saldo devedor (Principal) sem juros embutidos, encurtando o prazo da dívida."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Quitação de Dívida",
+      "href": "/pt/calculators/calculadora-de-quitacao-de-divida",
+      "description": "Descubra quão rápido você pode se livrar das dívidas."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Tabela Price vs SAC: Qual a Melhor Escolha?",
+      "href": "/pt/guides/tabela-price-sac",
+      "description": "Qual sistema de amortização escolher na hora de comprar o seu imóvel ou carro? Entenda as diferenças matemáticas vitais."
+    },
+    {
+      "title": "O Guia Prático dos Juros Compostos",
+      "href": "/pt/guides/como-funcionam-os-juros-compostos",
+      "description": "Descubra o segredo do crescimento exponencial do seu dinheiro através de exemplos práticos."
+    }
+  ]
+}

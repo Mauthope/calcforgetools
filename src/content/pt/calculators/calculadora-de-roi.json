@@ -1,0 +1,61 @@
+{
+  "calculator_id": "roi",
+  "slug": "calculadora-de-roi",
+  "title": "Calculadora de ROI",
+  "meta_title": "Calculadora de ROI | Retorno sobre Investimento - CalcForgeTools",
+  "meta_description": "Calcule seu Retorno sobre Investimento automaticamente. Avalie decisões de negócios, investimentos e muito mais de forma simples.",
+  "hero": {
+    "title": "Calculadora de ROI",
+    "subtitle": "Tome decisões financeiras informadas. Calcule graficamente o retorno percentual sobre o seu custo inicial de investimento."
+  },
+  "inputs": [
+    {
+      "name": "amountInvested",
+      "label": "Valor Investido",
+      "type": "number",
+      "defaultValue": 5000
+    },
+    {
+      "name": "amountReturned",
+      "label": "Valor Retornado",
+      "type": "number",
+      "defaultValue": 6500
+    }
+  ],
+  "formula": "ROI = [(Valor Final - Valor Inicial) / Valor Inicial] * 100%",
+  "outputs": [
+    "netProfit",
+    "roiPercentage"
+  ],
+  "chart_type": "comparison",
+  "formula_explanation": "O ROI mede a proporção do lucro líquido em relação ao custo total do investimento inicial, obtendo uma porcentagem universalmente compreendida.",
+  "example": "Gastar R$ 5.000 em uma campanha de marketing que gera R$ 6.500 em novas vendas cria um lucro de R$ 1.500, entregando um sólido ROI de 30%.",
+  "faq": [
+    {
+      "question": "O que é um bom ROI?",
+      "answer": "Varia imensamente por setor e tolerância ao risco. Normalmente, um ROI anualizado de 7% a 10% é considerado aceitável e bom para investimentos de mercado padrão."
+    },
+    {
+      "question": "O que é um 'bom' ROI?",
+      "answer": "Depende da indústria. Na Cesta de S&P 500, um ROI de 7% a 10% ao ano é considerando o padrão histórico aceitável."
+    },
+    {
+      "question": "O ROI considera o tempo do investimento?",
+      "answer": "Não por padrão. Um ROI de 50% em 1 ano é excelente, mas o mesmo ROI de 50% gerado após 10 anos equivale a menos de 5% ao ano. Para isso usamos o ROI Anualizado (CAGR)."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Juros Compostos",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
+      "description": "Veja como seu ROI se capitaliza ao longo dos anos."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular o ROI Corretamente",
+      "href": "/pt/guides/como-calcular-roi",
+      "description": "Aprenda a métrica essencial do mundo dos negócios para analisar a eficiência de empresas e campanhas."
+    }
+  ]
+}

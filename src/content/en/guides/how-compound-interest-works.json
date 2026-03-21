@@ -1,0 +1,35 @@
+{
+  "slug": "how-compound-interest-works",
+  "meta_title": "The Magic of Compound Interest | Wealth Mechanics",
+  "meta_description": "Discover the mathematical secret to exponential wealth growth and retirement planning.",
+  "hero": {
+    "title": "The Mechanics of Wealth: Compound Interest",
+    "subtitle": "Why time is your biggest ally and your most lethal enemy depending on which side of the ledger you sit."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Compound interest acts as a financial snowball. It is the concept of earning returns on the money you saved, AND generating returns on the returns themselves."
+    },
+    {
+      "type": "heading",
+      "text": "The Mathematical Formula"
+    },
+    {
+      "type": "paragraph",
+      "text": "A = P(1 + r/n)^(nt). Time is nestled firmly in the exponent slot. This means that a 10 year timeline difference literally changes the mathematical realm of the output."
+    },
+    {
+      "type": "quote",
+      "text": "My wealth has come from a combination of living in America, some lucky genes, and compound interest.",
+      "author": "Warren Buffett"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Time in the market mathematically beats timing the market.",
+        "Daily compounding beats Annual compounding aggressively over 30 years."
+      ]
+    }
+  ]
+}

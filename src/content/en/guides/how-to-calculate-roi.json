@@ -1,0 +1,31 @@
+{
+  "slug": "how-to-calculate-roi",
+  "meta_title": "How to Accurately Calculate ROI Formally",
+  "meta_description": "Learn the official formula and discover how to analyze your investment ventures like a professional.",
+  "hero": {
+    "title": "Dominating Return On Investment",
+    "subtitle": "The universal language used by angel investors, founders, and marketers worldwide."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Return on Investment distills the sheer efficiency of an independent operation down to a pure percentage metric."
+    },
+    {
+      "type": "heading",
+      "text": "The Core Equation"
+    },
+    {
+      "type": "paragraph",
+      "text": "The classic algorithm: (Net Gain from Investment / Total Cost of Investment) * 100."
+    },
+    {
+      "type": "heading",
+      "text": "Avoiding Vanity Metrics"
+    },
+    {
+      "type": "paragraph",
+      "text": "Many people calculate gross income against ad-spend and call it ROI. That is mathematically flawed. True ROI requires deducting server costs, labor, taxes, and every fractional COGS associated."
+    }
+  ]
+}

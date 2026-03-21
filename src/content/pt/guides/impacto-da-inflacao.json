@@ -1,0 +1,40 @@
+{
+  "slug": "impacto-da-inflacao",
+  "meta_title": "O Impacto Oculto da Inflação | Guia CalcForge",
+  "meta_description": "Saiba por que a taxa de juros nominal nem sempre reflete o aumento do seu poder de compra real no mercado.",
+  "hero": {
+    "title": "O Ladrão Silencioso do seu Poder de Compra",
+    "subtitle": "Por que olhar apenas para a rentabilidade da sua conta bancária é um erro matemático gravíssimo."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Você olha para a sua conta e se sente feliz porque seu dinheiro \"rendeu\" 8% neste ano. Mas será que você realmente enriqueceu?"
+    },
+    {
+      "type": "heading",
+      "text": "A Diferença Entre Juro Nominal e Real"
+    },
+    {
+      "type": "paragraph",
+      "text": "Se a corretora pagou 8% de Juros (Taxa Nominal), mas os preços nos supermercados subiram 6% no mesmo período (Inflação), o seu aumento real de poder de compra foi de apenas ~1.8%. Este é o Juro Real."
+    },
+    {
+      "type": "quote",
+      "text": "Inflação é a forma mais perigosa de imposto: ela não é legislada, apenas acontece sem você perceber nas prateleiras.",
+      "author": "Macroeconomia Moderna"
+    },
+    {
+      "type": "heading",
+      "text": "Como se Proteger"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Busque investimentos atrelados a índices de preços (como o IPCA+ no Brasil).",
+        "Considere aportes em ativos reais ou fundos imobiliários com contratos revisados anualmente.",
+        "Sempre subtraia mentalmente a inflação projetada das suas expectativas financeiras do futuro."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "calculator_id": "loan",
+  "slug": "loan-calculator",
+  "title": "Loan Calculator",
+  "meta_title": "Loan Calculator | Calculate Monthly Payments - CalcForgeTools",
+  "meta_description": "Estimate your monthly loan payments, total interest, and amortization schedule with our free Loan Calculator.",
+  "hero": {
+    "title": "Loan Calculator",
+    "subtitle": "Plan your borrowing safely by calculating exactly how much you'll pay each month and in total interest."
+  },
+  "inputs": [
+    {
+      "name": "loanAmount",
+      "label": "Loan Amount",
+      "type": "number",
+      "defaultValue": 250000
+    },
+    {
+      "name": "interestRate",
+      "label": "Interest Rate (%)",
+      "type": "number",
+      "defaultValue": 5.5
+    },
+    {
+      "name": "loanTermYears",
+      "label": "Loan Term (Years)",
+      "type": "number",
+      "defaultValue": 30
+    },
+    {
+      "name": "extraPayment",
+      "label": "Extra Monthly Payment",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "M = P * [r(1+r)^n] / [(1+r)^n - 1]",
+  "outputs": [
+    "monthlyBasePayment",
+    "totalMonthlyPayment",
+    "totalInterest",
+    "interestSaved",
+    "monthsSaved",
+    "totalPayment"
+  ],
+  "chart_type": "loan",
+  "formula_explanation": "This standard amortization formula calculates the fixed monthly payment required to fully pay off a loan of a specific amount, interest rate, and term.",
+  "example": "A $250,000 home loan at 5.5% interest for 30 years will cost you $1,419.47 per month, resulting in $261,010 in total interest paid over the life of the loan.",
+  "faq": [
+    {
+      "question": "What is loan amortization?",
+      "answer": "Amortization is the process of spreading out a loan into a series of fixed payments. While the payment stays the same, the portion going towards interest vs. principal changes over time."
+    },
+    {
+      "question": "How can I lower my interest?",
+      "answer": "You can lower your total interest paid by securing a lower rate, choosing a shorter term, or making extra principal payments each month."
+    },
+    {
+      "question": "Should I make extra principal payments?",
+      "answer": "Yes. Extra payments apply directly to your principal balance, reducing the amount of money that accrues interest. This shortens your loan term and saves you significant money."
+    },
+    {
+      "question": "What is the difference between fixed and variable rates?",
+      "answer": "A fixed-rate keeps the exact same interest rate for the entire lifespan. A variable rate fluctuates based on market indexes, meaning your monthly payments can change."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Debt Payoff Calculator",
+      "href": "/en/calculators/debt-payoff-calculator",
+      "description": "Find out how fast you can become debt-free."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Fixed vs Variable Rate Mortgages",
+      "href": "/en/guides/fixed-vs-variable-mortgage",
+      "description": "Which type of home loan is safest for your financial future? Breaking down the pros and cons."
+    },
+    {
+      "title": "The Magic of Compound Interest",
+      "href": "/en/guides/how-compound-interest-works",
+      "description": "Discover the mathematical secret to exponential wealth growth and starting early."
+    }
+  ]
+}

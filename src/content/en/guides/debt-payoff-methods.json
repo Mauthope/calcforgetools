@@ -1,0 +1,36 @@
+{
+  "slug": "debt-payoff-methods",
+  "meta_title": "Snowball vs Avalanche Debt Payoff Methods",
+  "meta_description": "Proven mathematical and behavioral psychological strategies to become 100% debt-free.",
+  "hero": {
+    "title": "Hacking Your Way out of Debt",
+    "subtitle": "Avalanche or Snowball? Understanding the psychological versus mathematical warfare of paying off loans."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Breaking free from the chains of compounding debt requires aggressive allocation strategies."
+    },
+    {
+      "type": "heading",
+      "text": "The Snowball Maneuver"
+    },
+    {
+      "type": "paragraph",
+      "text": "You organize your debts exclusively from smallest balance to largest balance, completely blind to the interest rates. The goal here is behavioral reinforcement. Knocking out a small $400 medical bill gives your brain a rapid dopamine hit, fueling the discipline needed to tackle the massive $30,000 car note later."
+    },
+    {
+      "type": "heading",
+      "text": "The Avalanche Tactic"
+    },
+    {
+      "type": "paragraph",
+      "text": "You organize by Interest Rate strictly. The highest APR gets obliterated first. On an Excel sheet, this is vastly superior because it limits the aggregate mathematical damage."
+    },
+    {
+      "type": "quote",
+      "text": "Personal finance is 20% head knowledge and 80% behavior. Pick the method that keeps you violently engaged.",
+      "author": "Dave Ramsey Methodology"
+    }
+  ]
+}

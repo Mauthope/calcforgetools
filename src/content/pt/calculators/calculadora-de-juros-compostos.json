@@ -1,0 +1,116 @@
+{
+  "calculator_id": "compound_interest",
+  "slug": "calculadora-de-juros-compostos",
+  "title": "Calculadora de Juros Compostos",
+  "meta_title": "Calculadora de Juros Compostos | Rápida e Gratuita - CalcForgeTools",
+  "meta_description": "Calcule o crescimento do seu dinheiro ao longo do tempo com nossa Calculadora de Juros Compostos gratuita. Entenda o poder dos juros compostos para construir riqueza.",
+  "hero": {
+    "title": "Calculadora de Juros Compostos",
+    "subtitle": "Descubra como investimentos consistentes podem se transformar em uma riqueza significativa ao longo do tempo usando o poder matemático dos juros compostos."
+  },
+  "inputs": [
+    {
+      "name": "initialInvestment",
+      "label": "Investimento Inicial",
+      "type": "number",
+      "defaultValue": 10000
+    },
+    {
+      "name": "monthlyContribution",
+      "label": "Aporte Mensal",
+      "type": "number",
+      "defaultValue": 500
+    },
+    {
+      "name": "interestRate",
+      "label": "Taxa de Juros Anual (%)",
+      "type": "number",
+      "defaultValue": 7
+    },
+    {
+      "name": "years",
+      "label": "Período (Anos)",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "name": "compoundFrequency",
+      "label": "Frequência de Capitalização",
+      "type": "select",
+      "options": [
+        {
+          "label": "Anual (1x/ano)",
+          "value": 1
+        },
+        {
+          "label": "Semestral (2x/ano)",
+          "value": 2
+        },
+        {
+          "label": "Trimestral (4x/ano)",
+          "value": 4
+        },
+        {
+          "label": "Mensal (12x/ano)",
+          "value": 12
+        },
+        {
+          "label": "Diária (365x/ano)",
+          "value": 365
+        }
+      ],
+      "defaultValue": 12
+    }
+  ],
+  "formula": "VF = P*(1+r/n)^(n*t) + PMT*((1+r/n)^(n*t)-1)/(r/n)",
+  "outputs": [
+    "finalValue",
+    "totalInterest",
+    "totalContribution"
+  ],
+  "chart_type": "compound_interest",
+  "formula_explanation": "A fórmula considera duas partes: o capital (investimento inicial) capitalizado ao longo do tempo e o valor futuro de uma série de aportes mensais.",
+  "example": "Se você investir R$ 10.000 hoje com um retorno anual de 7%, com capitalização mensal, e adicionar R$ 500 mensais por 10 anos, terá cerca de R$ 106.300 no final.",
+  "faq": [
+    {
+      "question": "O que são juros compostos?",
+      "answer": "Juros compostos são juros calculados sobre o capital inicial acrescido dos juros acumulados de períodos anteriores. Popularmente conhecido como 'juros sobre juros'."
+    },
+    {
+      "question": "Qual é a melhor frequência de capitalização?",
+      "answer": "Para a maioria dos investimentos, a capitalização mensal ou anual é padrão. A capitalização diária gera retornos ligeiramente superiores."
+    },
+    {
+      "question": "Como a inflação afeta os juros compostos?",
+      "answer": "Os juros nominais não descontam a inflação. Para saber seu ganho real, subtraia a taxa de inflação do seu rendimento."
+    },
+    {
+      "question": "É melhor investir por mais tempo ou com mais dinheiro?",
+      "answer": "Devido ao fator exponencial (o 'Tempo'), investimentos de longo prazo costumam superar aportes maiores em prazos curtos."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de ROI",
+      "href": "/pt/calculators/calculadora-de-roi",
+      "description": "Calcule rapidamente o retorno sobre seu investimento."
+    },
+    {
+      "title": "Como Funcionam os Juros Compostos",
+      "href": "/pt/guides/como-funcionam-os-juros-compostos",
+      "description": "Um mergulho profundo na matemática e estratégia."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "O Guia Completo sobre Juros Compostos",
+      "href": "/pt/guides/como-funcionam-os-juros-compostos",
+      "description": "Aprenda a fórmula oficial e descubra como a 8ª maravilha do mundo pode trabalhar para você."
+    },
+    {
+      "title": "Entenda o Impacto da Inflação Oculta",
+      "href": "/pt/guides/impacto-da-inflacao",
+      "description": "Saiba por que a taxa de juros nominal nem sempre reflete o aumento do seu poder de compra real."
+    }
+  ]
+}

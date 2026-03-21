@@ -1,0 +1,38 @@
+{
+  "slug": "como-calcular-roi",
+  "meta_title": "Como Calcular o ROI (Retorno sobre Investimento) Oficialmente",
+  "meta_description": "Aprenda a métrica essencial do mundo dos negócios para analisar a eficiência de empresas e campanhas.",
+  "hero": {
+    "title": "O Guia do Empreendedor: Dominando o ROI",
+    "subtitle": "A única métrica que realmente importa no final do dia se tratando da alocação do seu capital."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "O Return on Investment (ROI) avalia o desempenho e a rentabilidade relativa do seu investimento, te dizendo rapidamente quantos centavos voltaram para você de lucro puro para cada real arriscado."
+    },
+    {
+      "type": "heading",
+      "text": "A Fórmula"
+    },
+    {
+      "type": "paragraph",
+      "text": "A estrutura é direta: (Receita Total - Custos Totais) / Custos Totais. Multiplique o resultado final por 100."
+    },
+    {
+      "type": "heading",
+      "text": "Erro Comum de Gestores"
+    },
+    {
+      "type": "paragraph",
+      "text": "Muitos calculam o famoso \"ROAS\" ou retornam um múltiplo sob a receita bruta. Lembre-se que o verdadeiro ROI precisa subtrair TODOS os custos da operação (Custo do Produto, Impostos, Frete, Servidor, Agência). Se você esquecer um imposto, a sua meta fica distorcida."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Um ROI de 100% significa que você dobrou seu dinheiro limpo.",
+        "Sempre pondere o ROI atrelado ao Tempo. Ganhar 50% de ROI em 3 dias é um milagre, mas 50% em 10 anos pode facilmente perder para a inflação."
+      ]
+    }
+  ]
+}

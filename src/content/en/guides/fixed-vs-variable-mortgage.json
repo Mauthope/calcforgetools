@@ -1,0 +1,38 @@
+{
+  "slug": "fixed-vs-variable-mortgage",
+  "meta_title": "Fixed vs Variable Rate Mortgages | Guide",
+  "meta_description": "Which type of home loan is safest for your financial future? Breaking down the pros and cons.",
+  "hero": {
+    "title": "Fixed vs Variable Mortgages: The Core Battle",
+    "subtitle": "Understanding risk allocation and stability when financing your largest asset."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "When taking out a mortgage, one of your biggest decisions is locking down the interest rate mechanic."
+    },
+    {
+      "type": "heading",
+      "text": "Fixed-Rate Mortgages"
+    },
+    {
+      "type": "paragraph",
+      "text": "Your interest rate is locked for a defined term (or the lifetime of the loan, famously in the US). It brings total peace of mind. Your principal and interest combo payment will literally never change."
+    },
+    {
+      "type": "heading",
+      "text": "Variable-Rate Mortgages"
+    },
+    {
+      "type": "paragraph",
+      "text": "Variable rates fluctuate with the central bank's prime rates. They traditionally start much lower than fixed rates, but they carry market risk. If inflation hits and rates skyrocket, your minimum monthly payments might shoot up instantly."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Choose Fixed if: You thrive on predictability and want to hedge against rising global inflation rates.",
+        "Choose Variable if: You believe central banks will cut rates, or you intend to aggressively overpay your mortgage in a very short timeline."
+      ]
+    }
+  ]
+}

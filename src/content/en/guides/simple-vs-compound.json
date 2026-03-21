@@ -1,0 +1,31 @@
+{
+  "slug": "simple-vs-compound",
+  "meta_title": "Simple vs Compound Interest Explained In-depth",
+  "meta_description": "Understand the fundamental mathematical difference between the two standard interest frameworks.",
+  "hero": {
+    "title": "Linearity Meets Exponentials",
+    "subtitle": "The grand difference between Simple and Compound accrual math."
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "The structural difference between simple and compound interest dictates the financial scaffolding of the entire globe."
+    },
+    {
+      "type": "heading",
+      "text": "Simple Interest"
+    },
+    {
+      "type": "paragraph",
+      "text": "In simple interest scenarios, your principal is stationary. You accumulate a flat percentage off the pure base amount every year. It never scales up."
+    },
+    {
+      "type": "heading",
+      "text": "Compound Interest"
+    },
+    {
+      "type": "paragraph",
+      "text": "Compound interest actively folds the previous year's generated yield directly into the base principal for the next calculation cycle. This creates that famous hockey-stick exponential chart."
+    }
+  ]
+}

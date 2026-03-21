@@ -1,0 +1,116 @@
+{
+  "calculator_id": "compound_interest",
+  "slug": "compound-interest-calculator",
+  "title": "Compound Interest Calculator",
+  "meta_title": "Compound Interest Calculator | Free & Precise - CalcForgeTools",
+  "meta_description": "Calculate how your money can grow over time with our free Compound Interest Calculator. See the power of compound interest to build wealth.",
+  "hero": {
+    "title": "Compound Interest Calculator",
+    "subtitle": "Discover how small, consistent investments can grow into significant wealth over time using the mathematical power of compound interest."
+  },
+  "inputs": [
+    {
+      "name": "initialInvestment",
+      "label": "Initial Investment",
+      "type": "number",
+      "defaultValue": 10000
+    },
+    {
+      "name": "monthlyContribution",
+      "label": "Monthly Contribution",
+      "type": "number",
+      "defaultValue": 500
+    },
+    {
+      "name": "interestRate",
+      "label": "Annual Interest Rate (%)",
+      "type": "number",
+      "defaultValue": 7
+    },
+    {
+      "name": "years",
+      "label": "Years to Grow",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "name": "compoundFrequency",
+      "label": "Compound Frequency",
+      "type": "select",
+      "options": [
+        {
+          "label": "Annually (1x/yr)",
+          "value": 1
+        },
+        {
+          "label": "Semiannually (2x/yr)",
+          "value": 2
+        },
+        {
+          "label": "Quarterly (4x/yr)",
+          "value": 4
+        },
+        {
+          "label": "Monthly (12x/yr)",
+          "value": 12
+        },
+        {
+          "label": "Daily (365x/yr)",
+          "value": 365
+        }
+      ],
+      "defaultValue": 12
+    }
+  ],
+  "formula": "FV = P*(1+r/n)^(n*t) + PMT*((1+r/n)^(n*t)-1)/(r/n)",
+  "outputs": [
+    "finalValue",
+    "totalInterest",
+    "totalContribution"
+  ],
+  "chart_type": "compound_interest",
+  "formula_explanation": "The formula considers two parts: the principal (initial investment) compounding over time, and the future value of a series of monthly contributions.",
+  "example": "If you invest $10,000 today at a 7% annual return, compounded monthly, and add $500 each month for 10 years, you'll end up with approximately $106,300.",
+  "faq": [
+    {
+      "question": "What is compound interest?",
+      "answer": "Compound interest is the interest on savings calculated on both the initial principal and the accumulated interest from previous periods."
+    },
+    {
+      "question": "How often should I compound?",
+      "answer": "For most investments, monthly or annual compounding is standard. Daily compounding yields slightly higher returns."
+    },
+    {
+      "question": "How does inflation affect my compound returns?",
+      "answer": "Nominal interest doesn't account for inflation. To find your real return, subtract the annual inflation rate from your compound yield."
+    },
+    {
+      "question": "Is it better to invest more money or invest for longer?",
+      "answer": "Because of the exponential nature of time, investing earlier for longer periods mathematically outperforms investing much larger amounts later in life."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "ROI Calculator",
+      "href": "/en/calculators/roi-calculator",
+      "description": "Calculate the return on your investment quickly."
+    },
+    {
+      "title": "How Compound Interest Works",
+      "href": "/en/guides/how-compound-interest-works",
+      "description": "A deep dive into the math and strategy."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "The Magic of Compound Interest",
+      "href": "/en/guides/how-compound-interest-works",
+      "description": "Discover the mathematical secret to exponential wealth growth and retirement planning."
+    },
+    {
+      "title": "Understanding Inflation's Silent Impact",
+      "href": "/en/guides/inflation-impact",
+      "description": "Learn why nominal interest rates don't always accurately reflect your true purchasing power."
+    }
+  ]
+}
