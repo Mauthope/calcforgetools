@@ -1,10 +1,11 @@
-import { getCalculators } from '@/lib/content';
+import { getCalculators, getGuides } from '@/lib/content';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { CalculatorCard } from '@/components/calculator/CalculatorCard';
+import { FAQ } from '@/components/ui/FAQ';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { InteractiveBackground } from '@/components/ui/motion/InteractiveBackground';
-import { ArrowRight, Calculator } from 'lucide-react';
+import { ArrowRight, Calculator, BookOpen, ShieldCheck, Zap, LineChart } from 'lucide-react';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
@@ -13,10 +14,14 @@ export async function generateStaticParams() {
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const calculators = await getCalculators(lang);
+  const [calculators, guides] = await Promise.all([
+    getCalculators(lang),
+    getGuides(lang)
+  ]);
   
   // Show first 4 as featured
   const featuredCalculators = calculators.slice(0, 4);
+  const featuredGuides = guides.slice(0, 3);
 
   const heroContent = {
     en: {
@@ -35,6 +40,51 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     en: { featured: "Featured Calculators", featuredSub: "Our most popular mathematical tools" },
     pt: { featured: "Calculadoras em Destaque", featuredSub: "Nossas ferramentas matemáticas mais populares" }
   }[lang as 'en' | 'pt'];
+
+  const featuresContent = {
+    en: {
+      title: "Why Trust Our Algorithms?",
+      subtitle: "Engineered for precision. Designed for absolute clarity.",
+      items: [
+        { title: "Bank-Level Precision", desc: "Industry-standard formulas ensuring every decimal is devastatingly accurate.", icon: <LineChart className="w-6 h-6 text-[var(--color-primary)]" /> },
+        { title: "Zero Data Harvesting", desc: "Your financial inputs never leave your device. 100% private, client-side math.", icon: <ShieldCheck className="w-6 h-6 text-[var(--color-primary)]" /> },
+        { title: "Lightning Fast", desc: "No loading screens, no paywalls, no sign-ups. Get your answers instantly.", icon: <Zap className="w-6 h-6 text-[var(--color-primary)]" /> }
+      ]
+    },
+    pt: {
+      title: "Por que Confiar em Nossos Algoritmos?",
+      subtitle: "Projetados para precisão. Desenhados para clareza absoluta.",
+      items: [
+        { title: "Precisão Bancária", desc: "Fórmulas padrão da indústria garantem que cada centavo seja calculado com exatidão.", icon: <LineChart className="w-6 h-6 text-[var(--color-primary)]" /> },
+        { title: "Zero Rastreamento", desc: "Seus dados financeiros nunca saem da sua tela. Matemática local 100% privada.", icon: <ShieldCheck className="w-6 h-6 text-[var(--color-primary)]" /> },
+        { title: "Ultra Rápido", desc: "Sem telas de carregamento, sem paywalls, sem cadastros. Respostas imediatas.", icon: <Zap className="w-6 h-6 text-[var(--color-primary)]" /> }
+      ]
+    }
+  }[lang as 'en' | 'pt']!;
+
+  const guidesContent = {
+    en: { title: "Financial Intelligence", subtitle: "Master the mechanics of wealth, interest, and debt." },
+    pt: { title: "Inteligência Financeira", subtitle: "Domine as engrenagens da riqueza, juros e dívidas." }
+  }[lang as 'en' | 'pt']!;
+
+  const faqContent = {
+    en: {
+      title: "Frequently Asked Questions",
+      items: [
+        { question: "Is CalcForgeTools really completely free?", answer: "Yes. All our calculators and financial guides are 100% free to use without any limitations." },
+        { question: "Do you store my financial data?", answer: "No. All calculations are performed directly in your browser. We never harvest or store your personal financial numbers." },
+        { question: "How accurate are the mathematical models?", answer: "Our calculators use industry-standard formulas verified by financial professionals, mirroring the exact algorithms used by banks for compounding and amortizations." },
+      ]
+    },
+    pt: {
+      title: "Dúvidas Frequentes",
+      items: [
+        { question: "O CalcForgeTools é realmente gratuito?", answer: "Sim. Todas as nossas calculadoras e guias financeiros são 100% gratuitos para usar sem limitações." },
+        { question: "Vocês salvam meus dados financeiros?", answer: "Não. Todos os cálculos são feitos instantaneamente no seu navegador pela CPU do seu dispositivo. Nós não armazenamos seus números financeiros." },
+        { question: "Quão precisas são as calculadoras?", answer: "Nossas ferramentas utilizam fórmulas padrão da indústria aplicadas em economia, refletindo os mesmos algoritmos de alta precisão usados por grandes bancos globais." },
+      ]
+    }
+  }[lang as 'en' | 'pt']!;
 
   return (
     <div>
@@ -91,6 +141,71 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
         </Container>
       </Section>
+
+      {/* Features Value Proposition */}
+      <section className="py-16 md:py-24 bg-white border-b border-[var(--color-border)]">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold tracking-tight mb-4">{featuresContent.title}</h2>
+            <p className="text-lg text-[var(--color-text-secondary)]">{featuresContent.subtitle}</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {featuresContent.items.map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center p-6 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-14 h-14 bg-white rounded-xl shadow-sm border border-slate-200 flex items-center justify-center mb-6">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Featured Guides Section */}
+      {featuredGuides && featuredGuides.length > 0 && (
+        <Section className="bg-[#F5F5F7] border-b border-[var(--color-border)]">
+          <Container>
+            <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight mb-2">{guidesContent.title}</h2>
+                <p className="text-[var(--color-text-secondary)]">{guidesContent.subtitle}</p>
+              </div>
+              <Link href={`/${lang}/guides`}>
+                <button className="apple-button bg-transparent border-2 border-[var(--color-border)] text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)] hover:bg-transparent shadow-sm whitespace-nowrap">
+                  {lang === 'en' ? 'View all guides' : 'Ler todos os guias'}
+                </button>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredGuides.map((guide: any) => (
+                <Link key={guide.slug} href={`/${lang}/guides/${guide.slug}`} className="group block h-full">
+                  <div className="bg-white rounded-[var(--radius-apple)] p-6 border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all h-full flex flex-col">
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 text-[var(--color-primary)] flex items-center justify-center mb-4">
+                      <BookOpen className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
+                      {guide.hero?.title || guide.meta_title}
+                    </h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] line-clamp-3 leading-relaxed">
+                      {guide.meta_description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      {/* Global FAQ Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <Container className="max-w-3xl">
+          <FAQ items={faqContent.items} title={faqContent.title} />
+        </Container>
+      </section>
     </div>
   );
 }
