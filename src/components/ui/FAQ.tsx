@@ -34,19 +34,21 @@ export function FAQ({ items, title = "Frequently Asked Questions", className }: 
             key={i} 
             className="border border-[var(--color-border)] rounded-[var(--radius-apple)] bg-[var(--color-surface)] overflow-hidden transition-shadow duration-200 hover:shadow-md"
           >
-            <button
-              onClick={() => toggle(i)}
-              className="w-full flex justify-between items-center px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] bg-transparent hover:bg-gray-50/50 transition-colors"
-              aria-expanded={openIndex === i}
-            >
-              <span className="font-semibold text-lg text-[var(--color-text-primary)] pr-4">{item.question}</span>
-              <motion.div
-                animate={{ rotate: openIndex === i ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+            <h3 className="m-0 p-0 w-full">
+              <button
+                onClick={() => toggle(i)}
+                className="w-full flex justify-between items-center px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] bg-transparent hover:bg-gray-50/50 transition-colors"
+                aria-expanded={openIndex === i}
               >
-                <ChevronDown className="w-5 h-5 text-[var(--color-text-secondary)] shrink-0" />
-              </motion.div>
-            </button>
+                <span className="font-semibold text-lg text-[var(--color-text-primary)] pr-4">{item.question}</span>
+                <motion.div
+                  animate={{ rotate: openIndex === i ? 180 : 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
+                  <ChevronDown className="w-5 h-5 text-[var(--color-text-secondary)] shrink-0" />
+                </motion.div>
+              </button>
+            </h3>
             
             <AnimatePresence initial={false}>
               {openIndex === i && (
