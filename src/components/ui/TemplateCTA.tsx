@@ -20,33 +20,33 @@ export function TemplateCTA({ title, description, price, checkoutUrl }: Template
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Intense Cyan Orb */}
         <motion.div 
-          className="absolute w-[600px] h-[600px] -top-[300px] -left-[200px]"
+          className="absolute w-[600px] h-[600px] -top-[300px] -left-[200px] blur-[40px]"
           animate={{
             x: [0, 300, 100, 400, 0],
             y: [0, 100, 50, 150, 0]
           }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
-          style={{ background: `radial-gradient(circle, rgba(0,198,255,0.6) 0%, rgba(0,122,255,0.2) 40%, transparent 70%)` }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
+          style={{ background: `radial-gradient(circle, rgba(0,198,255,0.9) 0%, rgba(0,122,255,0.4) 40%, transparent 70%)` }}
         />
         {/* Neon Emerald Orb */}
         <motion.div 
-          className="absolute w-[500px] h-[500px] top-[10%] right-[-100px]"
+          className="absolute w-[500px] h-[500px] top-[10%] right-[-100px] blur-[40px]"
           animate={{
             x: [0, -200, 50, -100, 0],
             y: [0, 50, 20, 100, 0]
           }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
-          style={{ background: `radial-gradient(circle, rgba(0,255,150,0.5) 0%, rgba(46,204,113,0.15) 50%, transparent 70%)` }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
+          style={{ background: `radial-gradient(circle, rgba(0,255,150,0.85) 0%, rgba(46,204,113,0.3) 50%, transparent 70%)` }}
         />
         {/* Deep Neon Purple Orb */}
         <motion.div 
-          className="absolute w-[700px] h-[700px] -bottom-[350px] left-[20%]"
+          className="absolute w-[700px] h-[700px] -bottom-[350px] left-[20%] blur-[50px]"
           animate={{
             x: [0, 200, -100, 150, 0],
             y: [0, -100, -50, -150, 0]
           }}
-          transition={{ duration: 28, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
-          style={{ background: `radial-gradient(circle, rgba(180,0,255,0.4) 0%, rgba(138,43,226,0.15) 50%, transparent 70%)` }}
+          transition={{ duration: 14, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
+          style={{ background: `radial-gradient(circle, rgba(180,0,255,0.8) 0%, rgba(138,43,226,0.3) 50%, transparent 70%)` }}
         />
       </div>
       

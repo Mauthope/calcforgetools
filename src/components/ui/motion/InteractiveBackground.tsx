@@ -16,9 +16,9 @@ export function InteractiveBackground() {
           y: ["0vh", "20vh", "60vh", "30vh", "0vh"],
           scale: [1, 1.2, 0.9, 1.1, 1]
         }}
-        transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,198,255,0.85)_0%,rgba(0,122,255,0.4)_40%,transparent_70%)] blur-[100px]" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,198,255,0.95)_0%,rgba(0,122,255,0.5)_40%,transparent_70%)] blur-[50px]" />
       </motion.div>
 
       {/* Orb 2: Neon Emerald */}
@@ -29,9 +29,9 @@ export function InteractiveBackground() {
           y: ["0vh", "40vh", "20vh", "60vh", "0vh"],
           scale: [1, 1.3, 0.8, 1.2, 1]
         }}
-        transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,150,0.75)_0%,rgba(46,204,113,0.3)_40%,transparent_70%)] blur-[90px]" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,150,0.9)_0%,rgba(46,204,113,0.4)_40%,transparent_70%)] blur-[60px]" />
       </motion.div>
 
       {/* Orb 3: Deep Neon Purple/Pink */}
@@ -42,9 +42,9 @@ export function InteractiveBackground() {
           y: ["0vh", "-30vh", "-60vh", "-10vh", "0vh"],
           scale: [1, 0.8, 1.2, 0.9, 1]
         }}
-        transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,0,255,0.7)_0%,rgba(138,43,226,0.3)_50%,transparent_70%)] blur-[120px]" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,0,255,0.9)_0%,rgba(138,43,226,0.4)_50%,transparent_70%)] blur-[70px]" />
       </motion.div>
       
       {/* Grid Pattern overlay for depth and modern look */}
