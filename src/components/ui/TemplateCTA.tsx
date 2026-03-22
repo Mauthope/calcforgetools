@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PrimaryButton } from './PrimaryButton';
-import { Download, FileSpreadsheet } from 'lucide-react';
+import { Download, LayoutDashboard } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface TemplateCTAProps {
@@ -56,10 +56,10 @@ export function TemplateCTA({ title, description, price, checkoutUrl }: Template
         <div className="flex-1 text-left w-full">
            <div className="flex items-center gap-3 mb-3">
              <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md border border-white/10 text-white flex items-center justify-center shrink-0 shadow-lg">
-               <FileSpreadsheet className="w-4 h-4" />
+               <LayoutDashboard className="w-4 h-4" />
              </div>
              <span className="text-[10px] sm:text-xs font-bold text-blue-300 uppercase tracking-widest leading-none drop-shadow-md">
-               Premium Offline Template
+               Premium Dashboard
              </span>
            </div>
            

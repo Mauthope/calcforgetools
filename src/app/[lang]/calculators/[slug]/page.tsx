@@ -98,12 +98,12 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
               (data.calculator_id === 'loan' || data.calculator_id === 'debt_payoff' || data.calculator_id === 'compound_interest') ? (
                 <TemplateCTA 
                   title={lang === 'en' 
-                    ? (data.calculator_id === 'compound_interest' ? "FIRE Movement Investment Tracker" : "Ultimate Debt Payoff Excel Template")
-                    : (data.calculator_id === 'compound_interest' ? "Planilha Otimização Investimentos (FIRE)" : "Planilha Excel Completa Quitação Dívida")
+                    ? (data.calculator_id === 'compound_interest' ? "FIRE Movement Investment Dashboard" : "Ultimate Debt Payoff Dashboard")
+                    : (data.calculator_id === 'compound_interest' ? "Dashboard Otimização Investimentos (FIRE)" : "Dashboard Completo Quitação Dívida")
                   }
                   description={lang === 'en' 
-                    ? (data.calculator_id === 'compound_interest' ? "Map your path to financial independence offline." : "Take offline control of your debt with our premium automated spreadsheet.")
-                    : (data.calculator_id === 'compound_interest' ? "Mapeie seu caminho para a independência financeira offline." : "Tome o controle manual de sua dívida com nossa planilha premium.")
+                    ? (data.calculator_id === 'compound_interest' ? "Map your path to financial independence offline with our premium dashboard." : "Take offline control of your debt with our premium automated dashboard.")
+                    : (data.calculator_id === 'compound_interest' ? "Mapeie seu caminho para a independência financeira com nosso dashboard premium." : "Tome o controle da sua dívida offline com nosso dashboard avançado.")
                   }
                   price={lang === 'en' ? "$ 14.90" : "R$ 47,90"}
                   formats={["Excel (.xlsx)", "Google Sheets"]}
