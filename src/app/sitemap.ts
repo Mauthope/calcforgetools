@@ -1,39 +1,90 @@
 import { MetadataRoute } from 'next';
 import { getCalculators, getGuides } from '@/lib/content';
 
-const BASE_URL = 'https://calcforgetools.com';
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const sitemapURLs: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/en`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE_URL}/pt`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1.0 },
-    { url: `${BASE_URL}/en/calculators`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
-    { url: `${BASE_URL}/pt/calculators`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
+  const baseUrl = 'https://calcforgetools.com';
+
+  const [enCalculators, ptCalculators, enGuides, ptGuides] = await Promise.all([
+    getCalculators('en'),
+    getCalculators('pt'),
+    getGuides('en'),
+    getGuides('pt')
+  ]);
+
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/en`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/pt`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/en/calculators`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/pt/calculators`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.8,
+    },
   ];
 
-  const langs = ['en', 'pt'];
+  const dynamicRoutes: MetadataRoute.Sitemap = [];
 
-  for (const lang of langs) {
-    const calculators = await getCalculators(lang);
-    calculators.forEach((calc: any) => {
-      sitemapURLs.push({
-        url: `${BASE_URL}/${lang}/calculators/${calc.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8
-      });
+  // Map English Calculators
+  enCalculators.forEach((calc: any) => {
+    dynamicRoutes.push({
+      url: `${baseUrl}/en/calculators/${calc.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     });
+  });
 
-    const guides = await getGuides(lang);
-    guides.forEach((guide: any) => {
-      sitemapURLs.push({
-        url: `${BASE_URL}/${lang}/guides/${guide.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.7
-      });
+  // Map Portuguese Calculators
+  ptCalculators.forEach((calc: any) => {
+    dynamicRoutes.push({
+      url: `${baseUrl}/pt/calculators/${calc.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
     });
-  }
+  });
 
-  return sitemapURLs;
+  // Map English Guides
+  enGuides.forEach((guide: any) => {
+    dynamicRoutes.push({
+      url: `${baseUrl}/en/guides/${guide.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  // Map Portuguese Guides
+  ptGuides.forEach((guide: any) => {
+    dynamicRoutes.push({
+      url: `${baseUrl}/pt/guides/${guide.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  });
+
+  return [...staticRoutes, ...dynamicRoutes];
 }
