@@ -15,8 +15,8 @@ export function CalculatorCard({ title, description, href, category, className }
   return (
     <Link href={href} className={cn("block group", className)}>
       <div className="apple-card p-6 h-full flex flex-col border border-transparent group-hover:border-[var(--color-border)] cursor-pointer">
-        <div className="w-12 h-12 rounded-2xl bg-[var(--color-primary)] bg-opacity-10 text-[var(--color-primary)] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-          <Calculator className="w-6 h-6 stroke-[1.5]" />
+        <div className="text-[var(--color-primary)] mb-5 inline-block group-hover:scale-110 transition-transform duration-300">
+          <Calculator className="w-10 h-10 stroke-[1.5]" />
         </div>
         
         <div className="mb-2">

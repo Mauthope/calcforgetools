@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { PrimaryButton } from './PrimaryButton';
 import { Download, FileSpreadsheet } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface TemplateCTAProps {
   title: string;
@@ -13,30 +14,23 @@ interface TemplateCTAProps {
 }
 
 export function TemplateCTA({ title, description, price, checkoutUrl }: TemplateCTAProps) {
-  const divRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!divRef.current) return;
-    const rect = divRef.current.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
-
   return (
-    <div 
-      ref={divRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative overflow-hidden rounded-[var(--radius-apple)] bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)] group w-full mt-4 transition-all hover:shadow-md hover:border-[var(--color-primary)]"
-    >
-      {/* Spotlight Hover Effect */}
-      <div 
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
+    <div className="relative overflow-hidden rounded-[var(--radius-apple)] bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)] group w-full mt-4 transition-all hover:shadow-md hover:border-[var(--color-primary)]">
+      {/* Autonomous Spotlight Effect */}
+      <motion.div 
+        className="pointer-events-none absolute w-[800px] h-[800px] -top-[400px] -left-[400px] z-0"
+        animate={{
+          x: [0, 400, 100, 600, 0],
+          y: [0, 150, 50, 250, 0]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear",
+          repeatType: "mirror"
+        }}
         style={{
-          opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(0,122,255,0.15) 0%, rgba(0,122,255,0.05) 50%, transparent 80%)`
+          background: `radial-gradient(circle, rgba(0,122,255,0.15) 0%, rgba(0,122,255,0.05) 50%, transparent 70%)`
         }}
       />
       
@@ -53,9 +47,10 @@ export function TemplateCTA({ title, description, price, checkoutUrl }: Template
              </span>
            </div>
            
-           <h3 className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] leading-tight mb-2 tracking-tight transition-colors group-hover:text-[var(--color-primary)]">
+           {/* SEO Fix: Changed from h3 to p to respect document outline, retaining visual hierarchy */}
+           <p className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] leading-tight mb-2 tracking-tight transition-colors group-hover:text-[var(--color-primary)]">
              {title}
-           </h3>
+           </p>
            
            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed md:line-clamp-2 pr-0 md:pr-4">
              {description}
