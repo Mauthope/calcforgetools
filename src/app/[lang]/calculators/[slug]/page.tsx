@@ -105,7 +105,7 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
                     ? (data.calculator_id === 'compound_interest' ? "Map your path to financial independence offline." : "Take offline control of your debt with our premium automated spreadsheet.")
                     : (data.calculator_id === 'compound_interest' ? "Mapeie seu caminho para a independência financeira offline." : "Tome o controle manual de sua dívida com nossa planilha premium.")
                   }
-                  price="$9.99"
+                  price={lang === 'en' ? "$ 14.90" : "R$ 47,90"}
                   formats={["Excel (.xlsx)", "Google Sheets"]}
                   checkoutUrl="#"
                 />
