@@ -7,8 +7,8 @@ export function InteractiveBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-[#f8fafc]">
       
-      {/* Aurora Borealis Triad Glows */}
-      {/* Orb 1: Cyan/Blue */}
+      {/* Aurora Borealis Triad Glows - High Contrast & Vibrancy */}
+      {/* Orb 1: Intense Cyan */}
       <motion.div
         className="absolute w-[1200px] h-[1200px] -top-[600px] -left-[300px] rounded-full pointer-events-none will-change-transform z-0"
         animate={{
@@ -18,10 +18,10 @@ export function InteractiveBackground() {
         }}
         transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,198,255,0.45)_0%,rgba(0,122,255,0.15)_40%,transparent_70%)] blur-[120px] mix-blend-multiply" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,198,255,0.85)_0%,rgba(0,122,255,0.4)_40%,transparent_70%)] blur-[100px]" />
       </motion.div>
 
-      {/* Orb 2: Emerald Green */}
+      {/* Orb 2: Neon Emerald */}
       <motion.div
         className="absolute w-[1000px] h-[1000px] top-[10%] right-[10%] rounded-[100%] pointer-events-none will-change-transform z-0"
         animate={{
@@ -31,10 +31,10 @@ export function InteractiveBackground() {
         }}
         transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,135,0.35)_0%,rgba(46,204,113,0.15)_40%,transparent_70%)] blur-[100px] mix-blend-multiply" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,150,0.75)_0%,rgba(46,204,113,0.3)_40%,transparent_70%)] blur-[90px]" />
       </motion.div>
 
-      {/* Orb 3: Deep Magenta/Purple */}
+      {/* Orb 3: Deep Neon Purple/Pink */}
       <motion.div
         className="absolute w-[1400px] h-[1400px] -bottom-[400px] -left-[200px] rounded-full pointer-events-none will-change-transform z-0"
         animate={{
@@ -44,7 +44,7 @@ export function InteractiveBackground() {
         }}
         transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(176,106,179,0.35)_0%,rgba(138,43,226,0.15)_50%,transparent_70%)] blur-[150px] mix-blend-multiply" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,0,255,0.7)_0%,rgba(138,43,226,0.3)_50%,transparent_70%)] blur-[120px]" />
       </motion.div>
       
       {/* Grid Pattern overlay for depth and modern look */}

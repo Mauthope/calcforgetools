@@ -8,7 +8,9 @@ export const metadata: Metadata = {
   title: 'CalcForgeTools',
   description: 'A modern platform for calculations and tools.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' }
+    ]
   }
 };
 
