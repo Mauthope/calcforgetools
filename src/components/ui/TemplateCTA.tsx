@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PrimaryButton } from './PrimaryButton';
-import { Download, LayoutDashboard } from 'lucide-react';
+import { Download, LayoutDashboard, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface TemplateCTAProps {
@@ -11,9 +11,10 @@ interface TemplateCTAProps {
   price?: string;
   formats: string[];
   checkoutUrl: string;
+  lang: string;
 }
 
-export function TemplateCTA({ title, description, price, checkoutUrl }: TemplateCTAProps) {
+export function TemplateCTA({ title, description, price, checkoutUrl, lang }: TemplateCTAProps) {
   return (
     <div className="relative overflow-hidden rounded-[var(--radius-apple)] bg-[#0B101E] shadow-sm border border-[var(--color-border)] group w-full mt-4 transition-all hover:shadow-lg hover:border-blue-500/50">
       {/* Autonomous Aurora Spotlight Effect - High Contrast */}
@@ -74,13 +75,17 @@ export function TemplateCTA({ title, description, price, checkoutUrl }: Template
         </div>
         
         {/* CTA Button */}
-        <div className="shrink-0 w-full md:w-auto">
+        <div className="shrink-0 w-full md:w-auto flex flex-col items-center md:items-end">
           <a href={checkoutUrl} target="_blank" rel="noopener noreferrer" className="block w-full">
-            <PrimaryButton className="w-full bg-[#007AFF] hover:bg-[#007AFF]/90 text-white shadow-lg shadow-blue-500/20 py-3 md:py-3.5 px-6 border-none ring-0 text-sm md:text-base font-semibold transition-transform hover:scale-[1.02]">
+            <PrimaryButton className="w-full bg-[#007AFF] hover:bg-[#007AFF]/90 text-white shadow-[0_0_15px_rgba(0,122,255,0.4)] hover:shadow-[0_0_25px_rgba(0,122,255,0.6)] py-3 md:py-3.5 px-6 border-none ring-0 text-sm md:text-base font-bold transition-transform hover:scale-[1.03]">
               <Download className="w-4 h-4 mr-2" />
-              {price ? `Download (${price})` : 'Download'}
+              {lang === 'pt' ? 'Baixar Agora' : 'Download Now'} {price ? `(${price})` : ''}
             </PrimaryButton>
           </a>
+          <div className="mt-3 flex items-center gap-1.5 text-xs font-bold text-emerald-400 drop-shadow-md tracking-wide">
+            <ShieldCheck className="w-4 h-4" />
+            {lang === 'pt' ? 'Garantia de 7 Dias (Devolução Total)' : '7-Day Money-Back Guarantee'}
+          </div>
         </div>
         
       </div>

@@ -107,7 +107,8 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
                   }
                   price={lang === 'en' ? "$ 14.90" : "R$ 47,90"}
                   formats={["Excel (.xlsx)", "Google Sheets"]}
-                  checkoutUrl="#"
+                  checkoutUrl="https://pay.hotmart.com/C105023977W"
+                  lang={lang}
                 />
               ) : undefined
             }
