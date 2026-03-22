@@ -16,23 +16,39 @@ interface TemplateCTAProps {
 export function TemplateCTA({ title, description, price, checkoutUrl }: TemplateCTAProps) {
   return (
     <div className="relative overflow-hidden rounded-[var(--radius-apple)] bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)] group w-full mt-4 transition-all hover:shadow-md hover:border-[var(--color-primary)]">
-      {/* Autonomous Spotlight Effect */}
-      <motion.div 
-        className="pointer-events-none absolute w-[800px] h-[800px] -top-[400px] -left-[400px] z-0"
-        animate={{
-          x: [0, 400, 100, 600, 0],
-          y: [0, 150, 50, 250, 0]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "mirror"
-        }}
-        style={{
-          background: `radial-gradient(circle, rgba(0,122,255,0.15) 0%, rgba(0,122,255,0.05) 50%, transparent 70%)`
-        }}
-      />
+      {/* Autonomous Aurora Spotlight Effect */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Cyan Orb */}
+        <motion.div 
+          className="absolute w-[600px] h-[600px] -top-[300px] -left-[200px]"
+          animate={{
+            x: [0, 300, 100, 400, 0],
+            y: [0, 100, 50, 150, 0]
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
+          style={{ background: `radial-gradient(circle, rgba(0,198,255,0.25) 0%, rgba(0,122,255,0.1) 40%, transparent 70%)` }}
+        />
+        {/* Emerald Orb */}
+        <motion.div 
+          className="absolute w-[500px] h-[500px] top-[10%] right-[-100px]"
+          animate={{
+            x: [0, -200, 50, -100, 0],
+            y: [0, 50, 20, 100, 0]
+          }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
+          style={{ background: `radial-gradient(circle, rgba(0,255,135,0.2) 0%, rgba(46,204,113,0.05) 50%, transparent 70%)` }}
+        />
+        {/* Purple Orb */}
+        <motion.div 
+          className="absolute w-[700px] h-[700px] -bottom-[350px] left-[20%]"
+          animate={{
+            x: [0, 200, -100, 150, 0],
+            y: [0, -100, -50, -150, 0]
+          }}
+          transition={{ duration: 28, repeat: Infinity, ease: "linear", repeatType: "mirror" }}
+          style={{ background: `radial-gradient(circle, rgba(176,106,179,0.2) 0%, rgba(138,43,226,0.1) 50%, transparent 70%)` }}
+        />
+      </div>
       
       <div className="relative z-10 p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-5">
         
