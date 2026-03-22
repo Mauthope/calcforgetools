@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function InteractiveBackground() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-[#f8fafc]">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-[#0B101E]">
       
       {/* Aurora Borealis Triad Glows - High Contrast & Vibrancy */}
       {/* Orb 1: Intense Cyan */}

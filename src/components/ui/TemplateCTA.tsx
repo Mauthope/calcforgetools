@@ -15,7 +15,7 @@ interface TemplateCTAProps {
 
 export function TemplateCTA({ title, description, price, checkoutUrl }: TemplateCTAProps) {
   return (
-    <div className="relative overflow-hidden rounded-[var(--radius-apple)] bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)] group w-full mt-4 transition-all hover:shadow-md hover:border-[var(--color-primary)]">
+    <div className="relative overflow-hidden rounded-[var(--radius-apple)] bg-[#0B101E] shadow-sm border border-[var(--color-border)] group w-full mt-4 transition-all hover:shadow-lg hover:border-blue-500/50">
       {/* Autonomous Aurora Spotlight Effect - High Contrast */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Intense Cyan Orb */}
@@ -55,20 +55,20 @@ export function TemplateCTA({ title, description, price, checkoutUrl }: Template
         {/* Content */}
         <div className="flex-1 text-left w-full">
            <div className="flex items-center gap-3 mb-3">
-             <div className="w-8 h-8 rounded-lg bg-blue-50 text-[var(--color-primary)] flex items-center justify-center shrink-0">
+             <div className="w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md border border-white/10 text-white flex items-center justify-center shrink-0 shadow-lg">
                <FileSpreadsheet className="w-4 h-4" />
              </div>
-             <span className="text-[10px] sm:text-xs font-bold text-[var(--color-primary)] uppercase tracking-widest leading-none">
+             <span className="text-[10px] sm:text-xs font-bold text-blue-300 uppercase tracking-widest leading-none drop-shadow-md">
                Premium Offline Template
              </span>
            </div>
            
            {/* SEO Fix: Changed from h3 to p to respect document outline, retaining visual hierarchy */}
-           <p className="text-lg md:text-xl font-bold text-[var(--color-text-primary)] leading-tight mb-2 tracking-tight transition-colors group-hover:text-[var(--color-primary)]">
+           <p className="text-lg md:text-xl font-bold text-white leading-tight mb-2 tracking-tight transition-colors group-hover:text-cyan-300 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
              {title}
            </p>
            
-           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed md:line-clamp-2 pr-0 md:pr-4">
+           <p className="text-sm text-slate-300 leading-relaxed md:line-clamp-2 pr-0 md:pr-4 font-medium drop-shadow-sm">
              {description}
            </p>
         </div>

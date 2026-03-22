@@ -42,14 +42,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <section className="relative pt-24 pb-32 overflow-hidden border-b border-[var(--color-border)] bg-[var(--color-surface)]">
         <InteractiveBackground />
         <Container className="text-center max-w-4xl relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-6 shadow-lg">
             <Calculator size={16} />
             {lang === 'en' ? 'V1.0 Now Available' : 'V1.0 Disponível'}
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-[var(--color-text-primary)] mb-6 drop-shadow-sm">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
             {heroContent.title}
           </h1>
-          <p className="text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md font-medium">
             {heroContent.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
