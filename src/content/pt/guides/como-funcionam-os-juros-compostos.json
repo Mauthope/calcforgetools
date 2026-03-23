@@ -9,7 +9,7 @@
   "related_tools": [
     {
       "id": "compound_interest",
-      "slug": "calculadora-de-juros-compostos",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
       "title": "Calculadora de Juros Compostos",
       "description": "Visualize este exato fenômeno matemático acontecendo com o seu próprio dinheiro.",
       "category": "finance"

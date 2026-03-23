@@ -9,7 +9,7 @@
   "related_tools": [
     {
       "id": "compound_interest",
-      "slug": "compound-interest-calculator",
+      "href": "/en/calculators/compound-interest-calculator",
       "title": "Compound Interest Calculator",
       "description": "Visualize this exact mathematical phenomenon on your own money.",
       "category": "finance"
