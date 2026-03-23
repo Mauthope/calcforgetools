@@ -245,6 +245,11 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
              : `💡 **Matemática Bancária (Price vs SAC):** Se você optar pela **Tabela SAC** (parcelas decrescentes) no banco ao invés da Tabela Price (fixa), você tira literalmente **${diffStr}** de juros puros do bolso do gerente a longo prazo. SAC é o caminho!`);
         }
       }
+
+      // Advanced Hack Insight
+      insights.push(lang === 'en'
+        ? `🔥 **The Hidden Loophole:** A move few people tell you about:\n1. Use the **Price Method** to get the loan approved easily (lower initial monthly payments).\n2. Then, heavily amortize the principal every month using extra income or bonuses.\nThis mathematically slaughters the compound interest and completely "hacks" the banking system.`
+        : `🔥 **A jogada que pouca gente te conta:**\n1. Use a **Tabela Price** para aprovar o seu financiamento (exige renda menor pela parcela ser mais baixa).\n2. Depois, vá amortizando pesado o saldo devedor (usando FGTS ou renda extra).\nIsso corta todos os juros abusivos e "hackeia" o sistema do banco a seu favor.`);
     }
 
     if (calcId === 'compound_interest') {
