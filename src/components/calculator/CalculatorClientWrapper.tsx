@@ -184,10 +184,11 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     return result.charAt(0).toUpperCase() + result.slice(1);
   };
 
-  const generateInsight = () => {
+  const generateInsight = (): string[] | null => {
     if (!results || Object.keys(results).length === 0 || results.error) return null;
 
     const calcId = config.calculator_id;
+    const insights: string[] = [];
     
     if (calcId === 'loan') {
       const p = parseFloat(inputs.loanAmount) || 0;
@@ -197,9 +198,9 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       const interestRatio = p > 0 ? ((totalInterest / p) * 100).toFixed(1) : '0';
 
       if (extra === 0) {
-        return lang === 'en' 
+        insights.push(lang === 'en' 
           ? `You are scheduled to pay an additional **${interestRatio}%** of your original loan value purely in interest! Did you know that adding just $100/mo in extra amortization could save you thousands of dollars and years of payments?`
-          : `Você vai pagar o equivalente a **${interestRatio}%** do valor do empréstimo puramente em juros! Sabia que adicionar apenas R$ 100/mês na amortização extra pode salvar milhares de reais e encurtar sua dívida em anos?`;
+          : `Você vai pagar o equivalente a **${interestRatio}%** do valor do empréstimo puramente em juros! Sabia que adicionar apenas R$ 100/mês na amortização extra pode salvar milhares de reais e encurtar sua dívida em anos?`);
       } else {
         const months = results.monthsSaved || 0;
         const yearsSaved = Math.floor(months / 12);
@@ -211,9 +212,38 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
         const interestStr = formatOutput('interestSaved', results.interestSaved);
         const extraStr = formatOutput('extraPayment', extra);
 
-        return lang === 'en'
+        insights.push(lang === 'en'
           ? `Incredible! By amortizing an extra **${extraStr}** per month, you are shortening your loan by **${enSavedText}** and keeping **${interestStr}** of interest money in your own pocket!`
-          : `Incrível! Ao amortizar **${extraStr}** extras por mês, você está antecipando sua quitação em **${ptSavedText}** e deixando de dar **${interestStr}** em juros para o banco!`;
+          : `Incrível! Ao amortizar **${extraStr}** extras por mês, você está antecipando sua quitação em **${ptSavedText}** e deixando de dar **${interestStr}** em juros para o banco!`);
+      }
+
+      // SAC vs Price Comparison Insight
+      const priceInt = results.priceTotalInterest || 0;
+      const sacInt = results.sacTotalInterest || 0;
+
+      if (priceInt > 0 && sacInt > 0) {
+        const diffInt = Math.abs(priceInt - sacInt);
+        const diffStr = formatOutput('totalInterest', diffInt);
+        
+        if (extra > 0) {
+           // Compare months if extra is present
+           const priceM = results.priceMonthsToPayoff || 0;
+           const sacM = results.sacMonthsToPayoff || 0;
+           if (priceM !== sacM) {
+             const diffMonths = Math.abs(priceM - sacM);
+             insights.push(lang === 'en'
+               ? `💡 **Price vs SAC Logic:** Because you are making extra payments, using the **SAC Method** would save you an additional **${diffStr}** and finish **${diffMonths} months faster** than the Price method! Always choose SAC when overpaying.`
+               : `💡 **Lógica Price vs SAC:** Pelo fato de você estar amortizando dinheiro extra todo mês, utilizar a **Tabela SAC** faria você economizar mais **${diffStr}** e quitar a dívida **${diffMonths} meses mais rápido** comparado à Tabela Price! A matemática diz SAC.`);
+           } else {
+             insights.push(lang === 'en'
+               ? `💡 **Price vs SAC Logic:** Even with identical payoff dates, the **SAC Method** structurally saves you **${diffStr}** in total interest compared to the Fixed Price method.`
+               : `💡 **Lógica Price vs SAC:** Mesmo com o mesmo prazo exato de quitação, o sistema **SAC** te salva matematicamente **${diffStr}** em juros abusivos comparado à Tabela Price engessada.`);
+           }
+        } else {
+           insights.push(lang === 'en'
+             ? `💡 **Price vs SAC Logic:** By choosing the **SAC Method** (decreasing payments) over the Fixed Price baseline, you mathematically save **${diffStr}** in total interest directly from the bank's pocket over the life of the loan.`
+             : `💡 **Matemática Bancária (Price vs SAC):** Se você optar pela **Tabela SAC** (parcelas decrescentes) no banco ao invés da Tabela Price (fixa), você tira literalmente **${diffStr}** de juros puros do bolso do gerente a longo prazo. SAC é o caminho!`);
+        }
       }
     }
 
@@ -222,9 +252,9 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       const totalInterest = results.totalInterest || 0;
       if (fv > 0 && totalInterest > 0) {
         const ratio = ((totalInterest / fv) * 100).toFixed(1);
-        return lang === 'en'
+        insights.push(lang === 'en'
           ? `The power of time: Out of your final wealth, a massive **${ratio}%** was generated purely by the "sweat" of compound interest working for you, not from your own pocket.`
-          : `O poder do tempo: Do seu patrimônio final, **${ratio}%** de toda essa quantia foi gerada puramente pelo "suor" dos juros compostos trabalhando por você, e não do seu próprio bolso.`;
+          : `O poder do tempo: Do seu patrimônio final, **${ratio}%** de toda essa quantia foi gerada puramente pelo "suor" dos juros compostos trabalhando por você, e não do seu próprio bolso.`);
       }
     }
 
@@ -232,13 +262,13 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
        const months = results.monthsToPayoff || 0;
        const years = (months / 12).toFixed(1);
        if (months > 0) {
-         return lang === 'en'
+         insights.push(lang === 'en'
            ? `By maintaining this payment, you will be 100% debt-free in **${months} months** (about ${years} years). Keep it up! Every extra dollar shortens this time drastically.`
-           : `Mantendo esse pagamento, você estará 100% livre dessa dívida em **${months} meses** (cerca de ${years} anos). Continue firme! Pagar qualquer valor a mais encurta esse relógio drasticamente.`;
+           : `Mantendo esse pagamento, você estará 100% livre dessa dívida em **${months} meses** (cerca de ${years} anos). Continue firme! Pagar qualquer valor a mais encurta esse relógio drasticamente.`);
        }
     }
 
-    return null;
+    return insights.length > 0 ? insights : null;
   };
 
   if(!config) return <div className="p-8 text-center text-[var(--color-danger)]">Failed to load calculator configuration.</div>;
@@ -401,7 +431,11 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
               {/* Smart Insights Injection */}
               {generateInsight() && (
-                <SmartInsight text={generateInsight() as string} />
+                <div className="flex flex-col gap-3">
+                  {generateInsight()!.map((insightTxt, idx) => (
+                    <SmartInsight key={idx} text={insightTxt} />
+                  ))}
+                </div>
               )}
 
               {/* Chart */}

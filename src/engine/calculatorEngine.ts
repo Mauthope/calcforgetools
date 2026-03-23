@@ -55,75 +55,84 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const r = (parseFloat(inputs.interestRate) || 0) / 100 / 12; // monthly rate
       const n = (parseFloat(inputs.loanTermYears) || 0) * 12; // total months
       const extraPayment = parseFloat(inputs.extraPayment) || 0;
-      const amType = inputs.amortizationType || 'price'; // 'price' or 'sac'
+      const amType = inputs.amortizationType || 'price'; // Active selection
 
-      let balance = p;
-      let totalInterest = 0;
-      let monthsToPayoff = 0;
-      let firstPayment = 0;
-      let originalTotalInterest = 0;
+      // Generic Simulator function
+      const simulateAmortization = (type: 'price' | 'sac') => {
+        let balance = p;
+        let totalInterest = 0;
+        let monthsToPayoff = 0;
+        let firstPayment = 0;
+        let originalTotalInterest = 0;
 
-      // Base calculation without extra payment
-      let originalBalance = p;
-      for (let month = 1; month <= n; month++) {
-        if (originalBalance <= 0) break;
-        let interest = originalBalance * r;
-        originalTotalInterest += interest;
-        let principalPayment = 0;
-        
-        if (amType === 'sac') {
-          principalPayment = p / n;
-        } else {
-          // Price
-          const baseM = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
-          principalPayment = baseM - interest;
-        }
-        originalBalance -= principalPayment;
-      }
-
-      // Actual calculation WITH extra payment
-      balance = p;
-      for (let month = 1; month <= n; month++) {
-        if (balance <= 0) break;
-        monthsToPayoff++;
-        
-        let interest = balance * r;
-        totalInterest += interest;
-        
-        let principalPayment = 0;
-        let requiredPayment = 0;
-
-        if (amType === 'sac') {
-          principalPayment = p / n;
-          requiredPayment = principalPayment + interest;
-        } else {
-          // Price
-          requiredPayment = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
-          principalPayment = requiredPayment - interest;
+        // Base run (no extra)
+        let origBal = p;
+        for (let m = 1; m <= n; m++) {
+          if (origBal <= 0) break;
+          let interest = origBal * r;
+          originalTotalInterest += interest;
+          let princ = 0;
+          if (type === 'sac') {
+            princ = p / n;
+          } else {
+            const baseM = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
+            princ = baseM - interest;
+          }
+          origBal -= princ;
         }
 
-        if (month === 1) firstPayment = requiredPayment;
+        // Action run (with extra)
+        balance = p;
+        for (let m = 1; m <= n; m++) {
+          if (balance <= 0) break;
+          monthsToPayoff++;
+          let interest = balance * r;
+          totalInterest += interest;
 
-        let totalPaymentThisMonth = principalPayment + extraPayment;
-        
-        // If final month and overpaying
-        if (totalPaymentThisMonth > balance) {
-           totalPaymentThisMonth = balance;
+          let princ = 0;
+          let requiredM = 0;
+          if (type === 'sac') {
+            princ = p / n;
+            requiredM = princ + interest;
+          } else {
+            requiredM = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
+            princ = requiredM - interest;
+          }
+
+          if (m === 1) firstPayment = requiredM;
+          
+          let totalMThisMonth = princ + extraPayment;
+          if (totalMThisMonth > balance) {
+            totalMThisMonth = balance;
+          }
+          balance -= totalMThisMonth;
         }
-        
-        balance -= totalPaymentThisMonth;
-      }
 
-      const totalPayment = p + totalInterest;
+        return { totalInterest, monthsToPayoff, firstPayment, originalTotalInterest };
+      };
 
-      result.monthlyBasePayment = firstPayment; // For SAC, this is the highest payment. For Price, it's the constant payment.
+      const priceSim = simulateAmortization('price');
+      const sacSim = simulateAmortization('sac');
+
+      // Bind to active selected type
+      const activeSim = amType === 'sac' ? sacSim : priceSim;
+
+      result.monthlyBasePayment = activeSim.firstPayment;
       if (extraPayment > 0) {
-        result.totalMonthlyPayment = firstPayment + extraPayment; // First month
-        result.interestSaved = originalTotalInterest - totalInterest;
-        result.monthsSaved = n - monthsToPayoff;
+        result.totalMonthlyPayment = activeSim.firstPayment + extraPayment;
+        result.interestSaved = activeSim.originalTotalInterest - activeSim.totalInterest;
+        result.monthsSaved = n - activeSim.monthsToPayoff;
       }
-      result.totalPayment = totalPayment;
-      result.totalInterest = totalInterest;
+      
+      result.totalPayment = p + activeSim.totalInterest;
+      result.totalInterest = activeSim.totalInterest;
+
+      // Inject background dual metrics for Smart Insights
+      result.priceTotalInterest = priceSim.totalInterest;
+      result.sacTotalInterest = sacSim.totalInterest;
+      result.priceMonthsToPayoff = priceSim.monthsToPayoff;
+      result.sacMonthsToPayoff = sacSim.monthsToPayoff;
+
       break;
     }
     
