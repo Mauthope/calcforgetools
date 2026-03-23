@@ -12,19 +12,18 @@ export function Footer({ lang }: FooterProps) {
   const sections = {
     en: [
       {
-        title: "Platform",
+        title: "Calculators",
         links: [
-          { label: "Financial Calculators", href: "/en/calculators" },
-          { label: "Business Calculators", href: "/en/calculators" },
-          { label: "Templates", href: "/en/templates" },
+          { label: "All Calculators", href: "/en/calculators" },
+          { label: "Compound Interest", href: "/en/calculators/compound-interest-calculator" },
+          { label: "Debt Payoff", href: "/en/calculators/debt-payoff-calculator" },
         ]
       },
       {
         title: "Resources",
         links: [
           { label: "Knowledge Guides", href: "/en/guides" },
-          { label: "API", href: "#" },
-          { label: "Premium Services", href: "#" },
+          { label: "Premium Dashboards", href: "/en/templates" },
         ]
       },
       {
@@ -38,19 +37,18 @@ export function Footer({ lang }: FooterProps) {
     ],
     pt: [
       {
-        title: "Plataforma",
+        title: "Calculadoras",
         links: [
-          { label: "Calculadoras Financeiras", href: "/pt/calculators" },
-          { label: "Calculadoras Empresariais", href: "/pt/calculators" },
-          { label: "Templates", href: "/pt/templates" },
+          { label: "Todas as Calculadoras", href: "/pt/calculators" },
+          { label: "Juros Compostos", href: "/pt/calculators/calculadora-de-juros-compostos" },
+          { label: "Quitação de Dívida", href: "/pt/calculators/calculadora-de-quitacao-de-divida" },
         ]
       },
       {
         title: "Recursos",
         links: [
           { label: "Guias de Conhecimento", href: "/pt/guides" },
-          { label: "API", href: "#" },
-          { label: "Serviços Premium", href: "#" },
+          { label: "Dashboards Premium", href: "/pt/templates" },
         ]
       },
       {

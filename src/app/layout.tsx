@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 // This root just provides the bare HTML skeleton
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://calcforgetools.com'),
   title: 'CalcForgeTools',
   description: 'A modern platform for calculations and tools.',
   icons: {
