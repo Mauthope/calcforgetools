@@ -317,7 +317,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
             {config.inputs.map((input: any) => (
               <React.Fragment key={input.name}>
                 {renderInlineInsight(input.name)}
-                <div>
+                <div className={input.name === 'extraPayment' ? "p-4 -mx-2 mt-2 mb-2 rounded-2xl bg-gradient-to-br from-blue-50/80 to-indigo-50/50 border border-blue-200/60 shadow-[0_4px_25px_rgba(0,122,255,0.15)] backdrop-blur-md transition-all duration-500 focus-within:shadow-[0_8px_30px_rgba(0,122,255,0.25)] ring-1 ring-blue-100" : ""}>
                   {input.type === 'select' ? (
                     <SelectField
                       name={input.name}
@@ -334,6 +334,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                       step="any"
                       value={inputs[input.name] === undefined ? '' : inputs[input.name]}
                       onChange={handleChange}
+                      className={input.name === 'extraPayment' ? "border-blue-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 bg-white shadow-inner font-semibold text-blue-900 placeholder:text-blue-300 bg-opacity-90" : ""}
                     />
                   )}
                 </div>
