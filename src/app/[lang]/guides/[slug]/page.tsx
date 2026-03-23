@@ -86,7 +86,7 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
                 case 'heading':
                   return <h2 key={idx} className="text-3xl font-bold mt-12 mb-6 tracking-tight text-[var(--color-text-primary)]">{block.text}</h2>;
                 case 'paragraph':
-                  return <p key={idx} className="text-[var(--color-text-secondary)] leading-relaxed mb-6">{block.text}</p>;
+                  return <p key={idx} className="text-[var(--color-text-secondary)] leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: block.text }}></p>;
                 case 'quote':
                   return (
                     <blockquote key={idx} className="border-l-4 border-[var(--color-primary)] pl-6 py-2 my-8 italic text-xl text-[var(--color-text-primary)] bg-[var(--color-primary)]/5 rounded-r-lg">
@@ -98,9 +98,33 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
                   return (
                     <ul key={idx} className="list-disc pl-6 mb-8 text-[var(--color-text-secondary)] space-y-3">
                       {block.items.map((item: string, i: number) => (
-                        <li key={i} className="pl-2">{item}</li>
+                        <li key={i} className="pl-2" dangerouslySetInnerHTML={{ __html: item }}></li>
                       ))}
                     </ul>
+                  );
+                case 'table':
+                  if (!block.headers || !block.rows) return null;
+                  return (
+                    <div key={idx} className="overflow-x-auto mb-8 rounded-xl border border-[var(--color-border)] shadow-sm">
+                      <table className="w-full text-left border-collapse">
+                        <thead>
+                          <tr className="bg-slate-50 border-b border-[var(--color-border)]">
+                            {block.headers.map((h: string, i: number) => (
+                              <th key={i} className="py-3 px-4 font-bold text-sm text-[var(--color-text-primary)]">{h}</th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[var(--color-border)]">
+                          {block.rows.map((row: string[], i: number) => (
+                            <tr key={i} className="hover:bg-slate-50/50 transition-colors">
+                              {row.map((cell: string, j: number) => (
+                                <td key={j} className="py-3 px-4 text-sm text-[var(--color-text-secondary)]" dangerouslySetInnerHTML={{ __html: cell }}></td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   );
                 default:
                   return null;
