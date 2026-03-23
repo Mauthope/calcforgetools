@@ -332,7 +332,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                         </div>
                       ) : (
                         <>
-                          <div className="flex gap-2 mt-1">
+                          <div className="flex flex-col sm:flex-row gap-2 mt-1">
                             <input 
                               type="email" 
                               required 
@@ -349,7 +349,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                               type="button" 
                               onClick={handleEmailSubmit}
                               disabled={isEmailSending}
-                              className={`bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 flex items-center justify-center transition-colors shadow-sm ${isEmailSending ? 'opacity-70 cursor-wait' : ''}`}
+                              className={`bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 px-4 w-full sm:w-auto flex items-center justify-center transition-colors shadow-sm ${isEmailSending ? 'opacity-70 cursor-wait' : ''}`}
                             >
                               {isEmailSending ? (
                                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-1"></div>

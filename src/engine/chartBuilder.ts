@@ -102,8 +102,11 @@ function buildLoanAmortizationChart(inputs: Record<string, any>, results: Record
   const p = parseFloat(inputs.loanAmount) || 0;
   const r = (parseFloat(inputs.interestRate) || 0) / 100 / 12;
   const t = parseFloat(inputs.loanTermYears) || 0;
-  const monthsToPayoff = results.monthsSaved ? (t * 12 - results.monthsSaved) : (t * 12);
-  const m = results.totalMonthlyPayment || results.monthlyBasePayment || results.monthlyPayment || 0;
+  const n = t * 12;
+  const extraPayment = parseFloat(inputs.extraPayment) || 0;
+  const amType = inputs.amortizationType || 'price';
+
+  const monthsToPayoff = results.monthsSaved ? (n - results.monthsSaved) : n;
 
   const labels = [];
   const principalData = [];
@@ -114,19 +117,31 @@ function buildLoanAmortizationChart(inputs: Record<string, any>, results: Record
   let yearlyInterest = 0;
 
   for (let month = 1; month <= monthsToPayoff; month++) {
-    const interest = balance * r;
-    const principal = m - interest;
-    balance -= principal;
+    let interest = balance * r;
+    let principal = 0;
+
+    if (amType === 'sac') {
+       principal = p / n;
+    } else {
+       const baseM = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
+       principal = baseM - interest;
+    }
+
+    let totalPaymentThisMonth = principal + extraPayment;
+    if (totalPaymentThisMonth > balance) {
+       principal = balance;
+       totalPaymentThisMonth = balance;
+    }
+
+    balance -= totalPaymentThisMonth;
     
-    yearlyPrincipal += principal;
+    yearlyPrincipal += (principal + extraPayment);
     yearlyInterest += interest;
 
     if (month % 12 === 0 || month === monthsToPayoff) {
       labels.push(lang === 'en' ? `Year ${Math.ceil(month/12)}` : `Ano ${Math.ceil(month/12)}`);
       principalData.push(yearlyPrincipal);
       interestData.push(yearlyInterest);
-      
-      // Removed the reset so the chart plots Cumulative Principal & Cumulative Interest over time
     }
   }
 

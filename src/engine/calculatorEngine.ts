@@ -55,40 +55,71 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const r = (parseFloat(inputs.interestRate) || 0) / 100 / 12; // monthly rate
       const n = (parseFloat(inputs.loanTermYears) || 0) * 12; // total months
       const extraPayment = parseFloat(inputs.extraPayment) || 0;
+      const amType = inputs.amortizationType || 'price'; // 'price' or 'sac'
 
-      let baseM = 0;
-      if (r > 0) {
-        baseM = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
-      } else {
-        baseM = p / n; // 0% interest case
+      let balance = p;
+      let totalInterest = 0;
+      let monthsToPayoff = 0;
+      let firstPayment = 0;
+      let originalTotalInterest = 0;
+
+      // Base calculation without extra payment
+      let originalBalance = p;
+      for (let month = 1; month <= n; month++) {
+        if (originalBalance <= 0) break;
+        let interest = originalBalance * r;
+        originalTotalInterest += interest;
+        let principalPayment = 0;
+        
+        if (amType === 'sac') {
+          principalPayment = p / n;
+        } else {
+          // Price
+          const baseM = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
+          principalPayment = baseM - interest;
+        }
+        originalBalance -= principalPayment;
       }
 
-      const totalM = baseM + extraPayment;
+      // Actual calculation WITH extra payment
+      balance = p;
+      for (let month = 1; month <= n; month++) {
+        if (balance <= 0) break;
+        monthsToPayoff++;
+        
+        let interest = balance * r;
+        totalInterest += interest;
+        
+        let principalPayment = 0;
+        let requiredPayment = 0;
 
-      let monthsToPayoff = 0;
-      let totalInterest = 0;
-
-      if (r > 0) {
-        if (totalM > p * r) {
-          monthsToPayoff = -Math.log(1 - (r * p) / totalM) / Math.log(1 + r);
-          monthsToPayoff = Math.ceil(monthsToPayoff);
-          totalInterest = (monthsToPayoff * totalM) - p;
+        if (amType === 'sac') {
+          principalPayment = p / n;
+          requiredPayment = principalPayment + interest;
         } else {
-          monthsToPayoff = n;
-          totalInterest = (baseM * n) - p;
+          // Price
+          requiredPayment = p * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1) || (p / n);
+          principalPayment = requiredPayment - interest;
         }
-      } else {
-        monthsToPayoff = Math.ceil(p / totalM);
-        totalInterest = 0;
+
+        if (month === 1) firstPayment = requiredPayment;
+
+        let totalPaymentThisMonth = principalPayment + extraPayment;
+        
+        // If final month and overpaying
+        if (totalPaymentThisMonth > balance) {
+           totalPaymentThisMonth = balance;
+        }
+        
+        balance -= totalPaymentThisMonth;
       }
 
       const totalPayment = p + totalInterest;
 
-      result.monthlyBasePayment = baseM;
+      result.monthlyBasePayment = firstPayment; // For SAC, this is the highest payment. For Price, it's the constant payment.
       if (extraPayment > 0) {
-        result.totalMonthlyPayment = totalM;
-        const originalInterest = (baseM * n) - p;
-        result.interestSaved = originalInterest - totalInterest;
+        result.totalMonthlyPayment = firstPayment + extraPayment; // First month
+        result.interestSaved = originalTotalInterest - totalInterest;
         result.monthsSaved = n - monthsToPayoff;
       }
       result.totalPayment = totalPayment;

@@ -28,6 +28,16 @@
       "defaultValue": 30
     },
     {
+      "name": "amortizationType",
+      "label": "Sistema de Amortização",
+      "type": "select",
+      "options": [
+        { "label": "Parcelas Fixas (Tabela Price)", "value": "price" },
+        { "label": "Parcelas Decrescentes (Tabela SAC)", "value": "sac" }
+      ],
+      "defaultValue": "price"
+    },
+    {
       "name": "extraPayment",
       "label": "Amortização Extra Mensal",
       "type": "number",
