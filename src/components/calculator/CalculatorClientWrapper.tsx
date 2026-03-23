@@ -184,6 +184,47 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     return result.charAt(0).toUpperCase() + result.slice(1);
   };
 
+  const renderInlineInsight = (inputName: string) => {
+    if (config?.calculator_id !== 'loan' || inputName !== 'extraPayment') return null;
+    if (!results || Object.keys(results).length === 0 || results.error) return null;
+
+    const p = parseFloat(inputs.loanAmount) || 0;
+    const extra = parseFloat(inputs.extraPayment) || 0;
+    const totalInterest = results.totalInterest || 0;
+    
+    if (extra === 0) {
+      const interestRatio = p > 0 ? ((totalInterest / p) * 100).toFixed(1) : '0';
+      const text = lang === 'en' 
+        ? `You are scheduled to pay an additional **${interestRatio}%** of your original loan value purely in interest! Did you know that adding just $100/mo in extra amortization could save you thousands of dollars and years of payments?`
+        : `Você vai pagar o equivalente a **${interestRatio}%** do valor do empréstimo puramente em juros! Sabia que adicionar apenas R$ 100/mês na amortização extra pode salvar milhares de reais e encurtar sua dívida em anos?`;
+      return (
+        <div className="-mt-1 mb-2 animate-in fade-in slide-in-from-top-2 duration-500">
+          <SmartInsight text={text} />
+        </div>
+      );
+    } else {
+      const months = results.monthsSaved || 0;
+      const yearsSaved = Math.floor(months / 12);
+      const remainingMonths = Math.round(months % 12);
+      
+      const enSavedText = yearsSaved > 0 ? `${yearsSaved} years and ${remainingMonths} months` : `${remainingMonths} months`;
+      const ptSavedText = yearsSaved > 0 ? `${yearsSaved} anos e ${remainingMonths} meses` : `${remainingMonths} meses`;
+      
+      const interestStr = formatOutput('interestSaved', results.interestSaved);
+      const extraStr = formatOutput('extraPayment', extra);
+
+      const text = lang === 'en'
+        ? `Incredible! By amortizing an extra **${extraStr}** per month, you are shortening your loan by **${enSavedText}** and keeping **${interestStr}** of interest money in your own pocket!`
+        : `Incrível! Ao amortizar **${extraStr}** extras por mês, você está antecipando sua quitação em **${ptSavedText}** e deixando de dar **${interestStr}** em juros para o banco!`;
+      
+      return (
+        <div className="-mt-1 mb-2 animate-in fade-in slide-in-from-top-2 duration-500">
+          <SmartInsight text={text} />
+        </div>
+      );
+    }
+  };
+
   const generateInsight = (): string[] | null => {
     if (!results || Object.keys(results).length === 0 || results.error) return null;
 
@@ -191,31 +232,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     const insights: string[] = [];
     
     if (calcId === 'loan') {
-      const p = parseFloat(inputs.loanAmount) || 0;
       const extra = parseFloat(inputs.extraPayment) || 0;
-      const totalInterest = results.totalInterest || 0;
-      
-      const interestRatio = p > 0 ? ((totalInterest / p) * 100).toFixed(1) : '0';
-
-      if (extra === 0) {
-        insights.push(lang === 'en' 
-          ? `You are scheduled to pay an additional **${interestRatio}%** of your original loan value purely in interest! Did you know that adding just $100/mo in extra amortization could save you thousands of dollars and years of payments?`
-          : `Você vai pagar o equivalente a **${interestRatio}%** do valor do empréstimo puramente em juros! Sabia que adicionar apenas R$ 100/mês na amortização extra pode salvar milhares de reais e encurtar sua dívida em anos?`);
-      } else {
-        const months = results.monthsSaved || 0;
-        const yearsSaved = Math.floor(months / 12);
-        const remainingMonths = Math.round(months % 12);
-        
-        const enSavedText = yearsSaved > 0 ? `${yearsSaved} years and ${remainingMonths} months` : `${remainingMonths} months`;
-        const ptSavedText = yearsSaved > 0 ? `${yearsSaved} anos e ${remainingMonths} meses` : `${remainingMonths} meses`;
-        
-        const interestStr = formatOutput('interestSaved', results.interestSaved);
-        const extraStr = formatOutput('extraPayment', extra);
-
-        insights.push(lang === 'en'
-          ? `Incredible! By amortizing an extra **${extraStr}** per month, you are shortening your loan by **${enSavedText}** and keeping **${interestStr}** of interest money in your own pocket!`
-          : `Incrível! Ao amortizar **${extraStr}** extras por mês, você está antecipando sua quitação em **${ptSavedText}** e deixando de dar **${interestStr}** em juros para o banco!`);
-      }
 
       // SAC vs Price Comparison Insight
       const priceInt = results.priceTotalInterest || 0;
@@ -298,26 +315,29 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
               <hr className="border-[var(--color-border)] mb-1" />
             
             {config.inputs.map((input: any) => (
-              <div key={input.name}>
-                {input.type === 'select' ? (
-                  <SelectField
-                    name={input.name}
-                    label={input.label}
-                    value={inputs[input.name] || ''}
-                    onChange={handleChange}
-                    options={input.options || []}
-                  />
-                ) : (
-                  <InputField
-                    name={input.name}
-                    label={input.label}
-                    type="number"
-                    step="any"
-                    value={inputs[input.name] === undefined ? '' : inputs[input.name]}
-                    onChange={handleChange}
-                  />
-                )}
-              </div>
+              <React.Fragment key={input.name}>
+                {renderInlineInsight(input.name)}
+                <div>
+                  {input.type === 'select' ? (
+                    <SelectField
+                      name={input.name}
+                      label={input.label}
+                      value={inputs[input.name] || ''}
+                      onChange={handleChange}
+                      options={input.options || []}
+                    />
+                  ) : (
+                    <InputField
+                      name={input.name}
+                      label={input.label}
+                      type="number"
+                      step="any"
+                      value={inputs[input.name] === undefined ? '' : inputs[input.name]}
+                      onChange={handleChange}
+                    />
+                  )}
+                </div>
+              </React.Fragment>
             ))}
             
             <PrimaryButton 
