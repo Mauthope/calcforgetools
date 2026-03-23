@@ -48,13 +48,11 @@ export async function POST(request: Request) {
     if (resend) {
       const isEnglish = language === 'en';
       
-      let spreadsheetFileEn = 'free-spreadsheet.xlsx';
-      let spreadsheetFilePt = 'planilha-gratis.xlsx';
+      // Global default is now the Mortgage spreadsheet
+      let spreadsheetFileEn = 'mortgage-amortization-tracker.xlsx';
+      let spreadsheetFilePt = 'planilha-financiamento-sac-price.xlsx';
 
-      if (source_calculator === 'home-mortgage-calculator' || source_calculator === 'calculadora-de-financiamento-da-minha-casa' || source_calculator === 'calculadora-de-emprestimo' || source_calculator === 'loan-calculator') {
-        spreadsheetFileEn = 'mortgage-amortization-tracker.xlsx';
-        spreadsheetFilePt = 'planilha-financiamento-sac-price.xlsx';
-      } else if (source_calculator === 'percentage-calculator' || source_calculator === 'calculadora-de-porcentagem') {
+      if (source_calculator === 'percentage-calculator' || source_calculator === 'calculadora-de-porcentagem') {
         spreadsheetFileEn = 'percentage-master-sheet.xlsx';
         spreadsheetFilePt = 'planilha-porcentagem.xlsx';
       }

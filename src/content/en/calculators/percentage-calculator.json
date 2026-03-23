@@ -14,9 +14,9 @@
       "label": "Calculation Type",
       "type": "select",
       "options": [
-        { "label": "What is X% of Y?", "value": "x_of_y" },
-        { "label": "X is what percent of Y?", "value": "x_is_what_percent_of_y" },
-        { "label": "Percentage change from X to Y", "value": "percentage_change" }
+        { "label": "I want to apply a Discount (or Increase) of X% to a price", "value": "x_of_y" },
+        { "label": "I want to find out the % change between two values", "value": "percentage_change" },
+        { "label": "I want to know what percentage a smaller part represents of the total", "value": "x_is_what_percent_of_y" }
       ],
       "defaultValue": "x_of_y"
     },

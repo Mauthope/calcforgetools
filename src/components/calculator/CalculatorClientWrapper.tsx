@@ -230,6 +230,40 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     }
   };
 
+  const getDynamicLabel = (inputName: string) => {
+    if (config?.calculator_id !== 'percentage') return null;
+    const cType = inputs.calcType || 'x_of_y';
+
+    if (lang === 'pt') {
+      if (cType === 'x_of_y') {
+        if (inputName === 'valueX') return "A Porcentagem (%) que deseja calcular";
+        if (inputName === 'valueY') return "O Valor Principal (Ex: Preço Original)";
+      }
+      if (cType === 'percentage_change') {
+        if (inputName === 'valueX') return "Valor Antigo (Era quanto?)";
+        if (inputName === 'valueY') return "Valor Novo (Foi para quanto?)";
+      }
+      if (cType === 'x_is_what_percent_of_y') {
+        if (inputName === 'valueX') return "A Parte Menor (Sua fatia)";
+        if (inputName === 'valueY') return "O Valor Total (O Bolo inteiro)";
+      }
+    } else {
+      if (cType === 'x_of_y') {
+        if (inputName === 'valueX') return "The Percentage (%)";
+        if (inputName === 'valueY') return "The Base Value (e.g., Price)";
+      }
+      if (cType === 'percentage_change') {
+        if (inputName === 'valueX') return "Old Value";
+        if (inputName === 'valueY') return "New Value";
+      }
+      if (cType === 'x_is_what_percent_of_y') {
+        if (inputName === 'valueX') return "The Smaller Part";
+        if (inputName === 'valueY') return "The Total Value";
+      }
+    }
+    return null;
+  };
+
   const generateInsight = (): string[] | null => {
     if (!results || Object.keys(results).length === 0 || results.error) return null;
 
@@ -326,7 +360,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                   {input.type === 'select' ? (
                     <SelectField
                       name={input.name}
-                      label={input.label}
+                      label={getDynamicLabel(input.name) || input.label}
                       value={inputs[input.name] || ''}
                       onChange={handleChange}
                       options={input.options || []}
@@ -334,7 +368,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                   ) : (
                     <InputField
                       name={input.name}
-                      label={input.label}
+                      label={getDynamicLabel(input.name) || input.label}
                       type="number"
                       step="any"
                       value={inputs[input.name] === undefined ? '' : inputs[input.name]}
