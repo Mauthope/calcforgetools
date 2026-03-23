@@ -16,19 +16,23 @@ export function Navbar() {
 
   // Maps to handle slug changes between languages
   const ptToEnMap: Record<string, string> = {
-    'calculadora-de-emprestimo': 'loan-calculator',
+    'calculadora-de-financiamento-da-minha-casa': 'home-mortgage-calculator',
     'calculadora-de-quitacao-de-divida': 'debt-payoff-calculator',
     'calculadora-de-juros-compostos': 'compound-interest-calculator',
+    'calculadora-de-porcentagem': 'percentage-calculator',
     // Guides
-    'como-funcionam-os-juros-compostos': 'how-compound-interest-works'
+    'como-funcionam-os-juros-compostos': 'how-compound-interest-works',
+    'como-calcular-porcentagens': 'how-to-calculate-percentages'
   };
 
   const enToPtMap: Record<string, string> = {
-    'loan-calculator': 'calculadora-de-emprestimo',
+    'home-mortgage-calculator': 'calculadora-de-financiamento-da-minha-casa',
     'debt-payoff-calculator': 'calculadora-de-quitacao-de-divida',
     'compound-interest-calculator': 'calculadora-de-juros-compostos',
+    'percentage-calculator': 'calculadora-de-porcentagem',
     // Guides
-    'how-compound-interest-works': 'como-funcionam-os-juros-compostos'
+    'how-compound-interest-works': 'como-funcionam-os-juros-compostos',
+    'how-to-calculate-percentages': 'como-calcular-porcentagens'
   };
 
   const toggleLang = () => {

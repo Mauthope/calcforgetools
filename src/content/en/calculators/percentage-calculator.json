@@ -1,0 +1,76 @@
+{
+  "calculator_id": "percentage",
+  "slug": "percentage-calculator",
+  "title": "Percentage Calculator",
+  "meta_title": "Percentage Calculator | Find Increases, Decreases & Discounts",
+  "meta_description": "Our interactive percentage calculator allows you to quickly find X% of Y, calculate percentage changes, find absolute differences, and compute total final amounts.",
+  "hero": {
+    "title": "Percentage Calculator",
+    "subtitle": "Discover exact percentage values, calculate exact retail discounts, or measure historical growth deltas instantly."
+  },
+  "inputs": [
+    {
+      "name": "calcType",
+      "label": "Calculation Type",
+      "type": "select",
+      "options": [
+        { "label": "What is X% of Y?", "value": "x_of_y" },
+        { "label": "X is what percent of Y?", "value": "x_is_what_percent_of_y" },
+        { "label": "Percentage change from X to Y", "value": "percentage_change" }
+      ],
+      "defaultValue": "x_of_y"
+    },
+    {
+      "name": "valueX",
+      "label": "Variable X",
+      "type": "number",
+      "defaultValue": 20
+    },
+    {
+      "name": "valueY",
+      "label": "Variable Y",
+      "type": "number",
+      "defaultValue": 150
+    }
+  ],
+  "formula": "Varies: % = (X/Y)*100, part = (X/100)*Y",
+  "outputs": [
+    "calculationResult",
+    "finalAmount",
+    "discountAmount",
+    "percentageResult",
+    "percentageChange",
+    "absoluteDifference"
+  ],
+  "chart_type": "percentage",
+  "formula_explanation": "Percentages mathematically represent parts per hundred. By utilizing straightforward ratios, you can calculate portions, total changes, and comparative discounts.",
+  "example": "If a $150 item is 20% off, calculating '20% of 150' gives $30. The brand new final amount is $120. If $20 grows to $150, that's a +650% exponential percentage change.",
+  "faq": [
+    {
+      "question": "How do I calculate what percentage a number is of another?",
+      "answer": "Simple division. Divide the specific part by the whole amount, then mathematically multiply by 100."
+    },
+    {
+      "question": "What does a negative percentage change mean?",
+      "answer": "A negative change literally means the new value is less than the original value, representing a mathematical decrease, deficit, or discount."
+    },
+    {
+      "question": "How do I apply a retail discount?",
+      "answer": "Calculate X% (the discount) of Y (the original retail price). Then subtract that result from Y to find your final sale price."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Compound Interest Calculator",
+      "href": "/en/calculators/compound-interest-calculator",
+      "description": "See how fixed interest percentages grow exponential wealth over time."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "How to Calculate Percentages",
+      "href": "/en/guides/how-to-calculate-percentages",
+      "description": "Learn the step-by-step mathematical logic for solving any percentage problem in retail, finance, or real estate."
+    }
+  ]
+}

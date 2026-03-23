@@ -1,12 +1,12 @@
 {
   "calculator_id": "loan",
-  "slug": "loan-calculator",
-  "title": "Loan Calculator",
-  "meta_title": "Loan Calculator | Calculate Monthly Payments - CalcForgeTools",
-  "meta_description": "Estimate your monthly loan payments, total interest, and amortization schedule with our free Loan Calculator.",
+  "slug": "home-mortgage-calculator",
+  "title": "Home Mortgage Calculator",
+  "meta_title": "Home Mortgage Calculator | Compare Amortization Data",
+  "meta_description": "Estimate your monthly home mortgage payments, compare fixed price and SAC tables, and see your detailed amortization schedule.",
   "hero": {
-    "title": "Loan Calculator",
-    "subtitle": "Plan your borrowing safely by calculating exactly how much you'll pay each month and in total interest."
+    "title": "Home Mortgage Calculator",
+    "subtitle": "Plan your home purchase safely by calculating exactly how much you'll pay each month with comparative Price vs SAC tables."
   },
   "inputs": [
     {

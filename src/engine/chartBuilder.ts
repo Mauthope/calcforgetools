@@ -6,6 +6,8 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
       return buildCompoundInterestChart(inputs, lang);
     case 'loan':
       return buildLoanAmortizationChart(inputs, results, lang);
+    case 'percentage':
+      return buildPercentageChart(inputs, results, lang);
     case 'interest':
     case 'roi':
     case 'debt_payoff':
@@ -164,6 +166,49 @@ function buildLoanAmortizationChart(inputs: Record<string, any>, results: Record
         backgroundColor: 'rgba(255, 59, 48, 0.05)', // Very light red fill
         fill: true,
         tension: 0.4,
+      }
+    ]
+  };
+}
+
+function buildPercentageChart(inputs: Record<string, any>, results: Record<string, any>, lang: string) {
+  const type = inputs.calcType || 'x_of_y';
+  const x = parseFloat(inputs.valueX) || 0;
+  const y = parseFloat(inputs.valueY) || 0;
+  
+  if (type === 'percentage_change') {
+    return {
+      type: 'bar',
+      labels: lang === 'en' ? ['Original Value', 'New Value'] : ['Valor Original', 'Novo Valor'],
+      datasets: [
+        {
+          label: lang === 'en' ? 'Evolution' : 'Evolução',
+          data: [x, y],
+          backgroundColor: y >= x ? 'rgba(52, 199, 89, 0.8)' : 'rgba(255, 59, 48, 0.8)',
+          borderRadius: 8,
+        }
+      ]
+    };
+  }
+
+  // Treat 'x_of_y' and 'x_is_what_percent_of_y' as Part-to-Whole Doughnut charts
+  const part = type === 'x_of_y' ? results.calculationResult : x;
+  const whole = type === 'x_of_y' ? y : y;
+  
+  // If part is larger than whole, cap semantic representation so the chart doesn't break
+  const remainder = whole >= part ? whole - part : 0;
+
+  return {
+    type: 'doughnut',
+    labels: lang === 'en' ? ['Target Share', 'Remaining Base'] : ['Fatia Alvo', 'Restante da Base'],
+    datasets: [
+      {
+        data: [part, remainder],
+        backgroundColor: [
+          'rgba(0, 122, 255, 0.9)', // Apple Blue
+          'rgba(142, 142, 147, 0.2)' // Subtle Gray
+        ],
+        borderWidth: 0,
       }
     ]
   };

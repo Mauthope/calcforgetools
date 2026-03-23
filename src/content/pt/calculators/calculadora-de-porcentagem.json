@@ -1,0 +1,76 @@
+{
+  "calculator_id": "percentage",
+  "slug": "calculadora-de-porcentagem",
+  "title": "Calculadora de Porcentagem",
+  "meta_title": "Calculadora de Porcentagem | Descubra Descontos e Aumentos",
+  "meta_description": "Nossa calculadora interativa de porcentagem permite que você descubra rapidamente quanto é X% de Y, calcule diferenças exatas, margens de lucro e valores finais.",
+  "hero": {
+    "title": "Calculadora de Porcentagem",
+    "subtitle": "Descubra valores percentuais exatos, calcule descontos em produtos na hora, ou meça o aumento geral de um preço instantaneamente."
+  },
+  "inputs": [
+    {
+      "name": "calcType",
+      "label": "Tipo de Cálculo",
+      "type": "select",
+      "options": [
+        { "label": "Quanto é X% de Y?", "value": "x_of_y" },
+        { "label": "X é qual porcentagem de Y?", "value": "x_is_what_percent_of_y" },
+        { "label": "Qual foi o Aumento/Diminuição de X para Y?", "value": "percentage_change" }
+      ],
+      "defaultValue": "x_of_y"
+    },
+    {
+      "name": "valueX",
+      "label": "Variável X",
+      "type": "number",
+      "defaultValue": 20
+    },
+    {
+      "name": "valueY",
+      "label": "Variável Y",
+      "type": "number",
+      "defaultValue": 150
+    }
+  ],
+  "formula": "Varia: % = (X/Y)*100, parte = (X/100)*Y",
+  "outputs": [
+    "calculationResult",
+    "finalAmount",
+    "discountAmount",
+    "percentageResult",
+    "percentageChange",
+    "absoluteDifference"
+  ],
+  "chart_type": "percentage",
+  "formula_explanation": "A porcentagem é uma representação matemática de partes por cem. Ao definir uma proporção simples, você consegue extrair montantes de desconto ou mapear índices de lucros.",
+  "example": "Se um item de R$ 150 tem 20% de desconto, calcular '20% de 150' te dá R$ 30. O novo valor final com o desconto será R$ 120. Se R$ 20 saltar para R$ 150, ocorreu uma variação gigantesca de +650%.",
+  "faq": [
+    {
+      "question": "Como descubro a porcentagem que um valor representa de outro?",
+      "answer": "É uma divisão simples. Divida a parte específica pelo valor total do montante, e então multiplique matematicamente por 100."
+    },
+    {
+      "question": "O que significa uma porcentagem negativa?",
+      "answer": "Se ao avaliar o crescimento de um histórico o resultado for -, significa literalmente que ocorreu um déficit, perda, liquidação ou desconto no preço final."
+    },
+    {
+      "question": "Como aplicar um desconto ou margem de comissão?",
+      "answer": "Apenas extraia os X% do total de Vendas (Y). Subtraia isso para descobrir seu lucro líquido, ou adicione em cima do custo para repassar no preço final."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Juros Compostos",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
+      "description": "Veja como juros compostos multiplicam patrimônio."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular Qualquer Porcentagem",
+      "href": "/pt/guides/como-calcular-porcentagens",
+      "description": "O guia passo a passo definitivo ensinando a lógica de como resolver descontos, comissões de loja e lucros sozinho."
+    }
+  ]
+}

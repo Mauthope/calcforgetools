@@ -186,6 +186,28 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
+    case 'percentage': {
+      const type = inputs.calcType || 'x_of_y';
+      const x = parseFloat(inputs.valueX) || 0;
+      const y = parseFloat(inputs.valueY) || 0;
+
+      if (type === 'x_of_y') {
+        const resultVal = (x / 100) * y;
+        result.calculationResult = resultVal;
+        result.finalAmount = y + resultVal; // Contextual addition
+        result.discountAmount = y - resultVal; // Contextual subtraction
+      } else if (type === 'x_is_what_percent_of_y') {
+        const resultVal = y !== 0 ? (x / y) * 100 : 0;
+        result.percentageResult = resultVal;
+      } else if (type === 'percentage_change') {
+        const diff = y - x;
+        const resultVal = x !== 0 ? (diff / Math.abs(x)) * 100 : 0;
+        result.percentageChange = resultVal;
+        result.absoluteDifference = diff;
+      }
+      break;
+    }
+
     default:
       // Fallback: attempts to use eval string if no strict implementation is found
       break;

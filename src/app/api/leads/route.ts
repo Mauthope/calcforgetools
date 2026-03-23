@@ -48,6 +48,19 @@ export async function POST(request: Request) {
     if (resend) {
       const isEnglish = language === 'en';
       
+      let spreadsheetFileEn = 'free-spreadsheet.xlsx';
+      let spreadsheetFilePt = 'planilha-gratis.xlsx';
+
+      if (source_calculator === 'home-mortgage-calculator' || source_calculator === 'calculadora-de-financiamento-da-minha-casa') {
+        spreadsheetFileEn = 'mortgage-amortization-tracker.xlsx';
+        spreadsheetFilePt = 'planilha-financiamento-sac-price.xlsx';
+      } else if (source_calculator === 'percentage-calculator' || source_calculator === 'calculadora-de-porcentagem') {
+        spreadsheetFileEn = 'percentage-master-sheet.xlsx';
+        spreadsheetFilePt = 'planilha-porcentagem.xlsx';
+      }
+
+      const activeFile = isEnglish ? spreadsheetFileEn : spreadsheetFilePt;
+      
       const subject = isEnglish 
         ? 'Your Free Premium Tracking Spreadsheet inside! 📊'
         : 'Sua Planilha de Acompanhamento Grátis chegou! 📊';
@@ -59,10 +72,10 @@ export async function POST(request: Request) {
             <p>Thank you for using our <strong>${source_calculator.replace(/-/g, ' ')}</strong> tool.</p>
             <p>As promised, here is the link to download your Free Tracking Spreadsheet (Excel format):</p>
             <div style="margin: 30px 0;">
-              <a href="https://calcforgetools.com/downloads/free-spreadsheet.xlsx" style="background-color: #007AFF; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Download Spreadsheet</a>
+              <a href="https://calcforgetools.com/downloads/${activeFile}" style="background-color: #007AFF; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Download Spreadsheet</a>
             </div>
             <p>If the button doesn't work, copy and paste this link:</p>
-            <p style="color: #666; font-size: 14px;">https://calcforgetools.com/downloads/free-spreadsheet.xlsx</p>
+            <p style="color: #666; font-size: 14px;">https://calcforgetools.com/downloads/${activeFile}</p>
             <hr style="border: 1px solid #eee; margin: 30px 0;" />
             <p style="color: #888; font-size: 12px;">CalcForgeTools Engineering Team</p>
           </div>
@@ -73,10 +86,10 @@ export async function POST(request: Request) {
             <p>Obrigado por utilizar a nossa ferramenta <strong>${source_calculator.replace(/-/g, ' ')}</strong>.</p>
             <p>Conforme prometido, aqui está o link para você baixar a sua Planilha de Acompanhamento Grátis oficial (formato Excel):</p>
             <div style="margin: 30px 0;">
-              <a href="https://calcforgetools.com/downloads/planilha-gratis.xlsx" style="background-color: #007AFF; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Baixar Planilha</a>
+              <a href="https://calcforgetools.com/downloads/${activeFile}" style="background-color: #007AFF; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Baixar Planilha</a>
             </div>
             <p>Se o botão não funcionar, copie e cole o link abaixo:</p>
-            <p style="color: #666; font-size: 14px;">https://calcforgetools.com/downloads/planilha-gratis.xlsx</p>
+            <p style="color: #666; font-size: 14px;">https://calcforgetools.com/downloads/${activeFile}</p>
             <hr style="border: 1px solid #eee; margin: 30px 0;" />
             <p style="color: #888; font-size: 12px;">Equipe de Engenharia Financeira da CalcForgeTools</p>
           </div>

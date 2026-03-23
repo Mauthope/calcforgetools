@@ -172,7 +172,12 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       monthsToPayoff: "Meses até Quitação",
       totalPaid: "Total Pago",
       netProfit: "Lucro Líquido",
-      roiPercentage: "Porcentagem de ROI"
+      roiPercentage: "Porcentagem de ROI",
+      calculationResult: "Resultado Específico",
+      discountAmount: "Valor com Desconto",
+      percentageResult: "Proporção (%)",
+      absoluteDifference: "Diferença Absoluta",
+      percentageChange: "Variação (%)"
     };
 
     if (lang === 'pt' && ptLabels[key]) {

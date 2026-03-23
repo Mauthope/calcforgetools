@@ -1,12 +1,12 @@
 {
   "calculator_id": "loan",
-  "slug": "calculadora-de-emprestimo",
-  "title": "Calculadora de Empréstimo",
-  "meta_title": "Calculadora de Empréstimo e Financiamento | CalcForgeTools",
-  "meta_description": "Estime parcelas mensais, juros totais e o cronograma de amortização do seu financiamento com nossa calculadora gratuita.",
+  "slug": "calculadora-de-financiamento-da-minha-casa",
+  "title": "Calculadora de Financiamento da Minha Casa",
+  "meta_title": "Calculadora de Financiamento da Minha Casa | Simule Price e SAC",
+  "meta_description": "Estime as parcelas do seu apartamento ou casa, compare as tabelas SAC e Price lado a lado e descubra o valor real dos juros.",
   "hero": {
-    "title": "Calculadora de Empréstimo",
-    "subtitle": "Planeje seu crédito com segurança, calculando exatamente quanto você pagará por mês e o total de juros."
+    "title": "Calculadora de Financiamento da Minha Casa",
+    "subtitle": "Planeje a compra do seu imóvel com segurança, calculando exatamente quanto você pagará por mês usando Tabela Price ou SAC."
   },
   "inputs": [
     {
