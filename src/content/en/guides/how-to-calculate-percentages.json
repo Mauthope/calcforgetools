@@ -1,12 +1,96 @@
 {
   "slug": "how-to-calculate-percentages",
-  "title": "How to Calculate Percentages in Your Head",
   "meta_title": "How to Calculate Percentages (Discounts & Increases) | CalcForgeTools",
   "meta_description": "Learn the fastest mathematical tricks for calculating percentages, retail discounts, and percentage growth. Stop relying on memory and start using simple math hacks.",
-  "date": "2024-03-23",
-  "author": "CalcForgeTools Engineering Team",
-  "readTime": "6 min read",
-  "content": "## The Hidden Language of Retail Mathematics\n\nEvery time you walk into a store, check your investments, or examine an invoice, you are looking at percentages.\n\nHave you ever seen a '$150 jacket marked down 30%' and frozen, unable to do the math? You aren't bad at math; you just haven't been taught the operational shortcuts used by cashiers and analysts.\n\n> [!NOTE]\n> A \"percent\" mathematically translates to \"per 100\". Therefore, 20% literally means \"20 parts of every 100\".\n\n---\n\n## The 10% Hack: The Holy Grail of Subtraction\n\nThe fastest way to calculate ANY percentage without a calculator is to find 10% first.\n\nTo find 10% of any number, you simply take the decimal point and move it exactly one slot to the left.\n\n- What is 10% of $50.00? Move the decimal. It is $5.00.\n- What is 10% of $345? It is $34.50.\n\n### Why is this so powerful?\nBecause once you have 10%, you have the building blocks for everything else.\n- Need 20%? Just double your 10% answer.\n- Need 5%? Just cut your 10% answer in half.\n\n**Example: Calculating a 20% tip on a $65 bill.**\n1. Move the decimal to find 10% -> $6.50\n2. Double it to find 20% -> $13.00. Done instantly in your head.\n\n---\n\n## Formula 1: What is X% of Y?\n\nWhen calculating discounts or tax margins, you are generally searching for a subset of a total base.\n\n**Standard Equation:** \n`Part = (Percentage / 100) * Whole`\n\nIf you want to find 18% of $2,000, simply multiply `0.18 * 2000`, yielding `$360`.\n\n---\n\n## Formula 2: Percentage Change (Growth or Deficit)\n\nAre your real estate investments actually growing, or are they losing value to inflation? Or perhaps you want to prove to your boss that your department’s metric increased.\n\n**Standard Equation:**\n`% Change = ((New Value - Old Value) / Old Value) * 100`\n\nIf your stock portfolio was worth $4,000 yesterday, and is worth $5,200 today:\n1. Subtract the Old from the New: `5200 - 4000 = 1200`\n2. Divide by the Old base: `1200 / 4000 = 0.30`\n3. Multiply by 100. You experienced a **+30%** growth matrix.\n\n---\n\n## Reversing the Engine: Finding the Original Price\n\nSometimes, you only know the final price and the discount percentage, and you want to know what the original markup was before the sale.\n\n> [!TIP]\n> If an item is 20% off, you are technically paying 80% of its original price.\n\nIf you bought a TV for $400 after a 20% discount, what was the original price?\n`Original Price = Final Price / (1 - Discount Percentage)`\n\nDivide `$400 / 0.80`, and the original tag was `$500`.\n\nMathematics is the only universal language. Master these basic percentage frameworks, and you master your budget.",
+  "hero": {
+    "title": "How to Calculate Percentages in Your Head",
+    "subtitle": "Stop relying on memory and start using simple mathematical shortcuts to calculate retail discounts, commissions, and investment growth instantly."
+  },
+  "content": [
+    {
+      "type": "heading",
+      "text": "The Hidden Language of Retail Mathematics"
+    },
+    {
+      "type": "paragraph",
+      "text": "Every time you walk into a store, check your investments, or examine an invoice, you are looking at an economy governed by percentages. Have you ever seen a '$150 jacket marked down 30%' and frozen, unable to do the math? You aren't bad at numbers; you just haven't been taught the operational shortcuts used by cashiers and analysts."
+    },
+    {
+      "type": "quote",
+      "text": "A percent mathematically translates to 'per 100'. Therefore, 20% literally means 20 parts of every 100.",
+      "author": "CalcForgeTools Engineering"
+    },
+    {
+      "type": "heading",
+      "text": "The 10% Hack: The Holy Grail of Subtraction"
+    },
+    {
+      "type": "paragraph",
+      "text": "The fastest way to calculate ANY percentage without a calculator is to find 10% first. To find 10% of any number, you simply take the decimal point and move it exactly one slot to the left."
+    },
+    {
+      "type": "list",
+      "items": [
+        "What is 10% of $50.00? Move the decimal. It is $5.00.",
+        "What is 10% of $345? It is $34.50.",
+        "Need 20%? Just double your 10% answer.",
+        "Need 5%? Just cut your 10% answer in half."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Formula 1: What is X% of Y?"
+    },
+    {
+      "type": "paragraph",
+      "text": "When calculating discounts or tax margins, you are generally searching for a subset of a total base. The standard equation is simply multiplying the whole by the decimal version of the percentage."
+    },
+    {
+      "type": "quote",
+      "text": "Part = (Percentage ÷ 100) × Whole",
+      "author": "Mathematical Formula"
+    },
+    {
+      "type": "paragraph",
+      "text": "If you want to find 18% of $2,000, simply multiply <strong>0.18 × 2000</strong>, yielding a result of <strong>$360</strong>."
+    },
+    {
+      "type": "heading",
+      "text": "Formula 2: Percentage Change (Growth or Deficit)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Are your real estate investments actually growing, or are they losing value to inflation? Or perhaps you want to prove to your boss that your department's metric increased. This requires finding the <em>Delta</em>."
+    },
+    {
+      "type": "quote",
+      "text": "Percentage Change = ((New Value - Old Value) ÷ Old Value) × 100",
+      "author": "Mathematical Formula"
+    },
+    {
+      "type": "paragraph",
+      "text": "If your stock portfolio was worth $4,000 yesterday, and is worth $5,200 today:<br/>1. Subtract the Old from the New: 5200 - 4000 = 1200<br/>2. Divide by the Old base: 1200 ÷ 4000 = 0.30<br/>3. Multiply by 100. You experienced a <strong>+30%</strong> growth matrix."
+    },
+    {
+      "type": "heading",
+      "text": "Reversing the Engine: Finding the Original Price"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sometimes, you only know the final price and the discount percentage, and you want to know what the original markup was before the sale."
+    },
+    {
+      "type": "list",
+      "items": [
+        "The logic: if an item is 20% off, you are technically paying 80% of its original price.",
+        "Original Price = Final Price ÷ (1 - Discount Percentage)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "If you bought a TV for $400 after a 20% discount, divide $400 by 0.80, and you will see the original tag was exactly $500. Master these basic percentage frameworks, and you master your budget."
+    }
+  ],
   "related_calculators": [
     {
       "title": "Percentage Calculator",
