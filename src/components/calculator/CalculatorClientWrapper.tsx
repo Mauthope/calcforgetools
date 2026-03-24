@@ -356,22 +356,32 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
           />
           {/* Fishing Hook Tip */}
           <motion.div 
-            className="absolute left-1/2 -translate-x-1/2 -ml-[0.5px] mt-[-6px] text-[#b400ff] drop-shadow-[0_2px_5px_rgba(180,0,255,0.9)] z-30"
+            className="absolute left-1/2 -translate-x-1/2 -ml-[0.5px] mt-[-6px] flex flex-col items-center z-30 drop-shadow-[0_2px_5px_rgba(180,0,255,1)] text-[#b400ff]"
             style={{ top: useTransform(scaleY, v => `${v * 100}%`) }}
           >
+            {/* The knot ball (Tie-off ring) */}
+            <div className="w-[6px] h-[6px] rounded-full border-[1.5px] border-current bg-transparent mb-[-2px] z-10" />
             <svg width="14" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               {/* Fishing Hook SVG */}
-              <path d="M12 2v14 c0 3 -3 4 -5 2" />
+              <path d="M12 1v15 c0 3 -3 4 -5 2" />
+              <path d="M7 18l-1.5 2" strokeWidth="2" /> {/* Little barb */}
             </svg>
           </motion.div>
         </div>
         
-        {/* End Anchor / The Fish */}
-        <div className="w-4 h-4 text-[#b400ff] drop-shadow-[0_0_10px_rgba(180,0,255,0.9)] z-20 shrink-0 mt-[2px] mr-[1px]">
-           <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(-90deg)' }}>
+        {/* End Anchor / The Detailed Fish */}
+        <div className="w-8 h-8 text-[#b400ff] drop-shadow-[0_0_12px_rgba(180,0,255,0.9)] z-20 shrink-0 mt-[4px] ml-[2px]">
+           <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(-90deg)' }}>
+             {/* Fish Body */}
              <path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 6 6-.06 3.46-2.44 6-6 6-3.56 0-7.56-2.54-8.5-6Z"/>
-             <path d="M18 12h.01"/>
-             <path d="M6.5 12L3 15V9z"/>
+             {/* Solid Eye */}
+             <circle cx="16" cy="10" r="1" fill="currentColor" stroke="none" />
+             {/* Solid Tail */}
+             <path d="M6.5 12L2 16V8l4.5 4z" fill="currentColor" stroke="none" />
+             {/* Top Fin */}
+             <path d="M11 6c1-2 3-2 3-2" strokeWidth="2" />
+             {/* Bottom Fin */}
+             <path d="M11 18c1 2 3 2 3 2" strokeWidth="2" />
            </svg>
         </div>
       </div>
