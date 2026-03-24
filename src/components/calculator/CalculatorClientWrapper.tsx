@@ -11,7 +11,7 @@ import { ChartView } from '@/components/ui/ChartView';
 import { SmartInsight } from '@/components/ui/SmartInsight';
 import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
 import { Check, Share2, FileSpreadsheet, Send, MessageCircle } from 'lucide-react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 interface CalculatorClientWrapperProps {
   config: any;
@@ -295,17 +295,17 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
            if (priceM !== sacM) {
              const diffMonths = Math.abs(priceM - sacM);
              insights.push(lang === 'en'
-               ? `💡 **Price vs SAC Logic:** Because you are making extra payments, using the **SAC Method** would save you an additional **${diffStr}** and finish **${diffMonths} months faster** than the Price method! Always choose SAC when overpaying.`
-               : `💡 **Lógica Price vs SAC:** Pelo fato de você estar amortizando dinheiro extra todo mês, utilizar a **Tabela SAC** faria você economizar mais **${diffStr}** e quitar a dívida **${diffMonths} meses mais rápido** comparado à Tabela Price! A matemática diz SAC.`);
+               ? `💡 **Price vs SAC Logic:** Because you are making extra payments, using the **SAC Method** would save you an additional **${diffStr}** and finish **${diffMonths} months faster** than the Price method! Always choose SAC when overpaying. *(⚠️ Wait! Read the "Hidden Loophole" below before deciding)*`
+               : `💡 **Lógica Price vs SAC:** Pelo fato de você estar amortizando dinheiro extra todo mês, utilizar a **Tabela SAC** faria você economizar mais **${diffStr}** e quitar a dívida **${diffMonths} meses mais rápido** comparado à Tabela Price! A matemática diz SAC. *(⚠️ Atenção: veja a jogada genial do próximo insight antes de bater o martelo no banco!)*`);
            } else {
              insights.push(lang === 'en'
-               ? `💡 **Price vs SAC Logic:** Even with identical payoff dates, the **SAC Method** structurally saves you **${diffStr}** in total interest compared to the Fixed Price method.`
-               : `💡 **Lógica Price vs SAC:** Mesmo com o mesmo prazo exato de quitação, o sistema **SAC** te salva matematicamente **${diffStr}** em juros abusivos comparado à Tabela Price engessada.`);
+               ? `💡 **Price vs SAC Logic:** Even with identical payoff dates, the **SAC Method** structurally saves you **${diffStr}** in total interest compared to the Fixed Price method. *(⚠️ Wait! Read the "Hidden Loophole" below before deciding)*`
+               : `💡 **Lógica Price vs SAC:** Mesmo com o mesmo prazo exato de quitação, o sistema **SAC** te salva matematicamente **${diffStr}** em juros abusivos comparado à Tabela Price engessada. *(⚠️ Atenção: veja a jogada do próximo insight antes de bater o martelo!)*`);
            }
         } else {
            insights.push(lang === 'en'
-             ? `💡 **Price vs SAC Logic:** By choosing the **SAC Method** (decreasing payments) over the Fixed Price baseline, you mathematically save **${diffStr}** in total interest directly from the bank's pocket over the life of the loan.`
-             : `💡 **Matemática Bancária (Price vs SAC):** Se você optar pela **Tabela SAC** (parcelas decrescentes) no banco ao invés da Tabela Price (fixa), você tira literalmente **${diffStr}** de juros puros do bolso do gerente a longo prazo. SAC é o caminho!`);
+             ? `💡 **Price vs SAC Logic:** By choosing the **SAC Method** (decreasing payments) over the Fixed Price baseline, you mathematically save **${diffStr}** in total interest directly from the bank's pocket over the life of the loan. *(⚠️ Wait! Read the "Hidden Loophole" below before deciding)*`
+             : `💡 **Matemática Bancária (Price vs SAC):** Se você optar pela **Tabela SAC** (parcelas decrescentes) no banco ao invés da Tabela Price (fixa), você tira literalmente **${diffStr}** de juros puros do bolso do gerente a longo prazo. SAC é o caminho! *(⚠️ Atenção: leia a próxima estratégia genial antes de decidir e assinar contrato.)*`);
         }
       }
 
@@ -346,18 +346,25 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       {/* Mobile Scroll Analytics Sidebar (Left Docked) */}
       <div className="fixed top-[20vh] bottom-[20vh] left-2 w-2 z-50 lg:hidden pointer-events-none flex flex-col items-center opacity-90 transition-opacity duration-500">
         {/* Start Anchor */}
-        <div className="w-2.5 h-2.5 rounded-full bg-[#00c6ff] shadow-[0_0_12px_rgba(0,198,255,0.9)] z-10" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#00c6ff] shadow-[0_0_12px_rgba(0,198,255,0.9)] z-20 shrink-0" />
         
         {/* Track Body */}
-        <div className="flex-1 w-1 bg-black/10 dark:bg-white/10 border-x border-black/5 dark:border-white/5 rounded-full relative overflow-hidden -my-1 backdrop-blur-sm">
+        <div className="flex-1 w-1 bg-black/10 dark:bg-white/10 border-x border-black/5 dark:border-white/5 rounded-full relative overflow-visible -my-1 backdrop-blur-sm">
           <motion.div
-            className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00c6ff] via-[#007aff] to-[#b400ff] origin-top shadow-[0_0_15px_rgba(0,198,255,0.8)]"
+            className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00c6ff] via-[#007aff] to-[#b400ff] origin-top shadow-[0_0_15px_rgba(0,198,255,0.8)] z-10"
             style={{ scaleY }}
           />
+          {/* Tracker Arrow Tip */}
+          <motion.div 
+            className="absolute left-1/2 -translate-x-1/2 -ml-[0.5px] mt-[-6px] text-[#b400ff] drop-shadow-[0_2px_5px_rgba(180,0,255,0.9)] z-30"
+            style={{ top: useTransform(scaleY, v => `${v * 100}%`) }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </motion.div>
         </div>
         
         {/* End Anchor */}
-        <div className="w-2.5 h-2.5 rounded-full bg-[#b400ff] shadow-[0_0_12px_rgba(180,0,255,0.9)] z-10" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#b400ff] shadow-[0_0_12px_rgba(180,0,255,0.9)] z-20 shrink-0" />
       </div>
 
       {/* Full-width Top Banner Injection */}
