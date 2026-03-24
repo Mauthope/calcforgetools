@@ -369,19 +369,22 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
           </motion.div>
         </div>
         
-        {/* End Anchor / The Detailed Fish */}
-        <div className="w-8 h-8 text-[#b400ff] drop-shadow-[0_0_12px_rgba(180,0,255,0.9)] z-20 shrink-0 mt-[4px] ml-[2px]">
-           <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(-90deg)' }}>
-             {/* Fish Body */}
-             <path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 6 6-.06 3.46-2.44 6-6 6-3.56 0-7.56-2.54-8.5-6Z"/>
-             {/* Solid Eye */}
-             <circle cx="16" cy="10" r="1" fill="currentColor" stroke="none" />
-             {/* Solid Tail */}
-             <path d="M6.5 12L2 16V8l4.5 4z" fill="currentColor" stroke="none" />
-             {/* Top Fin */}
-             <path d="M11 6c1-2 3-2 3-2" strokeWidth="2" />
-             {/* Bottom Fin */}
-             <path d="M11 18c1 2 3 2 3 2" strokeWidth="2" />
+        {/* End Anchor / The Detailed Fish (mouth facing UP) */}
+        <div className="w-7 h-7 text-[#b400ff] drop-shadow-[0_0_12px_rgba(180,0,255,0.9)] z-20 shrink-0 mt-[3px] -ml-[2px]">
+           <svg width="100%" height="100%" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style={{ transform: 'rotate(90deg) scaleX(-1)' }}>
+             {/* Solid chunky body */}
+             <path d="M16 4c-1.5 0-3.5 1-5 3-2 2.5-3 5.5-3 8.5 0 2 .5 3.5 1.5 5C11 22.5 13.5 24 16 24s5-1.5 6.5-3.5c1-1.5 1.5-3 1.5-5 0-3-1-6-3-8.5C19.5 5 17.5 4 16 4z" />
+             {/* Open mouth */}
+             <path d="M13 5.5c-.8.3-1.5 1-2 1.8l2.5 1.5z" fill="var(--color-surface, #0B101E)" stroke="none" />
+             {/* Eye */}
+             <circle cx="18" cy="9.5" r="1.8" fill="white" />
+             <circle cx="18.3" cy="9.2" r="0.7" fill="var(--color-surface, #0B101E)" />
+             {/* Dorsal fin (top, prominent) */}
+             <path d="M20 7c2.5-1 4.5-.5 5.5 0-1 1-2.5 2-4 2.5" fill="currentColor" opacity="0.85" />
+             {/* Pectoral fin (side) */}
+             <path d="M19 16c2 1 3.5 2.5 3 4-.5-.5-2-1-3.5-1.5" fill="currentColor" opacity="0.7" />
+             {/* Tail (forked, chunky) */}
+             <path d="M12 22c-1 1.5-1.5 3.5-1 5 1-.5 2-2 3-3M12 22c-2.5.5-4 2-4.5 4 1.5 0 3-.5 4-1.5" fill="currentColor" />
            </svg>
         </div>
       </div>
