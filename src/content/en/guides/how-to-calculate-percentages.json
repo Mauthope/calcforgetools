@@ -8,34 +8,36 @@
   },
   "content": [
     {
-      "type": "heading",
-      "text": "The Hidden Language of Retail Mathematics"
-    },
-    {
-      "type": "paragraph",
-      "text": "Every time you walk into a store, check your investments, or examine an invoice, you are looking at an economy governed by percentages. Have you ever seen a '$150 jacket marked down 30%' and frozen, unable to do the math? You aren't bad at numbers; you just haven't been taught the operational shortcuts used by cashiers and analysts."
-    },
-    {
       "type": "quote",
-      "text": "A percent mathematically translates to 'per 100'. Therefore, 20% literally means 20 parts of every 100.",
+      "text": "It's not about being gifted at math. It's about strictly knowing the hidden operational algorithms of how money is sliced and scaled in the real world.",
       "author": "CalcForgeTools Engineering"
     },
     {
+      "type": "paragraph",
+      "text": "<strong>Here is a bizarre mathematical curiosity:</strong> Did you know that percentages are 100% reversible? If you are trying to calculate <em>8% of 50</em> in your head and getting absolutely nowhere, just reverse it: <em>50% of 8</em> is profoundly easy. It's 4. Therefore, 8% of 50 is also exactly 4. Welcome to the hidden layer of retail mathematics."
+    },
+    {
       "type": "heading",
-      "text": "The 10% Hack: The Holy Grail of Subtraction"
+      "text": "The Master Reference Table: Quick Mental Discounts"
     },
     {
       "type": "paragraph",
-      "text": "The fastest way to calculate ANY percentage without a calculator is to find 10% first. To find 10% of any number, you simply take the decimal point and move it exactly one slot to the left."
+      "text": "Before we dive into the heavy formulas, observe how cashiers and business analysts memorize baseline fractional chunks to calculate any discount on the fly without looking at an Excel sheet:"
     },
     {
-      "type": "list",
-      "items": [
-        "What is 10% of $50.00? Move the decimal. It is $5.00.",
-        "What is 10% of $345? It is $34.50.",
-        "Need 20%? Just double your 10% answer.",
-        "Need 5%? Just cut your 10% answer in half."
+      "type": "table",
+      "headers": ["Fractional Rule", "What it actually means", "Example on a $200 Bill"],
+      "rows": [
+        ["<strong>50%</strong>", "Exactly half of the whole amount", "$100.00"],
+        ["<strong>25%</strong>", "Half of the half (divide by 4)", "$50.00"],
+        ["<strong>10%</strong>", "Move the decimal one spot left", "$20.00"],
+        ["<strong>5%</strong>", "Find 10%, then cut it in half", "$10.00"],
+        ["<strong>1%</strong>", "Move the decimal two spots left", "$2.00"]
       ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Why is the <strong>10% hack</strong> the Holy Grail? Because once you find 10% (by just sliding the decimal), you can stack it to build anything. Need 20%? Just double your 10% answer. Need 15%? Add your 10% answer to your 5% answer."
     },
     {
       "type": "heading",
@@ -43,64 +45,70 @@
     },
     {
       "type": "paragraph",
-      "text": "When calculating discounts or tax margins, you are generally searching for a subset of a total base. The standard equation is simply multiplying the whole by the decimal version of the percentage."
+      "text": "When calculating aggressive Black Friday discounts or projecting real estate tax margins, you are perpetually isolated to searching for a subset of a total base. The rigorous formula is simply multiplying the whole by the decimal version of the percentage."
     },
     {
       "type": "quote",
-      "text": "Part = (Percentage ÷ 100) × Whole",
-      "author": "Mathematical Formula"
+      "text": "Target Component = (Percentage ÷ 100) × Exact Whole Base",
+      "author": "Mathematical Standard"
     },
     {
       "type": "paragraph",
-      "text": "If you want to find 18% of $2,000, simply multiply <strong>0.18 × 2000</strong>, yielding a result of <strong>$360</strong>."
+      "text": "If you want to extract 18% out of a $2,000 commission check, you mathematically construct <strong>0.18 × 2000</strong>, yielding a final physical cut of <strong>$360</strong>."
     },
     {
       "type": "heading",
-      "text": "Formula 2: Percentage Change (Growth or Deficit)"
+      "text": "Formula 2: The Delta (Percentage Growth)"
     },
     {
       "type": "paragraph",
-      "text": "Are your real estate investments actually growing, or are they losing value to inflation? Or perhaps you want to prove to your boss that your department's metric increased. This requires finding the <em>Delta</em>."
+      "text": "If your technology portfolio was worth $4,000 yesterday, and is suddenly worth $5,200 today, how do you prove your exact growth scaling to an investor? You need to find the Delta."
     },
     {
       "type": "quote",
       "text": "Percentage Change = ((New Value - Old Value) ÷ Old Value) × 100",
-      "author": "Mathematical Formula"
-    },
-    {
-      "type": "paragraph",
-      "text": "If your stock portfolio was worth $4,000 yesterday, and is worth $5,200 today:<br/>1. Subtract the Old from the New: 5200 - 4000 = 1200<br/>2. Divide by the Old base: 1200 ÷ 4000 = 0.30<br/>3. Multiply by 100. You experienced a <strong>+30%</strong> growth matrix."
-    },
-    {
-      "type": "heading",
-      "text": "Reversing the Engine: Finding the Original Price"
-    },
-    {
-      "type": "paragraph",
-      "text": "Sometimes, you only know the final price and the discount percentage, and you want to know what the original markup was before the sale."
+      "author": "Scaling Equation"
     },
     {
       "type": "list",
       "items": [
-        "The logic: if an item is 20% off, you are technically paying 80% of its original price.",
-        "Original Price = Final Price ÷ (1 - Discount Percentage)"
+        "1. Subtract the Old from the New to find the invisible physical gain: 5200 - 4000 = 1200",
+        "2. Divide that invisible gain by the original base metric: 1200 ÷ 4000 = 0.30",
+        "3. Multiply by 100. You experienced a catastrophic <strong>+30%</strong> growth matrix."
       ]
     },
     {
+      "type": "heading",
+      "text": "Reverse Engineering: Finding the True Shelf Price"
+    },
+    {
       "type": "paragraph",
-      "text": "If you bought a TV for $400 after a 20% discount, divide $400 by 0.80, and you will see the original tag was exactly $500. Master these basic percentage frameworks, and you master your budget."
+      "text": "Retailers will frequently broadcast the final price heavily declaring 'Already 20% OFF!', entirely hiding the original shelf price to prevent you from knowing if the deal is actually legitimate. Let's reverse-hack the system."
+    },
+    {
+      "type": "paragraph",
+      "text": "The ironclad logic: if an item is completely 20% off, you are technically paying for the remaining 80% slice of that item's total mass."
+    },
+    {
+      "type": "quote",
+      "text": "Original Shelf Price = Final Paid Price ÷ (1 - Discount Percentage as Decimal)",
+      "author": "Reverse Logic"
+    },
+    {
+      "type": "paragraph",
+      "text": "If you paid $400 for a server rig after supposedly receiving a 20% promotional discount, simply divide your $400 by 0.80. You will instantly verify the original shelf tag was exactly $500 before the registers opened."
     }
   ],
   "related_calculators": [
     {
       "title": "Percentage Calculator",
       "href": "/en/calculators/percentage-calculator",
-      "description": "Calculate exact discounts, increases, and proportions easily."
+      "description": "Calculate exact discounts, scaling increases, and fractional proportions instantly."
     },
     {
       "title": "Compound Interest Calculator",
       "href": "/en/calculators/compound-interest-calculator",
-      "description": "See how percentage gains stack exponentially over time."
+      "description": "See how fixed percentage gains stack exponentially over time."
     }
   ]
 }
