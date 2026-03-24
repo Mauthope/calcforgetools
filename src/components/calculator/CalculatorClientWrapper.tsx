@@ -343,11 +343,22 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
   return (
     <div className="w-full flex flex-col gap-6 lg:gap-8 relative">
-      {/* Mobile Scroll Analytics Sidebar */}
-      <motion.div
-        className="fixed top-0 right-0 w-1.5 h-full bg-gradient-to-b from-[#00c6ff] via-[#007aff] to-[#b400ff] origin-top z-50 lg:hidden shadow-[0_0_15px_rgba(0,198,255,0.6)]"
-        style={{ scaleY }}
-      />
+      {/* Mobile Scroll Analytics Sidebar (Left Docked) */}
+      <div className="fixed top-[20vh] bottom-[20vh] left-2 w-2 z-50 lg:hidden pointer-events-none flex flex-col items-center opacity-90 transition-opacity duration-500">
+        {/* Start Anchor */}
+        <div className="w-2.5 h-2.5 rounded-full bg-[#00c6ff] shadow-[0_0_12px_rgba(0,198,255,0.9)] z-10" />
+        
+        {/* Track Body */}
+        <div className="flex-1 w-1 bg-black/10 dark:bg-white/10 border-x border-black/5 dark:border-white/5 rounded-full relative overflow-hidden -my-1 backdrop-blur-sm">
+          <motion.div
+            className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00c6ff] via-[#007aff] to-[#b400ff] origin-top shadow-[0_0_15px_rgba(0,198,255,0.8)]"
+            style={{ scaleY }}
+          />
+        </div>
+        
+        {/* End Anchor */}
+        <div className="w-2.5 h-2.5 rounded-full bg-[#b400ff] shadow-[0_0_12px_rgba(180,0,255,0.9)] z-10" />
+      </div>
 
       {/* Full-width Top Banner Injection */}
       {premiumTemplate && (
