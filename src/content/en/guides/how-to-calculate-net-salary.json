@@ -1,0 +1,86 @@
+{
+  "slug": "how-to-calculate-net-salary",
+  "meta_title": "How to Calculate CLT Net Salary 2025 | INSS & IRRF Tables - CalcForgeTools",
+  "meta_description": "Learn step by step how to calculate your Brazilian CLT net salary. Understand the 2025 progressive INSS and IRRF tax tables and take control of your paycheck.",
+  "hero": {
+    "title": "How to Calculate CLT Net Salary",
+    "subtitle": "The complete guide to understanding every cent that leaves your paycheck and taking control of your financial life."
+  },
+  "related_tools": [
+    {
+      "id": "clt_salary",
+      "href": "/en/calculators/clt-net-salary-calculator",
+      "title": "CLT Net Salary Calculator",
+      "description": "Calculate your net salary automatically with the 2025 tables.",
+      "category": "labor"
+    }
+  ],
+  "content": [
+    {
+      "type": "quote",
+      "text": "It's not how much money you make, but how much money you keep.",
+      "author": "Robert Kiyosaki"
+    },
+    {
+      "type": "paragraph",
+      "text": "Did you know that the average Brazilian worker <strong>cannot explain</strong> why the amount deposited in their account is less than what was agreed in the contract? The reality is brutal: between the promised gross salary and the money that actually reaches your account, there are two tax guillotines — <strong>INSS</strong> and <strong>IRRF</strong>. Both work progressively, meaning the more you earn, the sharper the blade."
+    },
+    {
+      "type": "heading",
+      "text": "The Deduction Map: INSS Table 2025"
+    },
+    {
+      "type": "paragraph",
+      "text": "INSS works in bands. You <strong>don't pay 14% on everything</strong> — each slice of your salary is taxed at a different rate. Think of it as a staircase: each step charges its own rate. Here is the official table:"
+    },
+    {
+      "type": "table",
+      "headers": ["Salary Band", "INSS Rate", "Max Contribution in Band"],
+      "rows": [
+        ["Up to R$ 1,518.00", "7.5%", "R$ 113.85"],
+        ["R$ 1,518.01 to R$ 2,793.88", "9%", "R$ 114.83"],
+        ["R$ 2,793.89 to R$ 4,190.83", "12%", "R$ 167.63"],
+        ["R$ 4,190.84 to R$ 8,157.41", "14%", "<strong>Ceiling: R$ 951.63</strong>"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "The Second Guillotine: IRRF Table 2025"
+    },
+    {
+      "type": "paragraph",
+      "text": "After deducting INSS from your gross, the remainder becomes the income tax calculation base. Each registered dependent <strong>reduces R$ 189.59</strong> from this base. Here are the brackets:"
+    },
+    {
+      "type": "table",
+      "headers": ["Calculation Base (after INSS)", "IRRF Rate", "Deduction"],
+      "rows": [
+        ["Up to R$ 2,259.20", "Exempt", "—"],
+        ["R$ 2,259.21 to R$ 2,826.65", "7.5%", "R$ 169.44"],
+        ["R$ 2,826.66 to R$ 3,751.05", "15%", "R$ 381.44"],
+        ["R$ 3,751.06 to R$ 4,664.68", "22.5%", "R$ 662.77"],
+        ["Above R$ 4,664.68", "27.5%", "R$ 896.00"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "The Complete Formula"
+    },
+    {
+      "type": "formula",
+      "expression": "Net Salary = Gross Salary − INSS (progressive) − IRRF (progressive) − Other Deductions"
+    },
+    {
+      "type": "paragraph",
+      "text": "The order matters: <strong>first</strong> deduct INSS from gross, <strong>then</strong> calculate IRRF on what remains (calculation base). Getting the order wrong completely changes the result."
+    },
+    {
+      "type": "heading",
+      "text": "FGTS: The Invisible Reserve"
+    },
+    {
+      "type": "paragraph",
+      "text": "Besides deductions, there is <strong>FGTS (8% of gross)</strong>, deposited by the employer into a linked account. It is <strong>not deducted</strong> from your salary — it is an additional employer cost. You can only withdraw it in specific situations such as termination without cause, home purchase, or retirement."
+    }
+  ]
+}

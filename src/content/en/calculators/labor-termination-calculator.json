@@ -1,0 +1,89 @@
+{
+  "category": "labor",
+  "calculator_id": "labor_termination",
+  "slug": "labor-termination-calculator",
+  "title": "Labor Termination Calculator",
+  "meta_title": "Labor Termination Calculator 2025 | Vacation, 13th, FGTS - CalcForgeTools",
+  "meta_description": "Calculate your full Brazilian labor termination package: proportional vacation, 13th salary, FGTS balance, 40% penalty, and notice period. Free instant simulation.",
+  "hero": {
+    "title": "Labor Termination Calculator",
+    "subtitle": "Know exactly how much you are entitled to receive upon termination. Enter your salary and dates to see every component broken down: vacation, 13th salary, FGTS, and penalty."
+  },
+  "inputs": [
+    {
+      "name": "monthlySalary",
+      "label": "Monthly Salary (R$)",
+      "type": "number",
+      "defaultValue": 3500
+    },
+    {
+      "name": "startDate",
+      "label": "Start Date (Admission)",
+      "type": "date",
+      "defaultValue": "2022-03-01"
+    },
+    {
+      "name": "endDate",
+      "label": "End Date (Termination)",
+      "type": "date",
+      "defaultValue": "2025-03-24"
+    },
+    {
+      "name": "terminationType",
+      "label": "Termination Type",
+      "type": "select",
+      "defaultValue": "sem_justa_causa",
+      "options": [
+        { "label": "Fired Without Cause (by employer)", "value": "sem_justa_causa" },
+        { "label": "Voluntary Resignation (by employee)", "value": "pedido_demissao" },
+        { "label": "Fired for Cause", "value": "justa_causa" }
+      ]
+    }
+  ],
+  "formula": "Termination = Prop. Vacation + 1/3 Bonus + Prop. 13th + FGTS + 40% Penalty + Notice",
+  "outputs": [
+    "totalRescission",
+    "proportionalVacation",
+    "vacationBonus",
+    "proportional13th",
+    "fgtsBalance",
+    "fgtsPenalty",
+    "noticePeriod"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "Termination is calculated by adding: proportional vacation (months worked in the accrual period ÷ 12 × salary), the constitutional 1/3 vacation bonus, proportional 13th salary (months in the year ÷ 12 × salary), FGTS balance (8% × salary × total months), 40% FGTS penalty (only for termination without cause), and proportional notice period.",
+  "example": "An employee with a R$ 3,500 salary fired without cause after 3 years would receive approximately: proportional vacation + 1/3, proportional 13th, accumulated FGTS with 40% penalty, and a 39-day notice period.",
+  "faq": [
+    {
+      "question": "What is the 40% FGTS penalty?",
+      "answer": "It is a penalty the employer pays when firing without cause. It equals 40% of the total FGTS balance accumulated during the employment contract."
+    },
+    {
+      "question": "Do I receive anything if fired for cause?",
+      "answer": "Only the salary balance for days worked and any overdue vacation. There is no right to notice period, FGTS penalty, proportional vacation, or proportional 13th salary."
+    },
+    {
+      "question": "Is the notice period always 30 days?",
+      "answer": "No. The notice period starts at 30 days and gains 3 additional days per year worked at the company, up to a maximum of 120 days (30 + 90 extra days for 30 years of service)."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "CLT Net Salary Calculator",
+      "href": "/en/calculators/clt-net-salary-calculator",
+      "description": "Find out your net salary with INSS and IRRF deductions."
+    },
+    {
+      "title": "Debt Payoff Calculator",
+      "href": "/en/calculators/debt-payoff-calculator",
+      "description": "Plan how to use your termination package to strategically pay off debts."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "How to Calculate Labor Termination",
+      "href": "/en/guides/how-to-calculate-labor-termination",
+      "description": "Understand every component of a Brazilian termination package and know how to verify the amounts."
+    }
+  ]
+}

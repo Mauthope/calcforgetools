@@ -1,0 +1,86 @@
+{
+  "slug": "como-calcular-salario-liquido",
+  "meta_title": "Como Calcular Salário Líquido CLT 2025 | Tabela INSS e IRRF - CalcForgeTools",
+  "meta_description": "Aprenda passo a passo como calcular seu salário líquido CLT. Entenda as tabelas progressivas de INSS e IRRF de 2025 e nunca mais fique no escuro.",
+  "hero": {
+    "title": "Como Calcular Salário Líquido CLT",
+    "subtitle": "O guia completo para entender cada centavo que sai do seu contracheque e tomar o controle da sua vida financeira."
+  },
+  "related_tools": [
+    {
+      "id": "clt_salary",
+      "href": "/pt/calculators/calculadora-salario-liquido-clt",
+      "title": "Calculadora Salário Líquido CLT",
+      "description": "Calcule seu salário líquido automaticamente com as tabelas 2025.",
+      "category": "labor"
+    }
+  ],
+  "content": [
+    {
+      "type": "quote",
+      "text": "Não é o quanto você ganha que importa, é o quanto você leva para casa.",
+      "author": "Robert Kiyosaki"
+    },
+    {
+      "type": "paragraph",
+      "text": "Você sabia que o brasileiro médio <strong>não sabe explicar</strong> por que o valor depositado na conta é menor do que o combinado no contrato? A realidade é brutal: entre o salário bruto prometido e o dinheiro que efetivamente chega na sua conta existem duas guilhotinas tributárias — o <strong>INSS</strong> e o <strong>IRRF</strong>. E ambos funcionam de forma progressiva, o que significa que quanto mais você ganha, mais aguda é a lâmina."
+    },
+    {
+      "type": "heading",
+      "text": "O Mapa dos Descontos: Tabela INSS 2025"
+    },
+    {
+      "type": "paragraph",
+      "text": "O INSS funciona por faixas. Você <strong>não paga 14% sobre tudo</strong> — cada trecho do seu salário é tributado por uma alíquota diferente. É como uma escada: cada degrau cobra uma taxa própria. Veja a tabela oficial:"
+    },
+    {
+      "type": "table",
+      "headers": ["Faixa Salarial", "Alíquota INSS", "Contribuição Máxima na Faixa"],
+      "rows": [
+        ["Até R$ 1.518,00", "7,5%", "R$ 113,85"],
+        ["De R$ 1.518,01 até R$ 2.793,88", "9%", "R$ 114,83"],
+        ["De R$ 2.793,89 até R$ 4.190,83", "12%", "R$ 167,63"],
+        ["De R$ 4.190,84 até R$ 8.157,41", "14%", "<strong>Teto: R$ 951,63</strong>"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "A Segunda Guilhotina: Tabela IRRF 2025"
+    },
+    {
+      "type": "paragraph",
+      "text": "Depois de descontar o INSS do seu bruto, o que sobra entra na base de cálculo do Imposto de Renda Retido na Fonte. Cada dependente registrado <strong>reduz R$ 189,59</strong> dessa base. Veja as faixas:"
+    },
+    {
+      "type": "table",
+      "headers": ["Base de Cálculo (após INSS)", "Alíquota IRRF", "Dedução"],
+      "rows": [
+        ["Até R$ 2.259,20", "Isento", "—"],
+        ["De R$ 2.259,21 até R$ 2.826,65", "7,5%", "R$ 169,44"],
+        ["De R$ 2.826,66 até R$ 3.751,05", "15%", "R$ 381,44"],
+        ["De R$ 3.751,06 até R$ 4.664,68", "22,5%", "R$ 662,77"],
+        ["Acima de R$ 4.664,68", "27,5%", "R$ 896,00"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "A Fórmula Completa"
+    },
+    {
+      "type": "formula",
+      "expression": "Salário Líquido = Salário Bruto − INSS (progressivo) − IRRF (progressivo) − Outras Deduções"
+    },
+    {
+      "type": "paragraph",
+      "text": "A ordem importa: <strong>primeiro</strong> desconta-se o INSS do bruto, <strong>depois</strong> calcula-se o IRRF sobre o que sobrou (base de cálculo). Errar a ordem muda completamente o resultado."
+    },
+    {
+      "type": "heading",
+      "text": "O FGTS: A Reserva Invisível"
+    },
+    {
+      "type": "paragraph",
+      "text": "Além dos descontos, existe o <strong>FGTS (8% do bruto)</strong>, que é depositado pelo empregador em uma conta vinculada. Ele <strong>não é descontado</strong> do seu salário — é um custo adicional da empresa. Você só pode sacá-lo em situações específicas como demissão sem justa causa, compra de imóvel ou aposentadoria."
+    }
+  ]
+}

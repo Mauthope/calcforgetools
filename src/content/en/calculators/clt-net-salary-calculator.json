@@ -1,0 +1,76 @@
+{
+  "category": "labor",
+  "calculator_id": "clt_salary",
+  "slug": "clt-net-salary-calculator",
+  "title": "CLT Net Salary Calculator",
+  "meta_title": "CLT Net Salary Calculator 2025 | INSS & IRRF - CalcForgeTools",
+  "meta_description": "Calculate your Brazilian CLT net salary instantly. See exact INSS and IRRF deductions using the official 2025 tax tables and find out your take-home pay.",
+  "hero": {
+    "title": "CLT Net Salary Calculator",
+    "subtitle": "Find out exactly how much lands in your bank account. Enter your gross salary and see INSS, IRRF deductions, and FGTS deposits calculated automatically with the 2025 tables."
+  },
+  "inputs": [
+    {
+      "name": "grossSalary",
+      "label": "Gross Salary (R$)",
+      "type": "number",
+      "defaultValue": 4000
+    },
+    {
+      "name": "dependents",
+      "label": "Number of Dependents",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "name": "otherDeductions",
+      "label": "Other Deductions (e.g., Health Plan)",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "Net = Gross - INSS (progressive) - IRRF (progressive) - Other Deductions",
+  "outputs": [
+    "netSalary",
+    "inssDeduction",
+    "irrfDeduction",
+    "totalDeductions",
+    "fgtsDeposit"
+  ],
+  "chart_type": "doughnut",
+  "formula_explanation": "The calculation uses the official 2025 progressive INSS and IRRF tax tables. INSS is applied in bands on the gross salary. IRRF is calculated on the base (gross - INSS - R$189.59 per dependent deduction).",
+  "example": "With a gross salary of R$ 4,000.00 and no dependents, the INSS deduction is approximately R$ 373.09 and the IRRF is approximately R$ 73.83, resulting in a net salary of around R$ 3,553.08.",
+  "faq": [
+    {
+      "question": "What is the difference between gross and net salary?",
+      "answer": "Gross salary is the total amount defined in your employment contract. Net salary is the amount that actually hits your bank account after mandatory INSS and IRRF deductions."
+    },
+    {
+      "question": "What is FGTS and is it deducted from salary?",
+      "answer": "FGTS (Severance Indemnity Fund) is an 8% deposit made by the employer into a linked worker account. It is NOT deducted from your salary — it is an additional employer obligation."
+    },
+    {
+      "question": "How much does each dependent reduce in taxes?",
+      "answer": "Each dependent reduces R$ 189.59 from the IRRF calculation base. This means having dependents lowers the amount on which income tax is calculated, reducing the final deduction."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Labor Termination Calculator",
+      "href": "/en/calculators/labor-termination-calculator",
+      "description": "Calculate your termination value including vacation, 13th salary, FGTS and penalty."
+    },
+    {
+      "title": "Compound Interest Calculator",
+      "href": "/en/calculators/compound-interest-calculator",
+      "description": "Simulate how much your net salary would yield if invested monthly."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "How to Calculate CLT Net Salary",
+      "href": "/en/guides/how-to-calculate-net-salary",
+      "description": "Learn step by step how INSS and IRRF tax brackets work and never be in the dark about your paycheck deductions."
+    }
+  ]
+}

@@ -24,6 +24,55 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
           }
         ]
       };
+    case 'clt_salary':
+      return {
+        type: 'doughnut',
+        labels: lang === 'en' 
+          ? ['Net Salary', 'INSS', 'IRRF', 'Other Deductions'] 
+          : ['Salário Líquido', 'INSS', 'IRRF', 'Outras Deduções'],
+        datasets: [{
+          data: [
+            results.netSalary || 0,
+            results.inssDeduction || 0,
+            results.irrfDeduction || 0,
+            parseFloat(inputs.otherDeductions) || 0
+          ],
+          backgroundColor: [
+            'rgba(52, 199, 89, 0.9)',
+            'rgba(255, 149, 0, 0.8)',
+            'rgba(255, 59, 48, 0.8)',
+            'rgba(142, 142, 147, 0.5)'
+          ],
+          borderWidth: 0,
+        }]
+      };
+    case 'labor_termination':
+      return {
+        type: 'bar',
+        labels: lang === 'en'
+          ? ['Vacation', '1/3 Bonus', '13th Salary', 'FGTS', 'FGTS Penalty', 'Notice']
+          : ['Férias Prop.', '1/3 Férias', '13° Prop.', 'FGTS', 'Multa FGTS', 'Aviso Prévio'],
+        datasets: [{
+          label: lang === 'en' ? 'Breakdown' : 'Detalhamento',
+          data: [
+            results.proportionalVacation || 0,
+            results.vacationBonus || 0,
+            results.proportional13th || 0,
+            results.fgtsBalance || 0,
+            results.fgtsPenalty || 0,
+            results.noticePeriod || 0
+          ],
+          backgroundColor: [
+            'rgba(0, 122, 255, 0.8)',
+            'rgba(88, 86, 214, 0.8)',
+            'rgba(52, 199, 89, 0.8)',
+            'rgba(255, 149, 0, 0.8)',
+            'rgba(255, 59, 48, 0.8)',
+            'rgba(175, 82, 222, 0.8)'
+          ],
+          borderRadius: 8,
+        }]
+      };
     default:
       return null;
   }

@@ -1,0 +1,89 @@
+{
+  "category": "labor",
+  "calculator_id": "labor_termination",
+  "slug": "calculadora-rescisao-trabalhista",
+  "title": "Calculadora de Rescisão Trabalhista",
+  "meta_title": "Calculadora de Rescisão Trabalhista 2025 | Férias, 13°, FGTS - CalcForgeTools",
+  "meta_description": "Calcule sua rescisão trabalhista completa: férias proporcionais, 13° salário, FGTS, multa de 40% e aviso prévio. Simulação gratuita e instantânea.",
+  "hero": {
+    "title": "Calculadora de Rescisão Trabalhista",
+    "subtitle": "Saiba exatamente quanto você tem direito a receber na demissão. Informe seu salário e datas e veja todos os valores detalhados: férias, 13°, FGTS e multa."
+  },
+  "inputs": [
+    {
+      "name": "monthlySalary",
+      "label": "Salário Mensal (R$)",
+      "type": "number",
+      "defaultValue": 3500
+    },
+    {
+      "name": "startDate",
+      "label": "Data de Admissão",
+      "type": "date",
+      "defaultValue": "2022-03-01"
+    },
+    {
+      "name": "endDate",
+      "label": "Data de Demissão",
+      "type": "date",
+      "defaultValue": "2025-03-24"
+    },
+    {
+      "name": "terminationType",
+      "label": "Tipo de Demissão",
+      "type": "select",
+      "defaultValue": "sem_justa_causa",
+      "options": [
+        { "label": "Demissão Sem Justa Causa (pelo empregador)", "value": "sem_justa_causa" },
+        { "label": "Pedido de Demissão (pelo empregado)", "value": "pedido_demissao" },
+        { "label": "Demissão por Justa Causa", "value": "justa_causa" }
+      ]
+    }
+  ],
+  "formula": "Rescisão = Férias Prop. + 1/3 Férias + 13° Prop. + FGTS + Multa 40% + Aviso Prévio",
+  "outputs": [
+    "totalRescission",
+    "proportionalVacation",
+    "vacationBonus",
+    "proportional13th",
+    "fgtsBalance",
+    "fgtsPenalty",
+    "noticePeriod"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "A rescisão é calculada somando: férias proporcionais (meses trabalhados no período aquisitivo ÷ 12 × salário), o adicional de 1/3 constitucional sobre as férias, 13° proporcional (meses no ano ÷ 12 × salário), saldo de FGTS (8% × salário × meses totais), multa de 40% sobre o FGTS (apenas demissão sem justa causa), e aviso prévio proporcional.",
+  "example": "Um trabalhador com salário de R$ 3.500 demitido sem justa causa após 3 anos receberia aproximadamente: férias proporcionais + 1/3, 13° proporcional, FGTS acumulado com multa de 40%, e aviso prévio de 39 dias.",
+  "faq": [
+    {
+      "question": "O que é a multa de 40% do FGTS?",
+      "answer": "É uma penalidade que o empregador paga ao demitir sem justa causa. Equivale a 40% de todo o saldo de FGTS acumulado durante o contrato de trabalho."
+    },
+    {
+      "question": "Na demissão por justa causa eu recebo algo?",
+      "answer": "Apenas o saldo de salário dos dias trabalhados e férias vencidas (se houver). Não há direito a aviso prévio, multa de FGTS, férias proporcionais nem 13° proporcional."
+    },
+    {
+      "question": "O aviso prévio é sempre de 30 dias?",
+      "answer": "Não. O aviso prévio começa em 30 dias e ganha mais 3 dias por ano trabalhado na empresa, podendo chegar ao limite máximo de 120 dias (ou seja, 30 + 90 dias extras para quem trabalhou 30 anos)."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora Salário Líquido CLT",
+      "href": "/pt/calculators/calculadora-salario-liquido-clt",
+      "description": "Descubra seu salário líquido com os descontos de INSS e IRRF."
+    },
+    {
+      "title": "Calculadora de Quitação de Dívida",
+      "href": "/pt/calculators/calculadora-de-quitacao-de-divida",
+      "description": "Planeje como usar sua rescisão para quitar dívidas estrategicamente."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular Rescisão Trabalhista",
+      "href": "/pt/guides/como-calcular-rescisao-trabalhista",
+      "description": "Entenda cada verba da rescisão e saiba conferir se os valores estão corretos."
+    }
+  ]
+}

@@ -415,6 +415,14 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                       onChange={handleChange}
                       options={input.options || []}
                     />
+                  ) : input.type === 'date' ? (
+                    <InputField
+                      name={input.name}
+                      label={getDynamicLabel(input.name) || input.label}
+                      type="date"
+                      value={inputs[input.name] === undefined ? '' : inputs[input.name]}
+                      onChange={handleChange}
+                    />
                   ) : (
                     <InputField
                       name={input.name}

@@ -208,6 +208,106 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
+    case 'clt_salary': {
+      const gross = parseFloat(inputs.grossSalary) || 0;
+      const deps = parseFloat(inputs.dependents) || 0;
+      const otherDed = parseFloat(inputs.otherDeductions) || 0;
+
+      // 2025 Progressive INSS
+      let inss = 0;
+      const inssBands = [
+        { limit: 1518.00, rate: 0.075 },
+        { limit: 2793.88, rate: 0.09 },
+        { limit: 4190.83, rate: 0.12 },
+        { limit: 8157.41, rate: 0.14 }
+      ];
+      let remaining = gross;
+      let prevLimit = 0;
+      for (const band of inssBands) {
+        const taxable = Math.min(remaining, band.limit - prevLimit);
+        if (taxable <= 0) break;
+        inss += taxable * band.rate;
+        remaining -= taxable;
+        prevLimit = band.limit;
+      }
+      if (gross > 8157.41) inss = 951.63; // INSS ceiling 2025
+
+      // IRRF base = gross - INSS - dependents deduction (R$ 189.59 each)
+      const depDeduction = deps * 189.59;
+      const irrfBase = gross - inss - depDeduction - otherDed;
+
+      let irrf = 0;
+      if (irrfBase > 4664.68) {
+        irrf = irrfBase * 0.275 - 896.00;
+      } else if (irrfBase > 3751.05) {
+        irrf = irrfBase * 0.225 - 662.77;
+      } else if (irrfBase > 2826.65) {
+        irrf = irrfBase * 0.15 - 381.44;
+      } else if (irrfBase > 2259.20) {
+        irrf = irrfBase * 0.075 - 169.44;
+      }
+      if (irrf < 0) irrf = 0;
+
+      const fgts = gross * 0.08;
+      const totalDeductions = inss + irrf + otherDed;
+      const net = gross - totalDeductions;
+
+      result.inssDeduction = inss;
+      result.irrfDeduction = irrf;
+      result.totalDeductions = totalDeductions;
+      result.netSalary = net;
+      result.fgtsDeposit = fgts;
+      break;
+    }
+
+    case 'labor_termination': {
+      const salary = parseFloat(inputs.monthlySalary) || 0;
+      const startStr = inputs.startDate || '';
+      const endStr = inputs.endDate || '';
+      const termType = inputs.terminationType || 'sem_justa_causa';
+
+      const start = startStr ? new Date(startStr) : new Date();
+      const end = endStr ? new Date(endStr) : new Date();
+
+      // Months worked in the current vacation period (proportional vacation)
+      const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+      const vacMonths = totalMonths % 12 || 1; // months since last vacation cycle
+      const propVacation = (salary / 12) * vacMonths;
+      const vacBonus = propVacation / 3; // 1/3 constitucional
+
+      // Proportional 13th salary (months in current year)
+      const monthsThisYear = end.getMonth() + 1; // Jan=0+1=1
+      const prop13th = (salary / 12) * monthsThisYear;
+
+      // FGTS balance estimate (8% per month of entire period)
+      const fgtsBalance = salary * 0.08 * totalMonths;
+
+      // 40% FGTS penalty (only sem_justa_causa)
+      const fgtsPenalty = termType === 'sem_justa_causa' ? fgtsBalance * 0.40 : 0;
+
+      // Notice period (30 days + 3 days per year worked, capped at 90 extra days)
+      const yearsWorked = Math.floor(totalMonths / 12);
+      const noticeDays = termType === 'justa_causa' ? 0 : Math.min(30 + (yearsWorked * 3), 120);
+      const noticePay = termType === 'pedido_demissao' ? 0 : (salary / 30) * noticeDays;
+
+      let total = propVacation + vacBonus + prop13th;
+      if (termType === 'sem_justa_causa') {
+        total += fgtsBalance + fgtsPenalty + noticePay;
+      } else if (termType === 'pedido_demissao') {
+        total += fgtsBalance;
+      }
+      // justa_causa: no FGTS, no penalty, no notice
+
+      result.proportionalVacation = propVacation;
+      result.vacationBonus = vacBonus;
+      result.proportional13th = prop13th;
+      result.fgtsBalance = fgtsBalance;
+      result.fgtsPenalty = fgtsPenalty;
+      result.noticePeriod = noticePay;
+      result.totalRescission = total;
+      break;
+    }
+
     default:
       // Fallback: attempts to use eval string if no strict implementation is found
       break;

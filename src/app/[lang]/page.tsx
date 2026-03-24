@@ -176,7 +176,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     <ShieldCheck className="w-6 h-6 stroke-[1.5]" />
                   </div>
                 </div>
-                <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">{lang === 'en' ? 'Coming Soon' : 'Em Breve'}</span>
+                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">2 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
                 <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
                   {lang === 'en' ? 'Labor & Payroll Calculators' : 'Calculadoras Trabalhistas'}
                 </h3>

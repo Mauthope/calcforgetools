@@ -1,0 +1,81 @@
+{
+  "slug": "como-calcular-rescisao-trabalhista",
+  "meta_title": "Como Calcular Rescisão Trabalhista 2025 | Guia Completo - CalcForgeTools",
+  "meta_description": "Aprenda a calcular cada verba da sua rescisão trabalhista: férias proporcionais, 13° salário, FGTS, multa de 40% e aviso prévio. Confira seus direitos.",
+  "hero": {
+    "title": "Como Calcular Rescisão Trabalhista",
+    "subtitle": "O guia definitivo para conferir se a empresa está pagando corretamente cada centavo que você tem direito na demissão."
+  },
+  "related_tools": [
+    {
+      "id": "labor_termination",
+      "href": "/pt/calculators/calculadora-rescisao-trabalhista",
+      "title": "Calculadora de Rescisão Trabalhista",
+      "description": "Simule sua rescisão completa com todos os valores detalhados.",
+      "category": "labor"
+    }
+  ],
+  "content": [
+    {
+      "type": "quote",
+      "text": "A ignorância sobre seus direitos trabalhistas é o imposto mais caro que você paga.",
+      "author": "Provérbio popular adaptado"
+    },
+    {
+      "type": "paragraph",
+      "text": "Você sabia que <strong>7 em cada 10 trabalhadores</strong> não conferem os valores da rescisão e simplesmente assinam o termo? Pior: estima-se que cerca de <strong>30% das rescisões</strong> contêm erros que prejudicam o trabalhador. Este guia existe para que você nunca seja uma dessas estatísticas."
+    },
+    {
+      "type": "heading",
+      "text": "As Verbas da Rescisão: O Que Você Recebe"
+    },
+    {
+      "type": "paragraph",
+      "text": "A rescisão trabalhista é composta por diversas verbas que dependem do <strong>tipo de demissão</strong>. Veja a tabela comparativa completa entre os três cenários possíveis:"
+    },
+    {
+      "type": "table",
+      "headers": ["Verba", "Sem Justa Causa", "Pedido de Demissão", "Justa Causa"],
+      "rows": [
+        ["Férias Proporcionais + 1/3", "✅ Sim", "✅ Sim", "❌ Não"],
+        ["13° Salário Proporcional", "✅ Sim", "✅ Sim", "❌ Não"],
+        ["Saldo de FGTS", "✅ Sacável", "❌ Bloqueado", "❌ Bloqueado"],
+        ["Multa 40% FGTS", "<strong>✅ Sim</strong>", "❌ Não", "❌ Não"],
+        ["Aviso Prévio Indenizado", "✅ Sim", "❌ Não (pode ser descontado)", "❌ Não"],
+        ["Seguro Desemprego", "✅ Pode requerer", "❌ Não", "❌ Não"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Férias Proporcionais + 1/3 Constitucional"
+    },
+    {
+      "type": "formula",
+      "expression": "Férias Proporcionais = (Salário ÷ 12) × Meses Trabalhados no Período Aquisitivo"
+    },
+    {
+      "type": "paragraph",
+      "text": "A cada 12 meses de trabalho, você adquire o direito a 30 dias de férias. Se for demitido antes de completar um período, recebe proporcionalmente. Sobre esse valor, incide ainda o <strong>adicional de 1/3</strong> garantido pela Constituição."
+    },
+    {
+      "type": "heading",
+      "text": "Aviso Prévio Proporcional"
+    },
+    {
+      "type": "formula",
+      "expression": "Aviso Prévio = 30 dias + (3 dias × anos trabalhados), máximo 120 dias"
+    },
+    {
+      "type": "paragraph",
+      "text": "Na demissão sem justa causa, a empresa deve indenizar o aviso prévio se não exigir que o empregado trabalhe. Cada ano completo de serviço acrescenta 3 dias ao aviso, até o <strong>teto de 120 dias</strong>. Um funcionário com 10 anos recebe 60 dias de aviso."
+    },
+    {
+      "type": "heading",
+      "text": "FGTS e a Multa de 40%"
+    },
+    {
+      "type": "paragraph",
+      "text": "O empregador deposita mensalmente <strong>8% do seu salário</strong> em uma conta de FGTS. Na demissão sem justa causa, você saca todo o saldo acumulado <strong>mais uma multa de 40%</strong> sobre esse saldo. É a maior fatia financeira da rescisão e existe para proteger o trabalhador que foi desligado involuntariamente."
+    }
+  ]
+}

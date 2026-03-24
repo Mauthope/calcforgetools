@@ -26,7 +26,13 @@ export function Navbar() {
     // Categories
     'financeira': 'financial',
     'matematica': 'mathematical',
-    'trabalhista': 'labor'
+    'trabalhista': 'labor',
+    // Labor Calculators
+    'calculadora-salario-liquido-clt': 'clt-net-salary-calculator',
+    'calculadora-rescisao-trabalhista': 'labor-termination-calculator',
+    // Labor Guides
+    'como-calcular-salario-liquido': 'how-to-calculate-net-salary',
+    'como-calcular-rescisao-trabalhista': 'how-to-calculate-labor-termination'
   };
 
   const enToPtMap: Record<string, string> = {
@@ -40,7 +46,13 @@ export function Navbar() {
     // Categories
     'financial': 'financeira',
     'mathematical': 'matematica',
-    'labor': 'trabalhista'
+    'labor': 'trabalhista',
+    // Labor Calculators
+    'clt-net-salary-calculator': 'calculadora-salario-liquido-clt',
+    'labor-termination-calculator': 'calculadora-rescisao-trabalhista',
+    // Labor Guides
+    'how-to-calculate-net-salary': 'como-calcular-salario-liquido',
+    'how-to-calculate-labor-termination': 'como-calcular-rescisao-trabalhista'
   };
 
   const toggleLang = () => {

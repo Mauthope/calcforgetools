@@ -1,0 +1,76 @@
+{
+  "category": "labor",
+  "calculator_id": "clt_salary",
+  "slug": "calculadora-salario-liquido-clt",
+  "title": "Calculadora de Salário Líquido CLT",
+  "meta_title": "Calculadora Salário Líquido CLT 2025 | INSS e IRRF - CalcForgeTools",
+  "meta_description": "Calcule seu salário líquido CLT em segundos. Descubra os descontos exatos de INSS e IRRF com as tabelas atualizadas de 2025 e veja quanto cai na sua conta.",
+  "hero": {
+    "title": "Calculadora Salário Líquido CLT",
+    "subtitle": "Descubra exatamente quanto entra na sua conta. Insira seu salário bruto e veja os descontos de INSS, IRRF e depósito de FGTS calculados automaticamente com as tabelas 2025."
+  },
+  "inputs": [
+    {
+      "name": "grossSalary",
+      "label": "Salário Bruto (R$)",
+      "type": "number",
+      "defaultValue": 4000
+    },
+    {
+      "name": "dependents",
+      "label": "Número de Dependentes",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "name": "otherDeductions",
+      "label": "Outras Deduções (Ex: Plano de Saúde)",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "Líquido = Bruto - INSS (progressivo) - IRRF (progressivo) - Outras Deduções",
+  "outputs": [
+    "netSalary",
+    "inssDeduction",
+    "irrfDeduction",
+    "totalDeductions",
+    "fgtsDeposit"
+  ],
+  "chart_type": "doughnut",
+  "formula_explanation": "O cálculo usa as tabelas progressivas oficiais do INSS e IRRF de 2025. O INSS incide por faixas sobre o salário bruto. O IRRF é calculado sobre a base (bruto - INSS - dedução por dependente de R$ 189,59).",
+  "example": "Com um salário bruto de R$ 4.000,00 e sem dependentes, o desconto de INSS fica em torno de R$ 373,09 e o IRRF em torno de R$ 73,83, resultando em um salário líquido de aproximadamente R$ 3.553,08.",
+  "faq": [
+    {
+      "question": "Qual a diferença entre salário bruto e líquido?",
+      "answer": "O salário bruto é o valor total definido no contrato de trabalho. O salário líquido é o valor que efetivamente cai na sua conta bancária, após os descontos obrigatórios de INSS e IRRF."
+    },
+    {
+      "question": "O que é o FGTS e ele desconta do salário?",
+      "answer": "O FGTS (Fundo de Garantia do Tempo de Serviço) é um depósito de 8% feito pelo empregador em uma conta vinculada ao trabalhador. Ele NÃO é descontado do salário — é uma obrigação adicional da empresa."
+    },
+    {
+      "question": "Cada dependente reduz quanto do imposto?",
+      "answer": "Cada dependente reduz R$ 189,59 da base de cálculo do IRRF. Isso significa que ter dependentes diminui o valor sobre o qual o imposto de renda é calculado, reduzindo o desconto final."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Rescisão Trabalhista",
+      "href": "/pt/calculators/calculadora-rescisao-trabalhista",
+      "description": "Calcule o valor da sua rescisão incluindo férias, 13°, FGTS e multa."
+    },
+    {
+      "title": "Calculadora de Juros Compostos",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
+      "description": "Simule quanto seu salário líquido renderia investido mensalmente."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular Salário Líquido CLT",
+      "href": "/pt/guides/como-calcular-salario-liquido",
+      "description": "Aprenda passo a passo como funcionam as faixas de INSS e IRRF e nunca mais fique no escuro sobre seus descontos."
+    }
+  ]
+}
