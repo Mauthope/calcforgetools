@@ -344,27 +344,36 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
   return (
     <div className="w-full flex flex-col gap-6 lg:gap-8 relative">
       {/* Mobile Scroll Analytics Sidebar (Left Docked) */}
-      <div className="fixed top-[20vh] bottom-[20vh] left-2 w-2 z-50 lg:hidden pointer-events-none flex flex-col items-center opacity-90 transition-opacity duration-500">
+      <div className="fixed top-[20vh] bottom-[20vh] left-[6px] w-2 z-50 lg:hidden pointer-events-none flex flex-col items-center opacity-90 transition-opacity duration-500">
         {/* Start Anchor */}
-        <div className="w-2.5 h-2.5 rounded-full bg-[#00c6ff] shadow-[0_0_12px_rgba(0,198,255,0.9)] z-20 shrink-0" />
+        <div className="w-1.5 h-1.5 rounded-full bg-[#00c6ff] shadow-[0_0_10px_rgba(0,198,255,0.9)] z-20 shrink-0" />
         
-        {/* Track Body */}
-        <div className="flex-1 w-1 bg-black/10 dark:bg-white/10 border-x border-black/5 dark:border-white/5 rounded-full relative overflow-visible -my-1 backdrop-blur-sm">
+        {/* Track Body / Fishing Line */}
+        <div className="flex-1 w-[2px] bg-black/10 dark:bg-white/10 relative overflow-visible -my-1 backdrop-blur-sm">
           <motion.div
             className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#00c6ff] via-[#007aff] to-[#b400ff] origin-top shadow-[0_0_15px_rgba(0,198,255,0.8)] z-10"
             style={{ scaleY }}
           />
-          {/* Tracker Arrow Tip */}
+          {/* Fishing Hook Tip */}
           <motion.div 
             className="absolute left-1/2 -translate-x-1/2 -ml-[0.5px] mt-[-6px] text-[#b400ff] drop-shadow-[0_2px_5px_rgba(180,0,255,0.9)] z-30"
             style={{ top: useTransform(scaleY, v => `${v * 100}%`) }}
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            <svg width="14" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              {/* Fishing Hook SVG */}
+              <path d="M12 2v14 c0 3 -3 4 -5 2" />
+            </svg>
           </motion.div>
         </div>
         
-        {/* End Anchor */}
-        <div className="w-2.5 h-2.5 rounded-full bg-[#b400ff] shadow-[0_0_12px_rgba(180,0,255,0.9)] z-20 shrink-0" />
+        {/* End Anchor / The Fish */}
+        <div className="w-4 h-4 text-[#b400ff] drop-shadow-[0_0_10px_rgba(180,0,255,0.9)] z-20 shrink-0 mt-[2px] mr-[1px]">
+           <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: 'rotate(-90deg)' }}>
+             <path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 6 6-.06 3.46-2.44 6-6 6-3.56 0-7.56-2.54-8.5-6Z"/>
+             <path d="M18 12h.01"/>
+             <path d="M6.5 12L3 15V9z"/>
+           </svg>
+        </div>
       </div>
 
       {/* Full-width Top Banner Injection */}
