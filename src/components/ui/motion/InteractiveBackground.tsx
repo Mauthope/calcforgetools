@@ -11,6 +11,7 @@ export function InteractiveBackground() {
       {/* Orb 1: Intense Cyan */}
       <motion.div
         className="absolute w-[1200px] h-[1200px] -top-[600px] -left-[300px] rounded-full pointer-events-none will-change-transform z-0"
+        initial={{ x: "0vw", y: "0vh", scale: 1 }}
         animate={{
           x: ["0vw", "30vw", "-10vw", "40vw", "0vw"],
           y: ["0vh", "20vh", "60vh", "30vh", "0vh"],
@@ -18,12 +19,13 @@ export function InteractiveBackground() {
         }}
         transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,198,255,0.95)_0%,rgba(0,122,255,0.5)_40%,transparent_70%)] blur-[50px]" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,198,255,0.95)_0%,rgba(0,122,255,0.5)_40%,transparent_70%)]" />
       </motion.div>
 
       {/* Orb 2: Neon Emerald */}
       <motion.div
         className="absolute w-[1000px] h-[1000px] top-[10%] right-[10%] rounded-[100%] pointer-events-none will-change-transform z-0"
+        initial={{ x: "0vw", y: "0vh", scale: 1 }}
         animate={{
           x: ["0vw", "-40vw", "10vw", "-20vw", "0vw"],
           y: ["0vh", "40vh", "20vh", "60vh", "0vh"],
@@ -31,12 +33,13 @@ export function InteractiveBackground() {
         }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,150,0.9)_0%,rgba(46,204,113,0.4)_40%,transparent_70%)] blur-[60px]" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,255,150,0.9)_0%,rgba(46,204,113,0.4)_40%,transparent_70%)]" />
       </motion.div>
 
       {/* Orb 3: Deep Neon Purple/Pink */}
       <motion.div
         className="absolute w-[1400px] h-[1400px] -bottom-[400px] -left-[200px] rounded-full pointer-events-none will-change-transform z-0"
+        initial={{ x: "0vw", y: "0vh", scale: 1 }}
         animate={{
           x: ["0vw", "50vw", "20vw", "60vw", "0vw"],
           y: ["0vh", "-30vh", "-60vh", "-10vh", "0vh"],
@@ -44,7 +47,7 @@ export function InteractiveBackground() {
         }}
         transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,0,255,0.9)_0%,rgba(138,43,226,0.4)_50%,transparent_70%)] blur-[70px]" />
+        <div className="w-full h-full rounded-full bg-[radial-gradient(ellipse_at_center,rgba(180,0,255,0.9)_0%,rgba(138,43,226,0.4)_50%,transparent_70%)]" />
       </motion.div>
       
       {/* Grid Pattern overlay for depth and modern look */}
