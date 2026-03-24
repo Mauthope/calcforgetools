@@ -22,7 +22,11 @@ export function Navbar() {
     'calculadora-de-porcentagem': 'percentage-calculator',
     // Guides
     'como-funcionam-os-juros-compostos': 'how-compound-interest-works',
-    'como-calcular-porcentagens': 'how-to-calculate-percentages'
+    'como-calcular-porcentagens': 'how-to-calculate-percentages',
+    // Categories
+    'financeira': 'financial',
+    'matematica': 'mathematical',
+    'trabalhista': 'labor'
   };
 
   const enToPtMap: Record<string, string> = {
@@ -32,7 +36,11 @@ export function Navbar() {
     'percentage-calculator': 'calculadora-de-porcentagem',
     // Guides
     'how-compound-interest-works': 'como-funcionam-os-juros-compostos',
-    'how-to-calculate-percentages': 'como-calcular-porcentagens'
+    'how-to-calculate-percentages': 'como-calcular-porcentagens',
+    // Categories
+    'financial': 'financeira',
+    'mathematical': 'matematica',
+    'labor': 'trabalhista'
   };
 
   const toggleLang = () => {
@@ -47,8 +55,13 @@ export function Navbar() {
        newPath += `/${parts[1]}`; 
        
        if (parts.length > 2) {
-          const currentSlug = parts[2];
+          const currentSlug = parts[parts.length - 1];
           const newSlug = currentLang === 'en' ? (enToPtMap[currentSlug] || currentSlug) : (ptToEnMap[currentSlug] || currentSlug);
+          
+          // Rebuild middle segments (e.g., "category")
+          for (let i = 2; i < parts.length - 1; i++) {
+            newPath += `/${parts[i]}`;
+          }
           newPath += `/${newSlug}`;
        }
     }

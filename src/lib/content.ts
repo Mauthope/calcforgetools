@@ -49,3 +49,8 @@ export async function getGuideBySlug(lang: string, slug: string) {
   const guides = await getGuides(lang);
   return guides.find((g: any) => g.slug === slug) || null;
 }
+
+export async function getCalculatorsByCategory(lang: string, category: string) {
+  const calculators = await getCalculators(lang);
+  return calculators.filter((c: any) => c.category === category);
+}

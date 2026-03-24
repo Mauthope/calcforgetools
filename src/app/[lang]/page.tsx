@@ -112,7 +112,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </Container>
       </section>
 
-      {/* Featured Calculators Grid */}
+      {/* Calculator Categories */}
       <Section className="bg-[#F5F5F7]">
         <Container>
           <div className="mb-12">
@@ -120,16 +120,75 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <p className="text-[var(--color-text-secondary)]">{sectionTitles.featuredSub}</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredCalculators.map((calc: any) => (
-              <CalculatorCard
-                key={calc.calculator_id}
-                title={calc.title}
-                description={calc.meta_description}
-                href={`/${lang}/calculators/${calc.slug}`}
-                category="Finance"
-              />
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Financial */}
+            <Link href={`/${lang}/calculators/category/${lang === 'pt' ? 'financeira' : 'financial'}`} className="group block h-full">
+              <div className="apple-card p-6 h-full flex flex-col border border-transparent group-hover:border-[var(--color-primary)]/30 group-hover:shadow-lg transition-all cursor-pointer relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-500/5 to-transparent rounded-bl-full" />
+                <div className="text-[var(--color-primary)] mb-5 inline-block group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
+                    <Calculator className="w-6 h-6 stroke-[1.5]" />
+                  </div>
+                </div>
+                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">5 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
+                  {lang === 'en' ? 'Financial Calculators' : 'Calculadoras Financeiras'}
+                </h3>
+                <p className="text-sm text-[var(--color-text-secondary)] line-clamp-3 leading-relaxed mb-6 flex-grow">
+                  {lang === 'en' ? 'Compound interest, mortgage amortization (SAC/Price), ROI projections, and debt payoff strategies.' : 'Juros compostos, amortização de financiamento (SAC/Price), projeções de ROI e estratégias de quitação de dívidas.'}
+                </p>
+                <div className="font-medium text-[var(--color-primary)] text-sm mt-auto inline-flex items-center group-hover:underline">
+                  {lang === 'en' ? 'Explore Category' : 'Explorar Categoria'}
+                  <ArrowRight className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Mathematical */}
+            <Link href={`/${lang}/calculators/category/${lang === 'pt' ? 'matematica' : 'mathematical'}`} className="group block h-full">
+              <div className="apple-card p-6 h-full flex flex-col border border-transparent group-hover:border-[var(--color-primary)]/30 group-hover:shadow-lg transition-all cursor-pointer relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-violet-500/5 to-transparent rounded-bl-full" />
+                <div className="text-violet-500 mb-5 inline-block group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-violet-50 flex items-center justify-center">
+                    <LineChart className="w-6 h-6 stroke-[1.5]" />
+                  </div>
+                </div>
+                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">1 {lang === 'en' ? 'Tool' : 'Ferramenta'}</span>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
+                  {lang === 'en' ? 'Mathematical Calculators' : 'Calculadoras Matemáticas'}
+                </h3>
+                <p className="text-sm text-[var(--color-text-secondary)] line-clamp-3 leading-relaxed mb-6 flex-grow">
+                  {lang === 'en' ? 'Percentage calculations, discounts, markups, and proportional analysis for everyday decisions.' : 'Cálculos de porcentagem, descontos, aumentos e análise proporcional para decisões do dia a dia.'}
+                </p>
+                <div className="font-medium text-violet-500 text-sm mt-auto inline-flex items-center group-hover:underline">
+                  {lang === 'en' ? 'Explore Category' : 'Explorar Categoria'}
+                  <ArrowRight className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Labor */}
+            <Link href={`/${lang}/calculators/category/${lang === 'pt' ? 'trabalhista' : 'labor'}`} className="group block h-full">
+              <div className="apple-card p-6 h-full flex flex-col border border-transparent group-hover:border-amber-500/30 group-hover:shadow-lg transition-all cursor-pointer relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/5 to-transparent rounded-bl-full" />
+                <div className="text-amber-500 mb-5 inline-block group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6 stroke-[1.5]" />
+                  </div>
+                </div>
+                <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-2">{lang === 'en' ? 'Coming Soon' : 'Em Breve'}</span>
+                <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
+                  {lang === 'en' ? 'Labor & Payroll Calculators' : 'Calculadoras Trabalhistas'}
+                </h3>
+                <p className="text-sm text-[var(--color-text-secondary)] line-clamp-3 leading-relaxed mb-6 flex-grow">
+                  {lang === 'en' ? 'Wages, overtime, vacation accruals, and employment cost calculations coming soon.' : 'Salários, horas extras, férias e cálculos de custos trabalhistas em breve.'}
+                </p>
+                <div className="font-medium text-amber-500 text-sm mt-auto inline-flex items-center group-hover:underline">
+                  {lang === 'en' ? 'Explore Category' : 'Explorar Categoria'}
+                  <ArrowRight className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
           </div>
           
           <div className="mt-12 text-center">
