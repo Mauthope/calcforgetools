@@ -11,7 +11,7 @@ import { ChartView } from '@/components/ui/ChartView';
 import { SmartInsight } from '@/components/ui/SmartInsight';
 import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
 import { Check, Share2, FileSpreadsheet, Send, MessageCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 interface CalculatorClientWrapperProps {
   config: any;
@@ -24,6 +24,13 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
   const [inputs, setInputs] = useState<Record<string, any>>({});
   const [results, setResults] = useState<Record<string, any>>({});
   const [chartData, setChartData] = useState<any>(null);
+
+  const { scrollYProgress } = useScroll();
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   // Initialize defaults
   useEffect(() => {
@@ -335,7 +342,13 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
   if(!config) return <div className="p-8 text-center text-[var(--color-danger)]">Failed to load calculator configuration.</div>;
 
   return (
-    <div className="w-full flex flex-col gap-6 lg:gap-8">
+    <div className="w-full flex flex-col gap-6 lg:gap-8 relative">
+      {/* Mobile Scroll Analytics Sidebar */}
+      <motion.div
+        className="fixed top-0 right-0 w-1.5 h-full bg-gradient-to-b from-[#00c6ff] via-[#007aff] to-[#b400ff] origin-top z-50 lg:hidden shadow-[0_0_15px_rgba(0,198,255,0.6)]"
+        style={{ scaleY }}
+      />
+
       {/* Full-width Top Banner Injection */}
       {premiumTemplate && (
         <div className="w-full">
