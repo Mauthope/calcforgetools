@@ -1,10 +1,10 @@
 {
   "slug": "how-to-calculate-net-salary",
-  "meta_title": "How to Calculate CLT Net Salary 2025 | INSS & IRRF Tables - CalcForgeTools",
-  "meta_description": "Learn step by step how to calculate your Brazilian CLT net salary. Understand the 2025 progressive INSS and IRRF tax tables and take control of your paycheck.",
+  "meta_title": "How to Calculate Net Salary CLT 2025 | Complete INSS and IRRF Tables - CalcForgeTools",
+  "meta_description": "Learn step by step how to calculate your CLT net salary with the 2025 progressive INSS and IRRF tables. Complete guide with practical examples and tax tips.",
   "hero": {
-    "title": "How to Calculate CLT Net Salary",
-    "subtitle": "The complete guide to understanding every cent that leaves your paycheck and taking control of your financial life."
+    "title": "How to Calculate Net Salary (CLT)",
+    "subtitle": "The complete guide to understanding every cent that leaves your paycheck, mastering the INSS and IRRF tables, and taking control of your financial life."
   },
   "related_tools": [
     {
@@ -18,12 +18,16 @@
   "content": [
     {
       "type": "quote",
-      "text": "It's not how much money you make, but how much money you keep.",
+      "text": "It's not how much you earn that matters, it's how much you take home.",
       "author": "Robert Kiyosaki"
     },
     {
       "type": "paragraph",
-      "text": "Did you know that the average Brazilian worker <strong>cannot explain</strong> why the amount deposited in their account is less than what was agreed in the contract? The reality is brutal: between the promised gross salary and the money that actually reaches your account, there are two tax guillotines — <strong>INSS</strong> and <strong>IRRF</strong>. Both work progressively, meaning the more you earn, the sharper the blade."
+      "text": "Did you know the average Brazilian <strong>can't explain</strong> why the amount deposited in their account is less than what was agreed in the contract? The reality is brutal: between the promised gross salary and the money that actually reaches your account, there are two tax guillotines — the <strong>INSS</strong> (social security) and the <strong>IRRF</strong> (income tax). And both work progressively, meaning the more you earn, the sharper the blade."
+    },
+    {
+      "type": "paragraph",
+      "text": "Understanding how these deductions work is not just a matter of curiosity — it's a <strong>salary negotiation tool</strong>. When you know exactly how much remains from the gross, you can evaluate job offers with much more precision and plan your personal budget realistically."
     },
     {
       "type": "heading",
@@ -31,11 +35,11 @@
     },
     {
       "type": "paragraph",
-      "text": "INSS works in bands. You <strong>don't pay 14% on everything</strong> — each slice of your salary is taxed at a different rate. Think of it as a staircase: each step charges its own rate. Here is the official table:"
+      "text": "The INSS works through progressive brackets. You <strong>don't pay 14% on everything</strong> — each portion of your salary is taxed at a different rate. It's like a staircase: each step charges its own rate. See the official 2025 table:"
     },
     {
       "type": "table",
-      "headers": ["Salary Band", "INSS Rate", "Max Contribution in Band"],
+      "headers": ["Salary Bracket", "INSS Rate", "Maximum Contribution per Bracket"],
       "rows": [
         ["Up to R$ 1,518.00", "7.5%", "R$ 113.85"],
         ["R$ 1,518.01 to R$ 2,793.88", "9%", "R$ 114.83"],
@@ -44,12 +48,16 @@
       ]
     },
     {
+      "type": "paragraph",
+      "text": "If you earn R$ 4,000, the actual INSS calculation is: R$ 113.85 (1st bracket) + R$ 114.83 (2nd bracket) + R$ 144.73 (partial 3rd bracket) = <strong>R$ 373.41</strong>. Many people think they pay 12% on the entire R$ 4,000 (which would be R$ 480), but in reality they pay significantly less thanks to the progressive system."
+    },
+    {
       "type": "heading",
       "text": "The Second Guillotine: IRRF Table 2025"
     },
     {
       "type": "paragraph",
-      "text": "After deducting INSS from your gross, the remainder becomes the income tax calculation base. Each registered dependent <strong>reduces R$ 189.59</strong> from this base. Here are the brackets:"
+      "text": "After deducting the INSS from your gross, what remains enters the calculation base for Income Tax Withheld at Source. Each registered dependent <strong>reduces R$ 189.59</strong> from this base. See the 2025 brackets:"
     },
     {
       "type": "table",
@@ -63,8 +71,12 @@
       ]
     },
     {
+      "type": "paragraph",
+      "text": "The 'Deduction' column is essential. It corrects the fact that the rate only applies to the portion exceeding the lower limit of the bracket. Without the deduction, the tax would be charged on the entire base — which would roughly double the charge."
+    },
+    {
       "type": "heading",
-      "text": "The Complete Formula"
+      "text": "The Complete Step-by-Step Formula"
     },
     {
       "type": "formula",
@@ -72,7 +84,25 @@
     },
     {
       "type": "paragraph",
-      "text": "The order matters: <strong>first</strong> deduct INSS from gross, <strong>then</strong> calculate IRRF on what remains (calculation base). Getting the order wrong completely changes the result."
+      "text": "The calculation order is critical: <strong>first</strong> deduct the INSS from the gross, <strong>then</strong> subtract the dependent deduction, <strong>then</strong> calculate the IRRF on what remains (calculation base). Getting the order wrong completely changes the result."
+    },
+    {
+      "type": "heading",
+      "text": "Complete Practical Example"
+    },
+    {
+      "type": "paragraph",
+      "text": "Maria earns R$ 5,000 gross and has 1 dependent. Here's the step-by-step:"
+    },
+    {
+      "type": "table",
+      "headers": ["Step", "Calculation", "Result"],
+      "rows": [
+        ["1. Progressive INSS", "R$ 113.85 + R$ 114.83 + R$ 167.63 + R$ 113.28", "<strong>R$ 509.59</strong>"],
+        ["2. IRRF Base", "R$ 5,000 - R$ 509.59 - R$ 189.59 (dependent)", "R$ 4,300.82"],
+        ["3. IRRF", "R$ 4,300.82 × 22.5% - R$ 662.77", "<strong>R$ 304.91</strong>"],
+        ["4. Net Salary", "R$ 5,000 - R$ 509.59 - R$ 304.91", "<strong>R$ 4,185.50</strong>"]
+      ]
     },
     {
       "type": "heading",
@@ -80,7 +110,23 @@
     },
     {
       "type": "paragraph",
-      "text": "Besides deductions, there is <strong>FGTS (8% of gross)</strong>, deposited by the employer into a linked account. It is <strong>not deducted</strong> from your salary — it is an additional employer cost. You can only withdraw it in specific situations such as termination without cause, home purchase, or retirement."
+      "text": "Beyond the deductions, there is the <strong>FGTS (8% of gross)</strong>, deposited by the employer into a linked account at Caixa Econômica Federal. It is <strong>not deducted</strong> from your salary — it's an additional cost borne by the company. In Maria's example, the company deposits R$ 400.00 in FGTS per month, which she can only withdraw in specific situations such as dismissal without cause, home purchase, retirement, or the anniversary withdrawal program."
+    },
+    {
+      "type": "heading",
+      "text": "Other Common Deductions"
+    },
+    {
+      "type": "paragraph",
+      "text": "Besides INSS and IRRF, your paycheck may include other legal deductions: <strong>transportation voucher</strong> (up to 6% of salary), <strong>meal voucher</strong> (up to 20% of the granted value), <strong>health/dental plan</strong> (co-participation), <strong>court-ordered alimony</strong>, <strong>union contribution</strong> (only if authorized), and <strong>payroll loan</strong> (limited to 35% of net salary). All these deductions must be itemized on your paycheck."
+    },
+    {
+      "type": "heading",
+      "text": "Tips to Maximize Your Net Pay"
+    },
+    {
+      "type": "paragraph",
+      "text": "There are legal ways to increase your net salary without changing jobs: (1) <strong>register all dependents</strong> with HR — each one reduces R$ 189.59 from the IRRF base; (2) <strong>declare medical and educational expenses</strong> in your annual return for a refund; (3) <strong>contribute to PGBL private pension</strong> — up to 12% of annual gross income is tax-deductible; (4) <strong>negotiate non-taxed benefits</strong> like meal vouchers, health plans, and home office allowances, which are not subject to INSS/IRRF."
     }
   ]
 }

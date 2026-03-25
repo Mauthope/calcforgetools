@@ -1,10 +1,10 @@
 {
   "slug": "como-calcular-ferias-decimo-terceiro",
-  "meta_title": "Como Calcular Férias e 13° Salário 2025 | Guia Completo - CalcForgeTools",
-  "meta_description": "Aprenda a calcular férias CLT, 1/3 constitucional, abono pecuniário e 13° salário proporcional. Guia com tabelas e fórmulas atualizadas.",
+  "meta_title": "Como Calcular Férias e 13° Salário CLT 2025 | Guia Completo com Tabelas - CalcForgeTools",
+  "meta_description": "Aprenda a calcular férias CLT, 1/3 constitucional, abono pecuniário, férias proporcionais e 13° salário passo a passo. Guia com tabelas, fórmulas e exemplos.",
   "hero": {
-    "title": "Como Calcular Férias e 13° Salário",
-    "subtitle": "O guia definitivo para entender cada verba das suas férias e do décimo terceiro — e saber se a empresa está pagando corretamente."
+    "title": "Como Calcular Férias e 13° Salário CLT",
+    "subtitle": "O guia definitivo para entender cada verba das suas férias e do décimo terceiro — e saber conferir se a empresa está pagando corretamente."
   },
   "related_tools": [
     {
@@ -23,21 +23,45 @@
     },
     {
       "type": "paragraph",
-      "text": "Você sabia que <strong>1 em cada 4 brasileiros</strong> não confere o cálculo de férias no contracheque? E que o famoso 'terço de férias' é um direito <strong>constitucional</strong> que não pode ser negociado nem mesmo por acordo coletivo?"
+      "text": "Você sabia que <strong>1 em cada 4 brasileiros</strong> não confere o cálculo de férias no contracheque? E que o famoso 'terço de férias' é um direito <strong>constitucional</strong>, previsto no artigo 7°, inciso XVII da Constituição Federal, que não pode ser negociado nem mesmo por acordo coletivo? Se você nunca parou para entender exatamente como são calculadas suas férias e seu décimo terceiro salário, este guia vai mudar isso de uma vez por todas."
+    },
+    {
+      "type": "paragraph",
+      "text": "A falta de conhecimento sobre esses direitos é uma das principais fontes de prejuízo para o trabalhador brasileiro. Empresas frequentemente calculam valores abaixo do devido, e sem o conhecimento adequado, o empregado simplesmente aceita o que recebe sem questionar."
     },
     {
       "type": "heading",
-      "text": "A Anatomia das Férias CLT"
+      "text": "A Anatomia Completa das Férias CLT"
+    },
+    {
+      "type": "paragraph",
+      "text": "As férias na CLT funcionam com base em dois conceitos fundamentais: o <strong>período aquisitivo</strong> (os 12 meses que você trabalha para 'adquirir' o direito) e o <strong>período concessivo</strong> (os 12 meses seguintes em que a empresa deve conceder as férias). Se a empresa não conceder as férias dentro do período concessivo, ela é obrigada a pagá-las em <strong>dobro</strong>."
     },
     {
       "type": "table",
       "headers": ["Componente", "Fórmula", "Exemplo (Salário R$ 3.500)"],
       "rows": [
-        ["Férias Integrais", "Salário ÷ 30 × 30 dias", "R$ 3.500,00"],
-        ["1/3 Constitucional", "Férias ÷ 3", "R$ 1.166,67"],
-        ["Abono (10 dias vendidos)", "(Salário ÷ 30 × 10) + 1/3", "R$ 1.555,56"],
-        ["<strong>Total com Abono</strong>", "Soma", "<strong>R$ 6.222,23</strong>"]
+        ["Férias Integrais (30 dias)", "Salário ÷ 30 × 30 dias", "R$ 3.500,00"],
+        ["1/3 Constitucional", "Valor das Férias ÷ 3", "R$ 1.166,67"],
+        ["Abono Pecuniário (10 dias)", "(Salário ÷ 30 × 10) + 1/3 sobre eles", "R$ 1.555,56"],
+        ["<strong>Total com Abono</strong>", "Férias + 1/3 + Abono", "<strong>R$ 6.222,23</strong>"]
       ]
+    },
+    {
+      "type": "heading",
+      "text": "Férias Proporcionais: Quando se Aplicam"
+    },
+    {
+      "type": "paragraph",
+      "text": "As férias proporcionais são calculadas quando o trabalhador não completou os 12 meses do período aquisitivo — geralmente em casos de demissão ou primeiro ano de trabalho. A fórmula é simples:"
+    },
+    {
+      "type": "formula",
+      "expression": "Férias Proporcionais = (Salário ÷ 12) × Meses Trabalhados no Período"
+    },
+    {
+      "type": "paragraph",
+      "text": "Importante: para ter direito a contar o mês nas férias proporcionais, o trabalhador precisa ter trabalhado <strong>mais de 14 dias naquele mês</strong>. Se iniciou dia 20, por exemplo, aquele mês não conta."
     },
     {
       "type": "heading",
@@ -45,19 +69,74 @@
     },
     {
       "type": "paragraph",
-      "text": "A CLT permite que você converta até <strong>1/3 das férias em dinheiro</strong> (máximo 10 de 30 dias). Sobre esses dias vendidos, você também recebe o adicional de 1/3. A decisão deve ser comunicada ao empregador <strong>até 15 dias antes do término do período aquisitivo</strong>."
+      "text": "A CLT, no artigo 143, permite que o trabalhador converta <strong>até 1/3 das férias em dinheiro</strong> — o chamado abono pecuniário. Para férias de 30 dias, isso significa vender até 10 dias. Sobre esses dias vendidos, você também recebe o adicional de 1/3 constitucional."
+    },
+    {
+      "type": "paragraph",
+      "text": "A decisão de vender ou não depende da sua situação financeira e do seu nível de cansaço. Do ponto de vista financeiro, a venda é vantajosa porque o abono pecuniário <strong>não sofre desconto de INSS nem IRRF</strong> — é um valor líquido. Porém, do ponto de vista da saúde, descansar 30 dias é significativamente mais reparador do que 20."
+    },
+    {
+      "type": "paragraph",
+      "text": "O prazo para solicitar a venda é <strong>até 15 dias antes do término do período aquisitivo</strong>. Se perder esse prazo, a empresa não é obrigada a conceder."
     },
     {
       "type": "heading",
-      "text": "O 13° Salário"
+      "text": "O 13° Salário: Tudo o Que Você Precisa Saber"
+    },
+    {
+      "type": "paragraph",
+      "text": "O décimo terceiro salário foi instituído pela Lei 4.090/1962 e equivale a 1/12 avos do salário por cada mês trabalhado no ano. Para efeito de contagem, trabalhar mais de 14 dias no mês dá direito ao avo completo."
     },
     {
       "type": "formula",
       "expression": "13° Proporcional = (Salário ÷ 12) × Meses Trabalhados no Ano"
     },
     {
+      "type": "heading",
+      "text": "Parcelas do 13° Salário"
+    },
+    {
+      "type": "table",
+      "headers": ["Parcela", "Prazo", "Descontos", "Valor Base"],
+      "rows": [
+        ["1ª Parcela", "Até 30 de novembro", "Nenhum desconto", "50% do salário bruto"],
+        ["2ª Parcela", "Até 20 de dezembro", "INSS + IRRF sobre o total", "50% restante - descontos"]
+      ]
+    },
+    {
       "type": "paragraph",
-      "text": "O décimo terceiro é pago em <strong>duas parcelas</strong>: a primeira (sem descontos) até 30 de novembro, e a segunda (com descontos de INSS e IRRF) até 20 de dezembro. Você pode solicitar a 1ª parcela junto com suas férias."
+      "text": "Um direito pouco conhecido: você pode solicitar o <strong>adiantamento da 1ª parcela do 13° junto com suas férias</strong>. Basta fazer o pedido por escrito até janeiro do ano em questão. Isso é especialmente útil para quem tira férias no meio do ano e quer ter um valor extra disponível."
+    },
+    {
+      "type": "heading",
+      "text": "Impacto das Faltas nas Férias"
+    },
+    {
+      "type": "paragraph",
+      "text": "As faltas injustificadas durante o período aquisitivo <strong>reduzem os dias de férias</strong> a que você tem direito. Veja a tabela do artigo 130 da CLT:"
+    },
+    {
+      "type": "table",
+      "headers": ["Faltas Injustificadas", "Dias de Férias"],
+      "rows": [
+        ["Até 5 faltas", "<strong>30 dias</strong> (integral)"],
+        ["6 a 14 faltas", "24 dias"],
+        ["15 a 23 faltas", "18 dias"],
+        ["24 a 32 faltas", "12 dias"],
+        ["Acima de 32 faltas", "<strong>Perde o direito</strong> às férias"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Erros Comuns que Prejudicam o Trabalhador"
+    },
+    {
+      "type": "paragraph",
+      "text": "Fique atento aos erros mais frequentes: (1) a empresa não incluir a média de horas extras habituais no cálculo das férias e do 13°; (2) não pagar as férias com <strong>pelo menos 2 dias de antecedência</strong> do início do gozo (artigo 145 da CLT); (3) parcelar o 1/3 de férias junto com a 2ª parcela do 13° sem sua autorização; (4) conceder férias em período que inicie nos 2 dias que antecedem um feriado ou DSR — isso é proibido pela Reforma Trabalhista."
+    },
+    {
+      "type": "paragraph",
+      "text": "Se você identificar qualquer um desses erros, documente tudo (fotos do contracheque, prints do ponto eletrônico) e consulte seu sindicato ou um advogado trabalhista. Em muitos casos, os valores podem ser reivindicados retroativamente por até <strong>5 anos</strong> após o encerramento do contrato."
     }
   ]
 }

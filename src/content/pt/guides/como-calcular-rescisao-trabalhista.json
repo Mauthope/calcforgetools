@@ -1,7 +1,7 @@
 {
   "slug": "como-calcular-rescisao-trabalhista",
-  "meta_title": "Como Calcular Rescisão Trabalhista 2025 | Guia Completo - CalcForgeTools",
-  "meta_description": "Aprenda a calcular cada verba da sua rescisão trabalhista: férias proporcionais, 13° salário, FGTS, multa de 40% e aviso prévio. Confira seus direitos.",
+  "meta_title": "Como Calcular Rescisão Trabalhista 2025 | Guia Completo com Tabelas - CalcForgeTools",
+  "meta_description": "Aprenda a calcular cada verba da sua rescisão trabalhista: férias, 13°, FGTS, multa de 40%, aviso prévio. Guia com tabelas comparativas e exemplos práticos.",
   "hero": {
     "title": "Como Calcular Rescisão Trabalhista",
     "subtitle": "O guia definitivo para conferir se a empresa está pagando corretamente cada centavo que você tem direito na demissão."
@@ -23,26 +23,33 @@
     },
     {
       "type": "paragraph",
-      "text": "Você sabia que <strong>7 em cada 10 trabalhadores</strong> não conferem os valores da rescisão e simplesmente assinam o termo? Pior: estima-se que cerca de <strong>30% das rescisões</strong> contêm erros que prejudicam o trabalhador. Este guia existe para que você nunca seja uma dessas estatísticas."
-    },
-    {
-      "type": "heading",
-      "text": "As Verbas da Rescisão: O Que Você Recebe"
+      "text": "Você sabia que <strong>7 em cada 10 trabalhadores</strong> não conferem os valores da rescisão e simplesmente assinam o termo? Pior: estima-se que cerca de <strong>30% das rescisões</strong> contêm erros que prejudicam o trabalhador. Esses erros vão desde o cálculo incorreto de férias proporcionais até a omissão do reflexo de horas extras habituais. Este guia existe para que você nunca mais seja uma dessas estatísticas."
     },
     {
       "type": "paragraph",
-      "text": "A rescisão trabalhista é composta por diversas verbas que dependem do <strong>tipo de demissão</strong>. Veja a tabela comparativa completa entre os três cenários possíveis:"
+      "text": "A rescisão trabalhista é o momento financeiro mais crítico da relação empregatícia. É quando todos os direitos acumulados durante o contrato são convertidos em valores que, somados, podem representar vários salários. Errar nesse cálculo pode significar perder milhares de reais."
+    },
+    {
+      "type": "heading",
+      "text": "Os Três Tipos de Desligamento"
+    },
+    {
+      "type": "paragraph",
+      "text": "Antes de calcular, é fundamental entender <strong>como você foi desligado</strong>, pois cada modalidade gera direitos completamente diferentes. Veja a tabela comparativa completa:"
     },
     {
       "type": "table",
       "headers": ["Verba", "Sem Justa Causa", "Pedido de Demissão", "Justa Causa"],
       "rows": [
+        ["Saldo de Salário", "✅ Sim", "✅ Sim", "✅ Sim"],
         ["Férias Proporcionais + 1/3", "✅ Sim", "✅ Sim", "❌ Não"],
+        ["Férias Vencidas + 1/3", "✅ Sim", "✅ Sim", "✅ Sim (se houver)"],
         ["13° Salário Proporcional", "✅ Sim", "✅ Sim", "❌ Não"],
         ["Saldo de FGTS", "✅ Sacável", "❌ Bloqueado", "❌ Bloqueado"],
         ["Multa 40% FGTS", "<strong>✅ Sim</strong>", "❌ Não", "❌ Não"],
-        ["Aviso Prévio Indenizado", "✅ Sim", "❌ Não (pode ser descontado)", "❌ Não"],
-        ["Seguro Desemprego", "✅ Pode requerer", "❌ Não", "❌ Não"]
+        ["Aviso Prévio Indenizado", "✅ Sim", "❌ Pode ser descontado", "❌ Não"],
+        ["Seguro Desemprego", "✅ Pode requerer", "❌ Não", "❌ Não"],
+        ["Guias FGTS/SD", "✅ Empresa deve fornecer", "❌ Não aplicável", "❌ Não aplicável"]
       ]
     },
     {
@@ -51,31 +58,69 @@
     },
     {
       "type": "formula",
-      "expression": "Férias Proporcionais = (Salário ÷ 12) × Meses Trabalhados no Período Aquisitivo"
+      "expression": "Férias Proporcionais = (Salário ÷ 12) × Meses no Período Aquisitivo"
     },
     {
       "type": "paragraph",
-      "text": "A cada 12 meses de trabalho, você adquire o direito a 30 dias de férias. Se for demitido antes de completar um período, recebe proporcionalmente. Sobre esse valor, incide ainda o <strong>adicional de 1/3</strong> garantido pela Constituição."
+      "text": "A cada 12 meses de trabalho, você adquire o direito a 30 dias de férias. Se for demitido antes de completar um período, recebe proporcionalmente. Sobre esse valor, incide o <strong>adicional de 1/3</strong> garantido pela Constituição. Atenção: se você tem férias vencidas (período aquisitivo completo sem gozo), elas devem ser pagas <strong>em dobro</strong> conforme o artigo 137 da CLT."
     },
     {
       "type": "heading",
-      "text": "Aviso Prévio Proporcional"
+      "text": "Aviso Prévio Proporcional ao Tempo de Serviço"
     },
     {
       "type": "formula",
-      "expression": "Aviso Prévio = 30 dias + (3 dias × anos trabalhados), máximo 120 dias"
+      "expression": "Aviso Prévio = 30 dias + (3 dias × anos completos trabalhados), máximo 120 dias"
     },
     {
       "type": "paragraph",
-      "text": "Na demissão sem justa causa, a empresa deve indenizar o aviso prévio se não exigir que o empregado trabalhe. Cada ano completo de serviço acrescenta 3 dias ao aviso, até o <strong>teto de 120 dias</strong>. Um funcionário com 10 anos recebe 60 dias de aviso."
+      "text": "Na demissão sem justa causa, a empresa deve indenizar o aviso prévio se não exigir que o empregado trabalhe durante esse período. Cada ano completo de serviço acrescenta 3 dias ao aviso. Veja a tabela de progressão:"
+    },
+    {
+      "type": "table",
+      "headers": ["Anos Trabalhados", "Dias de Aviso", "Anos Trabalhados", "Dias de Aviso"],
+      "rows": [
+        ["Até 1 ano", "30 dias", "16 anos", "78 dias"],
+        ["2 anos", "33 dias", "20 anos", "90 dias"],
+        ["5 anos", "45 dias", "25 anos", "105 dias"],
+        ["10 anos", "60 dias", "30+ anos", "<strong>120 dias (teto)</strong>"]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Um detalhe crucial: o aviso prévio indenizado <strong>conta como tempo de serviço</strong>. Isso significa que ele pode fazer você completar mais um mês para efeito de férias proporcionais e 13° proporcional. Por exemplo, se você foi demitido após 11 meses e 15 dias, os 30 dias de aviso prévio completam 12 meses e 15 dias — garantindo férias integrais."
     },
     {
       "type": "heading",
-      "text": "FGTS e a Multa de 40%"
+      "text": "FGTS e a Multa Rescisória de 40%"
     },
     {
       "type": "paragraph",
-      "text": "O empregador deposita mensalmente <strong>8% do seu salário</strong> em uma conta de FGTS. Na demissão sem justa causa, você saca todo o saldo acumulado <strong>mais uma multa de 40%</strong> sobre esse saldo. É a maior fatia financeira da rescisão e existe para proteger o trabalhador que foi desligado involuntariamente."
+      "text": "O empregador deposita mensalmente <strong>8% do seu salário bruto</strong> (incluindo horas extras habituais, adicional noturno e outras verbas salariais) em uma conta de FGTS na Caixa Econômica Federal. Na demissão sem justa causa, você saca todo o saldo acumulado durante o contrato <strong>mais uma multa de 40%</strong> sobre esse saldo."
+    },
+    {
+      "type": "paragraph",
+      "text": "Essa multa é a maior fatia financeira da rescisão e existe para proteger o trabalhador que foi desligado involuntariamente. Para um trabalhador com salário de R$ 3.500 e 5 anos de empresa, o FGTS acumulado seria aproximadamente R$ 3.500 × 0,08 × 60 meses = <strong>R$ 16.800</strong>, e a multa 40% seria <strong>R$ 6.720</strong>."
+    },
+    {
+      "type": "heading",
+      "text": "Prazos para Pagamento da Rescisão"
+    },
+    {
+      "type": "paragraph",
+      "text": "A empresa tem prazo de <strong>10 dias corridos</strong> após o término do contrato para pagar todas as verbas rescisórias (Art. 477, §6° da CLT). O não cumprimento deste prazo gera uma <strong>multa equivalente a um salário</strong> do trabalhador, conforme §8° do mesmo artigo. Se a empresa atrasar, você tem direito a essa multa adicional."
+    },
+    {
+      "type": "heading",
+      "text": "Checklist: O Que Conferir na Sua Rescisão"
+    },
+    {
+      "type": "paragraph",
+      "text": "Antes de assinar o Termo de Rescisão do Contrato de Trabalho (TRCT), verifique: (1) se o <strong>saldo de salário</strong> está correto (dias trabalhados no último mês); (2) se <strong>horas extras habituais</strong> foram incluídas na base de cálculo do 13° e férias; (3) se o <strong>aviso prévio proporcional</strong> está com a contagem de anos correta; (4) se as <strong>férias vencidas</strong> estão em dobro caso fora do prazo; (5) se a empresa entregou as <strong>guias para saque do FGTS e seguro-desemprego</strong>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Se encontrar erros, <strong>não assine o TRCT</strong> sem registrar a discordância por escrito. Procure seu sindicato ou um advogado trabalhista. Você tem até <strong>2 anos após o desligamento</strong> para entrar com ação trabalhista, podendo reivindicar valores dos últimos 5 anos do contrato."
     }
   ]
 }

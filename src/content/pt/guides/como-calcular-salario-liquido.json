@@ -1,10 +1,10 @@
 {
   "slug": "como-calcular-salario-liquido",
-  "meta_title": "Como Calcular Salário Líquido CLT 2025 | Tabela INSS e IRRF - CalcForgeTools",
-  "meta_description": "Aprenda passo a passo como calcular seu salário líquido CLT. Entenda as tabelas progressivas de INSS e IRRF de 2025 e nunca mais fique no escuro.",
+  "meta_title": "Como Calcular Salário Líquido CLT 2025 | Tabelas INSS e IRRF Completas - CalcForgeTools",
+  "meta_description": "Aprenda passo a passo como calcular seu salário líquido CLT com as tabelas progressivas de INSS e IRRF de 2025. Guia completo com exemplos práticos.",
   "hero": {
     "title": "Como Calcular Salário Líquido CLT",
-    "subtitle": "O guia completo para entender cada centavo que sai do seu contracheque e tomar o controle da sua vida financeira."
+    "subtitle": "O guia completo para entender cada centavo que sai do seu contracheque, dominar as tabelas de INSS e IRRF, e tomar o controle da sua vida financeira."
   },
   "related_tools": [
     {
@@ -26,12 +26,16 @@
       "text": "Você sabia que o brasileiro médio <strong>não sabe explicar</strong> por que o valor depositado na conta é menor do que o combinado no contrato? A realidade é brutal: entre o salário bruto prometido e o dinheiro que efetivamente chega na sua conta existem duas guilhotinas tributárias — o <strong>INSS</strong> e o <strong>IRRF</strong>. E ambos funcionam de forma progressiva, o que significa que quanto mais você ganha, mais aguda é a lâmina."
     },
     {
+      "type": "paragraph",
+      "text": "Entender como esses descontos funcionam não é apenas uma questão de curiosidade — é uma ferramenta de <strong>negociação salarial</strong>. Quando você sabe exatamente quanto sobra do bruto, consegue avaliar propostas de emprego com muito mais precisão e planejar seu orçamento pessoal de forma realista."
+    },
+    {
       "type": "heading",
       "text": "O Mapa dos Descontos: Tabela INSS 2025"
     },
     {
       "type": "paragraph",
-      "text": "O INSS funciona por faixas. Você <strong>não paga 14% sobre tudo</strong> — cada trecho do seu salário é tributado por uma alíquota diferente. É como uma escada: cada degrau cobra uma taxa própria. Veja a tabela oficial:"
+      "text": "O INSS funciona por faixas progressivas. Você <strong>não paga 14% sobre tudo</strong> — cada trecho do seu salário é tributado por uma alíquota diferente. É como uma escada: cada degrau cobra uma taxa própria. Veja a tabela oficial vigente em 2025:"
     },
     {
       "type": "table",
@@ -44,12 +48,16 @@
       ]
     },
     {
+      "type": "paragraph",
+      "text": "Se você ganha R$ 4.000, o cálculo real do INSS é: R$ 113,85 (1ª faixa) + R$ 114,83 (2ª faixa) + R$ 144,73 (3ª faixa parcial) = <strong>R$ 373,41</strong>. Muita gente pensa que paga 12% sobre os R$ 4.000 inteiros (que seria R$ 480), mas na realidade paga bem menos graças ao sistema progressivo."
+    },
+    {
       "type": "heading",
       "text": "A Segunda Guilhotina: Tabela IRRF 2025"
     },
     {
       "type": "paragraph",
-      "text": "Depois de descontar o INSS do seu bruto, o que sobra entra na base de cálculo do Imposto de Renda Retido na Fonte. Cada dependente registrado <strong>reduz R$ 189,59</strong> dessa base. Veja as faixas:"
+      "text": "Depois de descontar o INSS do seu bruto, o que sobra entra na base de cálculo do Imposto de Renda Retido na Fonte. Cada dependente registrado <strong>reduz R$ 189,59</strong> dessa base. Veja as faixas de 2025:"
     },
     {
       "type": "table",
@@ -63,8 +71,12 @@
       ]
     },
     {
+      "type": "paragraph",
+      "text": "A coluna 'Dedução' é essencial. Ela corrige o fato de que a alíquota só se aplica à parcela que excede o limite inferior da faixa. Sem a dedução, o imposto seria cobrado sobre a base inteira — o que dobraria o desconto."
+    },
+    {
       "type": "heading",
-      "text": "A Fórmula Completa"
+      "text": "A Fórmula Completa Passo a Passo"
     },
     {
       "type": "formula",
@@ -72,7 +84,25 @@
     },
     {
       "type": "paragraph",
-      "text": "A ordem importa: <strong>primeiro</strong> desconta-se o INSS do bruto, <strong>depois</strong> calcula-se o IRRF sobre o que sobrou (base de cálculo). Errar a ordem muda completamente o resultado."
+      "text": "A ordem de cálculo é crítica: <strong>primeiro</strong> desconta-se o INSS do bruto, <strong>depois</strong> subtrai-se a dedução por dependentes, <strong>então</strong> calcula-se o IRRF sobre o que sobrou (base de cálculo). Errar a ordem muda completamente o resultado."
+    },
+    {
+      "type": "heading",
+      "text": "Exemplo Prático Completo"
+    },
+    {
+      "type": "paragraph",
+      "text": "Maria ganha R$ 5.000 brutos e tem 1 dependente. Veja o passo a passo:"
+    },
+    {
+      "type": "table",
+      "headers": ["Etapa", "Cálculo", "Resultado"],
+      "rows": [
+        ["1. INSS Progressivo", "R$ 113,85 + R$ 114,83 + R$ 167,63 + R$ 113,28", "<strong>R$ 509,59</strong>"],
+        ["2. Base IRRF", "R$ 5.000 - R$ 509,59 - R$ 189,59 (dependente)", "R$ 4.300,82"],
+        ["3. IRRF", "R$ 4.300,82 × 22,5% - R$ 662,77", "<strong>R$ 304,91</strong>"],
+        ["4. Salário Líquido", "R$ 5.000 - R$ 509,59 - R$ 304,91", "<strong>R$ 4.185,50</strong>"]
+      ]
     },
     {
       "type": "heading",
@@ -80,7 +110,23 @@
     },
     {
       "type": "paragraph",
-      "text": "Além dos descontos, existe o <strong>FGTS (8% do bruto)</strong>, que é depositado pelo empregador em uma conta vinculada. Ele <strong>não é descontado</strong> do seu salário — é um custo adicional da empresa. Você só pode sacá-lo em situações específicas como demissão sem justa causa, compra de imóvel ou aposentadoria."
+      "text": "Além dos descontos, existe o <strong>FGTS (8% do bruto)</strong>, que é depositado pelo empregador em uma conta vinculada na Caixa Econômica Federal. Ele <strong>não é descontado</strong> do seu salário — é um custo adicional da empresa. No exemplo da Maria, a empresa deposita R$ 400,00 de FGTS por mês, que ela só pode sacar em situações específicas como demissão sem justa causa, compra de imóvel, aposentadoria ou saque-aniversário."
+    },
+    {
+      "type": "heading",
+      "text": "Outras Deduções Comuns"
+    },
+    {
+      "type": "paragraph",
+      "text": "Além de INSS e IRRF, seu contracheque pode ter outros descontos legais: <strong>vale-transporte</strong> (até 6% do salário), <strong>vale-refeição</strong> (até 20% do valor concedido), <strong>plano de saúde/odontológico</strong> (coparticipação), <strong>pensão alimentícia judicial</strong>, <strong>contribuição sindical</strong> (apenas se autorizada) e <strong>empréstimo consignado</strong> (limitado a 35% do salário líquido). Todos esses descontos devem estar discriminados no contracheque."
+    },
+    {
+      "type": "heading",
+      "text": "Dicas para Maximizar Seu Líquido"
+    },
+    {
+      "type": "paragraph",
+      "text": "Existem formas legais de aumentar seu salário líquido sem mudar de emprego: (1) <strong>registrar todos os dependentes</strong> no RH — cada um reduz R$ 189,59 da base do IRRF; (2) <strong>declarar despesas médicas e educacionais</strong> na declaração anual para restituição; (3) <strong>contribuir para previdência privada PGBL</strong> — até 12% da renda bruta anual é dedutível do IR; (4) <strong>negociar benefícios não-tributados</strong> como vale-alimentação, plano de saúde e auxílio home-office, que não incidem INSS/IRRF."
     }
   ]
 }

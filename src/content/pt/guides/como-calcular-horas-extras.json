@@ -1,10 +1,10 @@
 {
   "slug": "como-calcular-horas-extras",
-  "meta_title": "Como Calcular Horas Extras CLT 2025 | Guia Completo - CalcForgeTools",
-  "meta_description": "Aprenda a calcular horas extras CLT: 50%, 100%, adicional noturno e banco de horas. Entenda seus direitos e nunca mais seja lesado.",
+  "meta_title": "Como Calcular Horas Extras CLT 2025 | Guia Completo com Tabelas - CalcForgeTools",
+  "meta_description": "Aprenda a calcular horas extras CLT: 50%, 100%, adicional noturno, banco de horas e reflexos no 13° e FGTS. Guia completo com fórmulas e exemplos práticos.",
   "hero": {
     "title": "Como Calcular Horas Extras CLT",
-    "subtitle": "O guia completo para entender cada centavo das suas horas extras e garantir que seu contracheque está correto."
+    "subtitle": "O guia completo e definitivo para entender cada centavo das suas horas extras, garantir que seu contracheque está correto e conhecer seus direitos."
   },
   "related_tools": [
     {
@@ -23,24 +23,40 @@
     },
     {
       "type": "paragraph",
-      "text": "Você sabia que muitos trabalhadores brasileiros fazem horas extras e <strong>não recebem o valor correto</strong>? A legislação CLT é clara sobre os adicionais, mas a falta de conhecimento faz com que milhões de reais deixem de chegar aos bolsos de quem os mereceu."
+      "text": "Você sabia que muitos trabalhadores brasileiros fazem horas extras e <strong>não recebem o valor correto</strong>? Segundo dados do Tribunal Superior do Trabalho (TST), as ações relacionadas a horas extras estão entre as três maiores causas de processos trabalhistas no Brasil. A legislação CLT é clara sobre os adicionais, mas a falta de conhecimento faz com que milhões de reais deixem de chegar aos bolsos de quem os mereceu."
+    },
+    {
+      "type": "paragraph",
+      "text": "O problema não é apenas o desconhecimento do trabalhador. Muitas empresas calculam horas extras de forma incorreta — às vezes por erro, às vezes intencionalmente. Neste guia, você aprenderá exatamente como funciona cada tipo de hora extra, como calcular o valor correto e o que fazer se identificar divergências no seu contracheque."
     },
     {
       "type": "heading",
-      "text": "As Três Modalidades de Hora Extra"
+      "text": "As Três Modalidades de Hora Extra na CLT"
+    },
+    {
+      "type": "paragraph",
+      "text": "A Consolidação das Leis do Trabalho (CLT) prevê três tipos de hora extra, cada uma com um percentual de adicional diferente sobre a hora normal trabalhada:"
     },
     {
       "type": "table",
-      "headers": ["Tipo", "Quando se Aplica", "Adicional"],
+      "headers": ["Tipo", "Quando se Aplica", "Adicional", "Base Legal"],
       "rows": [
-        ["Hora Extra 50%", "Dias úteis (segunda a sábado)", "<strong>+50%</strong> sobre a hora normal"],
-        ["Hora Extra 100%", "Domingos e feriados", "<strong>+100%</strong> (valor dobrado)"],
-        ["Adicional Noturno", "Trabalho entre 22h e 5h", "<strong>+20%</strong> sobre a hora normal"]
+        ["Hora Extra 50%", "Dias úteis (segunda a sábado)", "<strong>+50%</strong> sobre a hora normal", "Art. 59 da CLT"],
+        ["Hora Extra 100%", "Domingos e feriados", "<strong>+100%</strong> (valor dobrado)", "Art. 70 da CLT + Súmula 146 do TST"],
+        ["Adicional Noturno", "Trabalho entre 22h e 5h", "<strong>+20%</strong> sobre a hora normal", "Art. 73 da CLT"]
       ]
     },
     {
+      "type": "paragraph",
+      "text": "É importante entender que esses percentuais são <strong>mínimos legais</strong>. Convenções coletivas do seu sindicato podem estabelecer percentuais maiores — por exemplo, muitas categorias pagam 60% ou até 70% em dias úteis. Sempre consulte a convenção coletiva da sua categoria profissional."
+    },
+    {
       "type": "heading",
-      "text": "Como Calcular o Valor da Hora Normal"
+      "text": "Passo 1: Como Calcular o Valor da Hora Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Antes de calcular a hora extra, você precisa saber quanto vale sua hora normal de trabalho. A fórmula oficial da CLT é:"
     },
     {
       "type": "formula",
@@ -48,15 +64,78 @@
     },
     {
       "type": "paragraph",
-      "text": "Para jornada de 44 horas semanais (a mais comum no Brasil), as horas mensais são: 44 ÷ 6 × 30 = <strong>220 horas</strong>. Se seu salário é R$ 3.000, sua hora normal vale R$ 3.000 ÷ 220 = <strong>R$ 13,64</strong>."
+      "text": "O divisor 6 representa os dias úteis da semana (segunda a sábado), e o multiplicador 30 converte para dias no mês. Para a jornada mais comum no Brasil — 44 horas semanais — o cálculo fica: 44 ÷ 6 × 30 = <strong>220 horas mensais</strong>."
     },
     {
       "type": "heading",
-      "text": "Limites Legais"
+      "text": "Exemplo Prático Detalhado"
     },
     {
       "type": "paragraph",
-      "text": "A CLT permite no máximo <strong>2 horas extras por dia</strong>. Exceder esse limite pode gerar passivo trabalhista para a empresa. Além disso, a hora noturna é 'reduzida': cada hora entre 22h e 5h conta como <strong>52 minutos e 30 segundos</strong>, o que significa que 7 horas de trabalho noturno equivalem a 8 horas normais."
+      "text": "Digamos que João ganha R$ 3.000,00 por mês e tem jornada de 44 horas semanais. No mês de janeiro, ele fez 12 horas extras em dias úteis, 8 horas extras em um feriado e trabalhou 15 horas no período noturno. Veja o cálculo:"
+    },
+    {
+      "type": "table",
+      "headers": ["Componente", "Cálculo", "Valor"],
+      "rows": [
+        ["Hora Normal", "R$ 3.000 ÷ 220", "<strong>R$ 13,64</strong>"],
+        ["12 HE a 50%", "12 × R$ 13,64 × 1,5", "<strong>R$ 245,45</strong>"],
+        ["8 HE a 100%", "8 × R$ 13,64 × 2,0", "<strong>R$ 218,18</strong>"],
+        ["15h Adicional Noturno", "15 × R$ 13,64 × 0,20", "<strong>R$ 40,91</strong>"],
+        ["Total de Extras", "Soma", "<strong>R$ 504,54</strong>"],
+        ["Salário Final", "R$ 3.000 + R$ 504,54", "<strong>R$ 3.504,54</strong>"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "A Hora Noturna Reduzida"
+    },
+    {
+      "type": "paragraph",
+      "text": "Uma das regras mais desconhecidas da CLT é a <strong>hora noturna reduzida</strong>. Segundo o artigo 73, §1°, cada hora trabalhada entre 22h e 5h não conta como 60 minutos, mas sim como <strong>52 minutos e 30 segundos</strong>. Na prática, isso significa que 7 horas de trabalho noturno equivalem a 8 horas normais. Então, se seu turno noturno é de 7 horas, você deve receber como se tivesse trabalhado 8."
+    },
+    {
+      "type": "paragraph",
+      "text": "Essa redução existe porque o trabalho noturno é comprovadamente mais desgastante para a saúde física e mental do trabalhador. Não é apenas uma questão legal — é uma proteção biológica reconhecida pela medicina do trabalho."
+    },
+    {
+      "type": "heading",
+      "text": "Reflexos das Horas Extras"
+    },
+    {
+      "type": "paragraph",
+      "text": "As horas extras <strong>não são apenas dinheiro extra no mês</strong>. Quando feitas com habitualidade (regularmente), elas geram reflexos em outras verbas trabalhistas. Isso significa que o valor das horas extras entra na base de cálculo de:"
+    },
+    {
+      "type": "table",
+      "headers": ["Verba", "Como Afeta"],
+      "rows": [
+        ["FGTS", "8% sobre o valor das horas extras é depositado mensalmente"],
+        ["13° Salário", "A média das horas extras habituais entra no cálculo do 13°"],
+        ["Férias + 1/3", "A média das horas extras habituais entra no cálculo das férias"],
+        ["Aviso Prévio", "A média é integrada ao valor do aviso prévio"],
+        ["DSR (Descanso)", "Horas extras geram reflexo no descanso semanal remunerado"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Limites Legais e o Banco de Horas"
+    },
+    {
+      "type": "paragraph",
+      "text": "A CLT permite no máximo <strong>2 horas extras por dia</strong>, totalizando cerca de 44 horas extras mensais. Exceder esse limite de forma habitual pode caracterizar jornada exaustiva e gerar indenização por dano existencial."
+    },
+    {
+      "type": "paragraph",
+      "text": "Uma alternativa cada vez mais usada pelas empresas é o <strong>banco de horas</strong>. Neste sistema, as horas extras trabalhadas não são pagas em dinheiro — elas são 'creditadas' para serem compensadas como folgas futuras. O banco de horas pode ter validade de 6 meses (acordo individual) ou 12 meses (acordo coletivo). Se as horas não forem compensadas dentro do prazo, a empresa é obrigada a pagá-las com o adicional de 50%."
+    },
+    {
+      "type": "heading",
+      "text": "Erros Comuns nos Contracheques"
+    },
+    {
+      "type": "paragraph",
+      "text": "Fique atento aos erros mais frequentes: (1) a empresa usar divisor 240 ao invés de 220 para jornada de 44h, o que reduz o valor da sua hora; (2) não pagar o reflexo no DSR (descanso semanal remunerado); (3) pagar horas extras de domingo a apenas 50% quando deveria ser 100%; (4) não integrar horas extras habituais no cálculo de férias e 13°. Se identificar qualquer um desses erros, documente e procure orientação jurídica."
     }
   ]
 }

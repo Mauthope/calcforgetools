@@ -1,10 +1,10 @@
 {
   "slug": "how-to-calculate-overtime",
-  "meta_title": "How to Calculate Overtime CLT 2025 | Complete Guide - CalcForgeTools",
-  "meta_description": "Learn how to calculate CLT overtime: 50%, 100%, night shift bonus, and comp time. Understand your rights and ensure your paycheck is correct.",
+  "meta_title": "How to Calculate Overtime CLT 2025 | Complete Guide with Tables - CalcForgeTools",
+  "meta_description": "Learn how to calculate CLT overtime: 50%, 100%, night shift bonus, comp time bank, and impacts on 13th salary and FGTS. Complete guide with formulas and examples.",
   "hero": {
     "title": "How to Calculate Overtime (CLT)",
-    "subtitle": "The complete guide to understanding every cent of your overtime pay and ensuring your paycheck is accurate."
+    "subtitle": "The complete and definitive guide to understanding every cent of your overtime pay, ensuring your paycheck is accurate, and knowing your rights."
   },
   "related_tools": [
     {
@@ -23,24 +23,40 @@
     },
     {
       "type": "paragraph",
-      "text": "Did you know that many Brazilian workers do overtime and <strong>don't receive the correct amount</strong>? The CLT legislation is clear about premiums, but lack of knowledge means millions of reais never reach the pockets of those who earned them."
+      "text": "Did you know that many Brazilian workers do overtime and <strong>don't receive the correct amount</strong>? According to data from the Superior Labor Court (TST), overtime-related claims are among the top three causes of labor lawsuits in Brazil. The CLT legislation is clear about premiums, but lack of knowledge means millions of reais never reach the pockets of those who earned them."
+    },
+    {
+      "type": "paragraph",
+      "text": "The problem isn't just worker ignorance. Many companies calculate overtime incorrectly — sometimes by mistake, sometimes intentionally. In this guide, you'll learn exactly how each type of overtime works, how to calculate the correct value, and what to do if you identify discrepancies on your paycheck."
     },
     {
       "type": "heading",
-      "text": "The Three Types of Overtime"
+      "text": "The Three Types of Overtime in CLT"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Brazilian Consolidated Labor Law (CLT) provides for three types of overtime, each with a different premium percentage over the normal hourly rate:"
     },
     {
       "type": "table",
-      "headers": ["Type", "When It Applies", "Premium"],
+      "headers": ["Type", "When It Applies", "Premium", "Legal Basis"],
       "rows": [
-        ["50% Overtime", "Weekdays (Monday to Saturday)", "<strong>+50%</strong> on normal hourly rate"],
-        ["100% Overtime", "Sundays and holidays", "<strong>+100%</strong> (double rate)"],
-        ["Night Shift Bonus", "Work between 10pm and 5am", "<strong>+20%</strong> on normal hourly rate"]
+        ["50% Overtime", "Weekdays (Monday to Saturday)", "<strong>+50%</strong> on normal hourly rate", "Art. 59 CLT"],
+        ["100% Overtime", "Sundays and holidays", "<strong>+100%</strong> (double rate)", "Art. 70 CLT + TST Precedent 146"],
+        ["Night Shift Bonus", "Work between 10pm and 5am", "<strong>+20%</strong> on normal hourly rate", "Art. 73 CLT"]
       ]
     },
     {
+      "type": "paragraph",
+      "text": "It is important to understand that these percentages are <strong>legal minimums</strong>. Collective bargaining agreements from your union may establish higher premiums — for example, many categories pay 60% or even 70% on weekdays. Always consult your professional category's collective agreement."
+    },
+    {
       "type": "heading",
-      "text": "How to Calculate the Normal Hourly Rate"
+      "text": "Step 1: How to Calculate the Normal Hourly Rate"
+    },
+    {
+      "type": "paragraph",
+      "text": "Before calculating overtime, you need to know how much your normal hour of work is worth. The official CLT formula is:"
     },
     {
       "type": "formula",
@@ -48,15 +64,78 @@
     },
     {
       "type": "paragraph",
-      "text": "For a 44-hour weekly schedule (the most common in Brazil), the monthly hours are: 44 ÷ 6 × 30 = <strong>220 hours</strong>. If your salary is R$ 3,000, your normal hour is worth R$ 3,000 ÷ 220 = <strong>R$ 13.64</strong>."
+      "text": "The divisor 6 represents the working days of the week (Monday to Saturday), and the multiplier 30 converts to monthly days. For the most common schedule in Brazil — 44 hours per week — the calculation is: 44 ÷ 6 × 30 = <strong>220 monthly hours</strong>."
     },
     {
       "type": "heading",
-      "text": "Legal Limits"
+      "text": "Detailed Practical Example"
     },
     {
       "type": "paragraph",
-      "text": "The CLT allows a maximum of <strong>2 overtime hours per day</strong>. Exceeding this limit can create labor liability for the company. Additionally, the nocturnal hour is 'reduced': each hour between 10pm and 5am counts as <strong>52 minutes and 30 seconds</strong>, meaning 7 hours of night work equal 8 normal hours."
+      "text": "Let's say João earns R$ 3,000.00 per month with a 44-hour weekly schedule. In January, he worked 12 overtime hours on weekdays, 8 overtime hours on a holiday, and 15 hours during the night shift. Here's the calculation:"
+    },
+    {
+      "type": "table",
+      "headers": ["Component", "Calculation", "Value"],
+      "rows": [
+        ["Normal Hour", "R$ 3,000 ÷ 220", "<strong>R$ 13.64</strong>"],
+        ["12 OT at 50%", "12 × R$ 13.64 × 1.5", "<strong>R$ 245.45</strong>"],
+        ["8 OT at 100%", "8 × R$ 13.64 × 2.0", "<strong>R$ 218.18</strong>"],
+        ["15h Night Bonus", "15 × R$ 13.64 × 0.20", "<strong>R$ 40.91</strong>"],
+        ["Total Overtime", "Sum", "<strong>R$ 504.54</strong>"],
+        ["Final Salary", "R$ 3,000 + R$ 504.54", "<strong>R$ 3,504.54</strong>"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "The Reduced Nocturnal Hour"
+    },
+    {
+      "type": "paragraph",
+      "text": "One of the most unknown CLT rules is the <strong>reduced nocturnal hour</strong>. According to Article 73, §1°, each hour worked between 10pm and 5am doesn't count as 60 minutes, but rather as <strong>52 minutes and 30 seconds</strong>. In practice, this means 7 hours of night work equal 8 normal hours. So if your night shift is 7 hours, you should be paid as if you worked 8."
+    },
+    {
+      "type": "paragraph",
+      "text": "This reduction exists because nocturnal work is proven to be more taxing on the worker's physical and mental health. It's not just a legal matter — it's a biological protection recognized by occupational medicine."
+    },
+    {
+      "type": "heading",
+      "text": "Overtime Ripple Effects on Other Benefits"
+    },
+    {
+      "type": "paragraph",
+      "text": "Overtime is <strong>not just extra money for the month</strong>. When performed habitually (regularly), overtime generates ripple effects on other labor benefits. This means the overtime value enters the calculation base for:"
+    },
+    {
+      "type": "table",
+      "headers": ["Benefit", "How It's Affected"],
+      "rows": [
+        ["FGTS", "8% of overtime value is deposited monthly"],
+        ["13th Salary", "The average of habitual overtime is included in the 13th calculation"],
+        ["Vacation + 1/3", "The average of habitual overtime is included in vacation calculation"],
+        ["Notice Period", "The average is integrated into the notice period value"],
+        ["Weekly Rest", "Overtime generates a ripple effect on the paid weekly rest day"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Legal Limits and the Comp Time Bank"
+    },
+    {
+      "type": "paragraph",
+      "text": "The CLT allows a maximum of <strong>2 overtime hours per day</strong>, totaling approximately 44 overtime hours per month. Habitually exceeding this limit can characterize an exhausting workday and generate compensation for existential damage."
+    },
+    {
+      "type": "paragraph",
+      "text": "An increasingly common alternative used by companies is the <strong>comp time bank</strong>. In this system, overtime hours worked are not paid in cash — they are 'credited' to be compensated as future days off. The comp time bank can be valid for 6 months (individual agreement) or 12 months (collective agreement). If the hours are not compensated within the deadline, the company is obligated to pay them with the 50% premium."
+    },
+    {
+      "type": "heading",
+      "text": "Common Paycheck Errors"
+    },
+    {
+      "type": "paragraph",
+      "text": "Watch out for the most frequent errors: (1) the company using a 240-hour divisor instead of 220 for a 44h schedule, which reduces your hourly value; (2) not paying the ripple effect on weekly rest (DSR); (3) paying Sunday overtime at only 50% when it should be 100%; (4) not integrating habitual overtime into vacation and 13th salary calculations. If you identify any of these errors, document everything and seek legal guidance."
     }
   ]
 }
