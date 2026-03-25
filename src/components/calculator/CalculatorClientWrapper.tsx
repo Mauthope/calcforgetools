@@ -198,7 +198,21 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       proportional13th: "13° Salário Proporcional",
       fgtsBalance: "Saldo de FGTS",
       fgtsPenalty: "Multa 40% FGTS",
-      noticePeriod: "Aviso Prévio Indenizado"
+      noticePeriod: "Aviso Prévio Indenizado",
+      // Overtime
+      hourlyRate: "Valor da Hora Normal",
+      overtime50Value: "Horas Extras 50%",
+      overtime100Value: "Horas Extras 100%",
+      nightShiftBonus: "Adicional Noturno",
+      totalOvertime: "Total de Extras",
+      totalSalaryWithOvertime: "Salário + Extras",
+      // Vacation & 13th
+      vacationPay: "Valor das Férias",
+      sellValue: "Abono Pecuniário",
+      enjoyedDays: "Dias Descansados",
+      thirteenthPay: "13° Salário",
+      totalVacationPackage: "Total Férias",
+      grandTotal: "Total Geral"
     };
 
     const enLabels: Record<string, string> = {
@@ -235,7 +249,21 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       proportional13th: "Proportional 13th Salary",
       fgtsBalance: "FGTS Balance",
       fgtsPenalty: "40% FGTS Penalty",
-      noticePeriod: "Indemnified Notice Period"
+      noticePeriod: "Indemnified Notice Period",
+      // Overtime
+      hourlyRate: "Normal Hourly Rate",
+      overtime50Value: "Overtime 50%",
+      overtime100Value: "Overtime 100%",
+      nightShiftBonus: "Night Shift Bonus",
+      totalOvertime: "Total Overtime",
+      totalSalaryWithOvertime: "Salary + Overtime",
+      // Vacation & 13th
+      vacationPay: "Vacation Pay",
+      sellValue: "Cash Conversion",
+      enjoyedDays: "Days Off",
+      thirteenthPay: "13th Salary",
+      totalVacationPackage: "Total Vacation",
+      grandTotal: "Grand Total"
     };
 
     const labels = lang === 'pt' ? ptLabels : enLabels;

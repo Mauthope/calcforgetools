@@ -1,0 +1,62 @@
+{
+  "slug": "how-to-calculate-overtime",
+  "meta_title": "How to Calculate Overtime CLT 2025 | Complete Guide - CalcForgeTools",
+  "meta_description": "Learn how to calculate CLT overtime: 50%, 100%, night shift bonus, and comp time. Understand your rights and ensure your paycheck is correct.",
+  "hero": {
+    "title": "How to Calculate Overtime (CLT)",
+    "subtitle": "The complete guide to understanding every cent of your overtime pay and ensuring your paycheck is accurate."
+  },
+  "related_tools": [
+    {
+      "id": "overtime",
+      "href": "/en/calculators/overtime-calculator",
+      "title": "Overtime Calculator (CLT)",
+      "description": "Automatically calculate your 50%, 100% overtime and night shift bonus.",
+      "category": "labor"
+    }
+  ],
+  "content": [
+    {
+      "type": "quote",
+      "text": "Those who don't know their labor rights work for free without realizing it.",
+      "author": "Popular proverb"
+    },
+    {
+      "type": "paragraph",
+      "text": "Did you know that many Brazilian workers do overtime and <strong>don't receive the correct amount</strong>? The CLT legislation is clear about premiums, but lack of knowledge means millions of reais never reach the pockets of those who earned them."
+    },
+    {
+      "type": "heading",
+      "text": "The Three Types of Overtime"
+    },
+    {
+      "type": "table",
+      "headers": ["Type", "When It Applies", "Premium"],
+      "rows": [
+        ["50% Overtime", "Weekdays (Monday to Saturday)", "<strong>+50%</strong> on normal hourly rate"],
+        ["100% Overtime", "Sundays and holidays", "<strong>+100%</strong> (double rate)"],
+        ["Night Shift Bonus", "Work between 10pm and 5am", "<strong>+20%</strong> on normal hourly rate"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "How to Calculate the Normal Hourly Rate"
+    },
+    {
+      "type": "formula",
+      "expression": "Normal Hour = Monthly Salary ÷ (Weekly Hours ÷ 6 × 30)"
+    },
+    {
+      "type": "paragraph",
+      "text": "For a 44-hour weekly schedule (the most common in Brazil), the monthly hours are: 44 ÷ 6 × 30 = <strong>220 hours</strong>. If your salary is R$ 3,000, your normal hour is worth R$ 3,000 ÷ 220 = <strong>R$ 13.64</strong>."
+    },
+    {
+      "type": "heading",
+      "text": "Legal Limits"
+    },
+    {
+      "type": "paragraph",
+      "text": "The CLT allows a maximum of <strong>2 overtime hours per day</strong>. Exceeding this limit can create labor liability for the company. Additionally, the nocturnal hour is 'reduced': each hour between 10pm and 5am counts as <strong>52 minutes and 30 seconds</strong>, meaning 7 hours of night work equal 8 normal hours."
+    }
+  ]
+}

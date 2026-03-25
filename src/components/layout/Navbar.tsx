@@ -32,7 +32,12 @@ export function Navbar() {
     'calculadora-rescisao-trabalhista': 'labor-termination-calculator',
     // Labor Guides
     'como-calcular-salario-liquido': 'how-to-calculate-net-salary',
-    'como-calcular-rescisao-trabalhista': 'how-to-calculate-labor-termination'
+    'como-calcular-rescisao-trabalhista': 'how-to-calculate-labor-termination',
+    // Overtime & Vacation
+    'calculadora-de-horas-extras': 'overtime-calculator',
+    'calculadora-ferias-decimo-terceiro': 'vacation-13th-salary-calculator',
+    'como-calcular-horas-extras': 'how-to-calculate-overtime',
+    'como-calcular-ferias-decimo-terceiro': 'how-to-calculate-vacation-13th-salary'
   };
 
   const enToPtMap: Record<string, string> = {
@@ -52,7 +57,12 @@ export function Navbar() {
     'labor-termination-calculator': 'calculadora-rescisao-trabalhista',
     // Labor Guides
     'how-to-calculate-net-salary': 'como-calcular-salario-liquido',
-    'how-to-calculate-labor-termination': 'como-calcular-rescisao-trabalhista'
+    'how-to-calculate-labor-termination': 'como-calcular-rescisao-trabalhista',
+    // Overtime & Vacation
+    'overtime-calculator': 'calculadora-de-horas-extras',
+    'vacation-13th-salary-calculator': 'calculadora-ferias-decimo-terceiro',
+    'how-to-calculate-overtime': 'como-calcular-horas-extras',
+    'how-to-calculate-vacation-13th-salary': 'como-calcular-ferias-decimo-terceiro'
   };
 
   const toggleLang = () => {

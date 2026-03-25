@@ -73,6 +73,52 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
           borderRadius: 8,
         }]
       };
+    case 'overtime':
+      return {
+        type: 'bar',
+        labels: lang === 'en'
+          ? ['Overtime 50%', 'Overtime 100%', 'Night Shift Bonus', 'Base Salary']
+          : ['HE 50%', 'HE 100%', 'Adicional Noturno', 'Salário Base'],
+        datasets: [{
+          label: lang === 'en' ? 'Breakdown' : 'Detalhamento',
+          data: [
+            results.overtime50Value || 0,
+            results.overtime100Value || 0,
+            results.nightShiftBonus || 0,
+            parseFloat(inputs.monthlySalary) || 0
+          ],
+          backgroundColor: [
+            'rgba(255, 149, 0, 0.8)',
+            'rgba(255, 59, 48, 0.8)',
+            'rgba(88, 86, 214, 0.8)',
+            'rgba(52, 199, 89, 0.8)'
+          ],
+          borderRadius: 8,
+        }]
+      };
+    case 'vacation_13th':
+      return {
+        type: 'bar',
+        labels: lang === 'en'
+          ? ['Vacation Pay', '1/3 Bonus', 'Sell Days', '13th Salary']
+          : ['Férias', '1/3 Férias', 'Abono Pecuniário', '13° Salário'],
+        datasets: [{
+          label: lang === 'en' ? 'Breakdown' : 'Detalhamento',
+          data: [
+            results.vacationPay || 0,
+            results.vacationBonus || 0,
+            results.sellValue || 0,
+            results.thirteenthPay || 0
+          ],
+          backgroundColor: [
+            'rgba(0, 122, 255, 0.8)',
+            'rgba(88, 86, 214, 0.8)',
+            'rgba(175, 82, 222, 0.8)',
+            'rgba(52, 199, 89, 0.8)'
+          ],
+          borderRadius: 8,
+        }]
+      };
     default:
       return null;
   }

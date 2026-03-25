@@ -1,0 +1,89 @@
+{
+  "category": "labor",
+  "calculator_id": "overtime",
+  "slug": "calculadora-de-horas-extras",
+  "title": "Calculadora de Horas Extras CLT",
+  "meta_title": "Calculadora de Horas Extras CLT 2025 | 50%, 100% e Adicional Noturno - CalcForgeTools",
+  "meta_description": "Calcule suas horas extras CLT: valor da hora extra 50%, 100% (domingos e feriados) e adicional noturno. Simulação gratuita com tabela 2025.",
+  "hero": {
+    "title": "Calculadora de Horas Extras CLT",
+    "subtitle": "Descubra exatamente quanto vale cada hora extra trabalhada. Calcule horas extras de 50%, 100% e adicional noturno com precisão."
+  },
+  "inputs": [
+    {
+      "name": "monthlySalary",
+      "label": "Salário Mensal (R$)",
+      "type": "number",
+      "defaultValue": 3000
+    },
+    {
+      "name": "weeklyHours",
+      "label": "Jornada Semanal (horas)",
+      "type": "number",
+      "defaultValue": 44
+    },
+    {
+      "name": "overtimeHours50",
+      "label": "Horas Extras 50% (dias úteis)",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "name": "overtimeHours100",
+      "label": "Horas Extras 100% (domingos/feriados)",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "name": "nightShiftHours",
+      "label": "Horas Noturnas (22h-5h)",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "Valor HE = (Salário ÷ Horas Mensais) × Adicional (1,5x ou 2x)",
+  "outputs": [
+    "totalSalaryWithOvertime",
+    "hourlyRate",
+    "overtime50Value",
+    "overtime100Value",
+    "nightShiftBonus",
+    "totalOvertime"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "O valor da hora normal é calculado dividindo o salário mensal pelas horas mensais (jornada semanal ÷ 6 × 30). Horas extras em dias úteis pagam 50% a mais, domingos e feriados pagam 100% a mais. O adicional noturno é de 20% sobre a hora normal.",
+  "example": "Com salário de R$ 3.000 e jornada de 44h/semana, a hora normal vale R$ 13,64. Fazendo 10 horas extras a 50%, você recebe R$ 204,55 adicionais no contracheque.",
+  "faq": [
+    {
+      "question": "Quantas horas extras posso fazer por mês?",
+      "answer": "A CLT limita a 2 horas extras por dia, totalizando no máximo cerca de 44 horas extras mensais. Exceções existem para profissões regulamentadas por acordos coletivos."
+    },
+    {
+      "question": "Hora extra no domingo paga quanto a mais?",
+      "answer": "Horas extras em domingos e feriados pagam 100% a mais, ou seja, o dobro do valor da hora normal. Já em dias úteis, o adicional mínimo é de 50%."
+    },
+    {
+      "question": "O que é o adicional noturno?",
+      "answer": "O adicional noturno é de 20% sobre a hora normal para trabalho realizado entre 22h e 5h. Além disso, a hora noturna é 'reduzida': cada hora conta como 52 minutos e 30 segundos."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora Salário Líquido CLT",
+      "href": "/pt/calculators/calculadora-salario-liquido-clt",
+      "description": "Calcule seu salário líquido já com os descontos de INSS e IRRF."
+    },
+    {
+      "title": "Calculadora de Férias e 13° Salário",
+      "href": "/pt/calculators/calculadora-ferias-decimo-terceiro",
+      "description": "Simule quanto você recebe de férias e 13° salário proporcional."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular Horas Extras CLT",
+      "href": "/pt/guides/como-calcular-horas-extras",
+      "description": "Entenda as regras de 50%, 100% e adicional noturno para nunca ser lesado."
+    }
+  ]
+}

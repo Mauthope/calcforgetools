@@ -1,0 +1,62 @@
+{
+  "slug": "como-calcular-horas-extras",
+  "meta_title": "Como Calcular Horas Extras CLT 2025 | Guia Completo - CalcForgeTools",
+  "meta_description": "Aprenda a calcular horas extras CLT: 50%, 100%, adicional noturno e banco de horas. Entenda seus direitos e nunca mais seja lesado.",
+  "hero": {
+    "title": "Como Calcular Horas Extras CLT",
+    "subtitle": "O guia completo para entender cada centavo das suas horas extras e garantir que seu contracheque está correto."
+  },
+  "related_tools": [
+    {
+      "id": "overtime",
+      "href": "/pt/calculators/calculadora-de-horas-extras",
+      "title": "Calculadora de Horas Extras CLT",
+      "description": "Calcule automaticamente suas horas extras de 50%, 100% e adicional noturno.",
+      "category": "labor"
+    }
+  ],
+  "content": [
+    {
+      "type": "quote",
+      "text": "Quem não conhece seus direitos trabalhistas trabalha de graça sem saber.",
+      "author": "Provérbio popular"
+    },
+    {
+      "type": "paragraph",
+      "text": "Você sabia que muitos trabalhadores brasileiros fazem horas extras e <strong>não recebem o valor correto</strong>? A legislação CLT é clara sobre os adicionais, mas a falta de conhecimento faz com que milhões de reais deixem de chegar aos bolsos de quem os mereceu."
+    },
+    {
+      "type": "heading",
+      "text": "As Três Modalidades de Hora Extra"
+    },
+    {
+      "type": "table",
+      "headers": ["Tipo", "Quando se Aplica", "Adicional"],
+      "rows": [
+        ["Hora Extra 50%", "Dias úteis (segunda a sábado)", "<strong>+50%</strong> sobre a hora normal"],
+        ["Hora Extra 100%", "Domingos e feriados", "<strong>+100%</strong> (valor dobrado)"],
+        ["Adicional Noturno", "Trabalho entre 22h e 5h", "<strong>+20%</strong> sobre a hora normal"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Como Calcular o Valor da Hora Normal"
+    },
+    {
+      "type": "formula",
+      "expression": "Hora Normal = Salário Mensal ÷ (Jornada Semanal ÷ 6 × 30)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Para jornada de 44 horas semanais (a mais comum no Brasil), as horas mensais são: 44 ÷ 6 × 30 = <strong>220 horas</strong>. Se seu salário é R$ 3.000, sua hora normal vale R$ 3.000 ÷ 220 = <strong>R$ 13,64</strong>."
+    },
+    {
+      "type": "heading",
+      "text": "Limites Legais"
+    },
+    {
+      "type": "paragraph",
+      "text": "A CLT permite no máximo <strong>2 horas extras por dia</strong>. Exceder esse limite pode gerar passivo trabalhista para a empresa. Além disso, a hora noturna é 'reduzida': cada hora entre 22h e 5h conta como <strong>52 minutos e 30 segundos</strong>, o que significa que 7 horas de trabalho noturno equivalem a 8 horas normais."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "category": "labor",
+  "calculator_id": "vacation_13th",
+  "slug": "calculadora-ferias-decimo-terceiro",
+  "title": "Calculadora de Férias e 13° Salário",
+  "meta_title": "Calculadora de Férias e 13° Salário 2025 | Abono Pecuniário - CalcForgeTools",
+  "meta_description": "Calcule suas férias CLT, 1/3 constitucional, abono pecuniário e 13° salário proporcional. Simulação completa e gratuita com valores atualizados.",
+  "hero": {
+    "title": "Calculadora de Férias e 13° Salário",
+    "subtitle": "Descubra quanto você recebe de férias e décimo terceiro. Simule com ou sem venda de dias e veja cada verba detalhada."
+  },
+  "inputs": [
+    {
+      "name": "monthlySalary",
+      "label": "Salário Mensal (R$)",
+      "type": "number",
+      "defaultValue": 3500
+    },
+    {
+      "name": "monthsWorked",
+      "label": "Meses Trabalhados (para proporcional)",
+      "type": "number",
+      "defaultValue": 12
+    },
+    {
+      "name": "vacationType",
+      "label": "Tipo de Férias",
+      "type": "select",
+      "defaultValue": "full",
+      "options": [
+        { "label": "Férias Integrais (30 dias)", "value": "full" },
+        { "label": "Férias Proporcionais", "value": "proportional" }
+      ]
+    },
+    {
+      "name": "sellDays",
+      "label": "Dias Vendidos (Abono Pecuniário)",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "Férias = (Salário ÷ 30 × Dias) + 1/3 Constitucional + Abono",
+  "outputs": [
+    "grandTotal",
+    "vacationPay",
+    "vacationBonus",
+    "sellValue",
+    "enjoyedDays",
+    "thirteenthPay",
+    "totalVacationPackage"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "As férias são calculadas com base no salário dividido por 30, multiplicado pelos dias de férias devidos. Sobre esse valor incide o adicional de 1/3 constitucional. O abono pecuniário permite converter até 1/3 dos dias de férias em dinheiro (máximo 10 dias). O 13° salário proporcional é calculado dividindo o salário por 12 e multiplicando pelos meses trabalhados.",
+  "example": "Com salário de R$ 3.500 e férias integrais de 30 dias sem vender dias, você recebe R$ 3.500 de férias + R$ 1.166,67 de 1/3 = R$ 4.666,67. Mais o 13° proporcional de 12 meses: R$ 3.500. Total: R$ 8.166,67.",
+  "faq": [
+    {
+      "question": "O que é o abono pecuniário?",
+      "answer": "É o direito de vender até 1/3 das suas férias (máximo 10 dias de 30). Você recebe o valor desses dias + o 1/3 constitucional sobre eles em dinheiro, mas trabalha durante esses dias ao invés de descansar."
+    },
+    {
+      "question": "Quando recebo o 13° salário?",
+      "answer": "O 13° é pago em duas parcelas: a primeira entre fevereiro e novembro (até 30/11), e a segunda até 20 de dezembro. Você pode solicitar a 1ª parcela junto com suas férias."
+    },
+    {
+      "question": "Férias proporcionais são de quanto?",
+      "answer": "São calculadas como (meses trabalhados ÷ 12) × 30 dias. Se você trabalhou 6 meses, tem direito a 15 dias de férias proporcionais + 1/3."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Rescisão Trabalhista",
+      "href": "/pt/calculators/calculadora-rescisao-trabalhista",
+      "description": "Calcule sua rescisão completa incluindo férias, FGTS e multa."
+    },
+    {
+      "title": "Calculadora de Horas Extras CLT",
+      "href": "/pt/calculators/calculadora-de-horas-extras",
+      "description": "Calcule o valor das suas horas extras de 50% e 100%."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular Férias e 13° Salário",
+      "href": "/pt/guides/como-calcular-ferias-decimo-terceiro",
+      "description": "Entenda cada verba das férias e do décimo terceiro passo a passo."
+    }
+  ]
+}

@@ -308,6 +308,76 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
+    case 'overtime': {
+      const salary = parseFloat(inputs.monthlySalary) || 0;
+      const weeklyHours = parseFloat(inputs.weeklyHours) || 44;
+      const overtimeHours50 = parseFloat(inputs.overtimeHours50) || 0;
+      const overtimeHours100 = parseFloat(inputs.overtimeHours100) || 0;
+      const nightHours = parseFloat(inputs.nightShiftHours) || 0;
+
+      // CLT: monthly hours = weekly hours × 5 (weeks/month)
+      const monthlyHours = (weeklyHours / 6) * 30;
+      const hourlyRate = salary / monthlyHours;
+
+      // Overtime 50% (weekday) and 100% (Sunday/holiday)
+      const overtime50Value = overtimeHours50 * hourlyRate * 1.5;
+      const overtime100Value = overtimeHours100 * hourlyRate * 2.0;
+
+      // Night shift bonus: 20% adicional noturno (22h-5h)
+      const nightBonus = nightHours * hourlyRate * 0.2;
+
+      const totalOvertime = overtime50Value + overtime100Value + nightBonus;
+      const totalSalary = salary + totalOvertime;
+
+      result.hourlyRate = hourlyRate;
+      result.overtime50Value = overtime50Value;
+      result.overtime100Value = overtime100Value;
+      result.nightShiftBonus = nightBonus;
+      result.totalOvertime = totalOvertime;
+      result.totalSalaryWithOvertime = totalSalary;
+      break;
+    }
+
+    case 'vacation_13th': {
+      const salary = parseFloat(inputs.monthlySalary) || 0;
+      const monthsWorked = parseFloat(inputs.monthsWorked) || 12;
+      const vacationType = inputs.vacationType || 'full';
+      const sellDays = parseFloat(inputs.sellDays) || 0;
+
+      // Vacation calculation
+      let vacationDays = 30;
+      if (vacationType === 'full') {
+        vacationDays = 30;
+      } else {
+        vacationDays = Math.floor((monthsWorked / 12) * 30);
+      }
+
+      // Abono pecuniário (sell up to 1/3 of vacation = 10 days max)
+      const maxSellDays = Math.floor(vacationDays / 3);
+      const actualSellDays = Math.min(sellDays, maxSellDays);
+      const enjoyedDays = vacationDays - actualSellDays;
+
+      const dailyRate = salary / 30;
+      const vacationPay = dailyRate * vacationDays;
+      const vacationBonus = vacationPay / 3; // 1/3 constitucional
+      const sellValue = dailyRate * actualSellDays + (dailyRate * actualSellDays) / 3;
+
+      // 13th salary (proportional)
+      const thirteenthPay = (salary / 12) * monthsWorked;
+
+      const totalVacation = vacationPay + vacationBonus + sellValue;
+      const grandTotal = totalVacation + thirteenthPay;
+
+      result.vacationPay = vacationPay;
+      result.vacationBonus = vacationBonus;
+      result.sellValue = sellValue;
+      result.enjoyedDays = enjoyedDays;
+      result.thirteenthPay = thirteenthPay;
+      result.totalVacationPackage = totalVacation;
+      result.grandTotal = grandTotal;
+      break;
+    }
+
     default:
       // Fallback: attempts to use eval string if no strict implementation is found
       break;
