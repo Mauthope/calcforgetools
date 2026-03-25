@@ -1,7 +1,6 @@
-import { getCalculators, getGuides } from '@/lib/content';
+import { getGuides } from '@/lib/content';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import { CalculatorCard } from '@/components/calculator/CalculatorCard';
 import { FAQ } from '@/components/ui/FAQ';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { InteractiveBackground } from '@/components/ui/motion/InteractiveBackground';
@@ -14,13 +13,7 @@ export async function generateStaticParams() {
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
-  const [calculators, guides] = await Promise.all([
-    getCalculators(lang),
-    getGuides(lang)
-  ]);
-  
-  // Show first 4 as featured
-  const featuredCalculators = calculators.slice(0, 4);
+  const guides = await getGuides(lang);
   const featuredGuides = guides.slice(0, 3);
 
   const heroContent = {

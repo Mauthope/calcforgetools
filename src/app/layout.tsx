@@ -1,5 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 // We put the lang-specific Layout inside [lang]/layout.tsx
 // This root just provides the bare HTML skeleton
@@ -21,14 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning>
-      <head>
-        {/* Placeholder for Google AdSense - Replace client=ca-pub-XXXXXXXXXXXXXXXX with your real ID */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000" crossOrigin="anonymous"></script>
-      </head>
+    <html suppressHydrationWarning className={inter.variable}>
       <body className="antialiased min-h-screen flex flex-col">
         {children}
       </body>
     </html>
   );
 }
+
