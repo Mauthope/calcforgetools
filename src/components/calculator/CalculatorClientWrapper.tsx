@@ -184,14 +184,64 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       discountAmount: "Valor com Desconto",
       percentageResult: "Proporção (%)",
       absoluteDifference: "Diferença Absoluta",
-      percentageChange: "Variação (%)"
+      percentageChange: "Variação (%)",
+      // CLT Salary
+      netSalary: "Salário Líquido",
+      inssDeduction: "Desconto INSS",
+      irrfDeduction: "Desconto IRRF",
+      totalDeductions: "Total de Descontos",
+      fgtsDeposit: "Depósito FGTS (8%)",
+      // Labor Termination
+      totalRescission: "Valor Total da Rescisão",
+      proportionalVacation: "Férias Proporcionais",
+      vacationBonus: "1/3 de Férias",
+      proportional13th: "13° Salário Proporcional",
+      fgtsBalance: "Saldo de FGTS",
+      fgtsPenalty: "Multa 40% FGTS",
+      noticePeriod: "Aviso Prévio Indenizado"
     };
 
-    if (lang === 'pt' && ptLabels[key]) {
-      return ptLabels[key];
-    }
+    const enLabels: Record<string, string> = {
+      finalValue: "Final Value",
+      totalContribution: "Total Contributions",
+      totalInterest: "Total Interest",
+      monthlyPayment: "Monthly Payment",
+      monthlyBasePayment: "Base Payment",
+      totalMonthlyPayment: "Total Monthly Payment",
+      interestSaved: "Interest Saved",
+      monthsSaved: "Months Saved",
+      totalPayment: "Total Payment",
+      totalInterestPaid: "Total Interest Paid",
+      finalAmount: "Final Amount",
+      monthsToPayoff: "Months to Payoff",
+      totalPaid: "Total Paid",
+      netProfit: "Net Profit",
+      roiPercentage: "ROI Percentage",
+      calculationResult: "Calculation Result",
+      discountAmount: "Discounted Amount",
+      percentageResult: "Proportion (%)",
+      absoluteDifference: "Absolute Difference",
+      percentageChange: "Change (%)",
+      // CLT Salary
+      netSalary: "Net Salary",
+      inssDeduction: "INSS Deduction",
+      irrfDeduction: "IRRF Deduction",
+      totalDeductions: "Total Deductions",
+      fgtsDeposit: "FGTS Deposit (8%)",
+      // Labor Termination
+      totalRescission: "Total Termination Value",
+      proportionalVacation: "Proportional Vacation",
+      vacationBonus: "1/3 Vacation Bonus",
+      proportional13th: "Proportional 13th Salary",
+      fgtsBalance: "FGTS Balance",
+      fgtsPenalty: "40% FGTS Penalty",
+      noticePeriod: "Indemnified Notice Period"
+    };
 
-    // Fallback to English spacing
+    const labels = lang === 'pt' ? ptLabels : enLabels;
+    if (labels[key]) return labels[key];
+
+    // Fallback: camelCase to spaced words
     const result = key.replace(/([A-Z])/g, ' $1');
     return result.charAt(0).toUpperCase() + result.slice(1);
   };
