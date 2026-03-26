@@ -1,4 +1,5 @@
 import { getGuideBySlug, getGuides } from '@/lib/content';
+import { getAlternateSlug } from '@/lib/slugMaps';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { RelatedTools } from '@/components/ui/RelatedTools';
@@ -23,14 +24,16 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   
   if (!data) return {};
 
+  const altSlug = getAlternateSlug(slug, lang as 'en' | 'pt');
+
   return {
     title: data.meta_title,
     description: data.meta_description,
     alternates: {
       canonical: `/${lang}/guides/${slug}`,
       languages: {
-        'en': `/en/guides/${slug}`,
-        'pt': `/pt/guides/${slug}`
+        'en': `/en/guides/${lang === 'en' ? slug : altSlug}`,
+        'pt': `/pt/guides/${lang === 'pt' ? slug : altSlug}`
       }
     }
   };
@@ -42,24 +45,41 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
 
   if (!data) return notFound();
 
-  // Simple Article Schema snippet
-  const jsonLd = {
+  const baseUrl = 'https://calcforgetools.com';
+
+  // JSON-LD: Article (enhanced)
+  const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: data.hero.title,
     description: data.meta_description,
-    author: {
+    url: `${baseUrl}/${lang}/guides/${slug}`,
+    datePublished: '2026-03-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    inLanguage: lang === 'pt' ? 'pt-BR' : 'en-US',
+    author: { '@type': 'Organization', name: 'CalcForgeTools', url: baseUrl },
+    publisher: {
       '@type': 'Organization',
-      name: 'CalcForgeTools'
+      name: 'CalcForgeTools',
+      url: baseUrl
     }
+  };
+
+  // JSON-LD: BreadcrumbList
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${baseUrl}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: lang === 'en' ? 'Guides' : 'Guias', item: `${baseUrl}/${lang}/guides` },
+      { '@type': 'ListItem', position: 3, name: data.hero.title, item: `${baseUrl}/${lang}/guides/${slug}` }
+    ]
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       
       {/* Hero */}
       <section className="bg-[var(--color-surface)] py-16 md:py-24 border-b border-[var(--color-border)] relative overflow-hidden">

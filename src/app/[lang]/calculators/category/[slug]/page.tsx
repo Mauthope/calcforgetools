@@ -82,9 +82,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const categoryKey = SLUG_MAP[slug];
   if (!categoryKey || !CATEGORIES[categoryKey]) return {};
   const cat = CATEGORIES[categoryKey][lang as 'en' | 'pt'];
+  const altLang = lang === 'en' ? 'pt' : 'en';
+  const altSlug = REVERSE_SLUG[altLang][categoryKey];
   return {
     title: cat.title + ' | CalcForgeTools',
-    description: cat.description
+    description: cat.description,
+    alternates: {
+      canonical: `/${lang}/calculators/category/${slug}`,
+      languages: {
+        'en': `/en/calculators/category/${lang === 'en' ? slug : altSlug}`,
+        'pt': `/pt/calculators/category/${lang === 'pt' ? slug : altSlug}`
+      }
+    }
   };
 }
 

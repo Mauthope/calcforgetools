@@ -1,4 +1,5 @@
 import { getCalculatorBySlug, getCalculators } from '@/lib/content';
+import { getAlternateSlug } from '@/lib/slugMaps';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FAQ } from '@/components/ui/FAQ';
@@ -24,12 +25,14 @@ export async function generateStaticParams() {
   return paths;
 }
 
-// Generate SEO Metadata
+// Generate SEO Metadata with correct cross-language hreflang
 export async function generateMetadata({ params }: { params: Promise<{ lang: string, slug: string }> }): Promise<Metadata> {
   const { lang, slug } = await params;
   const data = await getCalculatorBySlug(lang, slug);
   
   if (!data) return {};
+
+  const altSlug = getAlternateSlug(slug, lang as 'en' | 'pt');
 
   return {
     title: data.meta_title,
@@ -37,8 +40,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     alternates: {
       canonical: `/${lang}/calculators/${slug}`,
       languages: {
-        'en': `/en/calculators/${slug}`, // Ideally, we'd map cross-language slugs. V1 simple version:
-        'pt': `/pt/calculators/${slug}`
+        'en': `/en/calculators/${lang === 'en' ? slug : altSlug}`,
+        'pt': `/pt/calculators/${lang === 'pt' ? slug : altSlug}`
       }
     }
   };
@@ -50,26 +53,48 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
 
   if (!data) return notFound();
 
-  // JSON-LD Schema for SEO
-  const jsonLd = {
+  const baseUrl = 'https://calcforgetools.com';
+
+  // JSON-LD: FAQPage
+  const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: data.faq?.map((q: any) => ({
       '@type': 'Question',
       name: q.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: q.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: q.answer },
     })) || []
+  };
+
+  // JSON-LD: BreadcrumbList
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${baseUrl}/${lang}` },
+      { '@type': 'ListItem', position: 2, name: lang === 'en' ? 'Calculators' : 'Calculadoras', item: `${baseUrl}/${lang}/calculators` },
+      { '@type': 'ListItem', position: 3, name: data.title, item: `${baseUrl}/${lang}/calculators/${slug}` }
+    ]
+  };
+
+  // JSON-LD: WebApplication
+  const webAppLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: data.title,
+    description: data.meta_description,
+    url: `${baseUrl}/${lang}/calculators/${slug}`,
+    applicationCategory: 'FinanceApplication',
+    operatingSystem: 'All',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    author: { '@type': 'Organization', name: 'CalcForgeTools', url: baseUrl }
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }} />
       
       {/* Hero */}
       <section className="bg-[var(--color-surface)] py-8 md:py-12 border-b border-[var(--color-border)] overflow-hidden">

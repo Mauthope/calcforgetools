@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Container } from '../ui/Container';
 import { Menu, X, Calculator, BookOpen, LayoutTemplate } from 'lucide-react';
+import { ptToEnSlugMap, enToPtSlugMap } from '@/lib/slugMaps';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -14,56 +15,8 @@ export function Navbar() {
   // Derive current language from URL
   const currentLang = pathname.startsWith('/pt') ? 'pt' : 'en';
 
-  // Maps to handle slug changes between languages
-  const ptToEnMap: Record<string, string> = {
-    'calculadora-de-financiamento-da-minha-casa': 'home-mortgage-calculator',
-    'calculadora-de-quitacao-de-divida': 'debt-payoff-calculator',
-    'calculadora-de-juros-compostos': 'compound-interest-calculator',
-    'calculadora-de-porcentagem': 'percentage-calculator',
-    // Guides
-    'como-funcionam-os-juros-compostos': 'how-compound-interest-works',
-    'como-calcular-porcentagens': 'how-to-calculate-percentages',
-    // Categories
-    'financeira': 'financial',
-    'matematica': 'mathematical',
-    'trabalhista': 'labor',
-    // Labor Calculators
-    'calculadora-salario-liquido-clt': 'clt-net-salary-calculator',
-    'calculadora-rescisao-trabalhista': 'labor-termination-calculator',
-    // Labor Guides
-    'como-calcular-salario-liquido': 'how-to-calculate-net-salary',
-    'como-calcular-rescisao-trabalhista': 'how-to-calculate-labor-termination',
-    // Overtime & Vacation
-    'calculadora-de-horas-extras': 'overtime-calculator',
-    'calculadora-ferias-decimo-terceiro': 'vacation-13th-salary-calculator',
-    'como-calcular-horas-extras': 'how-to-calculate-overtime',
-    'como-calcular-ferias-decimo-terceiro': 'how-to-calculate-vacation-13th-salary'
-  };
-
-  const enToPtMap: Record<string, string> = {
-    'home-mortgage-calculator': 'calculadora-de-financiamento-da-minha-casa',
-    'debt-payoff-calculator': 'calculadora-de-quitacao-de-divida',
-    'compound-interest-calculator': 'calculadora-de-juros-compostos',
-    'percentage-calculator': 'calculadora-de-porcentagem',
-    // Guides
-    'how-compound-interest-works': 'como-funcionam-os-juros-compostos',
-    'how-to-calculate-percentages': 'como-calcular-porcentagens',
-    // Categories
-    'financial': 'financeira',
-    'mathematical': 'matematica',
-    'labor': 'trabalhista',
-    // Labor Calculators
-    'clt-net-salary-calculator': 'calculadora-salario-liquido-clt',
-    'labor-termination-calculator': 'calculadora-rescisao-trabalhista',
-    // Labor Guides
-    'how-to-calculate-net-salary': 'como-calcular-salario-liquido',
-    'how-to-calculate-labor-termination': 'como-calcular-rescisao-trabalhista',
-    // Overtime & Vacation
-    'overtime-calculator': 'calculadora-de-horas-extras',
-    'vacation-13th-salary-calculator': 'calculadora-ferias-decimo-terceiro',
-    'how-to-calculate-overtime': 'como-calcular-horas-extras',
-    'how-to-calculate-vacation-13th-salary': 'como-calcular-ferias-decimo-terceiro'
-  };
+  const ptToEnMap = ptToEnSlugMap;
+  const enToPtMap = enToPtSlugMap;
 
   const toggleLang = () => {
     const newLang = currentLang === 'en' ? 'pt' : 'en';

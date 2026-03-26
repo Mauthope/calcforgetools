@@ -6,9 +6,36 @@ import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { InteractiveBackground } from '@/components/ui/motion/InteractiveBackground';
 import { ArrowRight, Calculator, BookOpen, ShieldCheck, Zap, LineChart } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'pt' }];
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+
+  const titles: Record<string, string> = {
+    en: 'CalcForgeTools — Free Financial, Math & Labor Calculators',
+    pt: 'CalcForgeTools — Calculadoras Financeiras, Matemáticas e Trabalhistas Grátis'
+  };
+  const descriptions: Record<string, string> = {
+    en: 'Free, fast, Apple-inspired calculators for compound interest, mortgages, ROI, percentages, CLT salary, overtime, vacation, and termination. No signup required.',
+    pt: 'Calculadoras gratuitas, rápidas e inspiradas na Apple para juros compostos, financiamento, ROI, porcentagem, salário CLT, horas extras, férias e rescisão. Sem cadastro.'
+  };
+
+  return {
+    title: titles[lang] || titles.en,
+    description: descriptions[lang] || descriptions.en,
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        'en': '/en',
+        'pt': '/pt',
+        'x-default': '/en'
+      }
+    }
+  };
 }
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
