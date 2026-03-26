@@ -131,14 +131,14 @@ export function Navbar() {
                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[var(--color-text-primary)] transition-all ${currentLang === 'en' ? 'bg-[#F5F5F7] shadow-sm' : 'opacity-60 hover:opacity-100'}`}
                  title="Switch to English"
                >
-                 <span className="text-base leading-none">🇺🇸</span> EN
+                 <img src="https://flagcdn.com/w40/us.png" alt="US Flag" className="w-4 h-auto rounded-[2px] shadow-sm" /> EN
                </button>
                <button 
                  onClick={() => currentLang !== 'pt' && toggleLang()}
                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[var(--color-text-primary)] transition-all ${currentLang === 'pt' ? 'bg-[#F5F5F7] shadow-sm' : 'opacity-60 hover:opacity-100'}`}
                  title="Mudar para Português"
                >
-                 <span className="text-base leading-none">🇧🇷</span> PT
+                 <img src="https://flagcdn.com/w40/br.png" alt="BR Flag" className="w-4 h-auto rounded-[2px] shadow-sm" /> PT
                </button>
             </div>
           </div>
@@ -150,13 +150,13 @@ export function Navbar() {
                  onClick={() => currentLang !== 'en' && toggleLang()}
                  className={`p-1.5 rounded-full transition-all ${currentLang === 'en' ? 'bg-[#F5F5F7] shadow-sm' : 'opacity-50 grayscale hover:opacity-100 hover:grayscale-0'}`}
                >
-                 <span className="text-lg leading-none">🇺🇸</span>
+                 <img src="https://flagcdn.com/w40/us.png" alt="US" className="w-5 h-auto rounded-[2px]" />
                </button>
                <button 
                  onClick={() => currentLang !== 'pt' && toggleLang()}
                  className={`p-1.5 rounded-full transition-all ${currentLang === 'pt' ? 'bg-[#F5F5F7] shadow-sm' : 'opacity-50 grayscale hover:opacity-100 hover:grayscale-0'}`}
                >
-                 <span className="text-lg leading-none">🇧🇷</span>
+                 <img src="https://flagcdn.com/w40/br.png" alt="BR" className="w-5 h-auto rounded-[2px]" />
                </button>
             </div>
             <button
