@@ -3,11 +3,11 @@
   "calculator_id": "clt_salary",
   "slug": "calculadora-salario-liquido-clt",
   "title": "Calculadora de Salário Líquido CLT",
-  "meta_title": "Calculadora Salário Líquido CLT 2025 | INSS e IRRF - CalcForgeTools",
-  "meta_description": "Calcule seu salário líquido CLT em segundos. Descubra os descontos exatos de INSS e IRRF com as tabelas atualizadas de 2025 e veja quanto cai na sua conta.",
+  "meta_title": "Calculadora Salário Líquido CLT 2026 | INSS e IRRF - CalcForgeTools",
+  "meta_description": "Calcule seu salário líquido CLT em segundos. Descubra os descontos exatos de INSS e IRRF com as tabelas atualizadas de 2026 e veja quanto cai na sua conta.",
   "hero": {
     "title": "Calculadora Salário Líquido CLT",
-    "subtitle": "Descubra exatamente quanto entra na sua conta. Insira seu salário bruto e veja os descontos de INSS, IRRF e depósito de FGTS calculados automaticamente com as tabelas 2025."
+    "subtitle": "Descubra exatamente quanto entra na sua conta. Insira seu salário bruto e veja os descontos de INSS, IRRF e depósito de FGTS calculados automaticamente com as tabelas 2026."
   },
   "inputs": [
     {
@@ -38,7 +38,7 @@
     "fgtsDeposit"
   ],
   "chart_type": "doughnut",
-  "formula_explanation": "O cálculo usa as tabelas progressivas oficiais do INSS e IRRF de 2025. O INSS incide por faixas sobre o salário bruto. O IRRF é calculado sobre a base (bruto - INSS - dedução por dependente de R$ 189,59).",
+  "formula_explanation": "O cálculo usa as tabelas progressivas oficiais do INSS e IRRF de 2026. O INSS incide por faixas sobre o salário bruto. O IRRF é calculado sobre a base (bruto - INSS - dedução por dependente de R$ 189,59).",
   "example": "Com um salário bruto de R$ 4.000,00 e sem dependentes, o desconto de INSS fica em torno de R$ 373,09 e o IRRF em torno de R$ 73,83, resultando em um salário líquido de aproximadamente R$ 3.553,08.",
   "faq": [
     {

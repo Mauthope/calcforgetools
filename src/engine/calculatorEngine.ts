@@ -213,13 +213,13 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const deps = parseFloat(inputs.dependents) || 0;
       const otherDed = parseFloat(inputs.otherDeductions) || 0;
 
-      // 2025 Progressive INSS
+      // 2026 Progressive INSS (Portaria MPS 2026, fonte: gov.br)
       let inss = 0;
       const inssBands = [
-        { limit: 1518.00, rate: 0.075 },
-        { limit: 2793.88, rate: 0.09 },
-        { limit: 4190.83, rate: 0.12 },
-        { limit: 8157.41, rate: 0.14 }
+        { limit: 1621.00, rate: 0.075 },
+        { limit: 2902.84, rate: 0.09 },
+        { limit: 4354.27, rate: 0.12 },
+        { limit: 8475.55, rate: 0.14 }
       ];
       let remaining = gross;
       let prevLimit = 0;
@@ -230,23 +230,36 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
         remaining -= taxable;
         prevLimit = band.limit;
       }
-      if (gross > 8157.41) inss = 951.63; // INSS ceiling 2025
+      if (gross > 8475.55) inss = 988.09; // INSS ceiling 2026
 
-      // IRRF base = gross - INSS - dependents deduction (R$ 189.59 each)
+      // IRRF 2026 — Lei nº 15.270/2025 (fonte: gov.br)
+      // Step 1: traditional IRRF calculation
       const depDeduction = deps * 189.59;
       const irrfBase = gross - inss - depDeduction - otherDed;
 
-      let irrf = 0;
+      let irrfTraditional = 0;
       if (irrfBase > 4664.68) {
-        irrf = irrfBase * 0.275 - 896.00;
+        irrfTraditional = irrfBase * 0.275 - 908.73;
       } else if (irrfBase > 3751.05) {
-        irrf = irrfBase * 0.225 - 662.77;
+        irrfTraditional = irrfBase * 0.225 - 692.78;
       } else if (irrfBase > 2826.65) {
-        irrf = irrfBase * 0.15 - 381.44;
-      } else if (irrfBase > 2259.20) {
-        irrf = irrfBase * 0.075 - 169.44;
+        irrfTraditional = irrfBase * 0.15 - 394.16;
+      } else if (irrfBase > 2428.80) {
+        irrfTraditional = irrfBase * 0.075 - 182.16;
       }
-      if (irrf < 0) irrf = 0;
+      if (irrfTraditional < 0) irrfTraditional = 0;
+
+      // Step 2: new 2026 exemption/reduction mechanism
+      let irrf = irrfTraditional;
+      if (gross <= 5000.00) {
+        // Full exemption for gross up to R$ 5.000
+        irrf = 0;
+      } else if (gross <= 7350.00) {
+        // Descending reduction: R$ 978.62 - (0.133145 × gross)
+        const reduction = 978.62 - (0.133145 * gross);
+        irrf = Math.max(irrfTraditional - Math.max(reduction, 0), 0);
+      }
+      // Above R$ 7.350: no additional reduction, traditional table applies
 
       const fgts = gross * 0.08;
       const totalDeductions = inss + irrf + otherDed;

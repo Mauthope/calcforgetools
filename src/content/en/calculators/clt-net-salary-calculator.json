@@ -3,11 +3,11 @@
   "calculator_id": "clt_salary",
   "slug": "clt-net-salary-calculator",
   "title": "CLT Net Salary Calculator",
-  "meta_title": "CLT Net Salary Calculator 2025 | INSS & IRRF - CalcForgeTools",
-  "meta_description": "Calculate your Brazilian CLT net salary instantly. See exact INSS and IRRF deductions using the official 2025 tax tables and find out your take-home pay.",
+  "meta_title": "CLT Net Salary Calculator 2026 | INSS & IRRF - CalcForgeTools",
+  "meta_description": "Calculate your Brazilian CLT net salary instantly. See exact INSS and IRRF deductions using the official 2026 tax tables and find out your take-home pay.",
   "hero": {
     "title": "CLT Net Salary Calculator",
-    "subtitle": "Find out exactly how much lands in your bank account. Enter your gross salary and see INSS, IRRF deductions, and FGTS deposits calculated automatically with the 2025 tables."
+    "subtitle": "Find out exactly how much lands in your bank account. Enter your gross salary and see INSS, IRRF deductions, and FGTS deposits calculated automatically with the 2026 tables."
   },
   "inputs": [
     {
@@ -38,7 +38,7 @@
     "fgtsDeposit"
   ],
   "chart_type": "doughnut",
-  "formula_explanation": "The calculation uses the official 2025 progressive INSS and IRRF tax tables. INSS is applied in bands on the gross salary. IRRF is calculated on the base (gross - INSS - R$189.59 per dependent deduction).",
+  "formula_explanation": "The calculation uses the official 2026 progressive INSS and IRRF tax tables. INSS is applied in bands on the gross salary. IRRF is calculated on the base (gross - INSS - R$189.59 per dependent deduction).",
   "example": "With a gross salary of R$ 4,000.00 and no dependents, the INSS deduction is approximately R$ 373.09 and the IRRF is approximately R$ 73.83, resulting in a net salary of around R$ 3,553.08.",
   "faq": [
     {

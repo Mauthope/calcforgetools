@@ -1,7 +1,7 @@
 {
   "slug": "how-to-calculate-net-salary",
-  "meta_title": "How to Calculate Net Salary CLT 2025 | Complete INSS and IRRF Tables - CalcForgeTools",
-  "meta_description": "Learn step by step how to calculate your CLT net salary with the 2025 progressive INSS and IRRF tables. Complete guide with practical examples and tax tips.",
+  "meta_title": "How to Calculate Net Salary CLT 2026 | Complete INSS and IRRF Tables - CalcForgeTools",
+  "meta_description": "Learn step by step how to calculate your CLT net salary with the 2026 progressive INSS and IRRF tables. Complete guide with practical examples and tax tips.",
   "hero": {
     "title": "How to Calculate Net Salary (CLT)",
     "subtitle": "The complete guide to understanding every cent that leaves your paycheck, mastering the INSS and IRRF tables, and taking control of your financial life."
@@ -11,7 +11,7 @@
       "id": "clt_salary",
       "href": "/en/calculators/clt-net-salary-calculator",
       "title": "CLT Net Salary Calculator",
-      "description": "Calculate your net salary automatically with the 2025 tables.",
+      "description": "Calculate your net salary automatically with the 2026 tables.",
       "category": "labor"
     }
   ],
@@ -31,44 +31,52 @@
     },
     {
       "type": "heading",
-      "text": "The Deduction Map: INSS Table 2025"
+      "text": "The Deduction Map: INSS Table 2026"
     },
     {
       "type": "paragraph",
-      "text": "The INSS works through progressive brackets. You <strong>don't pay 14% on everything</strong> — each portion of your salary is taxed at a different rate. It's like a staircase: each step charges its own rate. See the official 2025 table:"
+      "text": "The INSS works through progressive brackets. You <strong>don't pay 14% on everything</strong> — each portion of your salary is taxed at a different rate. It's like a staircase: each step charges its own rate. See the official 2026 table:"
     },
     {
       "type": "table",
       "headers": ["Salary Bracket", "INSS Rate", "Maximum Contribution per Bracket"],
       "rows": [
-        ["Up to R$ 1,518.00", "7.5%", "R$ 113.85"],
-        ["R$ 1,518.01 to R$ 2,793.88", "9%", "R$ 114.83"],
-        ["R$ 2,793.89 to R$ 4,190.83", "12%", "R$ 167.63"],
-        ["R$ 4,190.84 to R$ 8,157.41", "14%", "<strong>Ceiling: R$ 951.63</strong>"]
+        ["Up to R$ 1,621.00", "7.5%", "R$ 121.58"],
+        ["R$ 1,621.01 to R$ 2,902.84", "9%", "R$ 115.37"],
+        ["R$ 2,902.85 to R$ 4,354.27", "12%", "R$ 174.17"],
+        ["R$ 4,354.28 to R$ 8,475.55", "14%", "<strong>Ceiling: R$ 988.09</strong>"]
       ]
     },
     {
       "type": "paragraph",
-      "text": "If you earn R$ 4,000, the actual INSS calculation is: R$ 113.85 (1st bracket) + R$ 114.83 (2nd bracket) + R$ 144.73 (partial 3rd bracket) = <strong>R$ 373.41</strong>. Many people think they pay 12% on the entire R$ 4,000 (which would be R$ 480), but in reality they pay significantly less thanks to the progressive system."
+      "text": "If you earn R$ 4,000, the actual INSS calculation is: R$ 121.58 (1st bracket) + R$ 115.37 (2nd bracket) + R$ 131.66 (partial 3rd bracket) = <strong>R$ 368.61</strong>. Many people think they pay 12% on the entire R$ 4,000 (which would be R$ 480), but in reality they pay significantly less thanks to the progressive system."
     },
     {
       "type": "heading",
-      "text": "The Second Guillotine: IRRF Table 2025"
+      "text": "The Second Guillotine: IRRF Table 2026"
     },
     {
       "type": "paragraph",
-      "text": "After deducting the INSS from your gross, what remains enters the calculation base for Income Tax Withheld at Source. Each registered dependent <strong>reduces R$ 189.59</strong> from this base. See the 2025 brackets:"
+      "text": "After deducting the INSS from your gross, what remains enters the calculation base for Income Tax Withheld at Source. Each registered dependent <strong>reduces R$ 189.59</strong> from this base. See the 2026 brackets:"
     },
     {
       "type": "table",
       "headers": ["Calculation Base (after INSS)", "IRRF Rate", "Deduction"],
       "rows": [
-        ["Up to R$ 2,259.20", "Exempt", "—"],
-        ["R$ 2,259.21 to R$ 2,826.65", "7.5%", "R$ 169.44"],
-        ["R$ 2,826.66 to R$ 3,751.05", "15%", "R$ 381.44"],
-        ["R$ 3,751.06 to R$ 4,664.68", "22.5%", "R$ 662.77"],
-        ["Above R$ 4,664.68", "27.5%", "R$ 896.00"]
+        ["Up to R$ 2,428.80", "Exempt", "—"],
+        ["R$ 2,428.81 to R$ 2,826.65", "7.5%", "R$ 182.16"],
+        ["R$ 2,826.66 to R$ 3,751.05", "15%", "R$ 394.16"],
+        ["R$ 3,751.06 to R$ 4,664.68", "22.5%", "R$ 692.78"],
+        ["Above R$ 4,664.68", "27.5%", "R$ 908.73"]
       ]
+    },
+    {
+      "type": "heading",
+      "text": "The 2026 Game-Changer: Full Exemption up to R$ 5,000"
+    },
+    {
+      "type": "paragraph",
+      "text": "Law No. 15,270/2025 brought a historic change: anyone earning up to <strong>R$ 5,000 gross is fully exempt from IRRF</strong> starting January 2026. For income between R$ 5,000.01 and R$ 7,350.00, a descending reduction mechanism applies (the closer to R$ 5,000, the greater the discount). Above R$ 7,350, the traditional progressive table applies without any reduction."
     },
     {
       "type": "paragraph",
@@ -98,10 +106,12 @@
       "type": "table",
       "headers": ["Step", "Calculation", "Result"],
       "rows": [
-        ["1. Progressive INSS", "R$ 113.85 + R$ 114.83 + R$ 167.63 + R$ 113.28", "<strong>R$ 509.59</strong>"],
-        ["2. IRRF Base", "R$ 5,000 - R$ 509.59 - R$ 189.59 (dependent)", "R$ 4,300.82"],
-        ["3. IRRF", "R$ 4,300.82 × 22.5% - R$ 662.77", "<strong>R$ 304.91</strong>"],
-        ["4. Net Salary", "R$ 5,000 - R$ 509.59 - R$ 304.91", "<strong>R$ 4,185.50</strong>"]
+        ["1. Progressive INSS", "R$ 121.58 + R$ 115.37 + R$ 174.17 + R$ 90.40", "<strong>R$ 501.52</strong>"],
+        ["2. IRRF Base", "R$ 5,000 - R$ 501.52 - R$ 189.59 (dependent)", "R$ 4,308.89"],
+        ["3. Traditional IRRF", "R$ 4,308.89 × 22.5% - R$ 692.78", "R$ 276.72"],
+        ["4. Law 15,270 Reduction", "R$ 978.62 - (0.133145 × R$ 5,000) = R$ 312.89", "Exempt (≤ R$ 5,000)"],
+        ["5. Final IRRF", "R$ 0.00 (full exemption)", "<strong>R$ 0.00</strong>"],
+        ["6. Net Salary", "R$ 5,000 - R$ 501.52 - R$ 0", "<strong>R$ 4,498.48</strong>"]
       ]
     },
     {

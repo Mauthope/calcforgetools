@@ -3,7 +3,7 @@
   "calculator_id": "labor_termination",
   "slug": "labor-termination-calculator",
   "title": "Labor Termination Calculator",
-  "meta_title": "Labor Termination Calculator 2025 | Vacation, 13th, FGTS - CalcForgeTools",
+  "meta_title": "Labor Termination Calculator 2026 | Vacation, 13th, FGTS - CalcForgeTools",
   "meta_description": "Calculate your full Brazilian labor termination package: proportional vacation, 13th salary, FGTS balance, 40% penalty, and notice period. Free instant simulation.",
   "hero": {
     "title": "Labor Termination Calculator",
@@ -26,7 +26,7 @@
       "name": "endDate",
       "label": "End Date (Termination)",
       "type": "date",
-      "defaultValue": "2025-03-24"
+      "defaultValue": "2026-03-24"
     },
     {
       "name": "terminationType",

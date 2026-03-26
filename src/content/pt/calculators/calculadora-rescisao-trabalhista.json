@@ -3,7 +3,7 @@
   "calculator_id": "labor_termination",
   "slug": "calculadora-rescisao-trabalhista",
   "title": "Calculadora de Rescisão Trabalhista",
-  "meta_title": "Calculadora de Rescisão Trabalhista 2025 | Férias, 13°, FGTS - CalcForgeTools",
+  "meta_title": "Calculadora de Rescisão Trabalhista 2026 | Férias, 13°, FGTS - CalcForgeTools",
   "meta_description": "Calcule sua rescisão trabalhista completa: férias proporcionais, 13° salário, FGTS, multa de 40% e aviso prévio. Simulação gratuita e instantânea.",
   "hero": {
     "title": "Calculadora de Rescisão Trabalhista",
@@ -26,7 +26,7 @@
       "name": "endDate",
       "label": "Data de Demissão",
       "type": "date",
-      "defaultValue": "2025-03-24"
+      "defaultValue": "2026-03-24"
     },
     {
       "name": "terminationType",

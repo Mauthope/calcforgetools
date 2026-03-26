@@ -1,7 +1,7 @@
 {
   "slug": "como-calcular-salario-liquido",
-  "meta_title": "Como Calcular Salário Líquido CLT 2025 | Tabelas INSS e IRRF Completas - CalcForgeTools",
-  "meta_description": "Aprenda passo a passo como calcular seu salário líquido CLT com as tabelas progressivas de INSS e IRRF de 2025. Guia completo com exemplos práticos.",
+  "meta_title": "Como Calcular Salário Líquido CLT 2026 | Tabelas INSS e IRRF Completas - CalcForgeTools",
+  "meta_description": "Aprenda passo a passo como calcular seu salário líquido CLT com as tabelas progressivas de INSS e IRRF de 2026. Guia completo com exemplos práticos.",
   "hero": {
     "title": "Como Calcular Salário Líquido CLT",
     "subtitle": "O guia completo para entender cada centavo que sai do seu contracheque, dominar as tabelas de INSS e IRRF, e tomar o controle da sua vida financeira."
@@ -11,7 +11,7 @@
       "id": "clt_salary",
       "href": "/pt/calculators/calculadora-salario-liquido-clt",
       "title": "Calculadora Salário Líquido CLT",
-      "description": "Calcule seu salário líquido automaticamente com as tabelas 2025.",
+      "description": "Calcule seu salário líquido automaticamente com as tabelas 2026.",
       "category": "labor"
     }
   ],
@@ -31,44 +31,52 @@
     },
     {
       "type": "heading",
-      "text": "O Mapa dos Descontos: Tabela INSS 2025"
+      "text": "O Mapa dos Descontos: Tabela INSS 2026"
     },
     {
       "type": "paragraph",
-      "text": "O INSS funciona por faixas progressivas. Você <strong>não paga 14% sobre tudo</strong> — cada trecho do seu salário é tributado por uma alíquota diferente. É como uma escada: cada degrau cobra uma taxa própria. Veja a tabela oficial vigente em 2025:"
+      "text": "O INSS funciona por faixas progressivas. Você <strong>não paga 14% sobre tudo</strong> — cada trecho do seu salário é tributado por uma alíquota diferente. É como uma escada: cada degrau cobra uma taxa própria. Veja a tabela oficial vigente em 2026:"
     },
     {
       "type": "table",
       "headers": ["Faixa Salarial", "Alíquota INSS", "Contribuição Máxima na Faixa"],
       "rows": [
-        ["Até R$ 1.518,00", "7,5%", "R$ 113,85"],
-        ["De R$ 1.518,01 até R$ 2.793,88", "9%", "R$ 114,83"],
-        ["De R$ 2.793,89 até R$ 4.190,83", "12%", "R$ 167,63"],
-        ["De R$ 4.190,84 até R$ 8.157,41", "14%", "<strong>Teto: R$ 951,63</strong>"]
+        ["Até R$ 1.621,00", "7,5%", "R$ 121,58"],
+        ["De R$ 1.621,01 até R$ 2.902,84", "9%", "R$ 115,37"],
+        ["De R$ 2.902,85 até R$ 4.354,27", "12%", "R$ 174,17"],
+        ["De R$ 4.354,28 até R$ 8.475,55", "14%", "<strong>Teto: R$ 988,09</strong>"]
       ]
     },
     {
       "type": "paragraph",
-      "text": "Se você ganha R$ 4.000, o cálculo real do INSS é: R$ 113,85 (1ª faixa) + R$ 114,83 (2ª faixa) + R$ 144,73 (3ª faixa parcial) = <strong>R$ 373,41</strong>. Muita gente pensa que paga 12% sobre os R$ 4.000 inteiros (que seria R$ 480), mas na realidade paga bem menos graças ao sistema progressivo."
+      "text": "Se você ganha R$ 4.000, o cálculo real do INSS é: R$ 121,58 (1ª faixa) + R$ 115,37 (2ª faixa) + R$ 131,66 (3ª faixa parcial) = <strong>R$ 368,61</strong>. Muita gente pensa que paga 12% sobre os R$ 4.000 inteiros (que seria R$ 480), mas na realidade paga bem menos graças ao sistema progressivo."
     },
     {
       "type": "heading",
-      "text": "A Segunda Guilhotina: Tabela IRRF 2025"
+      "text": "A Segunda Guilhotina: Tabela IRRF 2026"
     },
     {
       "type": "paragraph",
-      "text": "Depois de descontar o INSS do seu bruto, o que sobra entra na base de cálculo do Imposto de Renda Retido na Fonte. Cada dependente registrado <strong>reduz R$ 189,59</strong> dessa base. Veja as faixas de 2025:"
+      "text": "Depois de descontar o INSS do seu bruto, o que sobra entra na base de cálculo do Imposto de Renda Retido na Fonte. Cada dependente registrado <strong>reduz R$ 189,59</strong> dessa base. Veja as faixas de 2026:"
     },
     {
       "type": "table",
       "headers": ["Base de Cálculo (após INSS)", "Alíquota IRRF", "Dedução"],
       "rows": [
-        ["Até R$ 2.259,20", "Isento", "—"],
-        ["De R$ 2.259,21 até R$ 2.826,65", "7,5%", "R$ 169,44"],
-        ["De R$ 2.826,66 até R$ 3.751,05", "15%", "R$ 381,44"],
-        ["De R$ 3.751,06 até R$ 4.664,68", "22,5%", "R$ 662,77"],
-        ["Acima de R$ 4.664,68", "27,5%", "R$ 896,00"]
+        ["Até R$ 2.428,80", "Isento", "—"],
+        ["De R$ 2.428,81 até R$ 2.826,65", "7,5%", "R$ 182,16"],
+        ["De R$ 2.826,66 até R$ 3.751,05", "15%", "R$ 394,16"],
+        ["De R$ 3.751,06 até R$ 4.664,68", "22,5%", "R$ 692,78"],
+        ["Acima de R$ 4.664,68", "27,5%", "R$ 908,73"]
       ]
+    },
+    {
+      "type": "heading",
+      "text": "A Novidade de 2026: Isenção até R$ 5.000"
+    },
+    {
+      "type": "paragraph",
+      "text": "A Lei nº 15.270/2025 trouxe uma mudança histórica: quem ganha até <strong>R$ 5.000 brutos está totalmente isento de IRRF</strong> a partir de janeiro de 2026. Para rendimentos entre R$ 5.000,01 e R$ 7.350,00, aplica-se um mecanismo de redução decrescente (quanto mais próximo de R$ 5.000, maior o desconto). Acima de R$ 7.350, aplica-se a tabela progressiva tradicional sem redução."
     },
     {
       "type": "paragraph",
@@ -98,10 +106,12 @@
       "type": "table",
       "headers": ["Etapa", "Cálculo", "Resultado"],
       "rows": [
-        ["1. INSS Progressivo", "R$ 113,85 + R$ 114,83 + R$ 167,63 + R$ 113,28", "<strong>R$ 509,59</strong>"],
-        ["2. Base IRRF", "R$ 5.000 - R$ 509,59 - R$ 189,59 (dependente)", "R$ 4.300,82"],
-        ["3. IRRF", "R$ 4.300,82 × 22,5% - R$ 662,77", "<strong>R$ 304,91</strong>"],
-        ["4. Salário Líquido", "R$ 5.000 - R$ 509,59 - R$ 304,91", "<strong>R$ 4.185,50</strong>"]
+        ["1. INSS Progressivo", "R$ 121,58 + R$ 115,37 + R$ 174,17 + R$ 90,40", "<strong>R$ 501,52</strong>"],
+        ["2. Base IRRF", "R$ 5.000 - R$ 501,52 - R$ 189,59 (dependente)", "R$ 4.308,89"],
+        ["3. IRRF Tradicional", "R$ 4.308,89 × 22,5% - R$ 692,78", "R$ 276,72"],
+        ["4. Redução Lei 15.270", "R$ 978,62 - (0,133145 × R$ 5.000) = R$ 312,89", "Isenta (≤ R$ 5.000)"],
+        ["5. IRRF Final", "R$ 0,00 (isenção total)", "<strong>R$ 0,00</strong>"],
+        ["6. Salário Líquido", "R$ 5.000 - R$ 501,52 - R$ 0", "<strong>R$ 4.498,48</strong>"]
       ]
     },
     {
