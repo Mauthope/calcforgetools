@@ -303,20 +303,38 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const noticeDays = termType === 'justa_causa' ? 0 : Math.min(30 + (yearsWorked * 3), 120);
       const noticePay = termType === 'pedido_demissao' ? 0 : (salary / 30) * noticeDays;
 
-      let total = propVacation + vacBonus + prop13th;
-      if (termType === 'sem_justa_causa') {
-        total += fgtsBalance + fgtsPenalty + noticePay;
-      } else if (termType === 'pedido_demissao') {
-        total += fgtsBalance;
-      }
-      // justa_causa: no FGTS, no penalty, no notice
+      let total = 0;
+      let displayFgts = 0;
+      let displayPenalty = 0;
+      let displayNotice = 0;
+      let displayVacation = propVacation;
+      let displayVacBonus = vacBonus;
+      let display13th = prop13th;
 
-      result.proportionalVacation = propVacation;
-      result.vacationBonus = vacBonus;
-      result.proportional13th = prop13th;
-      result.fgtsBalance = fgtsBalance;
-      result.fgtsPenalty = fgtsPenalty;
-      result.noticePeriod = noticePay;
+      if (termType === 'sem_justa_causa') {
+        // All benefits: vacation, 13th, FGTS withdrawable + 40% penalty + notice
+        displayFgts = fgtsBalance;
+        displayPenalty = fgtsPenalty;
+        displayNotice = noticePay;
+        total = propVacation + vacBonus + prop13th + fgtsBalance + fgtsPenalty + noticePay;
+      } else if (termType === 'pedido_demissao') {
+        // Vacation + 13th only. FGTS stays LOCKED (cannot withdraw).
+        // No penalty, no notice pay (worker may owe notice period).
+        total = propVacation + vacBonus + prop13th;
+      } else {
+        // justa_causa: only accrued/vested vacation (if any). No proportional vacation, no 13th, no FGTS.
+        displayVacation = 0;
+        displayVacBonus = 0;
+        display13th = 0;
+        total = 0; // Only salary balance (saldo de salário) which is handled separately
+      }
+
+      result.proportionalVacation = displayVacation;
+      result.vacationBonus = displayVacBonus;
+      result.proportional13th = display13th;
+      result.fgtsBalance = displayFgts;
+      result.fgtsPenalty = displayPenalty;
+      result.noticePeriod = displayNotice;
       result.totalRescission = total;
       break;
     }
