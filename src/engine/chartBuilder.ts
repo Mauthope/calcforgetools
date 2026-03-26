@@ -119,6 +119,77 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
           borderRadius: 8,
         }]
       };
+    case 'clt_employer_cost':
+      return {
+        type: 'doughnut',
+        labels: lang === 'en'
+          ? ['INSS Employer', 'RAT/FAP', 'Third Party', 'FGTS', '13th Provision', 'Vacation Provision', 'Benefits']
+          : ['INSS Patronal', 'RAT/FAP', 'Terceiros', 'FGTS', 'Provisão 13°', 'Provisão Férias', 'Benefícios'],
+        datasets: [{
+          data: [
+            results.inssPatronal || 0, results.ratContribution || 0, results.terceiros || 0,
+            results.fgtsMonthly || 0, results.provision13th || 0, results.provisionVacation || 0,
+            results.totalBenefits || 0
+          ],
+          backgroundColor: [
+            'rgba(255, 59, 48, 0.8)', 'rgba(255, 149, 0, 0.8)', 'rgba(255, 204, 0, 0.8)',
+            'rgba(52, 199, 89, 0.8)', 'rgba(0, 122, 255, 0.8)', 'rgba(88, 86, 214, 0.8)',
+            'rgba(175, 82, 222, 0.8)'
+          ],
+        }]
+      };
+    case 'hour_bank':
+      return {
+        type: 'bar',
+        labels: lang === 'en'
+          ? ['Base Salary', 'Unhealthy', 'Hazard', 'Night Shift', 'Hour Bank']
+          : ['Salário Base', 'Insalubridade', 'Periculosidade', 'Noturno', 'Banco de Horas'],
+        datasets: [{
+          label: lang === 'en' ? 'Components' : 'Componentes',
+          data: [
+            parseFloat(inputs.baseSalary) || 0, results.insalubridade || 0,
+            results.periculosidade || 0, results.nightShiftTotal || 0, results.hourBankValue || 0
+          ],
+          backgroundColor: [
+            'rgba(52, 199, 89, 0.8)', 'rgba(255, 149, 0, 0.8)', 'rgba(255, 59, 48, 0.8)',
+            'rgba(88, 86, 214, 0.8)', 'rgba(0, 122, 255, 0.8)'
+          ],
+          borderRadius: 8,
+        }]
+      };
+    case 'cet_simulator':
+      return {
+        type: 'bar',
+        labels: lang === 'en'
+          ? ['Nominal Rate', 'CET (True Cost)', 'Difference']
+          : ['Taxa Nominal', 'CET (Custo Real)', 'Diferença'],
+        datasets: [{
+          label: lang === 'en' ? 'Annual %' : '% Anual',
+          data: [
+            (Math.pow(1 + (parseFloat(inputs.monthlyRate) || 0) / 100, 12) - 1) * 100,
+            results.cetAnnual || 0, results.effectiveVsNominal || 0
+          ],
+          backgroundColor: ['rgba(52, 199, 89, 0.8)', 'rgba(255, 59, 48, 0.8)', 'rgba(255, 149, 0, 0.8)'],
+          borderRadius: 8,
+        }]
+      };
+    case 'amortization_compare':
+      return {
+        type: 'bar',
+        labels: ['Price', 'SAC', 'SAM', 'SACRE'],
+        datasets: [{
+          label: lang === 'en' ? 'Total Interest' : 'Total de Juros',
+          data: [
+            results.priceTotalInterest || 0, results.sacTotalInterest || 0,
+            results.samTotalInterest || 0, results.sacreTotalInterest || 0
+          ],
+          backgroundColor: [
+            'rgba(255, 59, 48, 0.8)', 'rgba(52, 199, 89, 0.8)',
+            'rgba(0, 122, 255, 0.8)', 'rgba(88, 86, 214, 0.8)'
+          ],
+          borderRadius: 8,
+        }]
+      };
     default:
       return null;
   }

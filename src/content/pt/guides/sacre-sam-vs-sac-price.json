@@ -1,0 +1,85 @@
+{
+  "category": "financial",
+  "slug": "sacre-sam-vs-sac-price",
+  "meta_title": "Simulador de Amortização: SACRE x SAM x SAC x Price (Guia Definitivo)",
+  "meta_description": "Entenda as diferenças vitais entre amortização Price, SAC, mista (SAM) e crescente (SACRE). Saiba qual escolher no seu financiamento imobiliário.",
+  "hero": {
+    "title": "A Batalha dos Sistemas de Amortização",
+    "subtitle": "Qual arquitetura matemática destruirá o seu saldo devedor mais rápido? Conheça os segredos por trás da Tabela Price, SAC, SAM e SACRE.",
+    "author": "CalcForgeTools Editorial",
+    "date": "2026-03-26"
+  },
+  "content": [
+    {
+      "type": "quote",
+      "value": "Assinar um financiamento de 30 anos sem entender a tabela de amortização é o equivalente financeiro de comprar um bilhete só de ida em um cruzeiro que você não sabe o destino."
+    },
+    {
+      "type": "paragraph",
+      "value": "Para o leigo financeiro, um financiamento imobiliário é reduzido a uma única métrica: 'A parcela cabe no meu bolso?'. O gerente do banco adora essa mentalidade. O que pouca gente entende é que a engenharia por trás da distribuição dessas parcelas (o Sistema de Amortização) define centenas de milhares de reais que sairão ou ficarão na sua conta nas próximas três décadas."
+    },
+    {
+      "type": "h2",
+      "value": "Os 4 Grandes Sistemas"
+    },
+    {
+      "type": "h3",
+      "value": "1. Tabela Price (O Modelo Francês)"
+    },
+    {
+      "type": "paragraph",
+      "value": "É o sistema das parcelas fixas, imutáveis do início ao fim do contrato. Maravilhoso para o seu planejamento mensal, péssimo para a velocidade de quitação do seu imóvel. A matemática da Price destina o grosso da sua parcela inicial apenas ao pagamento de juros. Na prática, você paga e paga, mas o saldo devedor (o principal) mal se altera nos primeiros 5 anos."
+    },
+    {
+      "type": "h3",
+      "value": "2. SAC (Sistema de Amortização Constante)"
+    },
+    {
+      "type": "paragraph",
+      "value": "No Brasil, a CAIXA massificou o SAC. A lógica é inversa à da Price: todos os meses você abate agressivamente e de forma exata a mesma cota 'seca' da dívida principal (Constante). A consequência é um choque inicial: as primeiras parcelas são caríssimas. Contudo, como o montante devedor cai muito rápido, os juros também desabam, resultando na famosa escadinha até o final do contrato, terminando em parcelas ínfimas. No longo prazo, você paga menos juros nominais absolutos comparado à Price."
+    },
+    {
+      "type": "h3",
+      "value": "3. SAM (Sistema de Amortização Misto)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Foi criado para quem quer fugir da primeira parcela esmagadora do SAC, mas se recusa a ser engolido pela morosidade de quitação da Price. A fórmula do SAM é simples: pega-se qual seria o valor da parcela na Price e soma-se com o valor no SAC para aquele mesmo mês, dividindo por 2 (a média aritmética). Ele alivia o caixa familiar imediato enquanto mantém parte da agressividade do abatimento do saldo devedor."
+    },
+    {
+      "type": "h3",
+      "value": "4. SACRE (Sistema de Amortização Crescente)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Evolução do SAC, muito ofertado também em programas habitacionais federais. O nome 'Crescente' assusta, mas refere-se ao abatimento do saldo. No SACRE, em vez de a parcela cair todo santo mês como no SAC, a parcela real fica congelada (fixa) durante um subperíodo de 12 meses. Como os juros caem (pois há pagamento consecutivo), a parcela que sobrou abate cada vez mais (crescentemente) a dívida ao longo do ano. No aniversário do contrato (mês 13), há um recálculo monumental e a parcela sofre um degrau forte para baixo, mantendo-se fixa por mais um ano."
+    },
+    {
+      "type": "table",
+      "headers": ["Característica", "Price", "SAC", "SAM", "SACRE"],
+      "rows": [
+        ["Valor da Parcela", "Fixa / Constante", "Decrescente Mensal", "Decrescente Leve", "Fixa por 12 meses (Degraus)"],
+        ["Amortização Base", "Pequena e Crescente", "Constante (Alta)", "Média", "Crescente ao longo do ano"],
+        ["Juros Totais", "Muito Altos", "Os Menores do grupo", "Intermediários", "Similares ao SAC (Mínimos)"],
+        ["Impacto de Entrada", "Suave (Fácil Acesso)", "Pesado (Exige Renda)", "Moderado", "Moderado a Pesado"]
+      ]
+    },
+    {
+      "type": "h2",
+      "value": "Afinal, qual escolher?"
+    },
+    {
+      "type": "paragraph",
+      "value": "O grande erro do consumidor comum ao comparar tabelas imobiliárias é fechar os olhos ao **Custo de Oportunidade** do dinheiro no tempo. É fácil afirmar precipitadamente: \"Vá de SAC e nunca de Price, pois o total de juros pagos no final é menor\"."
+    },
+    {
+      "type": "paragraph",
+      "value": "Mas e se você for um investidor que sabe fazer dinheiro? A primeira parcela no SAC pode ser R$ 6.000, enquanto na Price seria R$ 3.500. Se a sua renda familiar consegue arcar com o tranco de 6 mil na folga, o SAC garante segurança de quitação barata. Porém, se você assinar a Price, e pegar os R$ 2.500 que 'sobraram' religiosamente todo mês para alocar no CDI ou no Tesouro Direto a uma taxa real superior à cobrada pelo financiamento imobiliário, você ganhará o sistema no spread."
+    },
+    {
+      "type": "alert",
+      "alertType": "NOTE",
+      "value": "Por regra, o SACRE costuma proteger as famílias contra correção inflacionária de salmos devedores indexados à TR ou IPCA de forma mais elegante que o SAC puro, graças ao escudo das micro-parcelas congeladas anualmente."
+    }
+  ]
+}

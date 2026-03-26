@@ -1,0 +1,101 @@
+{
+  "category": "labor",
+  "calculator_id": "hour_bank",
+  "slug": "hour-bank-calculator",
+  "title": "Hour Bank & Pay Premiums Calculator",
+  "meta_title": "Hour Bank, Hazard Pay & Night Shift Calculator | CalcForgeTools",
+  "meta_description": "Convert hour bank balances to cash value and accurately calculate hazardous condition bonuses and night shift premiums according to Brazilian labor laws.",
+  "hero": {
+    "title": "Hour Bank & Pay Premiums",
+    "subtitle": "Determine exactly how much your accumulated overtime bank is worth and calculate mandatory 30% hazard or health-risk premiums."
+  },
+  "inputs": [
+    {
+      "name": "baseSalary",
+      "label": "Base Salary (R$)",
+      "type": "number",
+      "defaultValue": 2500
+    },
+    {
+      "name": "monthlyHours",
+      "label": "Monthly Journey (e.g. 220, 180)",
+      "type": "number",
+      "defaultValue": 220
+    },
+    {
+      "name": "bankHours",
+      "label": "Hour Bank Balance (hours)",
+      "type": "number",
+      "defaultValue": 15
+    },
+    {
+      "name": "insalubridade",
+      "label": "Unhealthy Conditions Premium (%)",
+      "type": "select",
+      "options": [
+        { "label": "None (0%)", "value": 0 },
+        { "label": "Low Risk (10%)", "value": 10 },
+        { "label": "Medium Risk (20%)", "value": 20 },
+        { "label": "High Risk (40%)", "value": 40 }
+      ],
+      "defaultValue": 0
+    },
+    {
+      "name": "periculosidade",
+      "label": "Hazard Pay Premium (%)",
+      "type": "select",
+      "options": [
+        { "label": "None (0%)", "value": 0 },
+        { "label": "Hazardous Duty (30%)", "value": 30 }
+      ],
+      "defaultValue": 0
+    },
+    {
+      "name": "nightHours",
+      "label": "Night Shift Hours Worked",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "Gross Pay = Base + Risk Premium + (Hourly Rate x 20% x Night Hours)",
+  "outputs": [
+    "totalCompensation",
+    "hourlyRate",
+    "hourBankValue",
+    "totalAdditionals",
+    "insalubridade",
+    "periculosidade",
+    "nightShiftTotal"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "Under CLT law, health-risk premiums are calculated using the national minimum wage (R$ 1,621 in 2026), whereas physical-hazard premiums are 30% of your exact base salary. Night shifts command a mandatory 20% bump per hour.",
+  "example": "If your base is R$ 2,500 and you operate under hazardous conditions (periculosidade), your salary jumps by a flat R$ 750, altering the weight of every hour accumulated.",
+  "faq": [
+    {
+      "question": "Can I receive both Hazard and Unhealthy condition premiums?",
+      "answer": "No. Brazilian labor law expressly forbids accumulating them. If exposed to both, the employee will automatically be granted whichever yields the highest monetary payout."
+    },
+    {
+      "question": "What is the basis for the Unhealthy Premium?",
+      "answer": "Supreme Court rulings stipulate it uses the National Minimum Wage irrespective of how much you actually earn. It applies at 10%, 20%, or 40% brackets."
+    },
+    {
+      "question": "How do Hour Banks translate to money?",
+      "answer": "If hour banks aren't depleted via guaranteed time-off within the legal timeframe (usually 6 to 12 months), the company must liquidate the balance to cash. Our tool calculates the base hourly worth for conversion."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Overtime Calculator",
+      "href": "/en/calculators/overtime-calculator",
+      "description": "Calculate standard 50% and 100% overtime metrics."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Understanding Brazilian Pay Premiums",
+      "href": "/en/guides/hour-bank-and-pay-premiums",
+      "description": "Discover how and when premiums apply legally."
+    }
+  ]
+}

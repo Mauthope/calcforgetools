@@ -1,0 +1,101 @@
+{
+  "category": "labor",
+  "calculator_id": "hour_bank",
+  "slug": "calculadora-banco-horas-adicionais",
+  "title": "Calculadora de Banco de Horas e Adicionais",
+  "meta_title": "Calculadora de Banco de Horas, Adicional Noturno, Insalubridade e Periculosidade",
+  "meta_description": "Calcule seu salário com adicionais de insalubridade, periculosidade e noturno. Converta banco de horas e descubra o valor da sua hora trabalhada.",
+  "hero": {
+    "title": "Banco de Horas e Adicionais",
+    "subtitle": "Insira seu salário base e descubra exatamente quanto vale o seu banco de horas e seus adicionais noturno, de periculosidade ou insalubridade."
+  },
+  "inputs": [
+    {
+      "name": "baseSalary",
+      "label": "Salário Base (R$)",
+      "type": "number",
+      "defaultValue": 2500
+    },
+    {
+      "name": "monthlyHours",
+      "label": "Jornada Mensal (Ex: 220, 180)",
+      "type": "number",
+      "defaultValue": 220
+    },
+    {
+      "name": "bankHours",
+      "label": "Saldo do Banco de Horas (em horas)",
+      "type": "number",
+      "defaultValue": 15
+    },
+    {
+      "name": "insalubridade",
+      "label": "Adicional de Insalubridade (%)",
+      "type": "select",
+      "options": [
+        { "label": "Não Possui (0%)", "value": 0 },
+        { "label": "Grau Mínimo (10%)", "value": 10 },
+        { "label": "Grau Médio (20%)", "value": 20 },
+        { "label": "Grau Máximo (40%)", "value": 40 }
+      ],
+      "defaultValue": 0
+    },
+    {
+      "name": "periculosidade",
+      "label": "Adicional de Periculosidade (%)",
+      "type": "select",
+      "options": [
+        { "label": "Não Possui (0%)", "value": 0 },
+        { "label": "Possui Risco Vivo (30%)", "value": 30 }
+      ],
+      "defaultValue": 0
+    },
+    {
+      "name": "nightHours",
+      "label": "Horas Noturnas Trabalhadas (qtd)",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "Remuneração = Base + Insalubridade (min 1621) + Periculosidade (base) + (HoraNormal x 20% x HorasNoturnas)",
+  "outputs": [
+    "totalCompensation",
+    "hourlyRate",
+    "hourBankValue",
+    "totalAdditionals",
+    "insalubridade",
+    "periculosidade",
+    "nightShiftTotal"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "Insalubridade é calculada sobre o salário mínimo vigente (R$ 1.621,00 em 2026). Periculosidade incide 30% sobre o salário base. O adicional noturno remunera 20% a mais sobre o valor da hora normal calculada.",
+  "example": "Quem ganha R$ 2.500 (+ periculosidade) e fez 15 horas de banco, tem sua hora precificada em R$ 11,36 e a periculosidade soma R$ 750 fixos ao mês.",
+  "faq": [
+    {
+      "question": "Posso receber insalubridade e periculosidade ao mesmo tempo?",
+      "answer": "Não. A CLT proíbe o acúmulo. Sendo aprovados ambos na perícia, o empregado fará opção pelo benefício de maior valor."
+    },
+    {
+      "question": "Sobre o que se calcula a Insalubridade?",
+      "answer": "A base de cálculo, segundo súmulas do STF, continua sendo o Salário Mínimo nacional, na proporção de 10% (leve), 20% (médio) ou 40% (pesado), independentemente do seu salário."
+    },
+    {
+      "question": "Como convertem o Banco de Horas em dinheiro?",
+      "answer": "Se não for compensado em folga no prazo estipulado (até 6 meses acordo direto ou 1 ano em convenção), as horas do banco são pagas em dinheiro, utilizando o valor da hora normal, acrescidas do percentual de hora extra (mínimo 50%). Nossa calculadora exibe o valor simples da hora do banco para precificação base."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Horas Extras",
+      "href": "/pt/calculators/calculadora-de-horas-extras",
+      "description": "Calcule extras aos finais de semana e feriados."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Tudo sobre Adicionais e Banco de Horas",
+      "href": "/pt/guides/banco-de-horas-e-adicionais",
+      "description": "Veja os detalhes jurídicos dos adicionais."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "category": "financial",
+  "calculator_id": "amortization_compare",
+  "slug": "amortization-comparison-calculator",
+  "title": "Amortization Matrix: SACRE vs SAM vs SAC vs Price",
+  "meta_title": "Real Estate Amortization Comparison Simulator",
+  "meta_description": "Compare all 4 major amortization systems side-by-side. View total interest algorithms across Fixed, Declining Balance, Mixed, and Graduated setups.",
+  "hero": {
+    "title": "Master Amortization Comparator",
+    "subtitle": "Discover which structural financing model saves you the most over 30 years. Side-by-side breakdown of the SAC, Price, SAM, and SACRE systems."
+  },
+  "inputs": [
+    {
+      "name": "loanAmount",
+      "label": "Principal Contract Size ($)",
+      "type": "number",
+      "defaultValue": 300000
+    },
+    {
+      "name": "monthlyRate",
+      "label": "Nominal Standard Rate (%) / month",
+      "type": "number",
+      "step": "0.01",
+      "defaultValue": 0.8
+    },
+    {
+      "name": "termMonths",
+      "label": "Term Horizon (Months)",
+      "type": "number",
+      "defaultValue": 360
+    }
+  ],
+  "formula": "Compiles chronological O(N) loops extracting Compound Base (Price), Amortization Focus (SAC), Dual-Average Means (SAM) and Periodic Stepping (SACRE).",
+  "outputs": [
+    "bestSystem",
+    "savingsVsPrice",
+    "priceFirstPayment",
+    "priceLastPayment",
+    "priceTotalPaid",
+    "priceTotalInterest",
+    "sacFirstPayment",
+    "sacLastPayment",
+    "sacTotalPaid",
+    "sacTotalInterest",
+    "samFirstPayment",
+    "samLastPayment",
+    "samTotalPaid",
+    "samTotalInterest",
+    "sacreFirstPayment",
+    "sacreLastPayment",
+    "sacreTotalPaid",
+    "sacreTotalInterest"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "Under the internationally recognized 'Price' table (French), initial heavy interest makes the principal decay slow but flat. 'SAC' pays a massive flat cut of principal, making interest (and payments) fall rapidly. 'SAM' is an arithmetic hybrid. 'SACRE' steps down your payment bracket once a year instead of every single month.",
+  "example": "Borrowing $300k long-term on Price might inflate the payback curve to over $800k total. Shifting to SAC enforces steeper upfront installments, but violently curtails compound degradation, saving nearly $240k over the lifespan.",
+  "faq": [
+    {
+      "question": "What exactly is the SACRE framework?",
+      "answer": "Sistema de Amortização Crescente (SACRE) acts like a step-down staircase. Instead of lowering your bill by micro-decimals every month (like SAC), it freezes your installment for a 12-month sequence, recalculating a huge drop exclusively on the contract's yearly anniversary."
+    },
+    {
+      "question": "What constitutes the SAM setup?",
+      "answer": "The SAM (Sistema de Amortização Misto) averages the current period's SAC load and Price load. It's meant to alleviate the crushing day-one burden of a SAC loan while retaining some of its mid-curve interest destruction."
+    },
+    {
+      "question": "Why do banks push the Price table so aggressively?",
+      "answer": "Because the flat payment algorithm structure heavily biases interest collection upfront. Banks lock in pure profit yields for the first 10 years of a 30-year bracket while the user effectively pays down zero equity."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Home Mortgage Calculator & Visualizer",
+      "href": "/en/calculators/home-mortgage-calculator",
+      "description": "Understand your monthly payoff graph dynamically."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "The Four Global Amortization Systems",
+      "href": "/en/guides/sacre-sam-vs-sac-price",
+      "description": "A comprehensive deep-dive into long haul compounding physics."
+    }
+  ]
+}

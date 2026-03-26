@@ -104,15 +104,39 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
             {data.content.map((block: any, idx: number) => {
               switch (block.type) {
                 case 'heading':
-                  return <h2 key={idx} className="text-3xl font-bold mt-12 mb-6 tracking-tight text-[var(--color-text-primary)]">{block.text}</h2>;
+                  return <h2 key={idx} className="text-3xl font-bold mt-12 mb-6 tracking-tight text-[var(--color-text-primary)]">{block.text || block.value}</h2>;
+                case 'h2':
+                  return <h2 key={idx} className="text-2xl font-bold mt-10 mb-4 tracking-tight text-[var(--color-text-primary)]">{block.text || block.value}</h2>;
+                case 'h3':
+                  return <h3 key={idx} className="text-xl font-semibold mt-8 mb-3 tracking-tight text-[var(--color-text-primary)]">{block.text || block.value}</h3>;
                 case 'paragraph':
-                  return <p key={idx} className="text-[var(--color-text-secondary)] leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: block.text }}></p>;
+                  return <p key={idx} className="text-[var(--color-text-secondary)] leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: block.text || block.value || '' }}></p>;
                 case 'quote':
                   return (
                     <blockquote key={idx} className="border-l-4 border-[var(--color-primary)] pl-6 py-2 my-8 italic text-xl text-[var(--color-text-primary)] bg-[var(--color-primary)]/5 rounded-r-lg">
-                      "{block.text}"
+                      "{block.text || block.value}"
                       {block.author && <footer className="text-sm font-medium text-[var(--color-text-secondary)] mt-4 not-italic">— {block.author}</footer>}
                     </blockquote>
+                  );
+                case 'formula':
+                  return (
+                    <div key={idx} className="bg-slate-900 border border-slate-700 rounded-lg p-6 my-8 text-center shadow-inner overflow-x-auto text-blue-300 font-mono text-lg tracking-wide">
+                      <code dangerouslySetInnerHTML={{ __html: block.text || block.value || '' }}></code>
+                    </div>
+                  );
+                case 'alert':
+                  const getAlertStyles = (type: string) => {
+                    switch(type) {
+                      case 'WARNING': return 'bg-amber-50 border-amber-500 text-amber-900';
+                      case 'IMPORTANT': return 'bg-blue-50 border-blue-500 text-blue-900';
+                      default: return 'bg-slate-50 border-slate-500 text-slate-800';
+                    }
+                  };
+                  return (
+                    <div key={idx} className={`border-l-4 p-4 my-8 rounded-r-lg ${getAlertStyles(block.alertType)}`}>
+                      <strong className="block mb-1 text-sm uppercase tracking-wider">{block.alertType || 'NOTE'}</strong>
+                      <span className="leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: block.text || block.value || '' }}></span>
+                    </div>
                   );
                 case 'list':
                   return (

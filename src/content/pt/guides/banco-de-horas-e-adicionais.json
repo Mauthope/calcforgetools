@@ -1,0 +1,120 @@
+{
+  "category": "labor",
+  "slug": "banco-de-horas-e-adicionais",
+  "meta_title": "Guia Definitivo: Banco de Horas, Adicional Noturno e Insalubridade 2026",
+  "meta_description": "Aprenda as regras da CLT para converter banco de horas em dinheiro, os cálculos exatos de insalubridade, periculosidade e do adicional noturno.",
+  "hero": {
+    "title": "Adicionais e Banco de Horas na CLT",
+    "subtitle": "Domine a matemática por trás da sua jornada de trabalho. Entenda quando você tem direito nativo a prêmios salariais e como evitar fraudes no seu holerite.",
+    "author": "CalcForgeTools Editorial",
+    "date": "2026-03-26"
+  },
+  "content": [
+    {
+      "type": "quote",
+      "value": "Setenta por cento dos processos trabalhistas no Brasil envolvem divergências no cálculo do banco de horas ou na recusa do pagamento de adicionais de risco. A informação é a sua principal ferramenta de auditoria."
+    },
+    {
+      "type": "paragraph",
+      "value": "O sistema jurídico trabalhista brasileiro (CLT) é altamente protetivo, condicionando o empregador a remunerar não apenas a força de trabalho nua e crua, mas também a compensar o desgaste físico, biológico e social que certas atividades exigem. Para quem gerencia RH ou para quem bate ponto físico todos os dias, entender como as horas extraordinárias viram saldo – e como o risco vira dinheiro – é fundamental."
+    },
+    {
+      "type": "h2",
+      "value": "O Banco de Horas: Válvula de Escape ou Armadilha?"
+    },
+    {
+      "type": "paragraph",
+      "value": "Criado como um mecanismo de flexibilização (Art. 59 da CLT), o banco de horas permite que as horas excedentes trabalhadas em um dia de pico sejam compensadas com folgas em dias de baixa demanda. A Reforma Trabalhista (Lei 13.467/2017) permitiu que esse acordo fosse pactuado individualmente por escrito, sem a obrigatoriedade imediata do Sindicato."
+    },
+    {
+      "type": "h3",
+      "value": "Prazos de Validade do Banco Acumulado"
+    },
+    {
+      "type": "paragraph",
+      "value": "O tempo voa e o banco prescreve. Se você assinou um acordo individual simples, o bloqueio para compensação é de **6 meses**. Se houver Convenção Coletiva (CCT) assinada pelo Sindicato, esse limite pode se estender por até **1 ano**. O que acontece no vencimento?"
+    },
+    {
+      "type": "alert",
+      "alertType": "IMPORTANT",
+      "value": "Se as horas não forem compensadas em folga dentro do prazo estipulado legalmente, a empresa perdeu o direito à permuta de tempo. As horas tornam-se imediatamente Horas Extras, devendo ser pagas no próximo holerite com o acréscimo mínimo de 50% sobre a hora normal."
+    },
+    {
+      "type": "h2",
+      "value": "Adicionais de Risco: Insalubridade e Periculosidade"
+    },
+    {
+      "type": "paragraph",
+      "value": "Há uma distinção clara entre trabalhar em um ambiente que adoece aos poucos (Insalubridade) e trabalhar em um local que oferece risco de morte iminente (Periculosidade). A lei reage com naturezas de cálculo totalmente distintas para cada cenário."
+    },
+    {
+      "type": "h3",
+      "value": "1. O Cálculo da Insalubridade"
+    },
+    {
+      "type": "paragraph",
+      "value": "A insalubridade (Norma Regulamentadora nº 15) foca em agentes biológicos (vírus em hospitais), físicos (ruído extremo, calor) ou químicos. O STF vinculou sua base de cálculo ao **Salário Mínimo Nacional**, descolando-o da sua remuneração privada. Existem 3 graus aferidos por engenheiro do trabalho:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Faixa Mínima (10%): Acréscimo fixado historicamente sobre o piso federal.",
+        "Faixa Média (20%): O tipo mais comum na indústria.",
+        "Faixa Máxima (40%): Para exposição a agentes radiológicos graves, lixo urbano ou doenças infectocontagiosas isoladas."
+      ]
+    },
+    {
+      "type": "h3",
+      "value": "2. O Cálculo da Periculosidade"
+    },
+    {
+      "type": "paragraph",
+      "value": "Regulamentada pela NR-16, a periculosidade se aplica a eletricitários, motoboys, frentistas de postos, vigilantes armados ou trabalhadores próximos a explosivos. A regra é implacável e matemática: o adicional é sempre de **30% fixo sobre o seu salário base líquido**, ignorando comissões, bonificações pós-meta ou prêmios."
+    },
+    {
+      "type": "formula",
+      "value": "Salário de R$ 5.000 + Periculosidade = R$ 5.000 + (30% de 5k) = R$ 6.500"
+    },
+    {
+      "type": "paragraph",
+      "value": "A CLT, no parágrafo 2º do artigo 193, determina enfaticamente a **impossibilidade de cumulação** simultânea dos dois adicionais. Caso o laudo pericial detecte ambas as anomalias no ambiente, o empregado optará pelo adicional de maior proveito econômico. Geralmente, trabalhadores com base alta escolhem a Periculosidade. Profissionais operacionais que ganham perto do piso mínimo tendem a empatar com a Insalubridade grau máximo."
+    },
+    {
+      "type": "h2",
+      "value": "Adicional Noturno (Urbano)"
+    },
+    {
+      "type": "paragraph",
+      "value": "O organismo humano não é programado geneticamente para o turno da madrugada. Em contrapartida a esse desgaste crônico do ciclo circadiano, o artigo 73 da CLT fixa uma dupla proteção cambial: financeira e temporal."
+    },
+    {
+      "type": "h3",
+      "value": "O Fator Monetário (20%)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Para o meio urbano, todo o labor executado na janela que se inicia às 22h00 e encerra-se às 05h00 do dia seguinte deve sofrer um acréscimo obrigatório de 20% no valor hora."
+    },
+    {
+      "type": "h3",
+      "value": "A Ficcção da Hora Noturna (52m30s)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Para fins legais de apuração do espelho de ponto computacional, uma 'hora cronológica' no turno da noite não possui 60 minutos. A lei estipula a \"hora ficta\" noturna de 52 minutos e 30 segundos. Na prática aritmética, isso significa que a cada 52m30s rodados no relógio, o sistema de RH já marca uma hora cheia para pagamento tarifado."
+    },
+    {
+      "type": "alert",
+      "alertType": "NOTE",
+      "value": "Para o setor Rural e Pecuário os parâmetros mudam. A janela agropecuária inicia-se às 21h (lavoura) ou 20h (pecuária), e o adicional é de 25%. Porém, eles não recebem o benefício da hora ficta reduzida."
+    },
+    {
+      "type": "h2",
+      "value": "Efeito Cascata (Reflexos)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Lembre-se: os adicionais de insalubridade, periculosidade e noturno têm o que o Direito do Trabalho chama de 'caráter salarial perene'. Isso significa que não são prêmios isolados. Eles integram absolutamente a sua base para cálculo das Férias (com 1/3), para construção do 13º salário anual e, principalmente, inflam a guia de depósito mensal de 8% do FGTS feita pelo seu patrão."
+    }
+  ]
+}

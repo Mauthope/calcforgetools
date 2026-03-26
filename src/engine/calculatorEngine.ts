@@ -409,6 +409,212 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
+    case 'clt_employer_cost': {
+      const salary = parseFloat(inputs.grossSalary) || 0;
+      const vt = parseFloat(inputs.valeTransporte) || 0;
+      const vr = parseFloat(inputs.valeRefeicao) || 0;
+      const healthPlan = parseFloat(inputs.planoSaude) || 0;
+      const ratPct = parseFloat(inputs.ratPercent) || 2;
+      const fap = parseFloat(inputs.fap) || 1.0;
+
+      const inssPatronal = salary * 0.20;
+      const rat = salary * (ratPct / 100) * fap;
+      const terceiros = salary * 0.058;
+      const fgtsMonthly = salary * 0.08;
+      const provision13th = salary / 12; // 8.33%
+      const provisionVacation = (salary / 12) * (4/3); // 11.11% (1/12 + 1/3 of 1/12)
+      const fgts13th = provision13th * 0.08;
+      const fgtsVacation = provisionVacation * 0.08;
+      const totalBenefits = vt + vr + healthPlan;
+      const totalEncargos = inssPatronal + rat + terceiros + fgtsMonthly + provision13th + provisionVacation + fgts13th + fgtsVacation;
+      const totalMonthlyCost = salary + totalEncargos + totalBenefits;
+      const annualCost = totalMonthlyCost * 12;
+      const costMultiplier = totalMonthlyCost / salary;
+
+      result.inssPatronal = inssPatronal;
+      result.ratContribution = rat;
+      result.terceiros = terceiros;
+      result.fgtsMonthly = fgtsMonthly;
+      result.provision13th = provision13th;
+      result.provisionVacation = provisionVacation;
+      result.totalBenefits = totalBenefits;
+      result.totalMonthlyCost = totalMonthlyCost;
+      result.annualCost = annualCost;
+      result.costMultiplier = costMultiplier;
+      break;
+    }
+
+    case 'hour_bank': {
+      const salary = parseFloat(inputs.baseSalary) || 0;
+      const journey = parseFloat(inputs.monthlyHours) || 220;
+      const bankHours = parseFloat(inputs.bankHours) || 0;
+      const insalPct = parseFloat(inputs.insalubridade) || 0;
+      const pericPct = parseFloat(inputs.periculosidade) || 0;
+      const nightHours = parseFloat(inputs.nightHours) || 0;
+      const minWage = 1621.00; // 2026
+
+      const hourlyRate = salary / journey;
+      const insalubridade = minWage * (insalPct / 100);
+      const periculosidade = salary * (pericPct / 100);
+      const nightShiftTotal = hourlyRate * 0.20 * nightHours;
+      const hourBankValue = bankHours * hourlyRate;
+      const totalAdditionals = insalubridade + periculosidade + nightShiftTotal;
+      const totalCompensation = salary + totalAdditionals;
+
+      result.hourlyRate = hourlyRate;
+      result.insalubridade = insalubridade;
+      result.periculosidade = periculosidade;
+      result.nightShiftTotal = nightShiftTotal;
+      result.hourBankValue = hourBankValue;
+      result.totalAdditionals = totalAdditionals;
+      result.totalCompensation = totalCompensation;
+      break;
+    }
+
+    case 'cet_simulator': {
+      const principal = parseFloat(inputs.loanAmount) || 0;
+      const monthlyRate = (parseFloat(inputs.monthlyRate) || 0) / 100;
+      const term = parseInt(inputs.termMonths) || 12;
+      const tac = parseFloat(inputs.tac) || 0;
+      const iofPct = (parseFloat(inputs.iofPercent) || 0) / 100;
+      const monthlyInsurance = parseFloat(inputs.monthlyInsurance) || 0;
+      const otherFees = parseFloat(inputs.otherFees) || 0;
+
+      // Price payment on principal
+      const pmt = monthlyRate > 0
+        ? principal * (monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1)
+        : principal / term;
+      const iofAmount = principal * iofPct;
+      const insuranceTotal = monthlyInsurance * term;
+      const totalPaid = (pmt * term) + insuranceTotal;
+      const totalInterest = totalPaid - principal;
+
+      // CET via Newton-Raphson IRR
+      const netDisbursed = principal - tac - iofAmount - otherFees;
+      const monthlyPaymentFull = pmt + monthlyInsurance;
+      let cetM = monthlyRate > 0 ? monthlyRate * 1.2 : 0.01; // initial guess
+      for (let iter = 0; iter < 100; iter++) {
+        let npv = -netDisbursed;
+        let dnpv = 0;
+        for (let m = 1; m <= term; m++) {
+          const disc = Math.pow(1 + cetM, m);
+          npv += monthlyPaymentFull / disc;
+          dnpv -= m * monthlyPaymentFull / (disc * (1 + cetM));
+        }
+        if (Math.abs(dnpv) < 1e-12) break;
+        const step = npv / dnpv;
+        cetM -= step;
+        if (Math.abs(step) < 1e-10) break;
+      }
+      const cetAnnual = Math.pow(1 + cetM, 12) - 1;
+      const nominalAnnual = Math.pow(1 + monthlyRate, 12) - 1;
+      const effectiveVsNominal = cetAnnual - nominalAnnual;
+
+      result.monthlyPayment = pmt;
+      result.totalPaid = totalPaid;
+      result.totalInterest = totalInterest;
+      result.iofAmount = iofAmount;
+      result.tacAmount = tac;
+      result.insuranceTotal = insuranceTotal;
+      result.cetMonthly = cetM * 100;
+      result.cetAnnual = cetAnnual * 100;
+      result.effectiveVsNominal = effectiveVsNominal * 100;
+      break;
+    }
+
+    case 'amortization_compare': {
+      const pv = parseFloat(inputs.loanAmount) || 0;
+      const i = (parseFloat(inputs.monthlyRate) || 0) / 100;
+      const n = parseInt(inputs.termMonths) || 360;
+
+      // --- PRICE ---
+      const pricePmt = i > 0 ? pv * (i * Math.pow(1 + i, n)) / (Math.pow(1 + i, n) - 1) : pv / n;
+      const priceTotalPaid = pricePmt * n;
+      const priceTotalInterest = priceTotalPaid - pv;
+
+      // --- SAC ---
+      const sacAmort = pv / n;
+      let sacBalance = pv;
+      const sacFirst = sacAmort + sacBalance * i;
+      let sacTotalPaid = 0;
+      for (let m = 0; m < n; m++) {
+        sacTotalPaid += sacAmort + sacBalance * i;
+        sacBalance -= sacAmort;
+      }
+      const sacLast = sacAmort + (sacAmort + sacAmort * i); // approximate
+      const sacTotalInterest = sacTotalPaid - pv;
+
+      // --- SAM (média aritmética Price + SAC por período) ---
+      sacBalance = pv;
+      let samTotalPaid = 0;
+      let samFirst = 0;
+      let samLast = 0;
+      for (let m = 0; m < n; m++) {
+        const sacPmt = sacAmort + sacBalance * i;
+        const samPmt = (pricePmt + sacPmt) / 2;
+        if (m === 0) samFirst = samPmt;
+        if (m === n - 1) samLast = samPmt;
+        samTotalPaid += samPmt;
+        sacBalance -= sacAmort;
+      }
+      const samTotalInterest = samTotalPaid - pv;
+
+      // --- SACRE (recalculates every 12 months) ---
+      let sacreBalance = pv;
+      let sacreTotalPaid = 0;
+      let sacreFirst = 0;
+      let sacreLast = 0;
+      let sacreCurrentPmt = 0;
+      let remainingPeriods = n;
+      for (let m = 0; m < n; m++) {
+        if (m % 12 === 0) {
+          // Recalculate: new fixed payment based on remaining balance and periods
+          const rem = remainingPeriods;
+          sacreCurrentPmt = i > 0
+            ? sacreBalance * (i * Math.pow(1 + i, rem)) / (Math.pow(1 + i, rem) - 1)
+            : sacreBalance / rem;
+        }
+        const interest = sacreBalance * i;
+        const amort = sacreCurrentPmt - interest;
+        sacreBalance = Math.max(sacreBalance - amort, 0);
+        sacreTotalPaid += sacreCurrentPmt;
+        remainingPeriods--;
+        if (m === 0) sacreFirst = sacreCurrentPmt;
+        if (m === n - 1) sacreLast = sacreCurrentPmt;
+      }
+      const sacreTotalInterest = sacreTotalPaid - pv;
+
+      // Find best system
+      const systems = [
+        { name: 'Price', total: priceTotalInterest },
+        { name: 'SAC', total: sacTotalInterest },
+        { name: 'SAM', total: samTotalInterest },
+        { name: 'SACRE', total: sacreTotalInterest }
+      ];
+      const best = systems.reduce((a, b) => a.total < b.total ? a : b);
+      const savingsVsPrice = priceTotalInterest - best.total;
+
+      result.priceFirstPayment = pricePmt;
+      result.priceLastPayment = pricePmt;
+      result.priceTotalPaid = priceTotalPaid;
+      result.priceTotalInterest = priceTotalInterest;
+      result.sacFirstPayment = sacFirst;
+      result.sacLastPayment = sacAmort + sacAmort * i;
+      result.sacTotalPaid = sacTotalPaid;
+      result.sacTotalInterest = sacTotalInterest;
+      result.samFirstPayment = samFirst;
+      result.samLastPayment = samLast;
+      result.samTotalPaid = samTotalPaid;
+      result.samTotalInterest = samTotalInterest;
+      result.sacreFirstPayment = sacreFirst;
+      result.sacreLastPayment = sacreLast;
+      result.sacreTotalPaid = sacreTotalPaid;
+      result.sacreTotalInterest = sacreTotalInterest;
+      result.bestSystem = best.name;
+      result.savingsVsPrice = savingsVsPrice;
+      break;
+    }
+
     default:
       // Fallback: attempts to use eval string if no strict implementation is found
       break;

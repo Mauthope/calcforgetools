@@ -1,0 +1,101 @@
+{
+  "category": "financial",
+  "calculator_id": "cet_simulator",
+  "slug": "cet-simulator",
+  "title": "True Loan Cost (CET) Simulator",
+  "meta_title": "CET Calculator | True Cost of Credit & APR Simulator 2026",
+  "meta_description": "Banks hide the true cost of loans in fees and insurance. Input nominal rates, upfront fees, and monthly charges to uncover the True Annual Percentage Rate (CET).",
+  "hero": {
+    "title": "True Loan Cost Simulator",
+    "subtitle": "Stop pursuing 'Low Interest'. Input setup fees, taxes, and mandatory insurance to calculate the real Effective Annual Rate."
+  },
+  "inputs": [
+    {
+      "name": "loanAmount",
+      "label": "Principal Loan / Financed Value",
+      "type": "number",
+      "defaultValue": 50000
+    },
+    {
+      "name": "monthlyRate",
+      "label": "Bank Stated Nominal Rate (%) / month",
+      "type": "number",
+      "step": "0.01",
+      "defaultValue": 1.5
+    },
+    {
+      "name": "termMonths",
+      "label": "Term (Months)",
+      "type": "number",
+      "defaultValue": 48
+    },
+    {
+      "name": "tac",
+      "label": "TAC / Opening Setup Fee",
+      "type": "number",
+      "defaultValue": 850
+    },
+    {
+      "name": "iofPercent",
+      "label": "Upfront Government Tax (%)",
+      "type": "number",
+      "step": "0.01",
+      "defaultValue": 3.0
+    },
+    {
+      "name": "monthlyInsurance",
+      "label": "Mandatory Monthly Insurance",
+      "type": "number",
+      "defaultValue": 45
+    },
+    {
+      "name": "otherFees",
+      "label": "Other Upfront Deductions",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "The CET solves the Net Present Value function NPV = Σ (Cashflows / (1 + r)^t) = 0 using Newton-Raphson IRR mapping.",
+  "outputs": [
+    "cetAnnual",
+    "cetMonthly",
+    "effectiveVsNominal",
+    "monthlyPayment",
+    "totalPaid",
+    "totalInterest",
+    "iofAmount",
+    "tacAmount",
+    "insuranceTotal"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "If a bank lends you $50k at 1.5%, but immediately deducts $850 for processing, you only walked away with $49,150. However, your monthly interest is still compounding against the $50k. This IRR mapping establishes your final effective loss parameter.",
+  "example": "Bank A offers 1.5% with $100 in setup fees. Bank B offers 1.4% with $1,500 in setup fees. The CET algorithm proves that, often, the 'higher' base rate is mathematically cheaper.",
+  "faq": [
+    {
+      "question": "What does CET mean?",
+      "answer": "Custo Efetivo Total (CET) is the Brazilian standardized metric for True Cost of Credit. It aggregates the Annual Percentage Rate (APR) alongside all origination fees, appraisal costs, and embedded governmental taxes (IOF)."
+    },
+    {
+      "question": "Is the true cost legally mandated?",
+      "answer": "Yes. Financial transparency laws force every dealership and real estate lender to provide the CET layout prominently within the final contract sheet prior to signing."
+    },
+    {
+      "question": "What is IOF Tax in loans?",
+      "answer": "Imposto sobre Operações Financeiras is a sliding federal levy charged on the origin value of credit expansion. Depending on your installment horizon, it typically averages between 1.5% and 3.3% of the total principal."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Amortization Table Simulator",
+      "href": "/en/calculators/amortization-comparison-calculator",
+      "description": "Understand how the amortization curve alters banking metrics."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "What is True Loan Cost (CET)?",
+      "href": "/en/guides/what-is-cet-effective-total-cost",
+      "description": "How to defend yourself against predatory lending setups."
+    }
+  ]
+}

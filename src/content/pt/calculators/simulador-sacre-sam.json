@@ -1,0 +1,85 @@
+{
+  "category": "financial",
+  "calculator_id": "amortization_compare",
+  "slug": "simulador-sacre-sam",
+  "title": "Simulador de Amortização: SACRE x SAM x SAC x Price",
+  "meta_title": "Simulador de Financiamento SACRE, SAM, SAC e Price | CalcForgeTools",
+  "meta_description": "Simulador imobiliário definitivo. Compare lado a lado o total de juros pagos e as parcelas nos 4 sistemas (Price, SAC, Misto-SAM e Crescente-SACRE).",
+  "hero": {
+    "title": "Comparador Mestre de Amortização",
+    "subtitle": "Qual sistema de financiamento é melhor para você no longo prazo? Veja o confronto lado a lado entre SACRE, SAM, SAC e Tabela Price."
+  },
+  "inputs": [
+    {
+      "name": "loanAmount",
+      "label": "Valor Financiado / Saldo Devedor (R$)",
+      "type": "number",
+      "defaultValue": 300000
+    },
+    {
+      "name": "monthlyRate",
+      "label": "Taxa de Juros Mensal Nominal (%)",
+      "type": "number",
+      "step": "0.01",
+      "defaultValue": 0.8
+    },
+    {
+      "name": "termMonths",
+      "label": "Prazo em Meses",
+      "type": "number",
+      "defaultValue": 360
+    }
+  ],
+  "formula": "Compara algoritmos de juros em loop: Fixa (Price), Linear Decrescente (SAC), Média Aritmética (SAM) e Constante por Subperíodo de 12 meses (SACRE).",
+  "outputs": [
+    "bestSystem",
+    "savingsVsPrice",
+    "priceFirstPayment",
+    "priceLastPayment",
+    "priceTotalPaid",
+    "priceTotalInterest",
+    "sacFirstPayment",
+    "sacLastPayment",
+    "sacTotalPaid",
+    "sacTotalInterest",
+    "samFirstPayment",
+    "samLastPayment",
+    "samTotalPaid",
+    "samTotalInterest",
+    "sacreFirstPayment",
+    "sacreLastPayment",
+    "sacreTotalPaid",
+    "sacreTotalInterest"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "A Tabela Price capitaliza fortemente no começo (juros puros). O SAC derruba a dívida rapidamente reduzindo os juros finais de forma brutal, mas exige uma parcela grande. O SAM é a exata média (Price+SAC)/2 em cada mês. O SACRE recalcula a parcela fixa apenas a cada 12 meses frente ao saldo restante.",
+  "example": "Para R$ 300.000 em 30 anos: A Price pode custar R$ 800 mil totais. O SAC custará cerca de R$ 560 mil. O SAM fica no meio com R$ 680 mil. Qual você aguenta pagar no início e sustentar até o final?",
+  "faq": [
+    {
+      "question": "Como funciona o fechamento da parcela no SACRE?",
+      "answer": "No Sistema de Amortização Crescente (usado muito na Caixa Econômica), você paga uma parcela fixa por 12 meses, não caindo imediatamente como no SAC. No aniversário, a parcela inteira despenca para o novo patamar base do saldo devedor."
+    },
+    {
+      "question": "O que é o Sistema Misto (SAM)?",
+      "answer": "Muito utilizado para alavancagem mista. Ele suaviza o 'soco' da primeira parcela alta do SAC, pegando aquela parcela daquele mês e somando com a mais barata da Price e dividindo por 2."
+    },
+    {
+      "question": "Qual é a melhor tabela?",
+      "answer": "Se você vai até o fim sem amortizar por fora, o SAC e o SACRE geram a maior economia global de juros por forçarem a quitação do principal. A Price só é vantajosa para maximizar alavancagem inicial e se você investir a diferença na bolsa (Custo de Oportunidade)."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Financiamento Casa (SAC/Price em gráfico)",
+      "href": "/pt/calculators/calculadora-de-financiamento-da-minha-casa",
+      "description": "Veja o cronograma mês a mês do seu financiamento de imóvel."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Diferenças: SACRE, SAM, SAC e Price",
+      "href": "/pt/guides/sacre-sam-vs-sac-price",
+      "description": "O guia arquitetural completo das metodologias de concessão hipotecária do governo federal."
+    }
+  ]
+}

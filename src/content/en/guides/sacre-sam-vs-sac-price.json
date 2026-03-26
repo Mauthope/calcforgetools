@@ -1,0 +1,85 @@
+{
+  "category": "financial",
+  "slug": "sacre-sam-vs-sac-price",
+  "meta_title": "Amortization Matrix: SACRE vs SAM vs SAC vs Price Calculator Guide",
+  "meta_description": "Understand the vital differences between Fixed algorithms (Price), Constant Principal algorithms (SAC), Mixed (SAM), and Stepped variations like SACRE.",
+  "hero": {
+    "title": "The War of Amortization Systems",
+    "subtitle": "Which mathematical architecture will obliterate your loan balance faster? Discover the secrets behind the global Price table, SAC, SAM, and SACRE systems.",
+    "author": "CalcForgeTools Editorial",
+    "date": "2026-03-26"
+  },
+  "content": [
+    {
+      "type": "quote",
+      "value": "Signing a 30-year mortgage without fully benchmarking the underlying amortization table is the mathematical equivalent of buying a one-way ticket on a submarine without knowing its destination."
+    },
+    {
+      "type": "paragraph",
+      "value": "For the layperson, securing a mortgage is reduced to a single metric: 'Does the monthly payment fit my budget?'. Local branch managers love this reductionist mentality. What few comprehend is that the engineering behind how those payments are distributed against compound interest dictates whether hundreds of thousands of dollars remain in your portfolio or vanish over three decades."
+    },
+    {
+      "type": "h2",
+      "value": "The 4 Core Architectural Systems"
+    },
+    {
+      "type": "h3",
+      "value": "1. Price Table (The French Model)"
+    },
+    {
+      "type": "paragraph",
+      "value": "This is the global standardized system of completely fixed, immutable installments. It is phenomenal for calculating household budgets but globally atrocious for the rapid payoff of the underlying asset. The Price algorithm directs the overwhelming majority of your initial payments exclusively toward servicing compound interest. You pay and pay, but your principal balance barely shifts during the first 5 to 7 years."
+    },
+    {
+      "type": "h3",
+      "value": "2. SAC (Constant Amortization System)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Massively popular in Brazilian Federal Housing (CAIXA), its logic inverses the Price setup: every single month, you aggressively blast the exact same 'dry' wedge of your principal debt into oblivion (Constant). The consequence is initial cash flow shock: your first installments are incredibly expensive. However, because the debt mass melts quickly, the monthly interest crashes sequentially, resulting in a famous 'downward staircase' effect, ending in tiny final payments."
+    },
+    {
+      "type": "h3",
+      "value": "3. SAM (Mixed Amortization System)"
+    },
+    {
+      "type": "paragraph",
+      "value": "Designed for buyers attempting to escape the crushing first-day payload of a pure SAC schedule, yet refusing to be consumed by the equity stagnation of a Price setup. SAM's formulation is brutally simple: you calculate that month's Price value, you calculate that month's SAC value, sum them, and divide by 2 (arithmetic average). It eases immediate family liquidity while forcefully retaining aggressive long-term principal abatement."
+    },
+    {
+      "type": "h3",
+      "value": "4. SACRE (Graduated Amortization System)"
+    },
+    {
+      "type": "paragraph",
+      "value": "An elegant evolution of SAC heavily marketed by governmental subsidy programs. The term 'Graduated' is scary, but it refers to the growing internal abatement, not the monthly fee. In a SACRE setup, your payment doesn't drop by pennies every single month. Instead, your installment locks (frozen) for a 12-month sequence. As the interest naturally falls over that year, the frozen payment forces a growing chunk of capital directly into the principal. On the 13th month's 'contract anniversary', a massive recalculation triggers, and your next bracket drops heavily down a step, locking out for another year."
+    },
+    {
+      "type": "table",
+      "headers": ["Algorithm Feature", "Price Flow", "SAC Flow", "SAM Flow", "SACRE Flow"],
+      "rows": [
+        ["Installment Trajectory", "Fixed / Flat", "Shrinking Monthly", "Shrinking Softly", "Fixed in 12-Month Steps"],
+        ["Base Amortization Speed", "Lethargic Early Phase", "Maximal (Constant)", "Median Engine", "Graduating over the year"],
+        ["Total Absolute Interest", "Highest by Far", "The Lowest Engine", "Intermediate", "Statistically Matches SAC (Low)"],
+        ["First Day Shock (Income Req.)", "Smooth (Easy Approval)", "Heavy (Requires High Income)", "Moderate", "Moderate to Heavy"]
+      ]
+    },
+    {
+      "type": "h2",
+      "value": "The Final Verdict: Which path is optimal?"
+    },
+    {
+      "type": "paragraph",
+      "value": "The gravest error an everyday consumer performs when graphing these tables is entirely blinding themselves to the **Opportunity Cost** of leveraging time and capital. Financial bloggers rush to claim: \"Always utilize SAC over Price; the absolute interest you pay at year 30 is less\"."
+    },
+    {
+      "type": "paragraph",
+      "value": "But what if you operate high-yield capital? Your first SAC installment could hypothetically be $6,000 against a $3,500 Price entry. If your household thrives on that differential, SAC locks down robust security. However, if you sign the Price contract and flawlessly redirect the $2,500 monthly 'surplus' directly into index ETFs running a verifiable real yield higher than your mortgage financing rate, you exploit the system through margin spread."
+    },
+    {
+      "type": "alert",
+      "alertType": "NOTE",
+      "value": "As a rule of thumb, SACRE often acts as a superior shield for middle-class brackets operating within high-inflation geographies. It absorbs monetary indexation spikes (like Brazil's TR or IPCA) more elegantly than raw SAC, largely thanks to its 12-month frozen stair-stepped barricades."
+    }
+  ]
+}

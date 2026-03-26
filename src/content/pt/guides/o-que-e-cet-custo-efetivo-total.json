@@ -1,0 +1,99 @@
+{
+  "category": "financial",
+  "slug": "o-que-e-cet-custo-efetivo-total",
+  "meta_title": "O que é CET (Custo Efetivo Total)? Como os Bancos Escondem Juros",
+  "meta_description": "Aprenda a desmascarar a 'taxa nominal'. Descubra como o IOF, a TAC e os Seguros Obrigatórios formam o Custo Efetivo Total do seu financiamento.",
+  "hero": {
+    "title": "A Verdade sobre o CET (Custo Efetivo Total)",
+    "subtitle": "Por que a taxa que o banco anuncia nunca é a taxa que você realmente paga? Desvende o algoritmo que soma juros, seguros e tarifas ocultas.",
+    "author": "CalcForgeTools Editorial",
+    "date": "2026-03-26"
+  },
+  "content": [
+    {
+      "type": "quote",
+      "value": "A publicidade financeira no Brasil é desenhada para vender parcelas, não para revelar custos. O CET é a única vacina matemática contra o marketing predatório."
+    },
+    {
+      "type": "paragraph",
+      "value": "Considere o cenário clássico: você entra na concessionária e o vendedor anuncia orgulhosamente que o carro novo possui 'Taxa Zero' em 24 meses. Seis meses depois, você faz as contas e percebe que as 24 parcelas somam um valor muito maior do que o preço original do carro à vista. Quem está mentindo? Ninguém. A taxa de juros nominal realmente pode ser zero, mas o **Custo Efetivo Total (CET)** nunca é."
+    },
+    {
+      "type": "h2",
+      "value": "A Anatomia do Custo do Crédito"
+    },
+    {
+      "type": "paragraph",
+      "value": "Emprestimos não são produtos simples. Quando um banco libera dinheiro, ele aciona uma cadeia de custos operacionais e exigências governamentais que precisam ser financiadas por você. O Banco Central do Brasil obriga, através da Resolução CMN 3.517/2007, que todas as instituições financeiras unifiquem esses 'penduricalhos' em um único índice percentual: o CET."
+    },
+    {
+      "type": "h3",
+      "value": "O que compõe o CET?"
+    },
+    {
+      "type": "list",
+      "items": [
+        "1. Taxa Nominal de Juros: O 'aluguel' base do dinheiro (a vitrine).",
+        "2. IOF (Imposto sobre Operações Financeiras): Tributo federal inevitável retido na origem. Varia conforme a quantidade de dias da dívida.",
+        "3. TAC (Tarifa de Abertura de Crédito): Taxa bancária para 'pesquisar o seu CPF' e montar a pasta do cliente.",
+        "4. Seguros Embutidos (MIP/DFI): Obrigatórios no financiamento imobiliário. Cobre morte, invalidez ou danos físicos ao imóvel.",
+        "5. Taxas de Gravame: Custos de despachante para alienar o carro ao CNPJ do banco."
+      ]
+    },
+    {
+      "type": "h2",
+      "value": "O Truque da Taxa de Juros 'Menor'"
+    },
+    {
+      "type": "paragraph",
+      "value": "A armadilha clássica do gerente do banco é tentar fazer você bater o martelo focando estritamente na taxa nominal. Mas a matemática financeira (através da TIR - Taxa Interna de Retorno) prova que uma tarifa alta embutida no início do contrato destrói completamente o benefício de uns juros base mais baixos."
+    },
+    {
+      "type": "h3",
+      "value": "Exemplo Matemático: O Engano de R$ 30.000"
+    },
+    {
+      "type": "paragraph",
+      "value": "Suponha que você queira R$ 30.000 para capital de giro em 36 meses:"
+    },
+    {
+      "type": "table",
+      "headers": ["Oferta", "Cenário Banco A", "Cenário Banco B"],
+      "rows": [
+        ["Taxa Nominal", "1,20% ao mês", "1,45% ao mês"],
+        ["TAC Oculta", "R$ 1.900,00", "R$ 150,00"],
+        ["IOF Total", "R$ 950,00", "R$ 950,00"],
+        ["CET Anual", "19,8% a.a.", "18,4% a.a."]
+      ]
+    },
+    {
+      "type": "alert",
+      "alertType": "IMPORTANT",
+      "value": "O Banco A anuncia que sua taxa é 'muito mais barata' (1,20% vs 1,45%). Porém, ele embute uma TAC exorbitante de R$ 1.900 que é financiada junto com o bolo. O CET revela que, na ponta do lápis, o Banco B (que tem a taxa nominal maior) cobrará parcelas mensais menores e é matematicamente o vencedor."
+    },
+    {
+      "type": "h2",
+      "value": "Como é Calculado o Custo Efetivo?"
+    },
+    {
+      "type": "paragraph",
+      "value": "O cálculo não é uma simples soma, ele utiliza a descoberta do Valor Presente Líquido (VPL) zerado através do algoritmo de Newton-Raphson. Se você assina para receber R$ 50 mil, a instituição desconta o IOF e a TAC no ato. Ou seja, você paga juros exponenciais correndo sobre 50 mil, mas só levou, na carteira, uns 47 mil reais."
+    },
+    {
+      "type": "formula",
+      "value": "VPL = Σ [ PMT / (1 + CET)ᵗ ] = Valor Efetivamente Liberado na Conta"
+    },
+    {
+      "type": "paragraph",
+      "value": "Isso demonstra a assimetria do risco de crédito: o dinheiro 'fantasma' das taxas iniciais que nunca passa pela sua conta corrente encarece o fluxo logaritmico mensal. É exatamente este fenômeno que simulamos de modo instantâneo na nossa Calculadora de Custo Efetivo Total."
+    },
+    {
+      "type": "h2",
+      "value": "Portabilidade de Dívida e CET"
+    },
+    {
+      "type": "paragraph",
+      "value": "Você só deve realizar portabilidade se o **CET do banco destino** for menor que a **taxa de juros do banco atual**. Isso mesmo! Muita atenção: não compare o CET novo com o CET antigo! Ao migrar a dívida, o banco de destino não te devolverá as taxas velhas. Para o seu bolso, o que importa agora é se o Custo Efetivo da nova operação bate os Juros Nominais do restante do seu contrato atual."
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "category": "financial",
+  "calculator_id": "cet_simulator",
+  "slug": "simulador-cet",
+  "title": "Simulador de CET (Custo Efetivo Total)",
+  "meta_title": "Calculadora de CET | Simulador de Financiamento Real 2026",
+  "meta_description": "Calcule o Custo Efetivo Total (CET) do seu financiamento. Descubra a taxa real que você paga incluindo IOF, TAC e seguros versus a taxa nominal oferecida pelo banco.",
+  "hero": {
+    "title": "Simulador de Custo Efetivo Total (CET)",
+    "subtitle": "Não caia na ilusão da 'taxa zero'. Insira os juros, IOF, TAC e seguros para descobrir qual é o Custo Efetivo Total (CET) real do seu empréstimo."
+  },
+  "inputs": [
+    {
+      "name": "loanAmount",
+      "label": "Valor Financiado / Emprestado (R$)",
+      "type": "number",
+      "defaultValue": 50000
+    },
+    {
+      "name": "monthlyRate",
+      "label": "Taxa de Juros Mensal Nominal (%)",
+      "type": "number",
+      "step": "0.01",
+      "defaultValue": 1.5
+    },
+    {
+      "name": "termMonths",
+      "label": "Prazo em Meses",
+      "type": "number",
+      "defaultValue": 48
+    },
+    {
+      "name": "tac",
+      "label": "TAC / Tarifa de Abertura (R$)",
+      "type": "number",
+      "defaultValue": 850
+    },
+    {
+      "name": "iofPercent",
+      "label": "IOF Fixo Cobrado (% do principal)",
+      "type": "number",
+      "step": "0.01",
+      "defaultValue": 3.0
+    },
+    {
+      "name": "monthlyInsurance",
+      "label": "Seguros Mensais (R$ / mês)",
+      "type": "number",
+      "defaultValue": 45
+    },
+    {
+      "name": "otherFees",
+      "label": "Outras Tarifas Retidas na Origem (R$)",
+      "type": "number",
+      "defaultValue": 0
+    }
+  ],
+  "formula": "CET é a Taxa Interna de Retorno (TIR) que iguala o valor liberado (menos despesas antecipadas) ao fluxo de pagamentos futuros.",
+  "outputs": [
+    "cetAnnual",
+    "cetMonthly",
+    "effectiveVsNominal",
+    "monthlyPayment",
+    "totalPaid",
+    "totalInterest",
+    "iofAmount",
+    "tacAmount",
+    "insuranceTotal"
+  ],
+  "chart_type": "bar",
+  "formula_explanation": "A instituição financeira nunca libera o valor integral: ela desconta o IOF e a TAC no ato. Assim, você paga parcelas de (ex: 50.000) mas só pegou (ex: 47.500). O algoritmo calcula via método de Newton-Raphson a taxa (IRR) exata do fluxo de caixa descontado.",
+  "example": "Se um banco diz que a taxa é 1.5% a.m num carro de R$ 50k, mas te cobra R$ 850 de TAC, R$ 1.500 de IOF e R$ 45/mês de seguro Morte/Invalidez, a sua taxa real (CET) sobe quase 5% acima do valor nominal. Fuja das pegadinhas.",
+  "faq": [
+    {
+      "question": "O que significa CET?",
+      "answer": "O Custo Efetivo Total (Resolução CMN 4.881/20) engloba os juros, as tarifas de prestação de serviços (TAC), impostos (IOF) e seguros. É a taxa definitiva para comparar se a oferta de empréstimo de um banco é melhor do que a de outro."
+    },
+    {
+      "question": "A instituição é obrigada a me informar o CET?",
+      "answer": "Sim. É direito do consumidor ver a planilha do Custo Efetivo Total impressa e grafada antes de assinar qualquer financiamento imobiliário ou automotivo no Brasil."
+    },
+    {
+      "question": "Por que o CET é sempre maior que a taxa informada?",
+      "answer": "Porque a taxa de juros informada pelo gerente (nominal) só incide sobre a amortização base. O limite logístico do banco exige pagar taxas operacionais (Cadastro, Avaliação) que o sistema converte em carga extra matemática."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Simulador SACRE / SAM (Amortização)",
+      "href": "/pt/calculators/simulador-sacre-sam",
+      "description": "Veja também qual tabela (Price/SAC) gera menos juros no longo prazo."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "O que é Custo Efetivo Total (CET)?",
+      "href": "/pt/guides/o-que-e-cet-custo-efetivo-total",
+      "description": "Aprenda a desmascarar gerentes de banco com o CET real."
+    }
+  ]
+}

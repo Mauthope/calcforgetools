@@ -150,7 +150,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     <Calculator className="w-6 h-6 stroke-[1.5]" />
                   </div>
                 </div>
-                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">5 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
+                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">7 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
                 <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
                   {lang === 'en' ? 'Financial Calculators' : 'Calculadoras Financeiras'}
                 </h3>
@@ -196,12 +196,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     <ShieldCheck className="w-6 h-6 stroke-[1.5]" />
                   </div>
                 </div>
-                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">4 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
+                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">6 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
                 <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
                   {lang === 'en' ? 'Labor & Payroll Calculators' : 'Calculadoras Trabalhistas'}
                 </h3>
                 <p className="text-sm text-[var(--color-text-secondary)] line-clamp-3 leading-relaxed mb-6 flex-grow">
-                  {lang === 'en' ? 'Wages, overtime, vacation accruals, and employment cost calculations coming soon.' : 'Salários, horas extras, férias e cálculos de custos trabalhistas em breve.'}
+                  {lang === 'en' ? 'Wages, overtime, vacation accruals, and full employer cost calculations.' : 'Salários líquidos, horas extras, rescisão, banco de horas e custo total para empresas.'}
                 </p>
                 <div className="font-medium text-amber-500 text-sm mt-auto inline-flex items-center group-hover:underline">
                   {lang === 'en' ? 'Explore Category' : 'Explorar Categoria'}
