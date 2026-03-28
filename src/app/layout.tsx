@@ -20,7 +20,12 @@ export const metadata: Metadata = {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' }
     ]
-  }
+  },
+  verification: {
+    other: {
+      'msvalidate.01': '261B22DCAAB82559D9C4611FD9A01587',
+    },
+  },
 };
 
 export default function RootLayout({
