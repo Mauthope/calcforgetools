@@ -24,6 +24,7 @@ export function Footer({ lang }: FooterProps) {
         links: [
           { label: "Knowledge Guides", href: "/en/guides" },
           { label: "Premium Dashboards", href: "/en/templates" },
+          { label: "Open Datasets API", href: "/en/datasets" },
         ]
       },
       {
@@ -49,6 +50,7 @@ export function Footer({ lang }: FooterProps) {
         links: [
           { label: "Guias de Conhecimento", href: "/pt/guides" },
           { label: "Dashboards Premium", href: "/pt/templates" },
+          { label: "Hub de Dados (API)", href: "/pt/datasets" },
         ]
       },
       {
