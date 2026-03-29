@@ -28,8 +28,14 @@
       "type": "select",
       "defaultValue": "full",
       "options": [
-        { "label": "Férias Integrais (30 dias)", "value": "full" },
-        { "label": "Férias Proporcionais", "value": "proportional" }
+        {
+          "label": "Férias Integrais (30 dias)",
+          "value": "full"
+        },
+        {
+          "label": "Férias Proporcionais",
+          "value": "proportional"
+        }
       ]
     },
     {
@@ -83,6 +89,18 @@
       "title": "Como Calcular Férias e 13° Salário",
       "href": "/pt/guides/como-calcular-ferias-decimo-terceiro",
       "description": "Entenda cada verba das férias e do décimo terceiro passo a passo."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Planalto: CLT (Decreto-Lei nº 5.452/1943)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Vigência 2026"
+    },
+    {
+      "name": "Receita Federal do Brasil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Vigência 2026"
     }
   ]
 }

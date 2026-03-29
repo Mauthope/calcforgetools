@@ -8,6 +8,7 @@ import { RelatedGuides } from '@/components/ui/RelatedGuides';
 import { TemplateCTA } from '@/components/ui/TemplateCTA';
 import { AdUnit } from '@/components/ads/AdUnit';
 import { CalculatorClientWrapper } from '@/components/calculator/CalculatorClientWrapper';
+import { SourcesBlock } from '@/components/calculator/SourcesBlock';
 import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -118,7 +119,7 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
           {/* Client Interactive Area */}
           <CalculatorClientWrapper 
             config={data} 
-            lang={lang}
+            lang={lang as 'en' | 'pt'}
             premiumTemplate={
               (data.calculator_id === 'loan' || data.calculator_id === 'debt_payoff' || data.calculator_id === 'compound_interest') ? (
                 <TemplateCTA 
@@ -171,6 +172,9 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
               {data.example}
             </p>
           </div>
+
+          {/* Sources and Validity Block (E-E-A-T) */}
+          <SourcesBlock sources={data.reference_sources} lang={lang as 'en' | 'pt'} />
 
           {/* FAQ */}
           {data.faq && <FAQ items={data.faq} />}

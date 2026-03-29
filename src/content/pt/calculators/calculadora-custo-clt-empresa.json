@@ -90,5 +90,17 @@
       "href": "/pt/guides/como-calcular-custo-empregado-clt",
       "description": "Entenda todas as alíquotas."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Planalto: CLT (Decreto-Lei nº 5.452/1943)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Vigência 2026"
+    },
+    {
+      "name": "Receita Federal do Brasil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Vigência 2026"
+    }
   ]
 }

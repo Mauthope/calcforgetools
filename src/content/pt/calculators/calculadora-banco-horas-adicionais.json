@@ -33,10 +33,22 @@
       "label": "Adicional de Insalubridade (%)",
       "type": "select",
       "options": [
-        { "label": "Não Possui (0%)", "value": 0 },
-        { "label": "Grau Mínimo (10%)", "value": 10 },
-        { "label": "Grau Médio (20%)", "value": 20 },
-        { "label": "Grau Máximo (40%)", "value": 40 }
+        {
+          "label": "Não Possui (0%)",
+          "value": 0
+        },
+        {
+          "label": "Grau Mínimo (10%)",
+          "value": 10
+        },
+        {
+          "label": "Grau Médio (20%)",
+          "value": 20
+        },
+        {
+          "label": "Grau Máximo (40%)",
+          "value": 40
+        }
       ],
       "defaultValue": 0
     },
@@ -45,8 +57,14 @@
       "label": "Adicional de Periculosidade (%)",
       "type": "select",
       "options": [
-        { "label": "Não Possui (0%)", "value": 0 },
-        { "label": "Possui Risco Vivo (30%)", "value": 30 }
+        {
+          "label": "Não Possui (0%)",
+          "value": 0
+        },
+        {
+          "label": "Possui Risco Vivo (30%)",
+          "value": 30
+        }
       ],
       "defaultValue": 0
     },
@@ -96,6 +114,18 @@
       "title": "Tudo sobre Adicionais e Banco de Horas",
       "href": "/pt/guides/banco-de-horas-e-adicionais",
       "description": "Veja os detalhes jurídicos dos adicionais."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Planalto: CLT (Decreto-Lei nº 5.452/1943)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Vigência 2026"
+    },
+    {
+      "name": "Receita Federal do Brasil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Vigência 2026"
     }
   ]
 }

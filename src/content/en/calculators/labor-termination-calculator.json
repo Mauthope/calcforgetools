@@ -34,9 +34,18 @@
       "type": "select",
       "defaultValue": "sem_justa_causa",
       "options": [
-        { "label": "Fired Without Cause (by employer)", "value": "sem_justa_causa" },
-        { "label": "Voluntary Resignation (by employee)", "value": "pedido_demissao" },
-        { "label": "Fired for Cause", "value": "justa_causa" }
+        {
+          "label": "Fired Without Cause (by employer)",
+          "value": "sem_justa_causa"
+        },
+        {
+          "label": "Voluntary Resignation (by employee)",
+          "value": "pedido_demissao"
+        },
+        {
+          "label": "Fired for Cause",
+          "value": "justa_causa"
+        }
       ]
     }
   ],
@@ -84,6 +93,18 @@
       "title": "How to Calculate Labor Termination",
       "href": "/en/guides/how-to-calculate-labor-termination",
       "description": "Understand every component of a Brazilian termination package and know how to verify the amounts."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Brazilian Labor Code (CLT)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Valid for 2026"
+    },
+    {
+      "name": "Federal Revenue of Brazil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Valid for 2026"
     }
   ]
 }

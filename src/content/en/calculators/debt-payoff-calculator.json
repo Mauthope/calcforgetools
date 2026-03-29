@@ -69,5 +69,16 @@
       "href": "/en/guides/debt-payoff-methods",
       "description": "Proven mathematical and behavioral psychological strategies to become 100% debt-free."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Central Bank of Brazil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "CMN Resolutions"
+    },
+    {
+      "name": "Applied Financial Mathematics",
+      "date": "Global Standard"
+    }
   ]
 }

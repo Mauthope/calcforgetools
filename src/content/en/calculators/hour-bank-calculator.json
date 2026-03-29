@@ -33,10 +33,22 @@
       "label": "Unhealthy Conditions Premium (%)",
       "type": "select",
       "options": [
-        { "label": "None (0%)", "value": 0 },
-        { "label": "Low Risk (10%)", "value": 10 },
-        { "label": "Medium Risk (20%)", "value": 20 },
-        { "label": "High Risk (40%)", "value": 40 }
+        {
+          "label": "None (0%)",
+          "value": 0
+        },
+        {
+          "label": "Low Risk (10%)",
+          "value": 10
+        },
+        {
+          "label": "Medium Risk (20%)",
+          "value": 20
+        },
+        {
+          "label": "High Risk (40%)",
+          "value": 40
+        }
       ],
       "defaultValue": 0
     },
@@ -45,8 +57,14 @@
       "label": "Hazard Pay Premium (%)",
       "type": "select",
       "options": [
-        { "label": "None (0%)", "value": 0 },
-        { "label": "Hazardous Duty (30%)", "value": 30 }
+        {
+          "label": "None (0%)",
+          "value": 0
+        },
+        {
+          "label": "Hazardous Duty (30%)",
+          "value": 30
+        }
       ],
       "defaultValue": 0
     },
@@ -96,6 +114,18 @@
       "title": "Understanding Brazilian Pay Premiums",
       "href": "/en/guides/hour-bank-and-pay-premiums",
       "description": "Discover how and when premiums apply legally."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Brazilian Labor Code (CLT)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Valid for 2026"
+    },
+    {
+      "name": "Federal Revenue of Brazil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Valid for 2026"
     }
   ]
 }

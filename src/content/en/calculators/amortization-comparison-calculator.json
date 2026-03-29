@@ -81,5 +81,16 @@
       "href": "/en/guides/sacre-sam-vs-sac-price",
       "description": "A comprehensive deep-dive into long haul compounding physics."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Central Bank of Brazil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "CMN Resolutions"
+    },
+    {
+      "name": "Applied Financial Mathematics",
+      "date": "Global Standard"
+    }
   ]
 }

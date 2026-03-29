@@ -113,5 +113,16 @@
       "href": "/pt/guides/impacto-da-inflacao",
       "description": "Saiba por que a taxa de juros nominal nem sempre reflete o aumento do seu poder de compra real."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Resoluções CMN"
+    },
+    {
+      "name": "Matemática Financeira Aplicada",
+      "date": "Padrão Internacional"
+    }
   ]
 }

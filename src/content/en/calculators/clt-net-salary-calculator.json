@@ -72,5 +72,17 @@
       "href": "/en/guides/how-to-calculate-net-salary",
       "description": "Learn step by step how INSS and IRRF tax brackets work and never be in the dark about your paycheck deductions."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Brazilian Labor Code (CLT)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Valid for 2026"
+    },
+    {
+      "name": "Federal Revenue of Brazil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Valid for 2026"
+    }
   ]
 }

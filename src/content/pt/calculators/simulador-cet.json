@@ -40,7 +40,7 @@
       "label": "IOF Fixo Cobrado (% do principal)",
       "type": "number",
       "step": "0.01",
-      "defaultValue": 3.0
+      "defaultValue": 3
     },
     {
       "name": "monthlyInsurance",
@@ -96,6 +96,17 @@
       "title": "O que é Custo Efetivo Total (CET)?",
       "href": "/pt/guides/o-que-e-cet-custo-efetivo-total",
       "description": "Aprenda a desmascarar gerentes de banco com o CET real."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Resoluções CMN"
+    },
+    {
+      "name": "Matemática Financeira Aplicada",
+      "date": "Padrão Internacional"
     }
   ]
 }

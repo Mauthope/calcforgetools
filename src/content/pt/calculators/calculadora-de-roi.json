@@ -58,5 +58,16 @@
       "href": "/pt/guides/como-calcular-roi",
       "description": "Aprenda a métrica essencial do mundo dos negócios para analisar a eficiência de empresas e campanhas."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Resoluções CMN"
+    },
+    {
+      "name": "Matemática Financeira Aplicada",
+      "date": "Padrão Internacional"
+    }
   ]
 }

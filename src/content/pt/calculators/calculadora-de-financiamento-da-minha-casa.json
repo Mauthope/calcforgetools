@@ -33,8 +33,14 @@
       "label": "Sistema de Amortização",
       "type": "select",
       "options": [
-        { "label": "Parcelas Fixas (Tabela Price)", "value": "price" },
-        { "label": "Parcelas Decrescentes (Tabela SAC)", "value": "sac" }
+        {
+          "label": "Parcelas Fixas (Tabela Price)",
+          "value": "price"
+        },
+        {
+          "label": "Parcelas Decrescentes (Tabela SAC)",
+          "value": "sac"
+        }
       ],
       "defaultValue": "price"
     },
@@ -92,6 +98,17 @@
       "title": "O Guia Prático dos Juros Compostos",
       "href": "/pt/guides/como-funcionam-os-juros-compostos",
       "description": "Descubra o segredo do crescimento exponencial do seu dinheiro através de exemplos práticos."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Resoluções CMN"
+    },
+    {
+      "name": "Matemática Financeira Aplicada",
+      "date": "Padrão Internacional"
     }
   ]
 }

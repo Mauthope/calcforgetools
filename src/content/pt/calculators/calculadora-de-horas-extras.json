@@ -85,5 +85,17 @@
       "href": "/pt/guides/como-calcular-horas-extras",
       "description": "Entenda as regras de 50%, 100% e adicional noturno para nunca ser lesado."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Planalto: CLT (Decreto-Lei nº 5.452/1943)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Vigência 2026"
+    },
+    {
+      "name": "Receita Federal do Brasil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Vigência 2026"
+    }
   ]
 }

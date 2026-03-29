@@ -15,9 +15,18 @@
       "label": "Calculation Type",
       "type": "select",
       "options": [
-        { "label": "I want to apply a Discount (or Increase) of X% to a price", "value": "x_of_y" },
-        { "label": "I want to find out the % change between two values", "value": "percentage_change" },
-        { "label": "I want to know what percentage a smaller part represents of the total", "value": "x_is_what_percent_of_y" }
+        {
+          "label": "I want to apply a Discount (or Increase) of X% to a price",
+          "value": "x_of_y"
+        },
+        {
+          "label": "I want to find out the % change between two values",
+          "value": "percentage_change"
+        },
+        {
+          "label": "I want to know what percentage a smaller part represents of the total",
+          "value": "x_is_what_percent_of_y"
+        }
       ],
       "defaultValue": "x_of_y"
     },
@@ -72,6 +81,12 @@
       "title": "How to Calculate Percentages",
       "href": "/en/guides/how-to-calculate-percentages",
       "description": "Learn the step-by-step mathematical logic for solving any percentage problem in retail, finance, or real estate."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "International System of Units (SI)",
+      "date": "Global Standard"
     }
   ]
 }

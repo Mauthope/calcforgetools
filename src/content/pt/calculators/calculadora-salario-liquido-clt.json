@@ -72,5 +72,17 @@
       "href": "/pt/guides/como-calcular-salario-liquido",
       "description": "Aprenda passo a passo como funcionam as faixas de INSS e IRRF e nunca mais fique no escuro sobre seus descontos."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Planalto: CLT (Decreto-Lei nº 5.452/1943)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Vigência 2026"
+    },
+    {
+      "name": "Receita Federal do Brasil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Vigência 2026"
+    }
   ]
 }

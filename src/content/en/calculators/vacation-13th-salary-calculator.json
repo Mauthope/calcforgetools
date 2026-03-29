@@ -28,8 +28,14 @@
       "type": "select",
       "defaultValue": "full",
       "options": [
-        { "label": "Full Vacation (30 days)", "value": "full" },
-        { "label": "Proportional Vacation", "value": "proportional" }
+        {
+          "label": "Full Vacation (30 days)",
+          "value": "full"
+        },
+        {
+          "label": "Proportional Vacation",
+          "value": "proportional"
+        }
       ]
     },
     {
@@ -83,6 +89,18 @@
       "title": "How to Calculate Vacation & 13th Salary",
       "href": "/en/guides/how-to-calculate-vacation-13th-salary",
       "description": "Understand every component of vacation pay and 13th salary step by step."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Brazilian Labor Code (CLT)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Valid for 2026"
+    },
+    {
+      "name": "Federal Revenue of Brazil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Valid for 2026"
     }
   ]
 }

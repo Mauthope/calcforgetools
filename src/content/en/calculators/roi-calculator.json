@@ -58,5 +58,16 @@
       "href": "/en/guides/how-to-calculate-roi",
       "description": "Learn the official formula and discover how to analyze your investment ventures like a professional."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Central Bank of Brazil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "CMN Resolutions"
+    },
+    {
+      "name": "Applied Financial Mathematics",
+      "date": "Global Standard"
+    }
   ]
 }

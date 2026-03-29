@@ -33,8 +33,14 @@
       "label": "Amortization Type",
       "type": "select",
       "options": [
-        { "label": "Fixed Payments (Price)", "value": "price" },
-        { "label": "Decreasing Amortization (SAC)", "value": "sac" }
+        {
+          "label": "Fixed Payments (Price)",
+          "value": "price"
+        },
+        {
+          "label": "Decreasing Amortization (SAC)",
+          "value": "sac"
+        }
       ],
       "defaultValue": "price"
     },
@@ -92,6 +98,17 @@
       "title": "The Magic of Compound Interest",
       "href": "/en/guides/how-compound-interest-works",
       "description": "Discover the mathematical secret to exponential wealth growth and starting early."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Central Bank of Brazil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "CMN Resolutions"
+    },
+    {
+      "name": "Applied Financial Mathematics",
+      "date": "Global Standard"
     }
   ]
 }

@@ -64,5 +64,16 @@
       "href": "/pt/guides/juros-simples-vs-compostos",
       "description": "Entenda a diferença estrutural e matemática entre os dois formatos de rentabilidade no mercado."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Resoluções CMN"
+    },
+    {
+      "name": "Matemática Financeira Aplicada",
+      "date": "Padrão Internacional"
+    }
   ]
 }

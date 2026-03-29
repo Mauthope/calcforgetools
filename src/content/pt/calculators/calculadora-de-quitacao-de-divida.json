@@ -69,5 +69,16 @@
       "href": "/pt/guides/metodos-quitacao-divida",
       "description": "Estratégias matemáticas e psicológicas mundialmente comprovadas para você eliminar suas dívidas mais rápido."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Resoluções CMN"
+    },
+    {
+      "name": "Matemática Financeira Aplicada",
+      "date": "Padrão Internacional"
+    }
   ]
 }

@@ -34,9 +34,18 @@
       "type": "select",
       "defaultValue": "sem_justa_causa",
       "options": [
-        { "label": "Demissão Sem Justa Causa (pelo empregador)", "value": "sem_justa_causa" },
-        { "label": "Pedido de Demissão (pelo empregado)", "value": "pedido_demissao" },
-        { "label": "Demissão por Justa Causa", "value": "justa_causa" }
+        {
+          "label": "Demissão Sem Justa Causa (pelo empregador)",
+          "value": "sem_justa_causa"
+        },
+        {
+          "label": "Pedido de Demissão (pelo empregado)",
+          "value": "pedido_demissao"
+        },
+        {
+          "label": "Demissão por Justa Causa",
+          "value": "justa_causa"
+        }
       ]
     }
   ],
@@ -84,6 +93,18 @@
       "title": "Como Calcular Rescisão Trabalhista",
       "href": "/pt/guides/como-calcular-rescisao-trabalhista",
       "description": "Entenda cada verba da rescisão e saiba conferir se os valores estão corretos."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Planalto: CLT (Decreto-Lei nº 5.452/1943)",
+      "url": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
+      "date": "Vigência 2026"
+    },
+    {
+      "name": "Receita Federal do Brasil (RFB)",
+      "url": "https://www.gov.br/receitafederal/pt-br",
+      "date": "Vigência 2026"
     }
   ]
 }

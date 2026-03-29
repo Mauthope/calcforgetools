@@ -64,5 +64,16 @@
       "href": "/en/guides/simple-vs-compound",
       "description": "Understand the fundamental mathematical difference between the two standard interest frameworks."
     }
+  ],
+  "reference_sources": [
+    {
+      "name": "Central Bank of Brazil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "CMN Resolutions"
+    },
+    {
+      "name": "Applied Financial Mathematics",
+      "date": "Global Standard"
+    }
   ]
 }
