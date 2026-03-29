@@ -2,6 +2,7 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { ShieldCheck, Target, Zap, Github, Linkedin, Cpu } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -20,8 +21,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
              </h1>
              <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed">
                {lang === 'en' 
-                 ? 'Engineered precision for everyday financial and labor decisions. We build algorithms you can trust.' 
-                 : 'Precisão de engenharia para decisões financeiras e trabalhistas do dia a dia. Construímos algoritmos nos quais você pode confiar.'}
+                 ? 'Engineered precision for everyday financial and labor decisions. We build tools you can trust.' 
+                 : 'Precisão projetada para decisões financeiras e trabalhistas do dia a dia. Construímos ferramentas nas quais você pode confiar.'}
              </p>
           </div>
         </Container>
@@ -50,18 +51,23 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
             <h2 className="text-3xl font-bold mb-8 text-white flex items-center gap-3">
               <Cpu className="text-blue-400" />
-              {lang === 'en' ? 'Meet the Engineer' : 'Conheça o Engenheiro'}
+              {lang === 'en' ? 'Meet the Creator' : 'Conheça o Criador'}
             </h2>
             
             <div className="grid md:grid-cols-[1fr_2fr] gap-10 items-center">
               <div className="flex flex-col items-center md:items-start space-y-4">
                 <div className="w-32 h-32 bg-slate-800 border border-slate-700 rounded-full flex items-center justify-center shadow-inner overflow-hidden relative">
-                   <span className="text-4xl font-bold text-slate-500">MG</span>
+                   <Image 
+                     src="/downloads/mauricio.png" 
+                     alt="Mauricio Grigol" 
+                     fill 
+                     className="object-cover" 
+                   />
                 </div>
                 <div className="text-center md:text-left">
                   <h3 className="text-2xl font-bold text-white">Mauricio Grigol</h3>
                   <span className="text-blue-400 font-medium tracking-wide text-sm block mt-1 uppercase">
-                    {lang === 'en' ? 'Lead Engineer & Founder' : 'Engenheiro & Fundador'}
+                    {lang === 'en' ? 'Self-taught Dev & Founder' : 'Dev Autodidata & Fundador'}
                   </span>
                 </div>
                 <div className="flex gap-4 pt-2">
@@ -78,19 +84,19 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                 {lang === 'en' ? (
                   <>
                     <p>
-                      <strong>CalcForgeTools</strong> is actively developed and maintained by Mauricio Grigol. With a formal background in Engineering, Mauricio brings a deep, rigorous focus to logic, systems logic, and mathematical precision. 
+                      <strong>CalcForgeTools</strong> is actively developed and maintained by Mauricio Grigol. As a passionate self-taught developer who absolutely loves technology, his mission is simple: to build high-quality, practical tools that genuinely help people in their daily lives.
                     </p>
                     <p>
-                      Unlike generic financial blogs, every calculation engine on this platform is constructed with analytical engineering principles. The formulas mirror the exact actuarial tables used by the Brazilian Central Bank and the strict guidelines established by standard Labor Laws (CLT). Mathematics doesn't lie, and engineering algorithms ensure absolute fidelity in every penny calculated.
+                      Instead of relying on generic online calculators that hide their math, Mauricio decided to code this platform from scratch. Every tool here is built with transparency and precision, following actual legislation and financial tables so you can make informed decisions with complete confidence.
                     </p>
                   </>
                 ) : (
                   <>
                     <p>
-                      O <strong>CalcForgeTools</strong> é desenvolvido e mantido arquiteturalmente por Mauricio Grigol. Com formação especializada em Engenharia, Mauricio construiu a plataforma fundamentada nos pilares de precisão matemática, lógica de sistemas e processos analíticos escaláveis.
+                      O <strong>CalcForgeTools</strong> é desenvolvido e mantido integralmente por Mauricio Grigol. Como um desenvolvedor autodidata completamente apaixonado por tecnologia, sua missão é simples e direta: criar ferramentas extremamente úteis, limpas e práticas para facilitar o dia a dia das pessoas.
                     </p>
                     <p>
-                      Diferente de portais financeiros genéricos, os motores de cálculo deste site são modelados com rigorosos princípios de modelagem e engenharia reversa das fórmulas oficiais do Banco Central (Sistemas de Amortização) e da Consolidação das Leis do Trabalho (CLT). A engenharia traz a garantia de que não há margem para erros ou achismos: o algoritmo reflete e processa a lei fria de forma exata e cristalina.
+                      Em vez de depender de calculadoras genéricas na internet que escondem suas metodologias, Mauricio decidiu programar esta plataforma do zero. Cada ferramenta aqui é construída com transparência e precisão, baseada nas leis e tabelas financeiras reais, para que você tenha controle absoluto sobre seus números e suas decisões.
                     </p>
                   </>
                 )}
