@@ -49,6 +49,22 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'CalcForgeTools',
+              url: 'https://calcforgetools.com',
+              logo: 'https://calcforgetools.com/icon.svg',
+              founder: {
+                '@type': 'Person',
+                name: 'Mauricio Grigol'
+              }
+            })
+          }}
+        />
       </head>
       <body className="antialiased min-h-screen flex flex-col">
         {children}

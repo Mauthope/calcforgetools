@@ -742,6 +742,28 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                    </div>
                 </div>
               )}
+
+              {/* Mathematical Transparency Block */}
+              <div className="apple-card p-5 lg:p-6 mt-4 bg-slate-50/80 border-slate-200">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-serif italic text-lg font-bold">
+                    ƒx
+                  </div>
+                  <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    {lang === 'en' ? 'Mathematical Transparency' : 'Transparência Matemática'}
+                  </h3>
+                </div>
+                <div className="bg-white px-4 py-4 rounded-xl border border-slate-200 text-center shadow-sm overflow-x-auto">
+                  <code className="text-lg md:text-xl font-mono text-[var(--color-primary)] whitespace-nowrap">
+                    {config.formula}
+                  </code>
+                </div>
+                <p className="text-xs md:text-sm text-slate-500 mt-4 leading-relaxed">
+                  {lang === 'en' 
+                    ? 'Above is the exact core algorithm running locally on your device right now to generate these precise results. No hidden logic.' 
+                    : 'Acima está o algoritmo central exato rodando nativamente no seu dispositivo agora para calcular os resultados. Sem caixa preta.'}
+                </p>
+              </div>
               
               {/* Inject Monetization or Ads here, directly beneath the chart */}
               {children}

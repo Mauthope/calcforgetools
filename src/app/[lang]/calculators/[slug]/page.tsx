@@ -56,17 +56,6 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
 
   const baseUrl = 'https://calcforgetools.com';
 
-  // JSON-LD: FAQPage
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: data.faq?.map((q: any) => ({
-      '@type': 'Question',
-      name: q.question,
-      acceptedAnswer: { '@type': 'Answer', text: q.answer },
-    })) || []
-  };
-
   // JSON-LD: BreadcrumbList
   const breadcrumbLd = {
     '@context': 'https://schema.org',
@@ -93,7 +82,6 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }} />
       

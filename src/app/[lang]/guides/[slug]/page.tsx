@@ -57,7 +57,7 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
     datePublished: '2026-03-01',
     dateModified: new Date().toISOString().split('T')[0],
     inLanguage: lang === 'pt' ? 'pt-BR' : 'en-US',
-    author: { '@type': 'Organization', name: 'CalcForgeTools', url: baseUrl },
+    author: { '@type': 'Person', name: 'Mauricio Grigol', url: `${baseUrl}/${lang}/about` },
     publisher: {
       '@type': 'Organization',
       name: 'CalcForgeTools',
