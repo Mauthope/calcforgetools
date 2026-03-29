@@ -16,11 +16,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://calcforgetools.com'),
   title: 'CalcForgeTools',
   description: 'A modern platform for calculations and tools.',
-  icons: {
-    icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' }
-    ]
-  },
   verification: {
     other: {
       'msvalidate.01': '261B22DCAAB82559D9C4611FD9A01587',
