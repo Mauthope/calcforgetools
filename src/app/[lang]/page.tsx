@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     pt: 'CalcForgeTools — Calculadoras Financeiras, Matemáticas e Trabalhistas Grátis'
   };
   const descriptions: Record<string, string> = {
-    en: 'Free, fast, Apple-inspired calculators for compound interest, mortgages, ROI, percentages, CLT salary, overtime, vacation, and termination. No signup required.',
-    pt: 'Calculadoras gratuitas, rápidas e inspiradas na Apple para juros compostos, financiamento, ROI, porcentagem, salário CLT, horas extras, férias e rescisão. Sem cadastro.'
+    en: 'Free, fast, premium calculators for compound interest, mortgages, ROI, percentages, CLT salary, overtime, vacation, and termination. No signup required.',
+    pt: 'Calculadoras gratuitas, rápidas e precisas para juros compostos, financiamento, ROI, porcentagem, salário CLT, horas extras, férias e rescisão. Sem cadastro.'
   };
 
   return {
@@ -46,12 +46,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const heroContent = {
     en: {
       title: "Precision Tools for Financial Growth",
-      subtitle: "CalcForgeTools provides Apple-inspired, fast, and completely free calculators to help you make standard financial and business decisions with clarity.",
+      subtitle: "CalcForgeTools provides fast, premium, and completely free calculators to help you make standard financial and business decisions with confidence.",
       cta: "Explore Calculators"
     },
     pt: {
       title: "Ferramentas Precisas para o seu Crescimento",
-      subtitle: "A CalcForgeTools fornece calculadoras rápidas e totalmente gratuitas para ajudar você a tomar decisões financeiras e empresariais com clareza.",
+      subtitle: "A CalcForgeTools fornece calculadoras rápidas e totalmente gratuitas para ajudar você a tomar decisões financeiras e empresariais com confiança.",
       cta: "Explorar Calculadoras"
     }
   }[lang as 'en' | 'pt'] || { title: '', subtitle: '', cta: '' };
