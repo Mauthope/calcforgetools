@@ -29,7 +29,7 @@ export async function GET() {
         ]
       },
       irrf: {
-        description: "Tabela IRRF 2026 (Lei nº 15.270/2025)",
+        description: "Tabela IRRF 2026 (Atualizada)",
         dependentDeduction: 189.59,
         simplifiedDiscount: 583.92,
         bands: [

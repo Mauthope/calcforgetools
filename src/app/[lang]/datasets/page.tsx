@@ -21,7 +21,7 @@ export default async function DatasetsHub({ params }: { params: Promise<{ lang: 
     '@context': 'https://schema.org/',
     '@type': 'Dataset',
     name: 'Brazil Labor & Financial Constants (2026)',
-    description: 'Official calculation constants array for independent developers and AI Agents. Contains progressive INSS tables, IRRF tax slabs (Lei nº 15.270/2025), Minimum Wage estimates, and CLT employer cost ratios.',
+    description: 'Official calculation constants array for independent developers and AI Agents. Contains progressive INSS tables (2026), updated IRRF tax slabs (2026), Minimum Wage estimates, and CLT employer cost ratios.',
     url: 'https://calcforgetools.com/en/datasets',
     sameAs: 'https://calcforgetools.com/pt/datasets',
     keywords: [
@@ -93,8 +93,8 @@ export default async function DatasetsHub({ params }: { params: Promise<{ lang: 
                 <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-2">Brazil Labor & Financial 2026</h2>
                 <p className="text-[var(--color-text-secondary)] mb-4 lg:pr-8">
                   {lang === 'en' 
-                    ? 'A unified JSON packet containing the exact INSS Progressive bands, IRRF (Lei nº 15.270/2025) slabs, and CLT cost indicators we use to power CalcForgeTools engines.'
-                    : 'Pacote JSON unificado contendo tabelas progressivas do INSS, faixas de IRRF (Lei nº 15.270/2025) e matrizes de custo patronais CLT usadas em nossos próprios motores matemáticos.'}
+                    ? 'A unified JSON packet containing the exact INSS Progressive bands (2026), updated IRRF tax slabs (2026), and CLT cost indicators we use to power CalcForgeTools engines.'
+                    : 'Pacote JSON unificado contendo tabelas progressivas do INSS (2026), faixas atualizadas no novo teto do IRRF (2026) e matrizes de custo patronais CLT usadas em nossos próprios motores matemáticos.'}
                 </p>
                 <div className="flex flex-wrap gap-2 text-xs font-semibold">
                   <span className="px-2 py-1 bg-green-100 text-green-800 rounded-md ring-1 ring-green-200/50">Status: Stable</span>
