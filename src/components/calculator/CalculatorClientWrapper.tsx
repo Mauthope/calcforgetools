@@ -191,6 +191,11 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       irrfDeduction: "Desconto IRRF",
       totalDeductions: "Total de Descontos",
       fgtsDeposit: "Depósito FGTS (8%)",
+      winner: "Melhor Investimento",
+      cdb_gross: "CDB: Valor Bruto",
+      cdb_tax: "CDB: Desconto de IR (Isento na LCI)",
+      cdb_net: "CDB: Valor Líquido",
+      lci_net: "LCI/LCA: Valor Líquido",
       // Labor Termination
       totalRescission: "Valor Total da Rescisão",
       proportionalVacation: "Férias Proporcionais",
@@ -286,6 +291,11 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       irrfDeduction: "IRRF Deduction",
       totalDeductions: "Total Deductions",
       fgtsDeposit: "FGTS Deposit (8%)",
+      winner: "Best Investment Winner",
+      cdb_gross: "CDB: Gross Value",
+      cdb_tax: "CDB: Income Tax Deducted",
+      cdb_net: "CDB: Net Value",
+      lci_net: "LCI/LCA: Net Value",
       // Labor Termination
       totalRescission: "Total Termination Value",
       proportionalVacation: "Proportional Vacation",

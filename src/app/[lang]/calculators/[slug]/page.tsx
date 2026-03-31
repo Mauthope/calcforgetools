@@ -165,7 +165,7 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
           <SourcesBlock sources={data.reference_sources} lang={lang as 'en' | 'pt'} />
 
           {/* FAQ */}
-          {data.faq && <FAQ items={data.faq} />}
+          {data.faq && <FAQ items={data.faq} title={lang === 'pt' ? 'Perguntas Frequentes' : 'Frequently Asked Questions'} />}
 
           {/* Related Tools */}
           {data.related_tools && (
