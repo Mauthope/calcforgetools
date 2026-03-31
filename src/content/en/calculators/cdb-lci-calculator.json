@@ -1,0 +1,79 @@
+{
+  "category": "financial",
+  "calculator_id": "cdb_lci",
+  "slug": "cdb-lci-calculator",
+  "title": "CDB vs LCI Post-Fixed Yield Calculator",
+  "meta_title": "CDB vs LCI Post-Fixed Calculator (IR Regressive) | CalcForgeTools",
+  "meta_description": "Compare the actual Net yields of standard Brazilian CDBs (taxed) versus LCI/LCA (tax-exempt) indexed dynamically to the CDI to verify which one returns more cash.",
+  "hero": {
+    "title": "CDB or LCI? Simulate Brazil's Net Yields",
+    "subtitle": "Discover exactly how the Brazilian regressive Income Tax bracket impacts your fixed-income returns, mathematically revealing their liquid potential over time."
+  },
+  "inputs": [
+    {
+      "name": "principal",
+      "label": "Investment Amount (R$)",
+      "type": "currency",
+      "defaultValue": 10000
+    },
+    {
+      "name": "cdi_rate",
+      "label": "CDI Current Rate (% p.y.)",
+      "type": "percentage",
+      "defaultValue": 10.5
+    },
+    {
+      "name": "cdb_percent",
+      "label": "CDB Yield (% of CDI)",
+      "type": "percentage",
+      "defaultValue": 110
+    },
+    {
+      "name": "lci_percent",
+      "label": "LCI/LCA Yield (% of CDI)",
+      "type": "percentage",
+      "defaultValue": 90
+    },
+    {
+      "name": "days",
+      "label": "Timeframe in Days",
+      "type": "number",
+      "defaultValue": 721
+    }
+  ],
+  "formula": "CDB: Total - Regressive Tax | LCI: Total Exempt",
+  "outputs": [
+    "cdb_gross",
+    "cdb_tax",
+    "cdb_net",
+    "lci_net",
+    "winner"
+  ],
+  "chart_type": "cdb_lci",
+  "formula_explanation": "For CDI-indexed papers, interest compounds using equivalent daily rates ((1+Annual Rate)^(days/252)). The CDB deducts a specific Regressive Income Tax bracket (22.5% strictly down to 15%) from the profit margin. LCI/LCA linearly compounds purely up to its defined CDI offering without any tax deduction at source (0%).",
+  "example": "If you hold R$ 10,000 in a CDB offering 110% CDI for exactly 360 days, your capital gains will be taxed at 20%. However, pushing the maturity date past 720 days drops the IR to a minimal tier of 15%, historically overtaking standard LCI yields even factoring in taxation offsets.",
+  "faq": [
+    {
+      "question": "How does the Regressive Income Tax (IR Regressivo) work on CDBs?",
+      "answer": "The Federal Revenue mitigates taxes strictly based on capital detention timelines: 1 to 180 days is subjected to 22.5%. 181 to 360 incurs 20%. Moving from 361 to 720 days demands 17.5%. Past an aggressive 720-day mark, the state only deducts 15% of total profitability margins."
+    },
+    {
+      "question": "Aren't LCI/LCA bonds always mathematically superior?",
+      "answer": "A classic myth. Banks factor in the IR tax breaks, generally pricing LCIs with significantly lower CDIs (like 90%) compared to 110%-120% CDBs. Because the CDB gross interest grows exceptionally stronger with elevated multiplier factors, it commonly eclipses LCI net gains after 1 or 2 years when the IR brackets drop down to 17.5% bounds."
+    },
+    {
+      "question": "What is the liquidity friction trap with LCIs?",
+      "answer": "Due to Brazilian Monetary Council (CMN) structural regulations issued recently, LCIs endure mandatory detention spans (commonly 9 months flat, or 12 for LCAs). Attempting rapid withdrawals is impossible. For liquid safety buffers (emergency funds), stick to immediate 'CDB Liquidez Diária' assets."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Brazilian IRS Regressive IR Bracket",
+      "url": "https://www.gov.br/receitafederal/pt-br"
+    },
+    {
+      "name": "Brazilian Core Interbank Rates (CDI)",
+      "url": "https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/serie-historica-do-di.htm"
+    }
+  ]
+}

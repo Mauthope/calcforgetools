@@ -207,6 +207,55 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       }
       break;
     }
+    
+    case 'cdb_lci': {
+      const p = parseFloat(inputs.principal) || 0;
+      const cdiAnual = (parseFloat(inputs.cdi_rate) || 0) / 100;
+      const cdbMult = (parseFloat(inputs.cdb_percent) || 0) / 100;
+      const lciMult = (parseFloat(inputs.lci_percent) || 0) / 100;
+      const days = parseInt(inputs.days) || 1;
+
+      // Converter CDI Anual para taxa diária equivalente (base 252 dias úteis Brasil)
+      // ((1 + taxa_anual)^(1/252)) - 1
+      const dailyCdi = Math.pow(1 + cdiAnual, 1 / 252) - 1;
+      
+      // Converter dias corridos para dias úteis (aproximação mercado: dias / 365 * 252)
+      const businessDays = Math.floor(days * (252 / 365));
+
+      const rateCDB = dailyCdi * cdbMult;
+      const rateLCI = dailyCdi * lciMult;
+
+      const cdbGross = p * Math.pow(1 + rateCDB, businessDays);
+      const lciGross = p * Math.pow(1 + rateLCI, businessDays);
+
+      const cdbProfit = cdbGross - p;
+      let irRate = 0;
+      if (days <= 180) irRate = 0.225;
+      else if (days <= 360) irRate = 0.20;
+      else if (days <= 720) irRate = 0.175;
+      else irRate = 0.15;
+
+      const cdbTax = cdbProfit * irRate;
+      const cdbNet = cdbGross - cdbTax;
+      const lciNet = lciGross; // LCI is exempt from IR Tax
+
+      result.cdb_gross = cdbGross;
+      result.cdb_tax = cdbTax;
+      result.cdb_net = cdbNet;
+      result.lci_net = lciNet;
+      
+      const diff = cdbNet - lciNet;
+      // Identify winner based on Net value
+      if (diff > 0.01) {
+        result.winner = 'CDB';
+      } else if (diff < -0.01) {
+        result.winner = 'LCI/LCA';
+      } else {
+        result.winner = 'Equivalente / Empate';
+      }
+
+      break;
+    }
 
     case 'clt_salary': {
       const gross = parseFloat(inputs.grossSalary) || 0;

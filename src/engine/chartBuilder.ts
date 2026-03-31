@@ -6,6 +6,20 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
       return buildCompoundInterestChart(inputs, lang);
     case 'loan':
       return buildLoanAmortizationChart(inputs, results, lang);
+    case 'cdb_lci':
+      return {
+        type: 'bar',
+        labels: lang === 'en' ? ['CDB (Net Return)', 'LCI/LCA (Net Return)'] : ['CDB (Retorno Líquido)', 'LCI/LCA (Retorno Líquido)'],
+        datasets: [{
+          label: lang === 'en' ? 'Final Net Value' : 'Valor Líquido Final',
+          data: [results.cdb_net || 0, results.lci_net || 0],
+          backgroundColor: [
+            'rgba(0, 122, 255, 0.8)', // Apple Blue
+            'rgba(52, 199, 89, 0.8)'  // Apple Green
+          ],
+          borderRadius: 8,
+        }]
+      };
     case 'percentage':
       return buildPercentageChart(inputs, results, lang);
     case 'interest':

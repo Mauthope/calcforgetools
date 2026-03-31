@@ -1,0 +1,79 @@
+{
+  "category": "financial",
+  "calculator_id": "cdb_lci",
+  "slug": "calculadora-de-cdb-lci",
+  "title": "Calculadora de CDB vs LCI/LCA Pós-Fixado",
+  "meta_title": "Calculadora CDB vs LCI/LCA (IR Regressivo) | CalcForgeTools",
+  "meta_description": "Compare a rentabilidade líquida entre um CDB (tributado) e LCI/LCA (isento) indexados ao CDI. Descubra qual papel de Renda Fixa paga mais considerando o Imposto de Renda de 2026.",
+  "hero": {
+    "title": "CDB ou LCI? Simule sua Rentabilidade",
+    "subtitle": "Descubra o rendimento líquido real e veja se a isenção de Imposto de Renda (LCI/LCA) vale mais a pena que as altas taxas de um CDB na hora de investir."
+  },
+  "inputs": [
+    {
+      "name": "principal",
+      "label": "Valor Investido (R$)",
+      "type": "currency",
+      "defaultValue": 10000
+    },
+    {
+      "name": "cdi_rate",
+      "label": "Taxa CDI Atual (% a.a.)",
+      "type": "percentage",
+      "defaultValue": 10.5
+    },
+    {
+      "name": "cdb_percent",
+      "label": "Rentabilidade CDB (% do CDI)",
+      "type": "percentage",
+      "defaultValue": 110
+    },
+    {
+      "name": "lci_percent",
+      "label": "Rentabilidade LCI/LCA (% do CDI)",
+      "type": "percentage",
+      "defaultValue": 90
+    },
+    {
+      "name": "days",
+      "label": "Prazo do Investimento (Dias)",
+      "type": "number",
+      "defaultValue": 721
+    }
+  ],
+  "formula": "CDB: Montante - IR Regressivo | LCI = Isenta",
+  "outputs": [
+    "cdb_gross",
+    "cdb_tax",
+    "cdb_net",
+    "lci_net",
+    "winner"
+  ],
+  "chart_type": "cdb_lci",
+  "formula_explanation": "Para pós-fixados indexados ao CDI, os juros são capitalizados diariamente conforme a fórmula anual equivalente ((1+TaxaMensal)^{Dias/252}). O CDB subtrai uma alíquota de Imposto de Renda Regressivo (22.5% a 15%) sobre o lucro. A LCI/LCA capitaliza linearmente ao CDI prometido e não sofre nenhum desconto (0%). O motor desta calculadora processa as faixas tributárias instantaneamente conforme a quantidade de dias úteis informada.",
+  "example": "Se você investir R$ 10.000 num CDB 110% CDI por 360 dias, seu IR descontado será de 20% sobre os ganhos. Mas, se o prazo passar de 720 dias, a alíquota cai para o piso de 15%, aumentando dramaticamente o valor líquido em comparação à restrita LCI (mesmo pagando só 90%).",
+  "faq": [
+    {
+      "question": "Como funciona o Imposto de Renda (IR Regressivo) no CDB?",
+      "answer": "A malha da Receita Federal diminui a mordida quanto mais tempo o dinheiro passar travado: De 1 até 180 dias cobram 22,5%. De 181 a 360 cobram 20%. De 361 a 720 cai pra 17,5%. O paraíso (acima de 720 dias) exige apenas o mínimo de 15% sobre a valorização do papel."
+    },
+    {
+      "question": "LCI e LCA são sempre melhores por não terem IR?",
+      "answer": "Mito perigoso. Instituições financeiras sabem da isenção, por isso a LCI/LCA costuma pagar menos \"% do CDI\" do que os CDBs normais. Frequentemente, a matemática prova que um CDB que passe de 1 ou 2 anos de prazo ganha de uma LCI 90% por causa da queda da alíquota (IR caindo a 15% ou 17.5%). Isso tudo graças à magia dos Juros Compostos agindo nos centavos brutos do CDB."
+    },
+    {
+      "question": "Qual é a pegadinha da liquidez na LCI/LCA?",
+      "answer": "Pelas regulamentações bancárias de 2026 (Conselho Monetário Nacional - CMN), LCI e LCA precisam de ao menos 9 e 12 meses (respectivamente) retidos sem poder sacar. Se a sua urgência é liquidez diária inferior a um ano civil, foque no famoso 'CDB Liquidez Diária' (100% do CDI)."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Tabela Regressiva IR Governo do Brasil",
+      "url": "https://www.gov.br/receitafederal/pt-br"
+    },
+    {
+      "name": "B3 (Índice DI/CDI)",
+      "url": "https://www.b3.com.br/pt_br/market-data-e-indices/indices/indices-de-segmentos-e-setoriais/serie-historica-do-di.htm"
+    }
+  ]
+}

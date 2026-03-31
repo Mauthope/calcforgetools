@@ -13,6 +13,7 @@ export const ptToEnSlugMap: Record<string, string> = {
   'calculadora-de-roi': 'roi-calculator',
   'simulador-cet': 'cet-simulator',
   'simulador-sacre-sam': 'amortization-comparison-calculator',
+  'calculadora-de-cdb-lci': 'cdb-lci-calculator',
   // Labor Calculators
   'calculadora-salario-liquido-clt': 'clt-net-salary-calculator',
   'calculadora-rescisao-trabalhista': 'labor-termination-calculator',
