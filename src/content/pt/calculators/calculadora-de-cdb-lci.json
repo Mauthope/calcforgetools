@@ -41,6 +41,14 @@
       "defaultValue": 721
     }
   ],
+  "related_guides_title": "Guias Financeiros Aprofundados",
+  "related_guides": [
+    {
+      "title": "CDB vs LCI e LCA: O Guia Definitivo da Renda Fixa",
+      "href": "/pt/guides/guia-cdb-vs-lci",
+      "description": "Aprenda a destrinchar matematicamente as isenções tributárias e o FGC."
+    }
+  ],
   "formula": "CDB: Montante - IR Regressivo | LCI = Isenta",
   "outputs": [
     "cdb_gross",

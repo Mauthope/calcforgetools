@@ -41,6 +41,14 @@
       "defaultValue": 721
     }
   ],
+  "related_guides_title": "In-Depth Financial Guides",
+  "related_guides": [
+    {
+      "title": "CDB vs LCI and LCA: The Ultimate Fixed-Income Investment Guide",
+      "href": "/en/guides/guide-cdb-vs-lci",
+      "description": "Learn to mathematically untangle tax exemptions and the FGC protection."
+    }
+  ],
   "formula": "CDB: Total - Regressive Tax | LCI: Total Exempt",
   "outputs": [
     "cdb_gross",

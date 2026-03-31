@@ -23,6 +23,7 @@ export const ptToEnSlugMap: Record<string, string> = {
   'calculadora-banco-horas-adicionais': 'hour-bank-calculator',
   // Financial Guides
   'como-funcionam-os-juros-compostos': 'how-compound-interest-works',
+  'guia-cdb-vs-lci': 'guide-cdb-vs-lci',
   'como-calcular-porcentagens': 'how-to-calculate-percentages',
   'juros-simples-vs-compostos': 'simple-vs-compound-interest',
   'metodos-quitacao-dividas': 'debt-payoff-methods',
