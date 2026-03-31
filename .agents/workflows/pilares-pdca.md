@@ -17,11 +17,12 @@ Toda implementação ou melhoria no CalcForgeTools **DEVE** respeitar os pilares
 - Meta titles e descriptions bilíngues e otimizados
 - x-default apontando para EN
 
-### 2. Teia Interna (link building interno)
+### 2. Teia Interna e Navegação (link building)
 - Toda calculadora tem: FAQ, Related Tools, Related Guides
 - Todo guia tem: Related Tools apontando para calculadoras
 - Categorias com cross-linking entre si
 - Novas páginas devem ser linkadas a partir de páginas existentes
+- **ATENÇÃO AO CONTADOR:** Sempre que criar ou remover uma calculadora, lembre-se de atualizar o contador manual numérico (ex: "8 Ferramentas") na Home (`src/app/[lang]/page.tsx`).
 
 ### 3. Conteúdo SEO Robusto (~900 palavras por guia)
 - Framework: Citação → Curiosidade → Tabelas → Fórmulas → Exemplos → Erros comuns → Ações práticas

@@ -150,7 +150,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                     <Calculator className="w-6 h-6 stroke-[1.5]" />
                   </div>
                 </div>
-                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">7 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
+                <span className="text-xs font-semibold tracking-wider text-emerald-600 uppercase mb-2">8 {lang === 'en' ? 'Tools' : 'Ferramentas'}</span>
                 <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2 tracking-tight">
                   {lang === 'en' ? 'Financial Calculators' : 'Calculadoras Financeiras'}
                 </h3>
