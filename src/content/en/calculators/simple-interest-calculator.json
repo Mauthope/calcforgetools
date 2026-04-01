@@ -1,0 +1,84 @@
+{
+  "category": "financial",
+  "calculator_id": "interest",
+  "slug": "simple-interest-calculator",
+  "title": "Simple Interest Calculator: Fast & Accurate Return Yields",
+  "meta_title": "Simple Interest Calculator | Find Principal, Rate & Time | CalcForgeTools",
+  "meta_description": "Calculate exact simple interest for personal loans, auto finance, and high-yield investments. Input your principal, APR rate, and term to instantly view net totals without compounding decay.",
+  "hero": {
+    "title": "Simple Interest Calculator",
+    "subtitle": "Discover exactly how much true interest you'll pay or earn. A precision engine designed to strip away compound magic and calculate raw, uncompounded flat yields for the US credit market."
+  },
+  "inputs": [
+    {
+      "name": "principal",
+      "label": "Original Principal ($)",
+      "type": "currency",
+      "defaultValue": 15000
+    },
+    {
+      "name": "rate",
+      "label": "Annual Percentage Rate (APR %)",
+      "type": "number",
+      "defaultValue": 7.5
+    },
+    {
+      "name": "time",
+      "label": "Loan Term (Years)",
+      "type": "number",
+      "defaultValue": 5
+    }
+  ],
+  "formula": "I = P × r × t",
+  "outputs": [
+    "totalInterest",
+    "finalAmount"
+  ],
+  "chart_type": "comparison",
+  "formula_explanation": "Simple interest is the most honest, aggressive form of interest calculation typically found in standard US auto loans and short-term consumer credit. Unlike compounding, where interest aggressively stacks onto previous interest organically, Simple Interest forces the system to calculate the flat percentage strictly against the baseline Core Principal (P) across the precise timeframe (t).",
+  "example": "Scenario: You finance a $15,000 used car at a flat 7.5% Simple APR for 5 years. For year 1, you pay $1,125 purely in interest. Fast forward to year 5: you will have paid $5,625 in absolute total interest, driving your final lifetime commitment up to $20,625. Notice how the original debt footprint never geometrically explodes.",
+  "faq": [
+    {
+      "question": "What is the core difference between Simple and Compound Interest?",
+      "answer": "Simple interest is linear; the bank only charges you the percentage strictly upon the original baseline money you borrowed. Compound interest is geometric; the banking algorithm forces your outstanding interest from yesterday to actively generate new interest today. If you are borrowing money (auto loans, mortgages), you fiercely want Simple Interest. If you are investing capital (stocks, bonds), you aggressively demand Compound Interest."
+    },
+    {
+      "question": "Does my auto loan use Simple Interest in the United States?",
+      "answer": "Yes. The vast majority of standard consumer auto and dealership loans strictly operate on a Simple Interest framework. Your monthly payment remains completely flat. As your principal mathematically shrinks, a constantly decreasing portion of each monthly payment goes to the lender's interest vault, while a heavier portion violently attacks the principal."
+    },
+    {
+      "question": "How can I hack a Simple Interest loan?",
+      "answer": "Because the interest calculation is evaluated daily against your current outstanding principal baseline, paying early and paying extra surgically damages the bank's ability to charge you. Injecting an extra $100 physically against the principal mid-month slaughters the core money generating the 7.5% APR, effectively 'shorting' the loan and saving you thousands of dollars across a 5-year span."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "US Compound Interest Analyzer",
+      "href": "/en/calculators/compound-interest-calculator",
+      "description": "Switch from the flat reality of borrowing into the explosive snowball of investing and compare timelines."
+    },
+    {
+      "title": "Deep Auto Loan Simulator",
+      "href": "/en/calculators/auto-loan-calculator",
+      "description": "Run the exact amortization tables calculating your true vehicle spending across all simple interest parameters."
+    }
+  ],
+  "related_guides_title": "Deep Financial Mechanics",
+  "related_guides": [
+    {
+      "title": "The Raw Power of Compound Interest",
+      "href": "/en/guides/how-compound-interest-works",
+      "description": "How manipulating basic algebra formulas became the greatest wealth generation tool in the modern economy."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Consumer Financial Protection Bureau (CFPB)",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-simple-interest-and-compound-interest-en-131/"
+    },
+    {
+      "name": "Federal Reserve Board (FRB)",
+      "url": "https://www.federalreserve.gov/"
+    }
+  ]
+}
