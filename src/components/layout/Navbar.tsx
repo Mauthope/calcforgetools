@@ -31,13 +31,19 @@ export function Navbar() {
        
        if (parts.length > 2) {
           const currentSlug = parts[parts.length - 1];
-          const newSlug = currentLang === 'en' ? (enToPtMap[currentSlug] || currentSlug) : (ptToEnMap[currentSlug] || currentSlug);
+          const newSlug = currentLang === 'en' ? enToPtMap[currentSlug] : ptToEnMap[currentSlug];
           
-          // Rebuild middle segments (e.g., "category")
-          for (let i = 2; i < parts.length - 1; i++) {
-            newPath += `/${parts[i]}`;
+          if (!newSlug) {
+            // Se não houver tradução exata (ex: Calculadoras restritas a países),
+            // aborta a reconstrução profunda e joga para o Hub daquela seção (/en/calculators).
+            // (Parts[1] já foi adicionado acima em newPath += `/${parts[1]}`)
+          } else {
+            // Rebuild middle segments (e.g., "category")
+            for (let i = 2; i < parts.length - 1; i++) {
+              newPath += `/${parts[i]}`;
+            }
+            newPath += `/${newSlug}`;
           }
-          newPath += `/${newSlug}`;
        }
     }
     

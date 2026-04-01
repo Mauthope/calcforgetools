@@ -47,6 +47,11 @@ Toda implementação ou melhoria no CalcForgeTools **DEVE** respeitar os pilares
 - Bandeiras de idioma com imagens (não emojis)
 - Animações suaves (Framer Motion) sem impacto em LCP
 
+### 7. Localização de Conteúdo (Legal & Cultural)
+- **Não apenas traduzir palavras:** O motor matemático e os inputs devem refletir o contexto do país alvo.
+- **Diferenças Legais:** Se uma calculadora é ancorada numa lei estrita de um país (Ex: CLT brasileira), a versão em outro idioma `/en/` deve indicar enfaticamente que a matemática obedece à lei do país emissor (ex: *Disclaimer para expatriados*).
+- **Adequação de Nicho:** Nunca empurrar encargos de folhas de pagamento brasileiros como padrão mundial para americanos. A depender do público, devem ser criadas calculadoras independentes (ex: *Calculadora CLT* restrita ao BR e uma futura *W-2 Tax Calculator* para os EUA).
+
 ## Regra de Ouro — Ciclo PDCA
 ```
 PLAN → DO → CHECK → ACT → (repetir)
