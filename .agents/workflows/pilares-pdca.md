@@ -52,6 +52,11 @@ Toda implementação ou melhoria no CalcForgeTools **DEVE** respeitar os pilares
 - **Diferenças Legais:** Se uma calculadora é ancorada numa lei estrita de um país (Ex: CLT brasileira), a versão em outro idioma `/en/` deve indicar enfaticamente que a matemática obedece à lei do país emissor (ex: *Disclaimer para expatriados*).
 - **Adequação de Nicho:** Nunca empurrar encargos de folhas de pagamento brasileiros como padrão mundial para americanos. A depender do público, devem ser criadas calculadoras independentes (ex: *Calculadora CLT* restrita ao BR e uma futura *W-2 Tax Calculator* para os EUA).
 
+### 8. Guias Inteligentes (Evergreen Sazonais)
+- **O Conceito:** Ao planejar um artigo refém do ano vigente (ex: Black Friday, IPVA, Páscoa), a arquitetura exigida é a de um *Guia Inteligente*. 
+- **Obrigatório o uso de Macros:** Nunca escreva o ano "2026" ou o preço exato fixo no arquivo JSON de escrita. Utilize as chaves analíticas (ex: `{{CURRENT_YEAR}}`, `{{MACRO_PRICE}}`).
+- **Dynamic Content Engine:** Certifique-se de instruir o cruzamento da macro diretamente nas funções matemáticas em `src/lib/dynamicContentEngine.ts` para que o NextJS processe essa variável na fase de Build e o SEO não seja penalizado por Javascript em tela.
+
 ## Regra de Ouro — Ciclo PDCA
 ```
 PLAN → DO → CHECK → ACT → (repetir)
