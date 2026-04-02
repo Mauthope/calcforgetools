@@ -1,15 +1,12 @@
 {
-  "title": "The Comprehensive Guide to US Auto Loans",
-  "metaTitle": "US Auto Loan Rules | Out-the-Door Math, Dealer Fees & FICO Tiers",
-  "metaDescription": "Discover exactly how American dealerships structure auto loans. Learn about Trade-in tax credits, Doc fees, Simple Interest loops, and FICO score impact.",
   "slug": "how-auto-loans-work-us",
-  "category": "financial",
-  "readTimeMinutes": 8,
-  "lastUpdated": "2024-11-20",
-  "author": {
-    "name": "CalcForgeTools Research Unit",
-    "role": "Financial Mechanics Architecture"
+  "meta_title": "US Auto Loan Rules | Out-the-Door Math, Dealer Fees & FICO Tiers",
+  "meta_description": "Discover exactly how American dealerships structure auto loans. Learn about Trade-in tax credits, Doc fees, Simple Interest loops, and FICO score impact.",
+  "hero": {
+    "title": "The Comprehensive Guide to US Auto Loans",
+    "subtitle": "Everything the dealership F&I office mathematically hopes you don't know."
   },
+  "category": "financial",
   "content": [
     {
       "type": "paragraph",
