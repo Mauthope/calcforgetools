@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { processDynamicMacros } from './dynamicContentEngine';
 
 // Base directory for content
 const CONTENT_DIR = path.join(process.cwd(), 'src', 'content');
@@ -13,7 +14,8 @@ export async function getCalculators(lang: string) {
       .map(file => {
         const fullPath = path.join(dir, file);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
-        return JSON.parse(fileContents);
+        const processedContents = processDynamicMacros(fileContents);
+        return JSON.parse(processedContents);
       });
     return calculators;
   } catch (err) {
@@ -36,7 +38,8 @@ export async function getGuides(lang: string) {
       .map(file => {
         const fullPath = path.join(dir, file);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
-        return JSON.parse(fileContents);
+        const processedContents = processDynamicMacros(fileContents);
+        return JSON.parse(processedContents);
       });
     return guides;
   } catch (err) {

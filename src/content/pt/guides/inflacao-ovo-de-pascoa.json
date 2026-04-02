@@ -1,0 +1,106 @@
+{
+  "slug": "inflacao-ovo-de-pascoa",
+  "meta_title": "Inflação do Ovo de Páscoa {{CURRENT_YEAR}} | Análise Econômica de Preços",
+  "meta_description": "O Guia Definitivo da Economia do Chocolate em {{CURRENT_YEAR}}. Entenda o impacto da Shrinkflation, cacau e inflação acumulada no preço de {{EASTER_EGG_PRICE}}.",
+  "hero": {
+    "title": "A Inflação Inexorável do Ovo de Páscoa em {{CURRENT_YEAR}}",
+    "subtitle": "Por que o seu chocolate em formato oval no ano de {{CURRENT_YEAR}} quebrou barreiras de preços astronômicas atingindo a média de {{EASTER_EGG_PRICE}}."
+  },
+  "category": "consumo",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Se você foi ao supermercado em {{CURRENT_YEAR}}, provavelmente sofreu um choque térmico ao olhar para cima. O corredor sazonal, forrado de estruturas metálicas sustentando milhares de ovos de chocolate coloridos, transformou-se em um salão de boutique de alto luxo."
+    },
+    {
+      "type": "paragraph",
+      "text": "O preço médio de um Ovo de Páscoa padrão (comercial, de 250g de prateleira) em {{CURRENT_YEAR}} está batendo a estarrecedora marca de <strong>{{EASTER_EGG_PRICE}}</strong>. Mas a grande pergunta contábil que os consumidores desesperados tentam responder é: Por que uma barra de chocolate de 90g custa em média R$ 7,50, mas a mesma gramatura de chocolate dobrada num plástico oval custa infinitamente mais?"
+    },
+    {
+      "type": "quote",
+      "text": "O Ovo de Páscoa não é avaliado pelo peso do cacau. Ele é avaliado pela escassez sazonal, pelo apelo emocional infantil e pela complexidade tributária. O cacau é o de menos.",
+      "author": "Equipe de Análise Macroeconômica do CalcForgeTools"
+    },
+    {
+      "type": "heading",
+      "text": "A Matemática da Inflação Acumulada ({{PREV_YEAR}} - {{CURRENT_YEAR}})"
+    },
+    {
+      "type": "paragraph",
+      "text": "Nossa máquina analítica no CalcForgeTools parametrizou uma base sólida em 2023, quando esse clássico formato de chocolate comercial saía pela dolorosa quantia de R$ 50,00. Utilizando nossos algoritmos dinâmicos de juros compostos baseados nas flutuações do IPCA, na crise das safras de cacau na África Ocidental e na hiper-gourmetização do mercado, cravamos que a inflação anual isolada do chocolate de Páscoa flutua agressivamente na faixa de <strong>{{EASTER_EGG_RATE}} ao ano</strong>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Com <strong>{{COMPOUND_YEARS}} anos</strong> de juros compostos cobrando o seu preço na linha do tempo desde nossa janela base, a matemática pura dita que esse salto para {{EASTER_EGG_PRICE}} não foi uma ganância aleatória do ano atual. Foi um efeito de juros sobre juros enraizado nos custos de logística e embalagem embutidos. O dinheiro apodreceu, e o cacau subiu."
+    },
+    {
+      "type": "heading",
+      "text": "A Força Invisível: 'Shrinkflation' (Reduflação)"
+    },
+    {
+      "type": "paragraph",
+      "text": "O grande truque de mágica das marcas em {{CURRENT_YEAR}} não é apenas o aumento de preço nominal que bateu a marca astronômica para o consumidor. O grande truque de mágica é a <strong>Shrinkflation</strong> (no Brasil chamada de 'Reduflação')."
+    },
+    {
+      "type": "paragraph",
+      "text": "Em vez de chocar o mercado ajustando o ovo de R$ 60,00 para R$ 90,00 e correr o risco de ter encalhe de gôndola, a indústria mantém o ovo visualmente gigantesco e, silenciosamente, drena a gramatura interna. O ovo clássico número 20 que antes pesava robustos 350g, hoje preenche a mesma caixa de acrílico imensa pesando esqueléticos 220g. O cliente no ano de {{CURRENT_YEAR}} tem a falsa sensação de que os ovos de {{EASTER_EGG_PRICE}} 'não aumentaram tanto', porque não estão analisando a verdadeira métrica de conversão: O Valor do Quilograma do Chocolate."
+    },
+    {
+      "type": "table",
+      "headers": ["Produto Base", "Peso Médio", "Preço Estimado {{CURRENT_YEAR}}", "Custo do Kg"],
+      "rows": [
+        ["Barra Clássica", "90g", "R$ 7.50", "R$ 83,33 / Kg"],
+        ["Caixa de Bombom", "250g", "R$ 13.50", "R$ 54,00 / Kg"],
+        ["Ovo de Páscoa Comercial", "250g", "{{EASTER_EGG_PRICE}}", "<strong>+ de R$ 200,00 / Kg</strong>"]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "A tabela oblitera o apelo emocional com frieza algébrica. Ao comprar um ovo da exata mesma marca e da exata mesma composição percentual de manteiga de cacau versus a barra, você está efetivamente pagando triplicado simplesmente por causa do molde oco de plástico da linha automotizada de produção de ovos."
+    },
+    {
+      "type": "heading",
+      "text": "O Peso Tributário e Logístico (A Quebra Oculta)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Existe um motivo matemático para que o molde oco seja tão asfixiantemente caro: Transporte de ar. Caminhões refrigerados viajam pelo país limitados não pelo peso em toneladas, mas pelo volume volumétrico (cubagem) do baú baiano. Caixas de barra de chocolate são blocos densos de empilhamento perfeito. As caixas de transporte de Ovos de Páscoa carregam volumes aterrorizantes de ar morto e requires plásticos anti-impacto (berços de PVC). Em resumo, no ano de {{CURRENT_YEAR}}, você está pagando o frete caríssimo de transportar Ar Refrigerado das fábricas até a prateleira do hipermercado."
+    },
+    {
+      "type": "heading",
+      "text": "Como as Famílias Inteligentes Sobrevivem em {{CURRENT_YEAR}}"
+    },
+    {
+      "type": "paragraph",
+      "text": "Se a regra básica para sobrevivência financeira determina que as despesas não devem fugir à inflação natural, a irracionalidade do feriado não deve destruir seu orçamento mensal. As estratégias de Hedge (proteção) para {{CURRENT_YEAR}} dividem-se em duas atitudes contábeis ferozes:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>A Arbitragem de Barra vs Ovo:</strong> Como comprovado na métrica por Kg, o salto é de R$ 54 para absurdos R$ 200+/Kg. Comprar barras ou tabletes gourmet e cestas prontas esmaga 70% do Custo de Embalagem Específica sazonal. Você entrega volume e peso muito maior de cacau puro por uma fração do prejuízo.",
+        "<strong>A Especulação de Inventário Pós-Páscoa (O Dia de Segunda-feira):</strong> Supermercados operam as parreiras por acordos de devolução limitados com as indústrias. Historicamente (desde {{PREV_YEAR}} e muito antes), os hipermercados desencadeiam as Promoções de Queima Liquida (Markdown) na segunda e terça-feira logo após o domingo de Páscoa. Reduções entre -40% e -50% jogam o preço de volta à normalidade terrestre e limpam prateleiras numa velocidade voraz."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "No momento que cruzarmos para o calendário de {{NEXT_YEAR}}, você poderá rever e aferir o nosso artigo, que subirá organicamente o Preço Base e a Curva de Inflação refletindo o novo horizonte macroeconômico usando nossos motores internos invisíveis."
+    }
+  ],
+  "related_tools": [
+    {
+      "id": "compound_interest",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
+      "title": "Calculadora de Correção e Juros",
+      "description": "Veja o estrago matemático que a taxa de {{EASTER_EGG_RATE}} ao ano faria com seu dinheiro em outros investimentos.",
+      "category": "matematica"
+    }
+  ],
+  "related_guides_title": "Mais Conteúdo Econômico Sazonal",
+  "related_guides": [
+    {
+      "title": "A Magia Invertida da Inflação",
+      "href": "/pt/guides/como-funcionam-os-juros-compostos",
+      "description": "Como a força matemática mais poderosa do mundo opera a favor e contra sua carteira."
+    }
+  ]
+}
