@@ -134,27 +134,28 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
         }]
       };
     case 'auto_loan_br':
+      if (!results.amortization_schedule) return null;
       return {
-        type: 'doughnut',
-        labels: lang === 'en' 
-          ? ['Vehicle Net Value', 'Entrance Payment', 'Interest & Bank Fees', 'Depreciation Loss (1 Yr)'] 
-          : ['Valor do Veículo', 'Sua Entrada', 'Juros & Taxas Extras', 'Perda FIPE Estimada'],
-        datasets: [{
-          label: lang === 'en' ? 'Cost Breakdown' : 'Composição de Custos',
-          data: [
-            parseFloat(inputs.valorVeiculo) - parseFloat(inputs.entrada) || 0,
-            parseFloat(inputs.entrada) || 0,
-            (results.jurosTotais || 0) + (parseFloat(inputs.taxasExtras) || 0),
-            (parseFloat(inputs.valorVeiculo) || 0) - (results.valorFipeFinal || 0)
-          ],
-          backgroundColor: [
-            'rgba(0, 122, 255, 0.8)', // Apple Blue
-            'rgba(52, 199, 89, 0.8)', // Green
-            'rgba(255, 59, 48, 0.8)', // Red
-            'rgba(175, 82, 222, 0.8)' // Purple for depreciation
-          ],
-          borderRadius: 8,
-        }]
+        type: 'line',
+        labels: results.amortization_schedule.map((row: any) => `${lang === 'en' ? 'Mo' : 'Mês'} ${row.month}`),
+        datasets: [
+          {
+            label: lang === 'en' ? 'Bank Debt' : 'Dívida c/ Banco (Saldo Devedor)',
+            data: results.amortization_schedule.map((row: any) => row.devedor),
+            borderColor: 'rgba(255, 59, 48, 1)', // Red
+            backgroundColor: 'rgba(255, 59, 48, 0.1)',
+            fill: true,
+            tension: 0.4,
+          },
+          {
+            label: lang === 'en' ? 'FIPE Vehicle Value' : 'Valor FIPE do Carro',
+            data: results.amortization_schedule.map((row: any) => row.fipe),
+            borderColor: 'rgba(175, 82, 222, 1)', // Purple
+            backgroundColor: 'rgba(175, 82, 222, 0.1)',
+            fill: true,
+            tension: 0.4,
+          }
+        ]
       };
     case 'clt_employer_cost':
       return {

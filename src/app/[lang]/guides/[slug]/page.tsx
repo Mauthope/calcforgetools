@@ -5,6 +5,7 @@ import { Section } from '@/components/ui/Section';
 import { RelatedTools } from '@/components/ui/RelatedTools';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import ShareWidget from '@/components/ui/ShareWidget';
 
 export async function generateStaticParams() {
   const enGuides = await getGuides('en');
@@ -98,8 +99,9 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
       </section>
 
       {/* Content */}
-      <Section className="bg-[#F5F5F7]">
-        <Container className="max-w-3xl">
+      <Section className="bg-[#F5F5F7] relative">
+        <Container className="max-w-3xl relative">
+          <ShareWidget title={data.meta_title || ''} />
           <div className="apple-card p-8 md:p-12 prose prose-lg prose-blue max-w-none">
             {data.content.map((block: any, idx: number) => {
               switch (block.type) {

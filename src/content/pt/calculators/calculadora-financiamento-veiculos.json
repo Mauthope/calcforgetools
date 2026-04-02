@@ -11,6 +11,12 @@
   },
   "inputs": [
     {
+      "name": "anoVeiculo",
+      "label": "Ano de Fabricação (FIPE)",
+      "type": "number",
+      "defaultValue": 2024
+    },
+    {
       "name": "valorVeiculo",
       "label": "Valor do Veículo (R$)",
       "type": "currency",

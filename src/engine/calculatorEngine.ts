@@ -118,6 +118,17 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       let currentFipe = valorVeiculo;
       let breakEvenMonth = 0; // 0 means already positive or not calculated
       let foundBreakEven = false;
+      
+      const anoVeiculo = parseInt(inputs.anoVeiculo, 10) || new Date().getFullYear();
+      const anoAtual = new Date().getFullYear();
+      const idadeInicialAnos = Math.max(0, anoAtual - anoVeiculo);
+
+      const schedule = [];
+      schedule.push({
+        month: 0,
+        devedor: currentDevedor,
+        fipe: currentFipe
+      });
 
       // Se já no dia zero a entrada foi maciça, ele já está com "Equity" positiva.
       if (currentFipe > currentDevedor) {
@@ -128,10 +139,13 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       for (let m = 1; m <= prazoMeses; m++) {
         let jurosMes = currentDevedor * taxaJurosMensal;
         let amortizacaoMes = pmt - jurosMes;
-        currentDevedor -= amortizacaoMes;
+        currentDevedor = Math.max(0, currentDevedor - amortizacaoMes);
         
-        // Aplica desvalorização mensalizada geométrica (15% Ano 1, 10% Anos Seguintes)
-        if (m <= 12) {
+        let idadeEmMeses = (idadeInicialAnos * 12) + m;
+
+        // Carro 0KM perde 15% no primeiro ano (m <= 12 e idadeInicial == 0). 
+        // Semi-novos perdem em média 10% a.a constantes (ou + suave após os 3 anos). Aqui usaremos 10% geométrico longo prazo.
+        if (idadeInicialAnos === 0 && idadeEmMeses <= 12) {
           currentFipe *= Math.pow(1 - 0.15, 1/12);
         } else {
           currentFipe *= Math.pow(1 - 0.10, 1/12);
@@ -141,6 +155,12 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
           breakEvenMonth = m;
           foundBreakEven = true;
         }
+
+        schedule.push({
+          month: m,
+          devedor: currentDevedor,
+          fipe: currentFipe
+        });
       }
 
       // Se passou o loop todo e o saldo devedor NUNCA ficou menor que o carro, termina na última parcela
@@ -153,6 +173,7 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       result.custoEfetivoVeiculo = entrada + (pmt * prazoMeses);
       result.valorFipeFinal = currentFipe;
       result.mesIdealParaTroca = breakEvenMonth;
+      result.amortization_schedule = schedule;
 
       break;
     }
