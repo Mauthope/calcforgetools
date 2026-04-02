@@ -1,0 +1,127 @@
+{
+  "slug": "como-funciona-financiamento-veiculo-br",
+  "meta_title": "Financiamento de Veículos: O Segredo Sádico do Break-Even e FIPE",
+  "meta_description": "Entenda como a Tabela Price brasileira cruza com a FIPE para te manter endividado. Aprenda sobre TAC, IOF oculto e saiba o mês exato para trocar de carro.",
+  "hero": {
+    "title": "A Matemática Brutal dos Financiamentos de Veículo no Brasil",
+    "subtitle": "Por que olhar para a 'parcela que cabe no bolso' pode destruir o seu patrimônio e deixá-lo prisioneiro de um carro que não vale a sua dívida."
+  },
+  "category": "financeira",
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "Comprar um veículo – seja ele Zero KM ou Seminovo – é o segundo maior passo financeiro na vida de um brasileiro, perdendo apenas para o Financiamento Imobiliário. No entanto, o mercado automotivo do Brasil funciona com uma agressividade algorítmica desenhada para esconder o verdadeiro valor do negócio nas entrelinhas de termos vagos, como Taxa de Juros 'Baixinha' e prazos a perder de vista (60 a 72 meses)."
+    },
+    {
+      "type": "paragraph",
+      "text": "Se você já sentou na mesa de um gerente de concessionária, você escutou a pergunta padrão: <em>'Quanto você tem de entrada e quanto você quer pagar de parcela?'</em>. Essa é a pergunta mais perigosa do crédito brasileiro. Se você entregar o valor da parcela, o F&I (Finance and Insurance) da loja esticará o prazo até a sua parcela encaixar, diluindo lentamente a sua capacidade de construir Riqueza Líquida."
+    },
+    {
+      "type": "quote",
+      "text": "Nunca negocie uma Parcela. Negocie apenas duas coisas: O Custo Efetivo Total (CET) do financiamento e o Valor FIPE contra o Preço Final da Nota Fiscal do lojista.",
+      "author": "Analistas de Risco Bancário (BACEN)"
+    },
+    {
+      "type": "heading",
+      "text": "O Abismo: Tabela Price vs Curva FIPE"
+    },
+    {
+      "type": "paragraph",
+      "text": "Financiamentos de Veículos no Brasil utilizam massivamente a <strong>Tabela Price</strong>. Isso garante que você pague uma Parcela Fixa do mês 1 ao 60. O que as pessoas ignoram é a arquitetura interior da Tabela Price: nos primeiros doze a vinte e quatro meses, você paga agressivamente a maior parte de *JUROS* ao banco. Seu saldo devedor principal sofre arranhões levíssimos no início do contrato."
+    },
+    {
+      "type": "paragraph",
+      "text": "É aqui que o Sistema cria o Abismo. Quando você tira o carro da garagem da loja, ele sofre o choque gravitacional da depreciação automotiva brasileira. Um carro Zero KM perde na largada, em média, <strong>15% a 20% do seu valor</strong> (por impostos e transformação mágica em Seminovo). E depois continua caindo a uma taxa anualizada de cerca de 10% nos primeiros anos."
+    },
+    {
+      "type": "table",
+      "headers": ["Tempo", "Valor na FIPE (Exemplo R$ 100k)", "Saldo Devedor na Price (Entrada 20%)"],
+      "rows": [
+        ["Mês 0 (Loja)", "R$ 100.000", "R$ 80.000 de Dívida"],
+        ["Mês 12 (Ano 1)", "R$ 85.000 (-15%)", "<strong>R$ 70.500</strong>"],
+        ["Mês 24 (Ano 2)", "R$ 76.500 (-10%)", "<strong>R$ 58.200</strong>"],
+        ["Mês 36 (Ano 3)", "R$ 68.850 (-10%)", "<strong>R$ 44.300</strong>"]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Se a sua entrada (Down Payment) for pequena — por exemplo, 0% (Financiamento 100%) — o Custo Devedor vai despencar em ritmo tão lento que, no Mês 24, você ainda deverá ao Banco um valor de R$ 90.000, enquanto a FIPE do seu carro grita que ele só vale R$ 76.500 no mercado. O resultado letal? Se você for furtado e o seguro Pagar 100% da FIPE, ou se você quiser 'passar a dívida e vender', o valor da venda do carro inteiro não é mais capaz de pagar o Banco."
+    },
+    {
+      "type": "heading",
+      "text": "Encontrando a Superfície: O 'Break-even Month' (Mês Ideal de Troca)"
+    },
+    {
+      "type": "paragraph",
+      "text": "Para evitar que você afogue as finanças, engenheiros de Software como os do CalcForgeTools desenvolveram calculadoras baseadas no momento de cruzamento cruzado. O seu <strong>Ponto de Break-even</strong> (Ponto de Empate Financeiro) ocorre exatamente no momento vitalístico em que a <em>Curva do Saldo Devedor do Banco</em> atravessa e fica inferior à <em>Curva de Desvalorização da Tabela FIPE</em>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Se o Mês Ideal de Troca apontado disser 'Mês 40', significa que você é refém contábil da instituição e não poderá vender o seu carro por 3 anos inteiros (Mês 36) sem ter que pagar centenas (ou milhares) de Reais em dinheiro vivo para o banco apenas para devolver o carro sem ganhar um centavo."
+    },
+    {
+      "type": "heading",
+      "text": "A Arma Invisível: O Acordo CET e as Taxas Extras (TAC e IOF)"
+    },
+    {
+      "type": "paragraph",
+      "text": "As propagandas te anunciam 'Taxa de Juro de 1.1% ao mês!'. Excelente, não? Falso. Eles utilizam artifícios de margem embutida que aterrorizam o investidor consciente. Concessionárias exigem o repasse da 'Taxa de Cadastro', Seguro Prestamista Opcional e Seguro Auto Embutido, além do gigantesco imposto federal para operações de crédito, o <strong>IOF (Imposto sobre Operações Financeiras)</strong>."
+    },
+    {
+      "type": "paragraph",
+      "text": "Como você vai pagar algo na casa de 3 mil a 4 mil reais adicionais se você está comprando o carro porque *não tem todo esse dinheiro*? É simples: O gerente *empresta* o dinheiro do imposto e embuti ele na sua Price. Você passa a pagar juros compostos altíssimos de 1.1% *em cima de um imposto* (IOF/TAC)."
+    },
+    {
+      "type": "list",
+      "items": [
+        "A taxa aparente e falaciosa é a <strong>Taxa Nominal</strong>.",
+        "O único guia real do comprador astuto é a Linha de <strong>Custo Efetivo Total (CET)</strong>.",
+        "Muitas vezes, uma 'oferta Juro Zero' da fabricante está lastreada a um CET Anual de até 15%, camuflando a desvalorização violenta da Tabela."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Táticas Anti-Loja: Arme Sua Conta"
+    },
+    {
+      "type": "paragraph",
+      "text": "Para ter Sucesso com capital de terceiros, siga um ritual impenitrável e matemático:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>Taxa Ponto Zero (Entrada Crítica):</strong> Force uma entrada (Física ou via Trade-in do semi-novo) de, no mínimo, 30%. Sair na frente dessa margem protege seu balanço de ficar Negativo e aciona um Break-Even precoce no primeiro ano da FIPE.",
+        "<strong>Limite o Horizonte de Prazo:</strong> Limite severamente seu prazo de financiamento para, no máximo, 48 Meses (4 Anos). Se a parcela nos 48 meses bater no seu orçamento familiar e ficar pesada, pare imediatamente: <em>Vocé não tem condições contábeis de comprar este veículo no momento</em>.",
+        "<strong>Mês do Salto (Amortização Forçada):</strong> A Tabela Price brasileira perdoa pagamentos antecipados! Uma parcela final de R$ 1.500 no Mês 60, descontada a valor presente hoje, cai de 6 para 8 vezes! Utilize décimo-terceiros (13º) e saldos retidos para 'explodir' a dívida de trás para a frente!"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Não confie em um copo de café dentro do ar condicionado e um 'sorriso que confia em fechar negócio'. Traga números de silício."
+    }
+  ],
+  "related_tools": [
+    {
+      "id": "auto_loan_br",
+      "href": "/pt/calculators/calculadora-financiamento-veiculos",
+      "title": "Calculadora FIPE vs Financiamento",
+      "description": "Veja agora em que exato mês você poderia vender seu carro sem dar tiro no próprio pé financeiro.",
+      "category": "financeira"
+    },
+    {
+      "id": "simulador-cet",
+      "href": "/pt/calculators/simulador-cet",
+      "title": "Analisador Efetivo de CET",
+      "description": "Retire vendas casadas e TAC da fórmula e compare quem está aplicando as piores taxas na mesa.",
+      "category": "financeira"
+    }
+  ],
+  "related_guides_title": "Mais Conteúdo Tático",
+  "related_guides": [
+    {
+      "title": "A Batalha Final: Price vs SAC",
+      "href": "/pt/guides/sacre-sam-vs-sac-price",
+      "description": "Como uma mudança contratual no ato da assinatura te faria pagar seu carro em 20% menos tempo liquidando juros."
+    }
+  ]
+}

@@ -91,6 +91,71 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
 
       break;
     }
+
+    case 'auto_loan_br': {
+      const valorVeiculo = parseFloat(inputs.valorVeiculo) || 0;
+      const entrada = parseFloat(inputs.entrada) || 0;
+      const taxasExtras = parseFloat(inputs.taxasExtras) || 0; // TAC, IOF, Seguros embutidos
+      const taxaJurosMensal = (parseFloat(inputs.taxaJurosMensal) || 0) / 100;
+      const prazoMeses = parseInt(inputs.prazoMeses, 10) || 48;
+
+      const principal = Math.max(0, valorVeiculo - entrada + taxasExtras);
+
+      let pmt = 0;
+      let totalInterest = 0;
+
+      if (principal > 0 && prazoMeses > 0) {
+        if (taxaJurosMensal > 0) {
+          pmt = principal * (taxaJurosMensal * Math.pow(1 + taxaJurosMensal, prazoMeses)) / (Math.pow(1 + taxaJurosMensal, prazoMeses) - 1);
+          totalInterest = (pmt * prazoMeses) - principal;
+        } else {
+          pmt = principal / prazoMeses;
+        }
+      }
+
+      // Loop de Insight: Break-even de Depreciação (FIPE vs Saldo Devedor)
+      let currentDevedor = principal;
+      let currentFipe = valorVeiculo;
+      let breakEvenMonth = 0; // 0 means already positive or not calculated
+      let foundBreakEven = false;
+
+      // Se já no dia zero a entrada foi maciça, ele já está com "Equity" positiva.
+      if (currentFipe > currentDevedor) {
+         foundBreakEven = true;
+         breakEvenMonth = 1; 
+      }
+
+      for (let m = 1; m <= prazoMeses; m++) {
+        let jurosMes = currentDevedor * taxaJurosMensal;
+        let amortizacaoMes = pmt - jurosMes;
+        currentDevedor -= amortizacaoMes;
+        
+        // Aplica desvalorização mensalizada geométrica (15% Ano 1, 10% Anos Seguintes)
+        if (m <= 12) {
+          currentFipe *= Math.pow(1 - 0.15, 1/12);
+        } else {
+          currentFipe *= Math.pow(1 - 0.10, 1/12);
+        }
+
+        if (!foundBreakEven && currentFipe >= currentDevedor) {
+          breakEvenMonth = m;
+          foundBreakEven = true;
+        }
+      }
+
+      // Se passou o loop todo e o saldo devedor NUNCA ficou menor que o carro, termina na última parcela
+      if (!foundBreakEven) {
+        breakEvenMonth = prazoMeses;
+      }
+
+      result.parcelaMensal = pmt;
+      result.jurosTotais = totalInterest;
+      result.custoEfetivoVeiculo = entrada + (pmt * prazoMeses);
+      result.valorFipeFinal = currentFipe;
+      result.mesIdealParaTroca = breakEvenMonth;
+
+      break;
+    }
     
     case 'loan': {
       const p = parseFloat(inputs.loanAmount) || 0;

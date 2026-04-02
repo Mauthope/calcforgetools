@@ -1,0 +1,99 @@
+{
+  "category": "financeira",
+  "calculator_id": "auto_loan_br",
+  "slug": "calculadora-financiamento-veiculos",
+  "title": "Calculadora de Financiamento de Veículos vs FIPE",
+  "meta_title": "Calculadora Financiamento de Veículos | Descubra Custo Oculto e Depreciação",
+  "meta_description": "Use nosso simulador analítico para descobrir o real mês ideal para trocar de carro sem perder dinheiro. Cruza a desvalorização da Tabela FIPE contra os juros da Tabela Price.",
+  "hero": {
+    "title": "Raio-X do Financiamento Automotivo",
+    "subtitle": "Esqueça a 'parcela que cabe no bolso'. Descubra exatamente em qual mês você para de dever mais ao banco do que o seu próprio carro vale na Tabela FIPE."
+  },
+  "inputs": [
+    {
+      "name": "valorVeiculo",
+      "label": "Valor do Veículo (R$)",
+      "type": "currency",
+      "defaultValue": 80000
+    },
+    {
+      "name": "entrada",
+      "label": "Valor da Entrada (R$)",
+      "type": "currency",
+      "defaultValue": 16000
+    },
+    {
+      "name": "taxasExtras",
+      "label": "Taxas Bancárias Extras (TAC + IOF)",
+      "type": "currency",
+      "defaultValue": 1200
+    },
+    {
+      "name": "taxaJurosMensal",
+      "label": "Taxa de Juros ao Mês (%)",
+      "type": "number",
+      "defaultValue": 1.79
+    },
+    {
+      "name": "prazoMeses",
+      "label": "Prazo em Meses",
+      "type": "number",
+      "defaultValue": 60
+    }
+  ],
+  "formula": "FIPE vs Devedor = Break-even Automotivo",
+  "outputs": [
+    "parcelaMensal",
+    "jurosTotais",
+    "custoEfetivoVeiculo",
+    "valorFipeFinal",
+    "mesIdealParaTroca"
+  ],
+  "chart_type": "comparison",
+  "formula_explanation": "Nosso motor de cálculo não faz apenas a velha conta de juros e prazo. Ele cruza ativamente a amortização mensal em Tabela Price contra a severa Curva de Depreciação do carro no mercado brasileiro (estimada em -15% no 1º ano e -10% nos subsequentes). Isso revela em que momento a dívida fica menor que o patrimônio.",
+  "example": "Se você financiar um carro de R$ 80.000 dando R$ 16.000 de entrada (20%), pagando 1.79% AM em 60x... Sua parcela oculta os abusos. No mês 30, seu carro valerá na FIPE cerca de R$ 56.400, mas você ainda deverá R$ 64.000 ao banco para quitá-lo. Você está 'debaixo d'água'. Nossa tecnologia aponta que o Mês Ideal de Troca para este financiamento só ocorre após o Mês 43.",
+  "faq": [
+    {
+      "question": "O que é o Mês Ideal para Troca (Break-Even)?",
+      "answer": "É o mês exato onde a curva da sua dívida para o banco se torna menor que o valor do seu veículo na Tabela FIPE. Se você vender o carro ANTES deste mês ('devolver o carro pra loja'), o valor da venda não será suficiente para quitar o banco, e você ainda terá que pagar o buraco do próprio bolso."
+    },
+    {
+      "question": "Por que a 'Taxa Adicional' (TAC/IOF) atrapalha tanto?",
+      "answer": "As concessionárias focam apenas no 'Juro Zero' ou juros 'baixinhos', mas ignoram propositalmente que embutem Taxas de Abertura de Crédito e o imposto federal (IOF) diretamente no valor financiado. O banco empresta o dinheiro da TAC pra você. Você paga juros altíssimos sobre o próprio imposto."
+    },
+    {
+      "question": "É verdade que dar pouca entrada é um perigo no carro O KM?",
+      "answer": "Matematicamente, sim. Ao tirar um carro 0KM, ele já cai mais de 10% instantaneamente no emplacamento. Se sua entrada foi menor que 20%, o banco já é 'dono' de todo o veículo e você só é dono de uma dívida inflada gigantesca. Essa equação destrói totalmente seu saldo líquido nos três primeiros anos."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Comparativo SAC/Price vs Price Veículos",
+      "href": "/pt/calculators/simulador-sacre-sam",
+      "description": "Veja por que a Tabela Price dos carros mantém os juros massivos nos primeiros 12 meses."
+    },
+    {
+      "title": "Calculadora de CET (Custo Efetivo Total)",
+      "href": "/pt/calculators/simulador-cet",
+      "description": "Insira o financiamento aqui para ver o abismo matemático real em Taxas Efetivas."
+    }
+  ],
+  "related_guides_title": "Táticas Anti-Loja de Carro",
+  "related_guides": [
+    {
+      "title": "Mitos e Realidades FFinanceiras da Concessionária",
+      "href": "/pt/guides/como-funciona-financiamento-veiculo-br",
+      "description": "Compreendendo o Custo Efetivo Total e escapando da Mágica da Parcela Fixa Brasileira."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil - Amortização Price",
+      "url": "https://www.bcb.gov.br/"
+    },
+    {
+      "name": "Fundação Instituto de Pesquisas Econômicas (FIPE)",
+      "url": "https://veiculos.fipe.org.br/"
+    }
+  ]
+}
