@@ -8,9 +8,14 @@ interface ResultPanelProps extends HTMLMotionProps<"div"> {
 }
 
 export function ResultPanel({ title, value, highlight = false, className, ...props }: ResultPanelProps) {
-  // Convert string values to string so we can count length
   const valStr = String(value);
-  const isLong = valStr.length > 12;
+  const len = valStr.length;
+
+  // Dynamic font sizing: 3 tiers to prevent mid-number line breaks
+  const valueSizeClass =
+    len > 16 ? 'text-base md:text-lg' :
+    len > 11 ? 'text-xl md:text-2xl' :
+               'text-3xl md:text-4xl';
 
   return (
     <motion.div
@@ -34,11 +39,15 @@ export function ResultPanel({ title, value, highlight = false, className, ...pro
         {title}
       </h3>
 
-      <div className={cn(
-        "font-bold tracking-tight mt-1 break-words line-clamp-2",
-        isLong ? "text-2xl md:text-3xl" : "text-3xl md:text-4xl",
-        highlight ? "text-white drop-shadow-sm" : "text-[var(--color-text-primary)]"
-      )}>
+      {/* truncate + title tooltip for extreme edge cases */}
+      <div
+        className={cn(
+          "font-bold tracking-tight mt-1 truncate",
+          valueSizeClass,
+          highlight ? "text-white drop-shadow-sm" : "text-[var(--color-text-primary)]"
+        )}
+        title={valStr}
+      >
         {value}
       </div>
     </motion.div>
