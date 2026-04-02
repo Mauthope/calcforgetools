@@ -314,7 +314,113 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
+    case 'rule_of_three': {
+      const type = inputs.calcType || 'simples_direta';
+      const a1 = parseFloat(inputs.a1) || 0;
+      const b1 = parseFloat(inputs.b1) || 0;
+      const a2 = parseFloat(inputs.a2) || 0;
+      const c1 = parseFloat(inputs.c1) || 0;
+      const c2 = parseFloat(inputs.c2) || 0;
+      const fator2Tipo = inputs.fator2Tipo || 'direta';
+
+      const fmt = (n: number) => new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 4 }).format(n);
+
+      if (type === 'simples_direta') {
+        // X = (a2 × b1) / a1
+        const x = a1 !== 0 ? (a2 * b1) / a1 : 0;
+        const ratio = a1 !== 0 ? a2 / a1 : 0;
+        result.resultX = x;
+        result.ratio = ratio;
+        result.chalk_steps = [
+          {
+            label: 'Montar a proporção (A está para B assim como C está para X)',
+            expression: `${fmt(a1)} → ${fmt(b1)} &nbsp;&nbsp;|&nbsp;&nbsp; ${fmt(a2)} → <strong>X</strong>`,
+            result: '?',
+          },
+          {
+            label: 'Calcular o fator de escala (C ÷ A)',
+            expression: `${fmt(a2)} ÷ ${fmt(a1)}`,
+            result: fmt(ratio),
+          },
+          {
+            label: 'Multiplicar o fator pelo valor B',
+            expression: `${fmt(ratio)} × ${fmt(b1)}`,
+            result: fmt(x),
+            highlight: true,
+          },
+          {
+            label: 'Verificação — fórmula clássica: X = (C × B) ÷ A',
+            expression: `(${fmt(a2)} × ${fmt(b1)}) ÷ ${fmt(a1)}`,
+            result: fmt(x),
+          },
+        ];
+      } else if (type === 'simples_inversa') {
+        // Inversa: A × B = C × X → X = (A × B) / C
+        const x = a2 !== 0 ? (a1 * b1) / a2 : 0;
+        const produto = a1 * b1;
+        result.resultX = x;
+        result.ratio = a2 !== 0 ? a1 / a2 : 0;
+        result.chalk_steps = [
+          {
+            label: 'Grandezas inversas — o produto é constante: A × B = C × X',
+            expression: `${fmt(a1)} × ${fmt(b1)} = ${fmt(a2)} × X`,
+            result: `${fmt(produto)} = ${fmt(a2)} × X`,
+          },
+          {
+            label: 'Isolar o X (dividir ambos os lados por C)',
+            expression: `X = ${fmt(produto)} ÷ ${fmt(a2)}`,
+            result: fmt(x),
+            highlight: true,
+          },
+          {
+            label: 'Verificação — aumentar A2 deve diminuir o resultado',
+            expression: `${fmt(a2)} > ${fmt(a1)} ⟹ X < ${fmt(b1)}`,
+            result: x < b1 ? '✔ coerente' : '⚠ verifique os valores',
+          },
+        ];
+      } else if (type === 'composta') {
+        // Composta 2 fatores
+        // Fator 1 sempre direta (a1 → a2)
+        // Fator 2: c1 → c2 pode ser direta ou inversa
+        const ratio1 = a1 !== 0 ? a2 / a1 : 1;
+        const ratio2 = fator2Tipo === 'direta'
+          ? (c1 !== 0 ? c2 / c1 : 1)
+          : (c2 !== 0 ? c1 / c2 : 1);
+        const x = b1 * ratio1 * ratio2;
+        result.resultX = x;
+        result.ratio = ratio1 * ratio2;
+        result.chalk_steps = [
+          {
+            label: 'Fator 1 (direta) — calcular razão A₂ ÷ A₁',
+            expression: `${fmt(a2)} ÷ ${fmt(a1)}`,
+            result: fmt(ratio1),
+          },
+          {
+            label: `Fator 2 (${fator2Tipo}) — calcular razão`,
+            expression: fator2Tipo === 'direta'
+              ? `${fmt(c2)} ÷ ${fmt(c1)}`
+              : `${fmt(c1)} ÷ ${fmt(c2)} (inversa — inverte a fração)`,
+            result: fmt(ratio2),
+          },
+          {
+            label: 'Razão composta total (Fator1 × Fator2)',
+            expression: `${fmt(ratio1)} × ${fmt(ratio2)}`,
+            result: fmt(ratio1 * ratio2),
+          },
+          {
+            label: 'Aplicar a razão composta ao resultado base B',
+            expression: `${fmt(b1)} × ${fmt(ratio1 * ratio2)}`,
+            result: fmt(x),
+            highlight: true,
+          },
+        ];
+      }
+
+      break;
+    }
+
     case 'percentage': {
+
       const type = inputs.calcType || 'x_of_y';
       const x = parseFloat(inputs.valueX) || 0;
       const y = parseFloat(inputs.valueY) || 0;

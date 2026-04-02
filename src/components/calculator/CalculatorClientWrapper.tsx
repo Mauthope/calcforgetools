@@ -242,6 +242,9 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       jurosTotais: "Total de Juros Pagos",
       custoEfetivoVeiculo: "Custo Total do Veículo",
       valorFipeFinal: "Valor FIPE Estimado no Final",
+      // Regra de Três
+      resultX: "Valor Desconhecido (X)",
+      ratio: "Razão de Proporção",
       // CET Simulator
       iofAmount: "IOF Calculado",
       tacAmount: "TAC (Tarifa de Abertura)",
@@ -367,7 +370,10 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       sacreTotalPaid: "SACRE: Total Paid",
       sacreTotalInterest: "SACRE: Total Interest",
       bestSystem: "Best System",
-      savingsVsPrice: "Savings vs Price"
+      savingsVsPrice: "Savings vs Price",
+      // Rule of Three
+      resultX: "Unknown Value (X)",
+      ratio: "Proportion Ratio"
     };
 
     const labels = lang === 'pt' ? ptLabels : enLabels;
@@ -787,8 +793,8 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                 </div>
               )}
 
-              {/* Chalkboard (percentage calculator) OR Chart */}
-              {config.calculator_id === 'percentage' && results.chalk_steps ? (
+              {/* Chalkboard (percentage or rule_of_three) OR Chart */}
+              {(config.calculator_id === 'percentage' || config.calculator_id === 'rule_of_three') && results.chalk_steps ? (
                 <div className="mt-4">
                   <ChalkboardCalculation
                     steps={results.chalk_steps}

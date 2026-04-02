@@ -57,6 +57,38 @@ Toda implementação ou melhoria no CalcForgeTools **DEVE** respeitar os pilares
 - **Obrigatório o uso de Macros:** Nunca escreva o ano "2026" ou o preço exato fixo no arquivo JSON de escrita. Utilize as chaves analíticas (ex: `{{CURRENT_YEAR}}`, `{{MACRO_PRICE}}`).
 - **Dynamic Content Engine:** Certifique-se de instruir o cruzamento da macro diretamente nas funções matemáticas em `src/lib/dynamicContentEngine.ts` para que o NextJS processe essa variável na fase de Build e o SEO não seja penalizado por Javascript em tela.
 
+### 9. Calculadoras com Lousa (Chalkboard Visual)
+
+Sempre que o usuário disser **"quero lousa ao invés de gráfico"** (ou qualquer variação como "lousa", "quadro-negro", "passo a passo visual"), a implementação segue este padrão obrigatório:
+
+**Componente:** `src/components/ui/ChalkboardCalculation.tsx`
+- Visual de lousa escolar: fundo verde-escuro (`#0f2619`), borda de madeira, dots macOS no topo
+- Cada passo em fonte `mono` estilo giz branco com glow sutil
+- Passo com `highlight: true` acende em verde neon — usado para o **resultado final**
+- Números animados com transição de 80ms a cada recálculo
+
+**Motor (`calculatorEngine.ts`):**
+O engine deve emitir `result.chalk_steps` — um array de objetos com a assinatura:
+```typescript
+result.chalk_steps = [
+  {
+    label: 'Descrição do passo (ex: Converter a porcentagem)',
+    expression: 'Expressão matemática legível (ex: 20% ÷ 100)',
+    result: 'Valor calculado formatado (ex: 0,20)',
+    highlight?: true  // apenas no passo final/principal
+  }
+]
+```
+
+**Renderização (`CalculatorClientWrapper.tsx`):**
+O condicional `config.calculator_id === 'id_da_calc' && results.chalk_steps` substitui o bloco de chart pelo `<ChalkboardCalculation />`.
+
+**Padrão dos passos — o que mostrar:**
+1. Passo de conversão/preparação dos dados brutos de entrada
+2. Aplicação da fórmula central passo a passo
+3. **Passo destacado: o resultado principal** (com `highlight: true`)
+4. Derivações contextuais opcionais (ex: "Se for desconto / Se for aumento")
+
 ## Regra de Ouro — Ciclo PDCA
 ```
 PLAN → DO → CHECK → ACT → (repetir)

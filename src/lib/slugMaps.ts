@@ -13,7 +13,8 @@ export const ptToEnSlugMap: Record<string, string> = {
   'calculadora-de-roi': 'roi-calculator',
   'simulador-cet': 'cet-simulator',
   'simulador-sacre-sam': 'amortization-comparison-calculator',
-  // Labor Calculators (No EN equivalents yet based on Option 2)
+  // Mathematical Calculators
+  'calculadora-regra-de-tres': 'rule-of-three-calculator',
   // Financial Guides
   'como-funcionam-os-juros-compostos': 'how-compound-interest-works',
   'como-calcular-porcentagens': 'how-to-calculate-percentages',

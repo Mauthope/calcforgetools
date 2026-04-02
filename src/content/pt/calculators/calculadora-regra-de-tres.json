@@ -1,0 +1,120 @@
+{
+  "category": "mathematical",
+  "calculator_id": "rule_of_three",
+  "slug": "calculadora-regra-de-tres",
+  "title": "Calculadora de Regra de Três",
+  "meta_title": "Calculadora de Regra de Três Simples e Composta | Passo a Passo na Lousa",
+  "meta_description": "Resolva qualquer regra de três simples ou composta com passo a passo visual em uma lousa interativa. Direta, inversa e com dois fatores. Educativo e gratuito.",
+  "hero": {
+    "title": "Calculadora de Regra de Três",
+    "subtitle": "Simples ou composta, direta ou inversa — resolva qualquer proporção e veja cada passo do raciocínio explicado na lousa como em sala de aula."
+  },
+  "inputs": [
+    {
+      "name": "calcType",
+      "label": "Tipo de Cálculo",
+      "type": "select",
+      "options": [
+        { "label": "Simples Direta — A aumenta e B aumenta junto", "value": "simples_direta" },
+        { "label": "Simples Inversa — A aumenta e B diminui", "value": "simples_inversa" },
+        { "label": "Composta (2 fatores) — vários valores relacionados ao resultado", "value": "composta" }
+      ],
+      "defaultValue": "simples_direta"
+    },
+    {
+      "name": "a1",
+      "label": "Valor A (conhecido)",
+      "type": "number",
+      "defaultValue": 4
+    },
+    {
+      "name": "b1",
+      "label": "Valor B (conhecido — correspondente a A)",
+      "type": "number",
+      "defaultValue": 20
+    },
+    {
+      "name": "a2",
+      "label": "Valor C (novo valor de A — a incógnita surgirá aqui)",
+      "type": "number",
+      "defaultValue": 7
+    },
+    {
+      "name": "c1",
+      "label": "Fator 2 valor inicial (apenas para Composta)",
+      "type": "number",
+      "defaultValue": 3
+    },
+    {
+      "name": "c2",
+      "label": "Fator 2 novo valor (apenas para Composta)",
+      "type": "number",
+      "defaultValue": 6
+    },
+    {
+      "name": "fator2Tipo",
+      "label": "Relação do Fator 2 com o resultado (apenas Composta)",
+      "type": "select",
+      "options": [
+        { "label": "Direta — Fator 2 aumenta → resultado aumenta", "value": "direta" },
+        { "label": "Inversa — Fator 2 aumenta → resultado diminui", "value": "inversa" }
+      ],
+      "defaultValue": "direta"
+    }
+  ],
+  "formula": "Direta: X = (B × C) / A | Inversa: X = (A × B) / C | Composta: X = B × (C/A) × ratio_f2",
+  "outputs": [
+    "resultX",
+    "ratio"
+  ],
+  "chart_type": "chalkboard",
+  "formula_explanation": "A regra de três é uma operação matemática que resolve proporções entre grandezas. Na simples direta, quando uma grandeza aumenta a outra também aumenta proporcionalmente. Na simples inversa, quando uma aumenta a outra diminui. Na composta, dois fatores independentes influenciam o resultado final ao mesmo tempo.",
+  "example": "Simples direta: Se 4 operários constroem 20 m² em 1 dia, quantos m² constroem 7 operários? X = (7 × 20) / 4 = 35 m². Composta: Se 4 operários em 3 dias fazem 20 m², quantos m² fazem 7 operários em 6 dias? X = 20 × (7/4) × (6/3) = 70 m².",
+  "faq": [
+    {
+      "question": "Quando usar a regra de três inversa?",
+      "answer": "Quando as grandezas variam em sentidos opostos. Exemplo: mais trabalhadores → menos tempo para terminar o serviço. Quanto maior um valor, menor o outro."
+    },
+    {
+      "question": "Como saber se é direta ou inversa?",
+      "answer": "Pergunta-se: se a grandeza A aumenta, a grandeza B também aumenta? Se sim, é direta. Se B diminui quando A aumenta, é inversa."
+    },
+    {
+      "question": "O que é regra de três composta?",
+      "answer": "É quando há dois ou mais fatores que influenciam o resultado. Por exemplo: velocidade e tempo influenciam a distância. Cada fator pode ter relação direta ou inversa com o resultado, e todos são considerados juntos na conta."
+    },
+    {
+      "question": "Posso usar com qualquer unidade?",
+      "answer": "Sim. A regra de três funciona com metros, reais, quilos, horas, litros — qualquer grandeza proporcional. O importante é que as unidades sejam consistentes entre os pares de valores."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Porcentagem",
+      "href": "/pt/calculators/calculadora-de-porcentagem",
+      "description": "Outra ferramenta essencial de matemática proporcional."
+    },
+    {
+      "title": "Calculadora de ROI",
+      "href": "/pt/calculators/calculadora-de-roi",
+      "description": "Aplique proporções para calcular retorno sobre investimento."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Como Calcular Qualquer Porcentagem",
+      "href": "/pt/guides/como-calcular-porcentagens",
+      "description": "Passo a passo completo para dominar proporções e percentuais."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Base Curricular Nacional (BNCC) — Matemática",
+      "date": "Padrão MEC"
+    },
+    {
+      "name": "Sistema Internacional de Unidades (SI)",
+      "date": "Padrão Global"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "category": "mathematical",
+  "calculator_id": "rule_of_three",
+  "slug": "rule-of-three-calculator",
+  "title": "Rule of Three Calculator",
+  "meta_title": "Rule of Three Calculator — Simple & Compound | Step-by-Step Visual",
+  "meta_description": "Solve any simple or compound rule of three with a visual step-by-step chalkboard. Direct, inverse, and two-factor proportions. Free and educational.",
+  "hero": {
+    "title": "Rule of Three Calculator",
+    "subtitle": "Simple or compound, direct or inverse — solve any proportion and see every step of the logic explained on an interactive chalkboard."
+  },
+  "inputs": [
+    {
+      "name": "calcType",
+      "label": "Calculation Type",
+      "type": "select",
+      "options": [
+        { "label": "Simple Direct — A increases and B increases together", "value": "simples_direta" },
+        { "label": "Simple Inverse — A increases and B decreases", "value": "simples_inversa" },
+        { "label": "Compound (2 factors) — multiple values related to the result", "value": "composta" }
+      ],
+      "defaultValue": "simples_direta"
+    },
+    {
+      "name": "a1",
+      "label": "Value A (known)",
+      "type": "number",
+      "defaultValue": 4
+    },
+    {
+      "name": "b1",
+      "label": "Value B (known — corresponding to A)",
+      "type": "number",
+      "defaultValue": 20
+    },
+    {
+      "name": "a2",
+      "label": "Value C (new A — the unknown will be found here)",
+      "type": "number",
+      "defaultValue": 7
+    },
+    {
+      "name": "c1",
+      "label": "Factor 2 initial value (Compound only)",
+      "type": "number",
+      "defaultValue": 3
+    },
+    {
+      "name": "c2",
+      "label": "Factor 2 new value (Compound only)",
+      "type": "number",
+      "defaultValue": 6
+    },
+    {
+      "name": "fator2Tipo",
+      "label": "Factor 2 relationship with result (Compound only)",
+      "type": "select",
+      "options": [
+        { "label": "Direct — Factor 2 increases → result increases", "value": "direta" },
+        { "label": "Inverse — Factor 2 increases → result decreases", "value": "inversa" }
+      ],
+      "defaultValue": "direta"
+    }
+  ],
+  "formula": "Direct: X = (B × C) / A | Inverse: X = (A × B) / C | Compound: X = B × (C/A) × ratio_f2",
+  "outputs": [
+    "resultX",
+    "ratio"
+  ],
+  "chart_type": "chalkboard",
+  "formula_explanation": "The rule of three is a mathematical operation that solves proportions between quantities. In simple direct proportions, when one quantity increases the other increases proportionally. In simple inverse, when one increases the other decreases. In compound, two independent factors influence the final result simultaneously.",
+  "example": "Simple direct: If 4 workers build 20 m² per day, how much do 7 workers build? X = (7 × 20) / 4 = 35 m². Compound: If 4 workers in 3 days build 20 m², how much do 7 workers build in 6 days? X = 20 × (7/4) × (6/3) = 70 m².",
+  "faq": [
+    {
+      "question": "When should I use the inverse rule of three?",
+      "answer": "When quantities vary in opposite directions. Example: more workers → less time to finish a job. The larger one value, the smaller the other."
+    },
+    {
+      "question": "How do I know if it is direct or inverse?",
+      "answer": "Ask: if quantity A increases, does quantity B also increase? If yes, it is direct. If B decreases when A increases, it is inverse."
+    },
+    {
+      "question": "What is the compound rule of three?",
+      "answer": "It applies when two or more factors influence the result. For example: speed and time both affect distance. Each factor can have a direct or inverse relationship with the result, and all are considered together in the calculation."
+    },
+    {
+      "question": "Can I use it with any unit?",
+      "answer": "Yes. The rule of three works with meters, dollars, kilograms, hours, liters — any proportional quantity. The key is that units must be consistent within each pair of values."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Percentage Calculator",
+      "href": "/en/calculators/percentage-calculator",
+      "description": "Another essential proportional math tool."
+    },
+    {
+      "title": "ROI Calculator",
+      "href": "/en/calculators/roi-calculator",
+      "description": "Apply proportional logic to calculate return on investment."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "How to Calculate Any Percentage",
+      "href": "/en/guides/how-to-calculate-percentages",
+      "description": "Complete step-by-step guide to mastering proportions and percentages."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Common Core State Standards — Mathematics",
+      "date": "US Education Standard"
+    },
+    {
+      "name": "International System of Units (SI)",
+      "date": "Global Standard"
+    }
+  ]
+}
