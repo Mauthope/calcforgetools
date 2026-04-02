@@ -49,6 +49,48 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       result.totalInterest = totalInterest;
       break;
     }
+
+    case 'auto_loan': {
+      const vehiclePrice = parseFloat(inputs.vehiclePrice) || 0;
+      const tradeIn = parseFloat(inputs.tradeInValue) || 0;
+      const downPayment = parseFloat(inputs.downPayment) || 0;
+      const dealerFees = parseFloat(inputs.dealerFees) || 0;
+      const stateTaxRate = (parseFloat(inputs.stateTax) || 0) / 100;
+      const apr = (parseFloat(inputs.apr) || 0) / 100;
+      const termMonths = parseInt(inputs.loanTerm, 10) || 60;
+
+      // Tax is typicaly calculated on the difference between the new car and trade-in
+      const taxableAmount = Math.max(0, vehiclePrice - tradeIn);
+      const taxAmount = taxableAmount * stateTaxRate;
+
+      // Out the door is the total cost footprint
+      const outTheDoorCost = vehiclePrice + dealerFees + taxAmount;
+
+      // Total Finance Principal = Out The Door - Down Payment - Trade In
+      const principal = Math.max(0, outTheDoorCost - downPayment - tradeIn);
+
+      let pmt = 0;
+      let totalInterest = 0;
+      
+      if (principal > 0 && termMonths > 0) {
+        if (apr > 0) {
+           const monthlyRate = apr / 12;
+           pmt = principal * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+           totalInterest = (pmt * termMonths) - principal;
+        } else {
+           pmt = principal / termMonths;
+        }
+      }
+
+      result.outTheDoor = outTheDoorCost;
+      result.taxPaid = taxAmount;
+      result.principalFinanced = principal;
+      result.monthlyPayment = pmt;
+      result.totalInterest = totalInterest;
+      result.totalCostOfVehicle = outTheDoorCost + totalInterest;
+
+      break;
+    }
     
     case 'loan': {
       const p = parseFloat(inputs.loanAmount) || 0;

@@ -1,0 +1,144 @@
+{
+  "title": "The Comprehensive Guide to US Auto Loans",
+  "metaTitle": "US Auto Loan Rules | Out-the-Door Math, Dealer Fees & FICO Tiers",
+  "metaDescription": "Discover exactly how American dealerships structure auto loans. Learn about Trade-in tax credits, Doc fees, Simple Interest loops, and FICO score impact.",
+  "slug": "how-auto-loans-work-us",
+  "category": "financial",
+  "readTimeMinutes": 8,
+  "lastUpdated": "2024-11-20",
+  "author": {
+    "name": "CalcForgeTools Research Unit",
+    "role": "Financial Mechanics Architecture"
+  },
+  "content": [
+    {
+      "type": "paragraph",
+      "text": "The American auto loan market is one of the most sophisticated credit ecosystems on Earth, currently holding over $1.5 trillion in outstanding debt. Unlike buying a television or furniture, purchasing a vehicle involves a multi-layered interaction of state taxes, dealership business models, and high-frequency compounding financial algorithms."
+    },
+    {
+      "type": "paragraph",
+      "text": "Understanding the sheer mechanics of a US Auto Loan is arguably more important than choosing the car itself. Dealerships operate primarily not by selling sheets of metal, but by brokering high-yield credit agreements through their F&I (Finance and Insurance) offices. To navigate this system and protect your net worth, you must stop negotiating the *Monthly Payment* and shift your entire mathematical focus to the *Out-the-Door Price*."
+    },
+    {
+      "type": "quote",
+      "text": "The fastest way to lose $10,000 at a dealership is to answer the question: 'What monthly payment are you looking for?' If you hand them a payment goal, they will simply stretch the loan term from 60 months out to 84 months to hit your goal—burying you in extreme interest and guaranteeing you will be upside-down on the loan.",
+      "author": "CFPB Consumer Advisory Principle"
+    },
+    {
+      "type": "h2",
+      "text": "The Anatomy of the 'Out-the-Door' Price"
+    },
+    {
+      "type": "paragraph",
+      "text": "The sticker price (MSRP) of a vehicle is a starting line, not the final bill. The 'Out-the-Door' (OTD) price is the absolute, finalized financial footprint of the transaction. It is precisely the number that the bank must finance. This number is heavily augmented by mandatory and optional additions."
+    },
+    {
+      "type": "list",
+      "items": [
+        "**The MSRP or Negotiated Price:** The baseline metal value of the vehicle.",
+        "**Dealer & Doc Fees:** A fee charged by the dealership to process the transaction. These routinely range from $299 in states like Ohio up to $1,000+ in Florida. While state legislation often prohibits dealerships from waiving this specific fee selectively, you can negotiate the MSRP down by the identical amount.",
+        "**Tax, Title, and License (TT&L):** Non-negotiable state fees. In the US, state sales taxes range wildly from 0% (Montana, Oregon) up to aggressive local combinations exceeding 10% (California, Louisiana).",
+        "**Trade-in Shielding:** In roughly 40 states, giving the dealership your old car acts as a tax shield. If you buy a $40k car and trade a $10k car, you only pay Sales Tax on $30k."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Simple Interest vs. Pre-computed Interest"
+    },
+    {
+      "type": "paragraph",
+      "text": "The vast majority of modern auto loans deployed by major US banks and credit unions use **Simple Interest**. This is phenomenally good news for consumers. In a simple interest engine, your interest accrues daily against your outstanding principal baseline."
+    },
+    {
+      "type": "paragraph",
+      "text": "This means that if you aggressively attack the loan by sending an extra $200 every month directly toward the *Principal*, subsequent daily interest calculations will be mathematically forced to charge you less money. You will not only cut months (or years) off the duration of the loan, but you will 'short' the bank out of thousands of dollars in scheduled interest."
+    },
+    {
+      "type": "paragraph",
+      "text": "However, 'Buy Here, Pay Here' (Subprime) lots sometimes use **Pre-computed Interest**. Under this predatory framework, the total interest for the entire multi-year term is calculated upfront and bolted rigidly onto the principal. Even if you pay off the car three years early, you must still pay the total interest that was mathematically scheduled for the full term. Always verify your contract explicitly states 'Simple Interest'."
+    },
+    {
+      "type": "h2",
+      "text": "The Impact of FICO Scores on APR"
+    },
+    {
+      "type": "paragraph",
+      "text": "The Annual Percentage Rate (APR) assigned to your loan is mathematically derived from your FICO Auto Score ecosystem. The spread between a Prime borrower and a Subprime borrower is financially catastrophic over the timeline of a vehicle."
+    },
+    {
+      "type": "table",
+      "headers": ["Credit Tier", "FICO Margin", "Average New Car APR", "Average Used Car APR"],
+      "rows": [
+        ["Super Prime", "781 - 850", "5.2%", "7.1%"],
+        ["Prime", "661 - 780", "6.7%", "9.0%"],
+        ["Nonprime", "601 - 660", "9.3%", "14.1%"],
+        ["Subprime", "501 - 600", "12.8%", "19.2%"],
+        ["Deep Subprime", "300 - 500", "15.3%", "21.5%"]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "As demonstrated by Federal Reserve datasets, a borrower with a 590 FICO score buying a $30,000 used vehicle at 19% APR for 72 months will pay an astonishing $20,000 in mathematical interest alone. The vehicle's total cost balloons to $50,000 while the metal heavily depreciates. Conversely, the Super Prime borrower will pay only about $6,500 in interest on that identical car."
+    },
+    {
+      "type": "h2",
+      "text": "Negative Equity: The 'Upside-Down' Phenomenon"
+    },
+    {
+      "type": "paragraph",
+      "text": "A vehicle is a violently depreciating asset. The moment rubber touches public asphalt, the vehicle loses roughly 10% to 15% of its value. If you stretched your loan term to 84 months and put $0 down, the car’s depreciation curve will aggressively outpace your slow principal amortization."
+    },
+    {
+      "type": "paragraph",
+      "text": "You are now 'Upside-Down' (Negative Equity). If you decide to sell or trade the vehicle in Year 3, the dealership appraises the car at $15,000, but your bank loan reveals you still owe $22,000. That $7,000 deficit doesn't disappear; the dealership will simply roll the ghost debt into your *next* auto loan, mathematically damning your future finances."
+    },
+    {
+      "type": "h3",
+      "text": "The 20/4/10 Rule for Survival"
+    },
+    {
+      "type": "paragraph",
+      "text": "To prevent entering the negative equity death-spiral, strict financial analysts advise deploying the **20/4/10 Auto Rule:**"
+    },
+    {
+      "type": "list",
+      "items": [
+        "**20% Down:** You must forcibly inject 20% in raw cash (or Trade-in equity) to instantly offset the first-year depreciation drop.",
+        "**4-Year Term:** Cap the amortization length strictly at 48 months. If you cannot afford the mathematical monthly payment on a 4-year schedule, you fundamentally cannot afford the car.",
+        "**10% of Income:** The monthly payment, alongside aggressive US insurance premiums (Comprehensive/Collision) and maintenance, must never exceed 10% of your raw gross monthly income."
+      ]
+    },
+    {
+      "type": "h2",
+      "text": "Conclusion: Arming Yourself"
+    },
+    {
+      "type": "paragraph",
+      "text": "Never step onto a dealership floor without securing external funding first. Visit a local Credit Union or log into your banking portal to receive an aggressive Pre-Approval. Once you have a hard APR from your own institution, the dealership's F&I office will be mathematically forced to fight to beat that rate to earn the broker commission."
+    },
+    {
+      "type": "paragraph",
+      "text": "Combine your pre-approval with the CalcForgeTools Auto Loan Simulator. Map out your precise Down Payment, extract the Dealer Fees, and lock in your true Out-the-Door projection before shaking any hands."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "US Auto Loan Simulator",
+      "href": "/en/calculators/auto-loan-calculator",
+      "description": "Feed in the Out-the-Door math, lock in the APR, and reveal exactly what the dealership is calculating."
+    },
+    {
+      "title": "Simple Interest Calculator",
+      "href": "/en/calculators/simple-interest-calculator",
+      "description": "Learn the baseline, raw mathematics behind un-compounded credit algorithms."
+    }
+  ],
+  "related_guides_title": "Further Financial Analytics",
+  "related_guides": [
+    {
+      "title": "The Power of Compound Interest",
+      "href": "/en/guides/how-compound-interest-works",
+      "description": "Understand how standard capital compounds aggressively over time to compare against loan decay."
+    }
+  ]
+}
