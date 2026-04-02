@@ -145,19 +145,36 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
   const formatOutput = (key: string, val: any) => {
     if (typeof val !== 'number') return val;
-    // Simple heuristic: if key contains 'Interest', 'Value', 'Amount', 'Payment', 'Contribution', 'Paid', 'Profit', it's currency.
-    // If it contains 'Percentage', 'roi', it's %.
-    // If it contains 'months', it's a raw number.
     const lower = key.toLowerCase();
-    
-    if (lower.includes('percentage') || lower === 'roi') {
+
+    // Pure percentage outputs — always show as %
+    if (lower.includes('percentage') || lower === 'roi' || lower === 'roipercentage'
+        || lower === 'percentagechange' || lower === 'percentageresult'
+        || lower === 'cetmonthly' || lower === 'cetannual' || lower === 'effectivevsnominal') {
       return val.toFixed(2) + '%';
     }
-    if (lower.includes('month') || lower.includes('mês') || lower.includes('mes') || lower.includes('year') || lower.includes('ano')) {
+
+    // Time outputs — plain integer (no currency)
+    if (lower.includes('month') || lower.includes('mês') || lower.includes('mes')
+        || lower.includes('year') || lower.includes('ano') || lower === 'enjoyeddays') {
       return Math.round(val).toString();
     }
-    
-    // Default to currency (USD or BRL depending on locale, for simplicity here we just use the browser locale or rely on the manual formatter)
+
+    // Dimensionless / ratio / pure numbers — mathematical calculators
+    const mathPlainKeys = [
+      'resultx', 'ratio',                                // rule of three
+      'calculationresult', 'finaldiscount', 'finalamount',  // pct mode
+      'absolutedifference',                             // pct change
+      'costmultiplier',                                 // employer cost
+    ];
+    if (mathPlainKeys.includes(lower)) {
+      return new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : 'en-US', {
+        maximumFractionDigits: 4
+      }).format(val);
+    }
+
+    // Special string outputs (winner, bestSystem, etc.) already handled by non-number guard above
+    // Default: currency
     return new Intl.NumberFormat(lang === 'pt' ? 'pt-BR' : 'en-US', {
       style: 'currency',
       currency: lang === 'pt' ? 'BRL' : 'USD'
@@ -568,8 +585,109 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       insights.push(`🔥 **A Estratégia Anti-Banco:** Use dinheiro extra (13°, férias, bônus) para amortizar o saldo devedor antecipadamente. Cada real amortizado no principal reduz os juros futuros compostos drasticamente — e adianta o mês do ponto de virada no gráfico, dando a você mais liberdade para trocar o carro antes.`);
     }
 
+    if (calcId === 'percentage') {
+      const cType = inputs.calcType || 'x_of_y';
+      const x = parseFloat(inputs.valueX) || 0;
+      const y = parseFloat(inputs.valueY) || 0;
+      const fmtN = (n: number) => new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 }).format(n);
+
+      if (cType === 'x_of_y') {
+        const parte = results.calculationResult || 0;
+        const comDesconto = results.discountAmount || 0;
+        const comAumento = results.finalAmount || 0;
+        insights.push(
+          lang === 'pt'
+            ? `🎯 **Como ler esse resultado:** Imagine que você foi ao mercado e achou um produto por **${fmtN(y)}**. O cartaz dizia **"${fmtN(x)}% OFF"**. Isso significa que o desconto é de **${fmtN(parte)}** — e você pagaria só **${fmtN(comDesconto)}**. Se fosse um aumento (juros, markup), o novo valor seria **${fmtN(comAumento)}**.`
+            : `🎯 **How to read this:** Imagine a product costs **${fmtN(y)}**. The tag says **"${fmtN(x)}% OFF"**. The discount is **${fmtN(parte)}** — so you'd pay only **${fmtN(comDesconto)}**. If it were a price increase (interest, markup), the new price would be **${fmtN(comAumento)}**.`
+        );
+        if (x > 30) {
+          insights.push(
+            lang === 'pt'
+              ? `💡 **Dica Rápida:** Descontos acima de **30%** são raros em promoções genuínas. Antes de comemorar, confira se o preço original não foi inflado antes da promoção para parecer mais vantajoso.`
+              : `💡 **Quick Tip:** Discounts above **30%** are rare in genuine sales. Before celebrating, check if the original price was inflated first.`
+          );
+        }
+      } else if (cType === 'x_is_what_percent_of_y') {
+        const pct = results.percentageResult || 0;
+        insights.push(
+          lang === 'pt'
+            ? `🍕 **Pense numa pizza!** A pizza inteira tem **${fmtN(y)} fatias**. Você comeu **${fmtN(x)} fatias**. Isso significa que você comeu **${pct.toFixed(1)}%** da pizza. É exatamente assim que funciona qualquer "porcentagem de um total"!`
+            : `🍕 **Think of a pizza!** The whole pizza has **${fmtN(y)} slices**. You ate **${fmtN(x)} slices**. That means you ate **${pct.toFixed(1)}%** of the pizza. This is exactly how any percentage-of-total works!`
+        );
+        if (pct > 80) {
+          insights.push(
+            lang === 'pt'
+              ? `🚨 **Proporção alta (${pct.toFixed(1)}%):** A parte representa quase tudo o que o total tem. Em custos, significa que esse item domina o orçamento.`
+              : `🚨 **High proportion (${pct.toFixed(1)}%):** The part is almost the whole total. In budgets, this item dominates.`
+          );
+        }
+      } else if (cType === 'percentage_change') {
+        const change = results.percentageChange || 0;
+        const diff = results.absoluteDifference || 0;
+        const subiu = change >= 0;
+        insights.push(
+          lang === 'pt'
+            ? `${subiu ? '📈' : '📉'} **O que aconteceu?** O valor ${subiu ? 'SUBIU' : 'CAIU'} **${fmtN(Math.abs(diff))}** — isso representa uma variação de **${Math.abs(change).toFixed(1)}%**. ${subiu ? 'Como um sorvete que era R$ 5 e foi para R$ 6 — subiu 20%.' : 'Como um sorvete que era R$ 5 e caiu para R$ 4 — baixou 20%.'}`
+            : `${subiu ? '📈' : '📉'} **What happened?** The value ${subiu ? 'INCREASED' : 'DECREASED'} by **${fmtN(Math.abs(diff))}** — that is a **${Math.abs(change).toFixed(1)}%** ${subiu ? 'increase' : 'drop'}. ${subiu ? 'Like an ice cream that went from $5 to $6 — a 20% jump.' : 'Like an ice cream that went from $5 to $4 — a 20% drop.'}`
+        );
+        if (Math.abs(change) > 100) {
+          insights.push(
+            lang === 'pt'
+              ? `⚠️ **Variação acima de 100%!** Isso é matematicamente correto — significa que o valor mais que dobrou (ou caiu pra quase zero). Verifique se os números inseridos estão na mesma unidade.`
+              : `⚠️ **Variation above 100%!** This is mathematically valid — the value more than doubled (or collapsed to near zero). Make sure both numbers share the same unit.`
+          );
+        }
+      }
+    }
+
+    if (calcId === 'rule_of_three') {
+      const cType = inputs.calcType || 'simples_direta';
+      const x = results.resultX ?? 0;
+      const ratio = results.ratio ?? 1;
+      const a1 = parseFloat(inputs.a1) || 0;
+      const b1 = parseFloat(inputs.b1) || 0;
+      const a2 = parseFloat(inputs.a2) || 0;
+      const fmtN = (n: number) => new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 4 }).format(n);
+
+      if (cType === 'simples_direta') {
+        insights.push(
+          lang === 'pt'
+            ? `📐 **Como entender o resultado (${fmtN(x)}):** Se **${fmtN(a1)}** vira **${fmtN(b1)}**, uma criança de 8 anos perguntaria: "Quanto maior ficou a primeira parte?" — Ficou **${fmtN(ratio)}x** maior. Então a segunda parte também fica **${fmtN(ratio)}x** maior: ${fmtN(b1)} × ${fmtN(ratio)} = **${fmtN(x)}**. Simples assim!`
+            : `📐 **Understanding the result (${fmtN(x)}):** If **${fmtN(a1)}** gives **${fmtN(b1)}**, an 8-year-old would ask: "How many times bigger is the new A?" — **${fmtN(ratio)}x** bigger. So B is also ${fmtN(ratio)}x bigger: ${fmtN(b1)} × ${fmtN(ratio)} = **${fmtN(x)}**. That's it!`
+        );
+        insights.push(
+          lang === 'pt'
+            ? `🌟 **Exemplo do cotidiano:** Se 4 balas custam R$ 2, quantas balas compro com R$ 3,50? Use a mesma lógica! A conta é sempre: multiplica os de cima, divide pelo que sobrou.`
+            : `🌟 **Everyday example:** If 4 candies cost $2, how many can I buy for $3.50? Apply the same logic! Always: multiply across, then divide by what remains.`
+        );
+      } else if (cType === 'simples_inversa') {
+        insights.push(
+          lang === 'pt'
+            ? `🔄 **Grandeza Inversa — quanto um sobe, o outro desce!** Se **${fmtN(a1)}** pessoas levam **${fmtN(b1)}** dias, mais braços na tarefa = menos dias. Com **${fmtN(a2)}** pessoas, levariam apenas **${fmtN(x)}** dias. Quanto mais ajuda, mais rápido termina — por isso a resposta diminuiu.`
+            : `🔄 **Inverse proportion — as one goes up, the other comes down!** If **${fmtN(a1)}** people take **${fmtN(b1)}** days, more hands = fewer days. With **${fmtN(a2)}** people it takes only **${fmtN(x)}** days. More help = finishes faster — that's why the result shrank.`
+        );
+        insights.push(
+          lang === 'pt'
+            ? `💡 **Macete para nunca errar:** Na inversa, INVERTE a fração do fator. Em vez de a2 ÷ a1, você usa a1 ÷ a2. Se o fator aumenta, a resposta diminui. Se o fator diminui, a resposta aumenta.`
+            : `💡 **Never get it wrong:** In inverse proportion, FLIP the fraction. Instead of a2 ÷ a1, use a1 ÷ a2. If the factor grows, the answer shrinks. If the factor shrinks, the answer grows.`
+        );
+      } else if (cType === 'composta') {
+        insights.push(
+          lang === 'pt'
+            ? `⚙️ **Composta = duas Regras de Três de uma só vez!** Você ajustou dois fatores ao mesmo tempo. É como calcular: "Se eu andar mais rápido E por mais tempo, quanto mais longe vou?" — o resultado **${fmtN(x)}** já combina as duas influências juntas.`
+            : `⚙️ **Compound = two Rule-of-Threes at once!** You adjusted two factors simultaneously. Like: "If I drive faster AND for longer, how much farther do I go?" — the result **${fmtN(x)}** already combines both influences.`
+        );
+        insights.push(
+          lang === 'pt'
+            ? `📚 **Exemplo clássico de escola:** 5 máquinas em 4 horas produzem 200 peças. 8 máquinas em 6 horas produzem? Máquinas: direta (mais máquinas = mais peças). Horas: direta (mais horas = mais peças). X = 200 × (8/5) × (6/4) = **480 peças**. Use essa lógica!`
+            : `📚 **Classic school example:** 5 machines in 4 hours produce 200 parts. What do 8 machines in 6 hours produce? Machines: direct. Hours: direct. X = 200 × (8/5) × (6/4) = **480 parts**. Follow this same logic!`
+        );
+      }
+    }
+
     return insights.length > 0 ? insights : null;
   };
+
 
   if(!config) return <div className="p-8 text-center text-[var(--color-danger)]">Failed to load calculator configuration.</div>;
 
