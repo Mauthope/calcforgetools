@@ -152,7 +152,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     if (lower.includes('percentage') || lower === 'roi') {
       return val.toFixed(2) + '%';
     }
-    if (lower.includes('month') || lower.includes('year')) {
+    if (lower.includes('month') || lower.includes('mês') || lower.includes('mes') || lower.includes('year') || lower.includes('ano')) {
       return Math.round(val).toString();
     }
     

@@ -133,6 +133,29 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
           borderRadius: 8,
         }]
       };
+    case 'auto_loan_br':
+      return {
+        type: 'doughnut',
+        labels: lang === 'en' 
+          ? ['Vehicle Net Value', 'Entrance Payment', 'Interest & Bank Fees', 'Depreciation Loss (1 Yr)'] 
+          : ['Valor do Veículo', 'Sua Entrada', 'Juros & Taxas Extras', 'Perda FIPE Estimada'],
+        datasets: [{
+          label: lang === 'en' ? 'Cost Breakdown' : 'Composição de Custos',
+          data: [
+            parseFloat(inputs.valorVeiculo) - parseFloat(inputs.entrada) || 0,
+            parseFloat(inputs.entrada) || 0,
+            (results.jurosTotais || 0) + (parseFloat(inputs.taxasExtras) || 0),
+            (parseFloat(inputs.valorVeiculo) || 0) - (results.valorFipeFinal || 0)
+          ],
+          backgroundColor: [
+            'rgba(0, 122, 255, 0.8)', // Apple Blue
+            'rgba(52, 199, 89, 0.8)', // Green
+            'rgba(255, 59, 48, 0.8)', // Red
+            'rgba(175, 82, 222, 0.8)' // Purple for depreciation
+          ],
+          borderRadius: 8,
+        }]
+      };
     case 'clt_employer_cost':
       return {
         type: 'doughnut',
