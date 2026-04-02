@@ -52,10 +52,9 @@
     "parcelaMensal",
     "jurosTotais",
     "custoEfetivoVeiculo",
-    "valorFipeFinal",
-    "mesIdealParaTroca"
+    "valorFipeFinal"
   ],
-  "chart_type": "comparison",
+  "chart_type": "amortization",
   "formula_explanation": "Nosso motor de cálculo não faz apenas a velha conta de juros e prazo. Ele cruza ativamente a amortização mensal em Tabela Price contra a severa Curva de Depreciação do carro no mercado brasileiro (estimada em -15% no 1º ano e -10% nos subsequentes). Isso revela em que momento a dívida fica menor que o patrimônio.",
   "example": "Se você financiar um carro de R$ 80.000 dando R$ 16.000 de entrada (20%), pagando 1.79% AM em 60x... Sua parcela oculta os abusos. No mês 30, seu carro valerá na FIPE cerca de R$ 56.400, mas você ainda deverá R$ 64.000 ao banco para quitá-lo. Você está 'debaixo d'água'. Nossa tecnologia aponta que o Mês Ideal de Troca para este financiamento só ocorre após o Mês 43.",
   "faq": [

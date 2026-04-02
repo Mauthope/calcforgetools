@@ -236,6 +236,11 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       hourBankValue: "Valor do Banco de Horas",
       totalAdditionals: "Total de Adicionais",
       totalCompensation: "Remuneração Total",
+      // Auto Loan BR
+      parcelaMensal: "Parcela Mensal (Tabela Price)",
+      jurosTotais: "Total de Juros Pagos",
+      custoEfetivoVeiculo: "Custo Total do Veículo",
+      valorFipeFinal: "Valor FIPE Estimado no Final",
       // CET Simulator
       iofAmount: "IOF Calculado",
       tacAmount: "TAC (Tarifa de Abertura)",
@@ -510,6 +515,50 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
            ? `By maintaining this payment, you will be 100% debt-free in **${months} months** (about ${years} years). Keep it up! Every extra dollar shortens this time drastically.`
            : `Mantendo esse pagamento, você estará 100% livre dessa dívida em **${months} meses** (cerca de ${years} anos). Continue firme! Pagar qualquer valor a mais encurta esse relógio drasticamente.`);
        }
+    }
+
+    if (calcId === 'auto_loan_br') {
+      const parcela = results.parcelaMensal || 0;
+      const jurosTotais = results.jurosTotais || 0;
+      const custoTotal = results.custoEfetivoVeiculo || 0;
+      const fipeInicial = parseFloat(inputs.valorVeiculo) || 0;
+      const fipeFinal = results.valorFipeFinal || 0;
+      const entrada = parseFloat(inputs.entrada) || 0;
+      const prazo = parseInt(inputs.prazoMeses, 10) || 48;
+      const breakEven = results.mesIdealParaTroca || prazo;
+
+      const jurosFmt = formatOutput('jurosTotais', jurosTotais);
+      const custoFmt = formatOutput('custoEfetivoVeiculo', custoTotal);
+      const fipeInicialFmt = formatOutput('valorFipeFinal', fipeInicial);
+      const fipeFinalFmt = formatOutput('valorFipeFinal', fipeFinal);
+      const percentualJuros = fipeInicial > 0 ? ((jurosTotais / fipeInicial) * 100).toFixed(0) : '0';
+      const perdaDeprec  = fipeInicial - fipeFinal;
+      const perdaDeprecFmt = formatOutput('valorFipeFinal', perdaDeprec);
+      const entradaPercent = fipeInicial > 0 ? ((entrada / fipeInicial) * 100).toFixed(0) : '0';
+
+      // Insight 1 — O Custo Real (Perigo da entrada baixa)
+      if (Number(entradaPercent) < 20) {
+        insights.push(`🚨 **Atenção: Entrada abaixo de 20%!** Você está dando apenas **${entradaPercent}%** de entrada. Ao retirar um carro 0KM da concessionária, a FIPE já perde mais de **10% instantaneamente** no emplacamento. Isso significa que seu banco é o verdadeiro "dono" do carro nos primeiros meses, e você é dono somente da dívida.`);
+      }
+
+      // Insight 2 — O preço escondido dos juros
+      if (jurosTotais > 0) {
+        insights.push(`💸 **Os Juros Custam ${percentualJuros}% do Carro!** Em ${prazo} parcelas, você vai pagar ${jurosFmt} apenas de juros para o banco. Isso é o equivalente a comprar **${percentualJuros}%** de um carro novo do nada — uma perda invisível que a concessionária nunca mostra na proposta.`);
+      }
+
+      // Insight 3 — Custo total vs FIPE
+      insights.push(`💰 **O Preço Real do Carro é ${custoFmt}.** Somando entrada + todas as parcelas, o pagamento total é **${custoFmt}**, muito maior que os ${fipeInicialFmt} da tabela FIPE. A loja te vende o "carro dos sonhos", mas a matemática revela que você está comprando um carro que encolheu dentro do contrato.`);
+
+      // Insight 4 — Depreciação FIPE
+      if (perdaDeprec > 0) {
+        insights.push(`📉 **Seu carro perderá ${perdaDeprecFmt} em valor.** Ao final do contrato, o valor FIPE estimado cai de ${fipeInicialFmt} para aproximadamente ${fipeFinalFmt}. Enquanto você paga para o banco, o carro desvaloriza por conta própria — é você e o banco remando o barco afundando juntos.`);
+      }
+
+      // Insight 5 — O gráfico e o break-even
+      insights.push(`📊 **Leia o Gráfico de Linhas acima!** A linha vermelha é sua dívida com o banco, descendo devagar. A linha roxa é o valor do seu carro na FIPE, caindo mais rápido. Enquanto a linha vermelha estiver ACIMA da roxa, seu carro vale MENOS do que você deve. Somente quando a linha roxa ultrapassar a vermelha (aproximadamente no mês **${breakEven}**) é que você pode vender o carro e quitar a dívida com o banco sem colocar dinheiro do próprio bolso.`);
+
+      // Insight 6 — Estratégia de amortização
+      insights.push(`🔥 **A Estratégia Anti-Banco:** Use dinheiro extra (13°, férias, bônus) para amortizar o saldo devedor antecipadamente. Cada real amortizado no principal reduz os juros futuros compostos drasticamente — e adianta o mês do ponto de virada no gráfico, dando a você mais liberdade para trocar o carro antes.`);
     }
 
     return insights.length > 0 ? insights : null;
