@@ -31,6 +31,10 @@
   "chart_type": "comparison",
   "formula_explanation": "O ROI mede a proporção do lucro líquido em relação ao custo total do investimento inicial, obtendo uma porcentagem universalmente compreendida.",
   "example": "Gastar R$ 5.000 em uma campanha de marketing que gera R$ 6.500 em novas vendas cria um lucro de R$ 1.500, entregando um sólido ROI de 30%.",
+  "youtube_embed": {
+    "video_id": "3yTD6XTr4UY",
+    "title": "ROI na prática: entenda de vez o Retorno sobre Investimento"
+  },
   "faq": [
     {
       "question": "O que é um bom ROI?",

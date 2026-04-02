@@ -10,6 +10,7 @@ import { AdUnit } from '@/components/ads/AdUnit';
 import { CalculatorClientWrapper } from '@/components/calculator/CalculatorClientWrapper';
 import { SourcesBlock } from '@/components/calculator/SourcesBlock';
 import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
+import { YouTubeEmbed } from '@/components/ui/YouTubeEmbed';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -161,8 +162,17 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
             </p>
           </div>
 
-          {/* Sources and Validity Block (E-E-A-T) */}
+          {/* sources */}
           <SourcesBlock sources={data.reference_sources} lang={lang as 'en' | 'pt'} />
+
+          {/* YouTube embed (data-driven — add youtube_embed field to any calculator JSON) */}
+          {data.youtube_embed && (
+            <YouTubeEmbed
+              videoId={data.youtube_embed.video_id}
+              title={data.youtube_embed.title}
+              lang={lang}
+            />
+          )}
 
           {/* FAQ */}
           {data.faq && <FAQ items={data.faq} title={lang === 'pt' ? 'Perguntas Frequentes' : 'Frequently Asked Questions'} />}
