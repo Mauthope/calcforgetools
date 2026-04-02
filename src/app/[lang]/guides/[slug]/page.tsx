@@ -138,6 +138,13 @@ export default async function GuidePage({ params }: { params: Promise<{ lang: st
                       <span className="leading-relaxed text-sm" dangerouslySetInnerHTML={{ __html: block.text || block.value || '' }}></span>
                     </div>
                   );
+                case 'image':
+                  return (
+                    <figure key={idx} className="my-8 rounded-xl overflow-hidden shadow-sm border border-[var(--color-border)]">
+                      <img src={block.url} alt={block.caption || 'Guide illustration'} className="w-full object-cover" />
+                      {block.caption && <figcaption className="p-3 text-center text-sm text-[var(--color-text-secondary)] bg-slate-50 border-t border-[var(--color-border)]" dangerouslySetInnerHTML={{ __html: block.caption }}></figcaption>}
+                    </figure>
+                  );
                 case 'list':
                   return (
                     <ul key={idx} className="list-disc pl-6 mb-8 text-[var(--color-text-secondary)] space-y-3">

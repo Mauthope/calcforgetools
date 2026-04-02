@@ -1,7 +1,7 @@
 {
   "slug": "inflacao-ovo-de-pascoa",
-  "meta_title": "Inflação do Ovo de Páscoa {{CURRENT_YEAR}} | Análise Econômica de Preços",
-  "meta_description": "O Guia Definitivo da Economia do Chocolate em {{CURRENT_YEAR}}. Entenda o impacto da Shrinkflation, cacau e inflação acumulada no preço de {{EASTER_EGG_PRICE}}.",
+  "meta_title": "Preço do Ovo de Páscoa {{CURRENT_YEAR}}: Por que chocolate oval é tão caro?",
+  "meta_description": "Entenda a distribuição de carga tributária e a inflação cruzada (Shrinkflation). Custo de impostos vs Cacau na composição de preços até {{CURRENT_YEAR}}.",
   "hero": {
     "title": "A Inflação Inexorável do Ovo de Páscoa em {{CURRENT_YEAR}}",
     "subtitle": "Por que o seu chocolate em formato oval no ano de {{CURRENT_YEAR}} quebrou barreiras de preços astronômicas atingindo a média de {{EASTER_EGG_PRICE}}."
@@ -35,6 +35,32 @@
     },
     {
       "type": "heading",
+      "text": "Para Onde Vai o Seu Dinheiro? O Raio-X dos Custos"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ao pegar uma embalagem temática caríssima e levá-la ao caixa, o consumidor está automaticamente sendo o contribuinte final de uma cadeia logística asfixiante. A lenda popular diz que 'o imposto é metade do ovo'. A verdade é um pouco mais metódica, mas não menos dolorosa. De acordo com os últimos boletins do IBPT (Instituto Brasileiro de Planejamento e Tributação), os tributos em níveis estaduais e federais incidem em cascata desde a fazenda de cacau até o ar condicionado do hipermercado."
+    },
+    {
+      "type": "image",
+      "url": "/images/guides/easter_egg_tax_pie.png",
+      "caption": "Distribuição Contábil das Cargas: O cacau que você efetivamente consome é apenas a ponta do iceberg do preço nominal."
+    },
+    {
+      "type": "paragraph",
+      "text": "Se desmontarmos um Ovo de Páscoa padrão de <strong>{{EASTER_EGG_PRICE}}</strong>, eis a distribuição oficial dos blocos que devoram seu dinheiro, deixando claro que o chocolate em si é a menor das suas despesas:"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<strong>A Mordida Estatal (38,5%):</strong> Quase quarenta por cento do preço evapora no instante da compra na forma de IPI, ICMS (estadual inflacionado), PIS e COFINS.",
+        "<strong>Marketing Corporativo e Varejo (~25%):</strong> Royalties pagos pela marca licenciada estampada na casca (princesas, super-heróis, personagens), além da gigantesca margem de lucro que os hipermercados exigem para ceder o espaço super-inflacionado da 'parreira'.",
+        "<strong>Logística do Vazio e Plástico (~20%):</strong> Transportar ovos exige caminhões refrigerados rodando a 15 graus com baús tomados por... Ar. Como os ovos são ocos e as embalagens robustas com berços plásticos anti-estilhaço, o custo final da viagem infla brutalmente comparado ao das barras empilhadas.",
+        "<strong>O Cacau e Leite de Fato (~16,5%):</strong> É apenas esta a fatia dedicada à matéria-prima crua que você imaginou estar comprando."
+      ]
+    },
+    {
+      "type": "heading",
       "text": "A Força Invisível: 'Shrinkflation' (Reduflação)"
     },
     {
@@ -53,18 +79,6 @@
         ["Caixa de Bombom", "250g", "R$ 13.50", "R$ 54,00 / Kg"],
         ["Ovo de Páscoa Comercial", "250g", "{{EASTER_EGG_PRICE}}", "<strong>+ de R$ 200,00 / Kg</strong>"]
       ]
-    },
-    {
-      "type": "paragraph",
-      "text": "A tabela oblitera o apelo emocional com frieza algébrica. Ao comprar um ovo da exata mesma marca e da exata mesma composição percentual de manteiga de cacau versus a barra, você está efetivamente pagando triplicado simplesmente por causa do molde oco de plástico da linha automotizada de produção de ovos."
-    },
-    {
-      "type": "heading",
-      "text": "O Peso Tributário e Logístico (A Quebra Oculta)"
-    },
-    {
-      "type": "paragraph",
-      "text": "Existe um motivo matemático para que o molde oco seja tão asfixiantemente caro: Transporte de ar. Caminhões refrigerados viajam pelo país limitados não pelo peso em toneladas, mas pelo volume volumétrico (cubagem) do baú baiano. Caixas de barra de chocolate são blocos densos de empilhamento perfeito. As caixas de transporte de Ovos de Páscoa carregam volumes aterrorizantes de ar morto e requires plásticos anti-impacto (berços de PVC). Em resumo, no ano de {{CURRENT_YEAR}}, você está pagando o frete caríssimo de transportar Ar Refrigerado das fábricas até a prateleira do hipermercado."
     },
     {
       "type": "heading",
