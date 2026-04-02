@@ -319,19 +319,95 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const x = parseFloat(inputs.valueX) || 0;
       const y = parseFloat(inputs.valueY) || 0;
 
+      const fmt = (n: number) => new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 4 }).format(n);
+      const fmtPct = (n: number) => n.toFixed(2) + '%';
+
       if (type === 'x_of_y') {
+        // X% of Y
         const resultVal = (x / 100) * y;
-        result.calculationResult = resultVal;
-        result.finalAmount = y + resultVal; // Contextual addition
-        result.discountAmount = y - resultVal; // Contextual subtraction
+        result.calculationResult = resultVal;           // X% de Y
+        result.finalAmount = y + resultVal;             // Y + aumento
+        result.discountAmount = y - resultVal;          // Y - desconto
+        result.chalk_steps = [
+          {
+            label: 'Converter a porcentagem',
+            expression: `${fmt(x)}% ÷ 100`,
+            result: fmt(x / 100),
+          },
+          {
+            label: `Multiplicar pelo valor base`,
+            expression: `${fmt(x / 100)} × ${fmt(y)}`,
+            result: fmt(resultVal),
+          },
+          {
+            label: `→ ${fmt(x)}% de ${fmt(y)} vale`,
+            expression: `(${fmt(x)} ÷ 100) × ${fmt(y)}`,
+            result: fmt(resultVal),
+            highlight: true,
+          },
+          {
+            label: 'Se for DESCONTO — valor final',
+            expression: `${fmt(y)} - ${fmt(resultVal)}`,
+            result: fmt(y - resultVal),
+          },
+          {
+            label: 'Se for AUMENTO — valor final',
+            expression: `${fmt(y)} + ${fmt(resultVal)}`,
+            result: fmt(y + resultVal),
+          },
+        ];
       } else if (type === 'x_is_what_percent_of_y') {
+        // X is what % of Y
         const resultVal = y !== 0 ? (x / y) * 100 : 0;
         result.percentageResult = resultVal;
+        result.chalk_steps = [
+          {
+            label: 'Dividir a parte pelo total',
+            expression: `${fmt(x)} ÷ ${fmt(y)}`,
+            result: fmt(y !== 0 ? x / y : 0),
+          },
+          {
+            label: 'Multiplicar por 100 para obter %',
+            expression: `(${fmt(x)} ÷ ${fmt(y)}) × 100`,
+            result: fmtPct(resultVal),
+            highlight: true,
+          },
+          {
+            label: 'Interpretação',
+            expression: `${fmt(x)} é <strong>${fmtPct(resultVal)}</strong> de ${fmt(y)}`,
+            result: '✔',
+          },
+        ];
       } else if (type === 'percentage_change') {
+        // % change from X to Y
         const diff = y - x;
         const resultVal = x !== 0 ? (diff / Math.abs(x)) * 100 : 0;
         result.percentageChange = resultVal;
         result.absoluteDifference = diff;
+        const direction = diff >= 0 ? '↑ AUMENTO' : '↓ QUEDA';
+        result.chalk_steps = [
+          {
+            label: 'Calcular a diferença absoluta',
+            expression: `${fmt(y)} - ${fmt(x)}`,
+            result: (diff >= 0 ? '+' : '') + fmt(diff),
+          },
+          {
+            label: 'Dividir pelo valor inicial',
+            expression: `${fmt(diff)} ÷ ${fmt(Math.abs(x))}`,
+            result: fmt(x !== 0 ? diff / Math.abs(x) : 0),
+          },
+          {
+            label: 'Multiplicar por 100 para obter %',
+            expression: `(${fmt(diff)} ÷ ${fmt(Math.abs(x))}) × 100`,
+            result: (resultVal >= 0 ? '+' : '') + fmtPct(resultVal),
+            highlight: true,
+          },
+          {
+            label: `Resultado: ${direction}`,
+            expression: `De ${fmt(x)} para ${fmt(y)}`,
+            result: (resultVal >= 0 ? '+' : '') + fmtPct(resultVal),
+          },
+        ];
       }
       break;
     }

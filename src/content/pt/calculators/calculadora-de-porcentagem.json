@@ -3,11 +3,11 @@
   "calculator_id": "percentage",
   "slug": "calculadora-de-porcentagem",
   "title": "Calculadora de Porcentagem",
-  "meta_title": "Calculadora de Porcentagem | Descubra Descontos e Aumentos",
-  "meta_description": "Nossa calculadora interativa de porcentagem permite que você descubra rapidamente quanto é X% de Y, calcule diferenças exatas, margens de lucro e valores finais.",
+  "meta_title": "Calculadora de Porcentagem | Descontos, Aumentos e Variações",
+  "meta_description": "Calculadora de porcentagem grátis e instantânea: calcule X% de Y, descubra o aumento ou queda entre dois preços, ou saiba qual percentual uma parte representa do total. Passo a passo visual explicado.",
   "hero": {
     "title": "Calculadora de Porcentagem",
-    "subtitle": "Descubra valores percentuais exatos, calcule descontos em produtos na hora, ou meça o aumento geral de um preço instantaneamente."
+    "subtitle": "Informe os valores e veja a lógica completa do cálculo passo a passo, como se um professor estivesse na lousa explicando para você."
   },
   "inputs": [
     {
@@ -32,13 +32,13 @@
     },
     {
       "name": "valueX",
-      "label": "Variável X",
+      "label": "X — A porcentagem (%) ou a parte menor",
       "type": "number",
       "defaultValue": 20
     },
     {
       "name": "valueY",
-      "label": "Variável Y",
+      "label": "Y — O valor base / total",
       "type": "number",
       "defaultValue": 150
     }

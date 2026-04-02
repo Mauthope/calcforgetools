@@ -12,6 +12,7 @@ import { SmartInsight } from '@/components/ui/SmartInsight';
 import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
 import { Check, Share2, FileSpreadsheet, Send, MessageCircle } from 'lucide-react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { ChalkboardCalculation } from '@/components/ui/ChalkboardCalculation';
 
 interface CalculatorClientWrapperProps {
   config: any;
@@ -786,8 +787,16 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                 </div>
               )}
 
-              {/* Chart */}
-              {chartData && (
+              {/* Chalkboard (percentage calculator) OR Chart */}
+              {config.calculator_id === 'percentage' && results.chalk_steps ? (
+                <div className="mt-4">
+                  <ChalkboardCalculation
+                    steps={results.chalk_steps}
+                    title={lang === 'pt' ? 'Passo a Passo' : 'Step by Step'}
+                    lang={lang}
+                  />
+                </div>
+              ) : chartData ? (
                 <div className="apple-card p-6 lg:p-8 mt-4">
                    <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-6">
                      {lang === 'en' ? 'Visual Projection' : 'Projeção Visual'}
@@ -800,7 +809,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                      />
                    </div>
                 </div>
-              )}
+              ) : null}
 
               {/* Mathematical Transparency Block */}
               <div className="apple-card p-5 lg:p-6 mt-4 bg-slate-50/80 border-slate-200">
