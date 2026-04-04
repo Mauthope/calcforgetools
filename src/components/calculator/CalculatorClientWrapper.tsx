@@ -833,6 +833,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                       value={inputs[input.name] || ''}
                       onChange={handleChange}
                       options={input.options || []}
+                      tooltip={input.tooltip}
                     />
                   ) : input.type === 'date' ? (
                     <InputField
@@ -841,6 +842,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                       type="date"
                       value={inputs[input.name] === undefined ? '' : inputs[input.name]}
                       onChange={handleChange}
+                      tooltip={input.tooltip}
                     />
                   ) : (
                     <InputField
@@ -851,6 +853,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                       value={inputs[input.name] === undefined ? '' : inputs[input.name]}
                       onChange={handleChange}
                       className={input.name === 'extraPayment' ? "border-blue-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 bg-white shadow-inner font-semibold text-blue-900 placeholder:text-blue-300 bg-opacity-90" : ""}
+                      tooltip={input.tooltip}
                     />
                   )}
                 </div>
@@ -861,8 +864,19 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
               type="submit" 
               className={`mt-2 w-full text-base py-3 transition-all duration-300 shadow-[0_8px_30px_rgb(0,122,255,0.2)]`}
             >
-               {lang === 'en' ? 'Save Simulation & Get Report' : 'Salvar Dados e Obter Relatório'}
+               {lang === 'en' ? 'Save Simulation & Get Report' : 'Simular Agora'}
             </PrimaryButton>
+
+            {results && !results.error && Object.keys(results).length > 0 && (
+              <button 
+                type="button"
+                onClick={() => window.print()} 
+                className="print:hidden w-full mt-2 text-blue-700 bg-blue-100/80 hover:bg-blue-200 border border-blue-200 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-base font-bold transition-all shadow-sm"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                {lang === 'pt' ? 'Exportar como PDF' : 'Export to PDF'}
+              </button>
+            )}
             </form>
 
             {/* Post-Save Upsell Dashboard */}
@@ -959,10 +973,6 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
               {/* Results Grid with Print Action Header */}
               <div className="flex justify-between items-center mb-1">
                 <h3 className="text-xl font-bold">{lang === 'pt' ? 'Resultados Finais' : 'Overview'}</h3>
-                <button onClick={() => window.print()} className="print:hidden text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-                  {lang === 'pt' ? 'Salvar PDF' : 'Print PDF'}
-                </button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 print:grid-cols-3">

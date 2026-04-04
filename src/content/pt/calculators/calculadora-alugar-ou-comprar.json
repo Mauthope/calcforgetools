@@ -24,7 +24,8 @@
         { "label": "Distrito Federal (DF)", "value": "DF" },
         { "label": "Outros Estados / Média Nacional", "value": "BR" }
       ],
-      "defaultValue": "SP"
+      "defaultValue": "SP",
+      "tooltip": "Carrega automaticamente o histórico médio de inflação de aluguel e valorização de imóveis do FipeZAP para o seu estado. Você pode alterar os valores manualmente abaixo se quiser."
     },
     {
       "name": "propertyValue",
@@ -36,19 +37,22 @@
       "name": "downPayment",
       "label": "Entrada Financeira Própria (R$)",
       "type": "number",
-      "defaultValue": 100000
+      "defaultValue": 100000,
+      "tooltip": "O dinheiro que sairá do seu bolso ou da sua conta bancária hoje para a compra do imóvel."
     },
     {
       "name": "fgtsBalance",
       "label": "Saldo do FGTS Usado na Entrada (R$)",
       "type": "number",
-      "defaultValue": 0
+      "defaultValue": 0,
+      "tooltip": "Você pode usar seu saldo retido do FGTS para abater a dívida. O simulador considera que, se você alugar, esse dinheiro ficará preso rendendo apenas 3% ao ano + TR."
     },
     {
       "name": "itbiPercent",
       "label": "Taxa de ITBI, Escritura e Cartório (%)",
       "type": "number",
-      "defaultValue": 5
+      "defaultValue": 5,
+      "tooltip": "Inclui ITBI (Imposto de Transmissão), taxas de cartório, registro e despachante. Costuma girar entre 4% a 6% do valor total da casa no Brasil."
     },
     {
       "name": "amortizationSystem",
@@ -58,7 +62,8 @@
         { "label": "Tabela SAC (Parcelas Decrescentes)", "value": "SAC" },
         { "label": "Tabela PRICE (Parcelas Fixas)", "value": "PRICE" }
       ],
-      "defaultValue": "SAC"
+      "defaultValue": "SAC",
+      "tooltip": "SAC (Sistema de Amortização Constante): Parcelas começam altas e diminuem com o tempo. \nPRICE: Parcelas fixas do início ao fim, mas você paga muito mais juros."
     },
     {
       "name": "loanRate",
@@ -70,7 +75,8 @@
       "name": "mipDfiInsurance",
       "label": "Seguros Obrigatórios MIP/DFI (% ao ano sobre o saldo)",
       "type": "number",
-      "defaultValue": 0.5
+      "defaultValue": 0.5,
+      "tooltip": "MIP (Morte e Invalidez Permanente) e DFI (Danos Físicos ao Imóvel) são seguros cobrados compulsoriamente junto à parcela. Costumam encarecer o financiamento em até 0,5% aa."
     },
     {
       "name": "loanTermYears",
@@ -88,25 +94,29 @@
       "name": "rentIncrease",
       "label": "Reajuste Anual do Aluguel (IPCA/IGP-M %)",
       "type": "number",
-      "defaultValue": 4.5
+      "defaultValue": 4.5,
+      "tooltip": "Média anual de aumento do aluguel (geralmente ligado ao IPCA ou IGP-M)."
     },
     {
       "name": "propertyAppreciation",
       "label": "Valorização Anual do Imóvel (%)",
       "type": "number",
-      "defaultValue": 4.0
+      "defaultValue": 4.0,
+      "tooltip": "A taxa média histórica de valorização de imóveis na sua região (o Índice FipeZAP nacional gira em torno de 4% a 5% a.a. nos últimos 10 anos)."
     },
     {
       "name": "investmentReturn",
       "label": "Rendimento Líquido de Investimentos/Poupança (% ao ano)",
       "type": "number",
-      "defaultValue": 8.5
+      "defaultValue": 8.5,
+      "tooltip": "Se você não comprar a casa, onde o dinheiro da Entrada ficará investido? (Ex: Tesouro Selic, CDB a 100% do CDI, LCI). Coloque a taxa anual já livre de Imposto de Renda."
     },
     {
       "name": "maintenancePct",
       "label": "Custos Anuais do Proprietário (IPTU/Condomínio %)",
       "type": "number",
-      "defaultValue": 1.5
+      "defaultValue": 1.5,
+      "tooltip": "Custo anual estimado (em % do valor do imóvel) que o dono gasta com grandes reformas estruturais, taxa extra de condomínio, seguro e vacância vacâncias. Inquilino não tem esse prejuízo."
     },
     {
       "name": "horizonYears",

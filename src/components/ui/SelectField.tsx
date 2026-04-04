@@ -1,5 +1,6 @@
 import React, { SelectHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
+import { Info } from 'lucide-react';
 
 export interface SelectOption {
   value: string;
@@ -10,16 +11,26 @@ export interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement
   label: string;
   options: SelectOption[];
   error?: string;
+  tooltip?: string;
 }
 
 export const SelectField = React.forwardRef<HTMLSelectElement, SelectFieldProps>(
-  ({ className, label, options, error, ...props }, ref) => {
+  ({ className, label, options, error, tooltip, ...props }, ref) => {
     const id = props.id || props.name;
 
     return (
       <div className="flex flex-col gap-1.5 w-full">
-        <label htmlFor={id} className="text-sm font-medium text-[var(--color-text-primary)]">
+        <label htmlFor={id} className="text-sm font-medium text-[var(--color-text-primary)] flex items-center gap-1.5 group relative w-fit">
           {label}
+          {tooltip && (
+            <div className="text-blue-500 cursor-help z-50">
+              <Info className="w-4 h-4" />
+              <div className="absolute left-0 bottom-full mb-2 w-64 bg-slate-800 text-white text-xs rounded-lg p-2.5 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none font-normal">
+                {tooltip}
+                <div className="absolute left-4 top-full w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-transparent border-t-slate-800"></div>
+              </div>
+            </div>
+          )}
         </label>
         <div className="relative">
           <select

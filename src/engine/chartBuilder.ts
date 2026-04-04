@@ -6,7 +6,7 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
       return buildCompoundInterestChart(inputs, lang);
     case 'loan':
       return buildLoanAmortizationChart(inputs, results, lang);
-    case 'rent_vs_buy_br_stacked': {
+    case 'rent_vs_buy_br': {
       if (!results.rentVsBuyTimeline) return null;
       const tl = results.rentVsBuyTimeline;
       const cross = results.crossoverYear || 0;
