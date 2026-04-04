@@ -87,3 +87,23 @@
     padding: 0 !important;
   }
 }
+
+@media print {
+  /* Hide UI elements that are not part of the report */
+  header, footer, nav, aside, [role="navigation"] {
+    display: none !important;
+  }
+  
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure background colors and gradients are printed */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

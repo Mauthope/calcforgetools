@@ -6,33 +6,74 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
       return buildCompoundInterestChart(inputs, lang);
     case 'loan':
       return buildLoanAmortizationChart(inputs, results, lang);
-    case 'rent_vs_buy': {
+    case 'rent_vs_buy_br_stacked': {
       if (!results.rentVsBuyTimeline) return null;
       const tl = results.rentVsBuyTimeline;
       const cross = results.crossoverYear || 0;
       return {
         type: 'line',
-        labels: tl.map((r: any) => `${lang === 'en' ? 'Year' : 'Ano'} ${r.year}`),
+        labels: tl.map((r: any) => `Ano ${r.year}`),
         datasets: [
           {
-            label: lang === 'en' ? 'Buyer Equity (Home Value − Mortgage)' : 'Patrimônio do Comprador (Imóvel − Dívida)',
-            data: tl.map((r: any) => r.buyEquity),
-            borderColor: 'rgba(52, 199, 89, 1)',
-            backgroundColor: 'rgba(52, 199, 89, 0.08)',
-            fill: true,
-            tension: 0.4,
-            pointRadius: 0,
-            borderWidth: 2.5,
-          },
-          {
-            label: lang === 'en' ? 'Renter Wealth (Investments)' : 'Patrimônio do Inquilino (Investimentos)',
+            label: 'Patrimônio do Inquilino',
             data: tl.map((r: any) => r.rentWealth),
             borderColor: 'rgba(0, 122, 255, 1)',
-            backgroundColor: 'rgba(0, 122, 255, 0.08)',
+            backgroundColor: 'transparent',
+            type: 'line',
+            borderWidth: 3,
+            tension: 0.4,
+            order: 1 // drawn on top
+          },
+          {
+            label: 'Patrimônio do Comprador',
+            data: tl.map((r: any) => r.buyEquity),
+            borderColor: 'rgba(52, 199, 89, 1)',
+            backgroundColor: 'transparent',
+            type: 'line',
+            borderWidth: 3,
+            tension: 0.4,
+            order: 2 // drawn on top
+          },
+          // Now the stacked composition of Buying Costs
+          {
+            label: 'Custo: ITBI',
+            data: tl.map((r: any) => r.stackItbi),
+            borderColor: 'transparent',
+            backgroundColor: 'rgba(255, 149, 0, 0.4)', // Orange
             fill: true,
             tension: 0.4,
             pointRadius: 0,
-            borderWidth: 2.5,
+            order: 6
+          },
+          {
+            label: 'Custo: Manutenção Anual',
+            data: tl.map((r: any) => r.stackMaintenance),
+            borderColor: 'transparent',
+            backgroundColor: 'rgba(255, 59, 48, 0.4)', // Red
+            fill: '-1',
+            tension: 0.4,
+            pointRadius: 0,
+            order: 5
+          },
+          {
+            label: 'Custo: Juros e Seguros',
+            data: tl.map((r: any) => r.stackInterest),
+            borderColor: 'transparent',
+            backgroundColor: 'rgba(175, 82, 222, 0.4)', // Purple
+            fill: '-1',
+            tension: 0.4,
+            pointRadius: 0,
+            order: 4
+          },
+          {
+            label: 'Amortização (Principal Pg)',
+            data: tl.map((r: any) => r.stackAmortization),
+            borderColor: 'transparent',
+            backgroundColor: 'rgba(52, 199, 89, 0.2)', // Green light
+            fill: '-1',
+            tension: 0.4,
+            pointRadius: 0,
+            order: 3
           }
         ],
         crossoverYear: cross,

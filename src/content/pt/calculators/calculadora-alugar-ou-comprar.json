@@ -1,77 +1,121 @@
 {
   "category": "financial",
-  "calculator_id": "rent_vs_buy",
+  "calculator_id": "rent_vs_buy_br",
   "slug": "calculadora-alugar-ou-comprar",
-  "title": "Calculadora: Alugar ou Comprar Imóvel?",
-  "meta_title": "Alugar ou Comprar Imóvel? Calculadora com Gráfico de Cruzamento | CalcForgeTools",
-  "meta_description": "Descubra matematicamente em quantos anos comprar supera alugar. Gráfico de cruzamento mostra o ponto exato de virada. Simulação com valorização do imóvel, rendimento da poupança e custos ocultos.",
+  "title": "Calculadora: Alugar ou Comprar (Avançada Brasil)",
+  "meta_title": "Alugar ou Comprar Imóvel no Brasil? Simulador Avançado ITBI e FGTS",
+  "meta_description": "A calculadora definitiva para o mercado imobiliário brasileiro. Simule SAC vs Price, ITBI, consórcios, valorização FipeZAP, e abates com FGTS na decisão entre alugar e comprar.",
   "hero": {
-    "title": "Alugar ou Comprar Imóvel?",
-    "subtitle": "A resposta que todo corretor esconde: depende de quanto tempo você pretende ficar. Veja no gráfico o exato ano em que comprar começa a valer mais a pena."
+    "title": "Consultor Digital: Alugar ou Comprar?",
+    "subtitle": "Não caia em regras de bolso. Descubra ano a ano o ponto exato de virada no mercado brasileiro considerando ITBI, uso do FGTS e amortização SAC."
   },
   "inputs": [
+    {
+      "name": "estadoFipezap",
+      "label": "Seu Estado (Base de Valorização Histórica FipeZAP)",
+      "type": "select",
+      "options": [
+        { "label": "São Paulo (SP)", "value": "SP" },
+        { "label": "Rio de Janeiro (RJ)", "value": "RJ" },
+        { "label": "Paraná (PR)", "value": "PR" },
+        { "label": "Santa Catarina (SC)", "value": "SC" },
+        { "label": "Minas Gerais (MG)", "value": "MG" },
+        { "label": "Rio Grande do Sul (RS)", "value": "RS" },
+        { "label": "Distrito Federal (DF)", "value": "DF" },
+        { "label": "Outros Estados / Média Nacional", "value": "BR" }
+      ],
+      "defaultValue": "SP"
+    },
     {
       "name": "propertyValue",
       "label": "Valor do Imóvel (R$)",
       "type": "number",
-      "defaultValue": 400000
+      "defaultValue": 500000
     },
     {
       "name": "downPayment",
-      "label": "Entrada (R$)",
+      "label": "Entrada Financeira Própria (R$)",
       "type": "number",
-      "defaultValue": 80000
+      "defaultValue": 100000
+    },
+    {
+      "name": "fgtsBalance",
+      "label": "Saldo do FGTS Usado na Entrada (R$)",
+      "type": "number",
+      "defaultValue": 0
+    },
+    {
+      "name": "itbiPercent",
+      "label": "Taxa de ITBI, Escritura e Cartório (%)",
+      "type": "number",
+      "defaultValue": 5
+    },
+    {
+      "name": "amortizationSystem",
+      "label": "Sistema de Amortização",
+      "type": "select",
+      "options": [
+        { "label": "Tabela SAC (Parcelas Decrescentes)", "value": "SAC" },
+        { "label": "Tabela PRICE (Parcelas Fixas)", "value": "PRICE" }
+      ],
+      "defaultValue": "SAC"
     },
     {
       "name": "loanRate",
-      "label": "Taxa de Juros do Financiamento (% ao ano)",
+      "label": "Taxa Efetiva de Juros do Financiamento (% ao ano)",
       "type": "number",
       "defaultValue": 9.5
     },
     {
+      "name": "mipDfiInsurance",
+      "label": "Seguros Obrigatórios MIP/DFI (% ao ano sobre o saldo)",
+      "type": "number",
+      "defaultValue": 0.5
+    },
+    {
       "name": "loanTermYears",
-      "label": "Prazo do Financiamento (anos)",
+      "label": "Prazo do Financiamento (Anos)",
       "type": "number",
       "defaultValue": 30
     },
     {
       "name": "monthlyRent",
-      "label": "Aluguel Mensal Atual (R$)",
+      "label": "Aluguel Mensal Atual do Imóvel (R$)",
       "type": "number",
-      "defaultValue": 2000
+      "defaultValue": 2500
     },
     {
       "name": "rentIncrease",
-      "label": "Reajuste Anual do Aluguel (% — geralmente IGP-M ou IPCA)",
+      "label": "Reajuste Anual do Aluguel (IPCA/IGP-M %)",
       "type": "number",
-      "defaultValue": 5
+      "defaultValue": 4.5
     },
     {
       "name": "propertyAppreciation",
       "label": "Valorização Anual do Imóvel (%)",
       "type": "number",
-      "defaultValue": 4
+      "defaultValue": 4.0
     },
     {
       "name": "investmentReturn",
-      "label": "Rendimento da Poupança/CDB se Alugar (% ao ano líquido)",
+      "label": "Rendimento Líquido de Investimentos/Poupança (% ao ano)",
       "type": "number",
-      "defaultValue": 8
+      "defaultValue": 8.5
     },
     {
       "name": "maintenancePct",
-      "label": "Custo Anual de Manutenção do Imóvel (% do valor — IPTU, condomínio, reparos)",
+      "label": "Custos Anuais do Proprietário (IPTU/Condomínio %)",
       "type": "number",
       "defaultValue": 1.5
     },
     {
       "name": "horizonYears",
-      "label": "Horizonte de Análise (anos que pretende morar ali)",
+      "label": "Tempo Desejado no Imóvel (Anos)",
       "type": "number",
-      "defaultValue": 20
+      "defaultValue": 15
     }
   ],
-  "formula": "Custo Compra = Entrada + Parcelas + Manutenção − Valorização | Custo Aluguel = Σ Aluguéis − Rendimento do Capital",
+  "formula": "Comprar = ITBI + Σ(Parcelas + Seguros + Manutenção) − Valorização | Alugar = Σ(Aluguéis Infacionados) − Rendimento(Entrada + Economias)",
   "outputs": [
     "totalCostBuy",
     "totalCostRent",
@@ -80,56 +124,52 @@
     "rentWealth",
     "bestOption"
   ],
-  "chart_type": "rent_vs_buy",
-  "formula_explanation": "A calculadora compara dois cenários ao longo do tempo: (1) COMPRAR — você paga entrada, parcelas mensais com juros, manutenção (IPTU, condomínio, reparos), mas constrói patrimônio com a valorização do imóvel. (2) ALUGAR — você paga aluguel crescente todos os meses, mas investe a diferença (entrada + economia mensal) num rendimento como CDB ou poupança. O gráfico mostra quando o patrimônio líquido da compra ultrapassa o patrimônio do aluguel investido.",
-  "example": "Um imóvel de R$ 400.000 com entrada de R$ 80.000 financiado em 30 anos a 9,5% a.a. gera parcelas de ~R$ 2.688. Se o aluguel equivalente é R$ 2.000 com reajuste de 5% ao ano, e você investe a diferença a 8% a.a., comprar só vale mais que alugar a partir do 8° ano de moradia.",
+  "chart_type": "rent_vs_buy_br_stacked",
+  "formula_explanation": "Esta calculadora simula a realidade brasileira com altíssima precisão. Ela considera que, ao comprar, você gasta cerca de 5% imediatamente com ITBI e escritura. Os seguros MIP/DFI obrigatórios são adicionados às parcelas. No modo SAC, as parcelas caem, liberando espaço no orçamento futuro. O inquilino aproveita as altas taxas nominais de juros do Brasil (Selic) para render seu dinheiro com mais força que no exterior, mas sofre com o reajuste anual do aluguel.",
+  "example": "Comprar um imóvel de R$500 mil à vista exige R$25 mil só de ITBI/Escritório. Financiá-lo pelo SAC diminui os juros totais, mas as primeiras parcelas são muito mais pesadas que o aluguel, o que faz com que o 'Cruzamento de Vantagem' atrase no Brasil.",
   "faq": [
     {
-      "question": "Qual é a regra geral para decidir entre alugar e comprar?",
-      "answer": "Se você planeja ficar no imóvel por mais de 5-8 anos, comprar tende a ser melhor. Se vai ficar menos de 5 anos, alugar e investir a diferença é geralmente mais vantajoso. Mas depende de cada cenário — use a calculadora."
+      "question": "Por que o modelo do Brasil é diferente do genérico?",
+      "answer": "No Brasil, temos altas taxas de juros (puxadas pela Selic), o que torna a aplicação financeira do Inquilino muito mais vantajosa que nos EUA. Em contrapartida, as parcelas decrescentes do SAC diminuem a dívida do comprador mais rápido. Além disso, impostos de transferência (ITBI e cartórios) comem de 4% a 6% do valor de imediato num fluxo de caixa que não retorna."
     },
     {
-      "question": "O que é o 'ponto de cruzamento' no gráfico?",
-      "answer": "É o ano em que o patrimônio líquido de quem comprou (valor do imóvel já pago menos saldo devedor) ultrapassa o patrimônio de quem alugou (reserva acumulada em investimentos). Antes desse ponto, alugar era melhor. Depois dele, comprar vence."
+      "question": "Vale a pena usar o FGTS?",
+      "answer": "Geralmente sim! O FGTS rende historicamente apenas 3% ao ano mais TR, mal batendo a inflação, enquanto os juros do financiamento chegam a 10%. Retirar esse dinheiro parado e usar na entrada diminui enormemente a dívida e as prestações."
     },
     {
-      "question": "Por que incluir a manutenção do imóvel?",
-      "answer": "Proprietários pagam IPTU, condomínio, seguros e reparos que inquilinos não pagam. Esses custos somados geralmente ficam entre 1% e 2% do valor do imóvel por ano e fazem muita diferença no longo prazo."
-    },
-    {
-      "question": "E se eu comprar à vista?",
-      "answer": "Coloque o valor total do imóvel como Entrada e deixe o prazo em 0. A calculadora entenderá que não há parcelas, mas considerará o custo de oportunidade (o rendimento que esse dinheiro daria investido)."
+      "question": "E se eu quiser comprar à vista?",
+      "answer": "Coloque R$0 no FGTS e preencha a 'Entrada' com o valor total do imóvel. O simulador ignorará os juros bancários e computará corretamente o 'Custo de Oportunidade' dessa montanha de dinheiro que deixou de render na sua conta."
     }
   ],
   "related_tools": [
     {
-      "title": "Calculadora de Financiamento Imobiliário",
-      "href": "/pt/calculators/calculadora-de-financiamento-da-minha-casa",
-      "description": "Simule parcelas e compare SAC vs Price."
+      "title": "Simulador SAC vs PRICE Avançado",
+      "href": "/pt/calculators/simulador-sacre-sam",
+      "description": "Estude detalhadamente a diferença no fluxo das prestações e o juro final pago em cada tabela."
     },
     {
-      "title": "Calculadora de Juros Compostos",
-      "href": "/pt/calculators/calculadora-de-juros-compostos",
-      "description": "Veja como o investimento da diferença cresce no tempo."
+      "title": "Calculadora de Compra de Carro Brasileiro",
+      "href": "/pt/calculators/calculadora-de-financiamento-de-veiculos",
+      "description": "Aprenda quando a linha FIPE cruza com sua dívida ao banco."
     }
   ],
   "related_guides": [
     {
-      "title": "Financiamento Taxa Fixa ou Variável?",
-      "href": "/pt/guides/financiamento-taxa-fixa-vs-variavel",
-      "description": "Entenda qual modalidade de taxa é melhor para o seu perfil."
+      "title": "O que ninguém te conta sobre o CET",
+      "href": "/pt/guides/o-que-e-cet-custo-efetivo-total",
+      "description": "Veja como os seguros MIP e DFI engolem seu dinheiro."
     }
   ],
   "reference_sources": [
     {
-      "name": "Banco Central do Brasil (BACEN)",
-      "url": "https://www.bcb.gov.br/",
-      "law_article": "Taxas de Financiamento Imobiliário"
+      "name": "Índice FipeZAP",
+      "url": "https://www.fipe.org.br/",
+      "date": "Série Histórica Nacional"
     },
     {
-      "name": "Índice FipeZAP de Preços Imobiliários",
-      "url": "https://www.fipe.org.br/",
-      "date": "Série Histórica"
+      "name": "Caixa Econômica Federal",
+      "url": "https://www.caixa.gov.br/",
+      "law_article": "Regras de uso do FGTS"
     }
   ]
 }

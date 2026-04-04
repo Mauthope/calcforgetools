@@ -13,7 +13,6 @@ export const ptToEnSlugMap: Record<string, string> = {
   'calculadora-de-roi': 'roi-calculator',
   'simulador-cet': 'cet-simulator',
   'simulador-sacre-sam': 'amortization-comparison-calculator',
-  'calculadora-alugar-ou-comprar': 'rent-vs-buy-calculator',
   // Mathematical Calculators
   'calculadora-regra-de-tres': 'rule-of-three-calculator',
   // Financial Guides

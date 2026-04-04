@@ -314,10 +314,14 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
-    case 'rent_vs_buy': {
+    case 'rent_vs_buy_br': {
       const propVal = parseFloat(inputs.propertyValue) || 0;
-      const down = parseFloat(inputs.downPayment) || 0;
+      const downCash = parseFloat(inputs.downPayment) || 0;
+      const fgts = parseFloat(inputs.fgtsBalance) || 0;
+      const itbiPct = (parseFloat(inputs.itbiPercent) || 0) / 100;
+      const amortSys = inputs.amortizationSystem || 'SAC';
       const loanRateAnnual = (parseFloat(inputs.loanRate) || 0) / 100;
+      const mipDfiAnnual = (parseFloat(inputs.mipDfiInsurance) || 0) / 100;
       const termYears = parseInt(inputs.loanTermYears) || 30;
       const monthlyRent0 = parseFloat(inputs.monthlyRent) || 0;
       const rentIncr = (parseFloat(inputs.rentIncrease) || 0) / 100;
@@ -326,86 +330,127 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const maintPct = (parseFloat(inputs.maintenancePct) || 0) / 100;
       const horizon = parseInt(inputs.horizonYears) || 20;
 
-      // --- BUY SIDE ---
-      const loanPrincipal = propVal - down;
+      const fgtsReturn = 0.04; // 3% + TR approx
+      const itbiCost = propVal * itbiPct;
+      
+      // Total loan amount after down payments
+      const totalDown = downCash + fgts;
+      // Cash buy override: if total Down >= propVal, loan is 0.
+      const loanPrincipal = Math.max(0, propVal - totalDown);
+
       const monthlyRate = loanRateAnnual / 12;
+      const mipDfiMonthly = mipDfiAnnual / 12;
       const totalPayments = termYears * 12;
 
-      // Price table monthly payment
-      let monthlyPayment = 0;
-      if (loanPrincipal > 0 && monthlyRate > 0 && totalPayments > 0) {
-        monthlyPayment = loanPrincipal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments))
+      // Price table fixed monthly payment (calc once)
+      let priceMonthlyPayment = 0;
+      if (amortSys === 'PRICE' && loanPrincipal > 0 && monthlyRate > 0 && totalPayments > 0) {
+        priceMonthlyPayment = loanPrincipal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments))
           / (Math.pow(1 + monthlyRate, totalPayments) - 1);
       }
 
-      // Year-by-year simulation
-      const timeline: { year: number; buyEquity: number; rentWealth: number }[] = [];
-      let balance = loanPrincipal; // remaining mortgage
-      let currentPropVal = propVal;
-      let totalBuyCost = down;
+      const sacAmortization = totalPayments > 0 ? loanPrincipal / totalPayments : 0;
 
-      // --- RENT SIDE ---
-      let renterWealth = down; // renter invests the down payment
+      // Simulation timeline
+      const timeline: { year: number; buyEquity: number; rentWealth: number; stackAmortization: number; stackInterest: number; stackMaintenance: number; stackItbi: number }[] = [];
+      
+      // --- BUY STATE ---
+      let balance = loanPrincipal;
+      let currentPropVal = propVal;
+      let totalAmortizationPaid = totalDown;
+      let totalInterestPaid = 0;
+      let totalMaintenancePaid = 0;
+
+      // --- RENT STATE ---
+      // Renter only has access to the cash they didn't spend on down payment + ITBI
+      let renterCashInvested = downCash + itbiCost;
+      // Renter's FGTS stays in the fund
+      let renterFgtsVal = fgts; 
       let currentRent = monthlyRent0;
       let totalRentCost = 0;
 
-      let crossoverYear = 0; // 0 = never within horizon
+      let crossoverYear = 0;
       let buyerAhead = false;
 
       for (let y = 1; y <= horizon; y++) {
-        // BUY: 12 months of payments
+        // 12 months passing
         let yearPayments = 0;
+        let yearInterest = 0;
+        let yearAmortization = 0;
+        let yearInsurance = 0;
+
         for (let m = 0; m < 12; m++) {
           if (balance > 0) {
-            const interestPart = balance * monthlyRate;
-            const principalPart = monthlyPayment - interestPart;
-            balance = Math.max(0, balance - principalPart);
-            yearPayments += monthlyPayment;
+            const interest = balance * monthlyRate;
+            const insurance = balance * mipDfiMonthly;
+            let principal = 0;
+            
+            if (amortSys === 'SAC') {
+              principal = sacAmortization;
+            } else {
+              principal = priceMonthlyPayment - interest;
+            }
+
+            // Cap principal to remaining balance
+            if (principal > balance) principal = balance;
+
+            balance -= principal;
+            yearPayments += (principal + interest + insurance);
+            yearInterest += interest;
+            yearAmortization += principal;
+            yearInsurance += insurance;
           }
         }
-        // Maintenance cost for the year
+
         const maintenance = currentPropVal * maintPct;
-        totalBuyCost += yearPayments + maintenance;
+        
+        totalAmortizationPaid += yearAmortization;
+        totalInterestPaid += yearInterest + yearInsurance; // combining insurance into "interest/fees" cost
+        totalMaintenancePaid += maintenance;
 
-        // Property appreciation at end of year
         currentPropVal *= (1 + propAppr);
-
-        // Buyer equity = current property value − remaining loan
         const buyEquity = currentPropVal - balance;
 
-        // RENT: 12 months of rent + invest savings
-        let yearRent = 0;
-        for (let m = 0; m < 12; m++) {
-          yearRent += currentRent;
-        }
+        // RENT 12 months
+        let yearRent = currentRent * 12;
         totalRentCost += yearRent;
 
-        // Renter monthly savings: difference between buyer's cost and rent
-        const buyerMonthly = (yearPayments + maintenance) / 12;
-        const renterSavings = buyerMonthly > currentRent ? (buyerMonthly - currentRent) * 12 : 0;
+        // Savings: buyer out-of-pocket (payments + maintenance) minus rent
+        const buyerMonthlyCost = (yearPayments + maintenance) / 12;
+        const renterSavings = buyerMonthlyCost > currentRent ? (buyerMonthlyCost - currentRent) * 12 : 0;
+        // If rent is more expensive than buying, renter draws from investments (negative savings)
+        const renterDeficit = currentRent > buyerMonthlyCost ? (currentRent - buyerMonthlyCost) * 12 : 0;
 
-        // Renter applies investment return to existing wealth + adds savings
-        renterWealth = renterWealth * (1 + invReturn) + renterSavings;
-
-        // Rent increases at end of year
+        renterCashInvested = renterCashInvested * (1 + invReturn) + renterSavings - renterDeficit;
+        renterFgtsVal *= (1 + fgtsReturn);
+        
         currentRent *= (1 + rentIncr);
 
-        timeline.push({ year: y, buyEquity: Math.round(buyEquity), rentWealth: Math.round(renterWealth) });
+        // Assume total wealth = Cash Invested + FGTS
+        const rentWealth = renterCashInvested + renterFgtsVal;
 
-        // Crossover detection
-        if (!buyerAhead && buyEquity > renterWealth) {
+        timeline.push({ 
+          year: y, 
+          buyEquity: Math.round(buyEquity), 
+          rentWealth: Math.round(rentWealth),
+          stackAmortization: Math.round(totalAmortizationPaid),
+          stackInterest: Math.round(totalInterestPaid),
+          stackMaintenance: Math.round(totalMaintenancePaid),
+          stackItbi: Math.round(itbiCost)
+        });
+
+        if (!buyerAhead && buyEquity > rentWealth) {
           crossoverYear = y;
           buyerAhead = true;
         }
       }
 
-      result.totalCostBuy = Math.round(totalBuyCost);
+      result.totalCostBuy = Math.round(totalAmortizationPaid + totalInterestPaid + totalMaintenancePaid + itbiCost);
       result.totalCostRent = Math.round(totalRentCost);
       result.crossoverYear = crossoverYear;
       result.buyEquity = Math.round(currentPropVal - balance);
-      result.rentWealth = Math.round(renterWealth);
-      result.bestOption = (currentPropVal - balance) > renterWealth ? 'COMPRAR' : 'ALUGAR';
-      result.monthlyPayment = Math.round(monthlyPayment);
+      result.rentWealth = Math.round(renterCashInvested + renterFgtsVal);
+      result.bestOption = result.buyEquity > result.rentWealth ? 'COMPRAR' : 'ALUGAR';
       result.rentVsBuyTimeline = timeline;
       break;
     }

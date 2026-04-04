@@ -49,6 +49,26 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     const { name, value } = e.target;
     setInputs(prev => {
       const newInputs = { ...prev, [name]: value };
+
+      // Auto-population for FipeZAP Geolocation mock
+      if (name === 'estadoFipezap') {
+         const estado = value;
+         const fipeMock: Record<string, { rent: string, appr: string}> = {
+           'SP': { rent: '5.2', appr: '4.8' },
+           'RJ': { rent: '4.5', appr: '3.5' },
+           'PR': { rent: '6.5', appr: '5.2' },
+           'SC': { rent: '8.0', appr: '7.5' },
+           'MG': { rent: '5.0', appr: '4.0' },
+           'RS': { rent: '4.0', appr: '3.0' },
+           'DF': { rent: '4.8', appr: '4.2' },
+           'BR': { rent: '5.0', appr: '4.5' },
+         };
+         if (fipeMock[estado]) {
+           newInputs.rentIncrease = fipeMock[estado].rent;
+           newInputs.propertyAppreciation = fipeMock[estado].appr;
+         }
+      }
+
       calculate(newInputs); // Real-time Unicorn Studio reactive UX
       return newInputs;
     });
@@ -694,36 +714,39 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
         );
         insights.push(
           lang === 'pt'
-            ? `📚 **Exemplo clássico de escola:** 5 máquinas em 4 horas produzem 200 peças. 8 máquinas em 6 horas produzem? Máquinas: direta (mais máquinas = mais peças). Horas: direta (mais horas = mais peças). X = 200 × (8/5) × (6/4) = **480 peças**. Use essa lógica!`
-            : `📚 **Classic school example:** 5 machines in 4 hours produce 200 parts. What do 8 machines in 6 hours produce? Machines: direct. Hours: direct. X = 200 × (8/5) × (6/4) = **480 parts**. Follow this same logic!`
+            ? `📚 **Exemplo clássico de escola:** 5 máquinas em 4 horas produzem 200 peças. Quantas peças 10 máquinas produzem em 8 horas? A conta vira uma mistura de frações. O resultado isola a dúvida final.`
+            : `📚 **Classic school example:** 5 machines in 4 hours produce 200 parts. How many parts do 10 machines make in 8 hours? The math becomes a mix of fractions. The result isolates the final unknown.`
         );
       }
     }
 
-    if (calcId === 'rent_vs_buy') {
+    if (calcId === 'rent_vs_buy_br') {
       const cross = results.crossoverYear || 0;
       const horizon = inputs.horizonYears || 20;
 
       if (cross > 0) {
         insights.push(
           lang === 'pt'
-            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas verde e azul se cruzam exatamente no **ano ${cross}**. Isso significa que se você morar na casa por mais de ${cross} anos, você termina mais rico comprando. Se for se mudar antes disso, alugar e investir a diferença no banco daria mais lucro.`
-            : `🏆 **The Break-Even Point:** Look at the chart! The green and blue lines cross exactly at **year ${cross}**. This means if you stay in the house for more than ${cross} years, you end up wealthier buying. If you move out before that, renting and investing the difference would be better.`
+            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas verde e azul se cruzam exatamente no **ano ${cross}**. Isso significa que se você morar na casa por mais de ${cross} anos, comprar com amortização ${inputs.amortizationSystem || 'SAC'} vence matemática e vira patrimônio. Se for se mudar antes, alugar dá mais lucro.`
+            : `🏆 **The Break-Even Point:** Look at the chart! The green and blue lines cross exactly at **year ${cross}**. This means if you stay in the house longer than that, you end up wealthier buying.`
         );
       } else {
         insights.push(
           lang === 'pt'
-            ? `⚠️ **Nem sempre comprar é melhor:** Neste cenário (em ${horizon} anos), alugar e investir a diferença foi mais vantajoso o tempo todo. Isso acontece porque o juro do financiamento está comendo todo o lucro, enquanto a poupança do inquilino está rendendo limpo.`
-            : `⚠️ **Renting Wins:** In this ${horizon}-year scenario, renting and investing the difference remained better the whole time. This happens because high mortgage interest eats up the buyer's profits, while the renter's investments compound cleanly.`
+            ? `⚠️ **Neste cenário, alugar venceu:** Para um horizonte de ${horizon} anos, investir a diferença superou a compra. Por quê? A Taxa de ITBI, Manutenção e Juros corroeram o patrimônio mais rápido do que a valorização do imóvel.`
+            : `⚠️ **Renting Wins:** In this ${horizon}-year scenario, renting and investing the difference remained better the whole time.`
         );
+      }
+
+      if (Number(inputs.fgtsBalance) > 0) {
+        insights.push(lang === 'pt' ? `💰 **O Efeito FGTS:** Usar seu saldo do FGTS injetou combustível no patrimônio do comprador. Como o FGTS rende pouco parado, usá-lo na entrada diminui enormemente os juros perversos do financiamento.` : `💰 **FGTS Used:** You have successfully used your locked workforce funds to lower the principal.`);
       }
 
       insights.push(
         lang === 'pt'
-          ? `🧱 **Tijolos vs Banco (Explicado para uma criança):** O "Comprador" guarda seu dinheiro em formato de tijolos (a casa). O "Inquilino" paga pela moradia e guarda o que sobra em formato de números no banco. Qual carteira fica mais gorda? Depende de quem cresce mais rápido: o valor da casa ou os juros do banco.`
-          : `🧱 **Bricks vs Bank (Explained for a kid):** The "Buyer" stores their money in the shape of bricks (the home). The "Renter" pays for shelter and stores the leftover money as numbers in the bank. Whose wallet gets fatter? It depends on what grows faster: the value of the house, or the bank's compound interest.`
+          ? `🧱 **Tijolos vs Banco (Explicado para uma criança):** O "Comprador" guarda dinheiro em formato de tijolos. O "Inquilino" paga pela moradia e foca 100% no rendimento dos números no banco. Quem vence? Depende de quem crescer mais rápido: seu FipeZAP ou a Selic.`
+          : `🧱 **Bricks vs Bank:** The Buyer stores wealth in bricks, the Renter in bank numbers.`
       );
-
       insights.push(
         lang === 'pt'
           ? `🔧 **O Ralo Invisível:** Ao comprar, você para de pagar aluguel, mas começa a pagar o "aluguel do seu próprio dinheiro" (juros ao banco) e o "aluguel da casa" (IPTU, condomínio, consertos). O inquilino não tem essas dores de cabeça.`
@@ -740,7 +763,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
   return (
     <div className="w-full flex flex-col gap-6 lg:gap-8 relative">
       {/* Mobile Scroll Analytics Sidebar (Left Docked) */}
-      <div className="fixed top-[20vh] bottom-[20vh] left-[6px] w-2 z-50 lg:hidden pointer-events-none flex flex-col items-center opacity-90 transition-opacity duration-500">
+      <div className="fixed top-[20vh] bottom-[20vh] left-[6px] w-2 z-50 lg:hidden pointer-events-none flex flex-col items-center opacity-90 transition-opacity duration-500 print:hidden">
         {/* Start Anchor */}
         <div className="w-1.5 h-1.5 rounded-full bg-[#00c6ff] shadow-[0_0_10px_rgba(0,198,255,0.9)] z-20 shrink-0" />
         
@@ -790,7 +813,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       )}
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
         {/* Inputs Column */}
-        <ScrollReveal direction="up" className="w-full lg:w-1/3 shrink-0">
+        <ScrollReveal direction="up" className="w-full lg:w-1/3 shrink-0 print:hidden">
         <div className="flex flex-col gap-6 w-full">
           <div className="apple-card p-5 lg:p-6 w-full">
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -933,8 +956,16 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
         ) : (
           Object.keys(results).length > 0 && (
             <>
-              {/* Results Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+              {/* Results Grid with Print Action Header */}
+              <div className="flex justify-between items-center mb-1">
+                <h3 className="text-xl font-bold">{lang === 'pt' ? 'Resultados Finais' : 'Overview'}</h3>
+                <button onClick={() => window.print()} className="print:hidden text-blue-600 bg-blue-50 hover:bg-blue-100 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                  {lang === 'pt' ? 'Salvar PDF' : 'Print PDF'}
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 print:grid-cols-3">
                 {config.outputs?.map((outKey: string, idx: number) => {
                    if(results[outKey] === undefined) return null;
                    return (
@@ -943,6 +974,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                        title={formatOutputLabel(outKey)}
                        value={formatOutput(outKey, results[outKey])}
                        highlight={idx === 0} // highlight the first primary result
+                       className={(outKey === 'bestOption' && results[outKey] === 'COMPRAR') ? 'bg-green-100/50 text-green-900 border-green-200' : (outKey === 'bestOption' && results[outKey] === 'ALUGAR') ? 'bg-blue-100/50 text-blue-900 border-blue-200' : ''}
                      />
                    );
                 })}
