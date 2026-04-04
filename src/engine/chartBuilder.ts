@@ -6,6 +6,38 @@ export function buildChartData(calcId: string, inputs: Record<string, any>, resu
       return buildCompoundInterestChart(inputs, lang);
     case 'loan':
       return buildLoanAmortizationChart(inputs, results, lang);
+    case 'rent_vs_buy': {
+      if (!results.rentVsBuyTimeline) return null;
+      const tl = results.rentVsBuyTimeline;
+      const cross = results.crossoverYear || 0;
+      return {
+        type: 'line',
+        labels: tl.map((r: any) => `${lang === 'en' ? 'Year' : 'Ano'} ${r.year}`),
+        datasets: [
+          {
+            label: lang === 'en' ? 'Buyer Equity (Home Value − Mortgage)' : 'Patrimônio do Comprador (Imóvel − Dívida)',
+            data: tl.map((r: any) => r.buyEquity),
+            borderColor: 'rgba(52, 199, 89, 1)',
+            backgroundColor: 'rgba(52, 199, 89, 0.08)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 0,
+            borderWidth: 2.5,
+          },
+          {
+            label: lang === 'en' ? 'Renter Wealth (Investments)' : 'Patrimônio do Inquilino (Investimentos)',
+            data: tl.map((r: any) => r.rentWealth),
+            borderColor: 'rgba(0, 122, 255, 1)',
+            backgroundColor: 'rgba(0, 122, 255, 0.08)',
+            fill: true,
+            tension: 0.4,
+            pointRadius: 0,
+            borderWidth: 2.5,
+          }
+        ],
+        crossoverYear: cross,
+      };
+    }
     case 'cdb_lci':
       return {
         type: 'bar',

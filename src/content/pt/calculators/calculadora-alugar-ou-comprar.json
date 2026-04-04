@@ -1,0 +1,135 @@
+{
+  "category": "financial",
+  "calculator_id": "rent_vs_buy",
+  "slug": "calculadora-alugar-ou-comprar",
+  "title": "Calculadora: Alugar ou Comprar Imóvel?",
+  "meta_title": "Alugar ou Comprar Imóvel? Calculadora com Gráfico de Cruzamento | CalcForgeTools",
+  "meta_description": "Descubra matematicamente em quantos anos comprar supera alugar. Gráfico de cruzamento mostra o ponto exato de virada. Simulação com valorização do imóvel, rendimento da poupança e custos ocultos.",
+  "hero": {
+    "title": "Alugar ou Comprar Imóvel?",
+    "subtitle": "A resposta que todo corretor esconde: depende de quanto tempo você pretende ficar. Veja no gráfico o exato ano em que comprar começa a valer mais a pena."
+  },
+  "inputs": [
+    {
+      "name": "propertyValue",
+      "label": "Valor do Imóvel (R$)",
+      "type": "number",
+      "defaultValue": 400000
+    },
+    {
+      "name": "downPayment",
+      "label": "Entrada (R$)",
+      "type": "number",
+      "defaultValue": 80000
+    },
+    {
+      "name": "loanRate",
+      "label": "Taxa de Juros do Financiamento (% ao ano)",
+      "type": "number",
+      "defaultValue": 9.5
+    },
+    {
+      "name": "loanTermYears",
+      "label": "Prazo do Financiamento (anos)",
+      "type": "number",
+      "defaultValue": 30
+    },
+    {
+      "name": "monthlyRent",
+      "label": "Aluguel Mensal Atual (R$)",
+      "type": "number",
+      "defaultValue": 2000
+    },
+    {
+      "name": "rentIncrease",
+      "label": "Reajuste Anual do Aluguel (% — geralmente IGP-M ou IPCA)",
+      "type": "number",
+      "defaultValue": 5
+    },
+    {
+      "name": "propertyAppreciation",
+      "label": "Valorização Anual do Imóvel (%)",
+      "type": "number",
+      "defaultValue": 4
+    },
+    {
+      "name": "investmentReturn",
+      "label": "Rendimento da Poupança/CDB se Alugar (% ao ano líquido)",
+      "type": "number",
+      "defaultValue": 8
+    },
+    {
+      "name": "maintenancePct",
+      "label": "Custo Anual de Manutenção do Imóvel (% do valor — IPTU, condomínio, reparos)",
+      "type": "number",
+      "defaultValue": 1.5
+    },
+    {
+      "name": "horizonYears",
+      "label": "Horizonte de Análise (anos que pretende morar ali)",
+      "type": "number",
+      "defaultValue": 20
+    }
+  ],
+  "formula": "Custo Compra = Entrada + Parcelas + Manutenção − Valorização | Custo Aluguel = Σ Aluguéis − Rendimento do Capital",
+  "outputs": [
+    "totalCostBuy",
+    "totalCostRent",
+    "crossoverYear",
+    "buyEquity",
+    "rentWealth",
+    "bestOption"
+  ],
+  "chart_type": "rent_vs_buy",
+  "formula_explanation": "A calculadora compara dois cenários ao longo do tempo: (1) COMPRAR — você paga entrada, parcelas mensais com juros, manutenção (IPTU, condomínio, reparos), mas constrói patrimônio com a valorização do imóvel. (2) ALUGAR — você paga aluguel crescente todos os meses, mas investe a diferença (entrada + economia mensal) num rendimento como CDB ou poupança. O gráfico mostra quando o patrimônio líquido da compra ultrapassa o patrimônio do aluguel investido.",
+  "example": "Um imóvel de R$ 400.000 com entrada de R$ 80.000 financiado em 30 anos a 9,5% a.a. gera parcelas de ~R$ 2.688. Se o aluguel equivalente é R$ 2.000 com reajuste de 5% ao ano, e você investe a diferença a 8% a.a., comprar só vale mais que alugar a partir do 8° ano de moradia.",
+  "faq": [
+    {
+      "question": "Qual é a regra geral para decidir entre alugar e comprar?",
+      "answer": "Se você planeja ficar no imóvel por mais de 5-8 anos, comprar tende a ser melhor. Se vai ficar menos de 5 anos, alugar e investir a diferença é geralmente mais vantajoso. Mas depende de cada cenário — use a calculadora."
+    },
+    {
+      "question": "O que é o 'ponto de cruzamento' no gráfico?",
+      "answer": "É o ano em que o patrimônio líquido de quem comprou (valor do imóvel já pago menos saldo devedor) ultrapassa o patrimônio de quem alugou (reserva acumulada em investimentos). Antes desse ponto, alugar era melhor. Depois dele, comprar vence."
+    },
+    {
+      "question": "Por que incluir a manutenção do imóvel?",
+      "answer": "Proprietários pagam IPTU, condomínio, seguros e reparos que inquilinos não pagam. Esses custos somados geralmente ficam entre 1% e 2% do valor do imóvel por ano e fazem muita diferença no longo prazo."
+    },
+    {
+      "question": "E se eu comprar à vista?",
+      "answer": "Coloque o valor total do imóvel como Entrada e deixe o prazo em 0. A calculadora entenderá que não há parcelas, mas considerará o custo de oportunidade (o rendimento que esse dinheiro daria investido)."
+    }
+  ],
+  "related_tools": [
+    {
+      "title": "Calculadora de Financiamento Imobiliário",
+      "href": "/pt/calculators/calculadora-de-financiamento-da-minha-casa",
+      "description": "Simule parcelas e compare SAC vs Price."
+    },
+    {
+      "title": "Calculadora de Juros Compostos",
+      "href": "/pt/calculators/calculadora-de-juros-compostos",
+      "description": "Veja como o investimento da diferença cresce no tempo."
+    }
+  ],
+  "related_guides": [
+    {
+      "title": "Financiamento Taxa Fixa ou Variável?",
+      "href": "/pt/guides/financiamento-taxa-fixa-vs-variavel",
+      "description": "Entenda qual modalidade de taxa é melhor para o seu perfil."
+    }
+  ],
+  "reference_sources": [
+    {
+      "name": "Banco Central do Brasil (BACEN)",
+      "url": "https://www.bcb.gov.br/",
+      "law_article": "Taxas de Financiamento Imobiliário"
+    },
+    {
+      "name": "Índice FipeZAP de Preços Imobiliários",
+      "url": "https://www.fipe.org.br/",
+      "date": "Série Histórica"
+    }
+  ]
+}

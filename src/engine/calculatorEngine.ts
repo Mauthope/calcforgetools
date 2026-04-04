@@ -314,6 +314,102 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       break;
     }
 
+    case 'rent_vs_buy': {
+      const propVal = parseFloat(inputs.propertyValue) || 0;
+      const down = parseFloat(inputs.downPayment) || 0;
+      const loanRateAnnual = (parseFloat(inputs.loanRate) || 0) / 100;
+      const termYears = parseInt(inputs.loanTermYears) || 30;
+      const monthlyRent0 = parseFloat(inputs.monthlyRent) || 0;
+      const rentIncr = (parseFloat(inputs.rentIncrease) || 0) / 100;
+      const propAppr = (parseFloat(inputs.propertyAppreciation) || 0) / 100;
+      const invReturn = (parseFloat(inputs.investmentReturn) || 0) / 100;
+      const maintPct = (parseFloat(inputs.maintenancePct) || 0) / 100;
+      const horizon = parseInt(inputs.horizonYears) || 20;
+
+      // --- BUY SIDE ---
+      const loanPrincipal = propVal - down;
+      const monthlyRate = loanRateAnnual / 12;
+      const totalPayments = termYears * 12;
+
+      // Price table monthly payment
+      let monthlyPayment = 0;
+      if (loanPrincipal > 0 && monthlyRate > 0 && totalPayments > 0) {
+        monthlyPayment = loanPrincipal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments))
+          / (Math.pow(1 + monthlyRate, totalPayments) - 1);
+      }
+
+      // Year-by-year simulation
+      const timeline: { year: number; buyEquity: number; rentWealth: number }[] = [];
+      let balance = loanPrincipal; // remaining mortgage
+      let currentPropVal = propVal;
+      let totalBuyCost = down;
+
+      // --- RENT SIDE ---
+      let renterWealth = down; // renter invests the down payment
+      let currentRent = monthlyRent0;
+      let totalRentCost = 0;
+
+      let crossoverYear = 0; // 0 = never within horizon
+      let buyerAhead = false;
+
+      for (let y = 1; y <= horizon; y++) {
+        // BUY: 12 months of payments
+        let yearPayments = 0;
+        for (let m = 0; m < 12; m++) {
+          if (balance > 0) {
+            const interestPart = balance * monthlyRate;
+            const principalPart = monthlyPayment - interestPart;
+            balance = Math.max(0, balance - principalPart);
+            yearPayments += monthlyPayment;
+          }
+        }
+        // Maintenance cost for the year
+        const maintenance = currentPropVal * maintPct;
+        totalBuyCost += yearPayments + maintenance;
+
+        // Property appreciation at end of year
+        currentPropVal *= (1 + propAppr);
+
+        // Buyer equity = current property value − remaining loan
+        const buyEquity = currentPropVal - balance;
+
+        // RENT: 12 months of rent + invest savings
+        let yearRent = 0;
+        for (let m = 0; m < 12; m++) {
+          yearRent += currentRent;
+        }
+        totalRentCost += yearRent;
+
+        // Renter monthly savings: difference between buyer's cost and rent
+        const buyerMonthly = (yearPayments + maintenance) / 12;
+        const renterSavings = buyerMonthly > currentRent ? (buyerMonthly - currentRent) * 12 : 0;
+
+        // Renter applies investment return to existing wealth + adds savings
+        renterWealth = renterWealth * (1 + invReturn) + renterSavings;
+
+        // Rent increases at end of year
+        currentRent *= (1 + rentIncr);
+
+        timeline.push({ year: y, buyEquity: Math.round(buyEquity), rentWealth: Math.round(renterWealth) });
+
+        // Crossover detection
+        if (!buyerAhead && buyEquity > renterWealth) {
+          crossoverYear = y;
+          buyerAhead = true;
+        }
+      }
+
+      result.totalCostBuy = Math.round(totalBuyCost);
+      result.totalCostRent = Math.round(totalRentCost);
+      result.crossoverYear = crossoverYear;
+      result.buyEquity = Math.round(currentPropVal - balance);
+      result.rentWealth = Math.round(renterWealth);
+      result.bestOption = (currentPropVal - balance) > renterWealth ? 'COMPRAR' : 'ALUGAR';
+      result.monthlyPayment = Math.round(monthlyPayment);
+      result.rentVsBuyTimeline = timeline;
+      break;
+    }
+
     case 'rule_of_three': {
       const type = inputs.calcType || 'simples_direta';
       const a1 = parseFloat(inputs.a1) || 0;

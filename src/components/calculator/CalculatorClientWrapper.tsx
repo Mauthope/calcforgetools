@@ -156,7 +156,8 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
     // Time outputs — plain integer (no currency)
     if (lower.includes('month') || lower.includes('mês') || lower.includes('mes')
-        || lower.includes('year') || lower.includes('ano') || lower === 'enjoyeddays') {
+        || lower.includes('year') || lower.includes('ano') || lower === 'enjoyeddays'
+        || lower === 'crossoveryear') {
       return Math.round(val).toString();
     }
 
@@ -287,7 +288,14 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       sacreTotalPaid: "SACRE: Total Pago",
       sacreTotalInterest: "SACRE: Total de Juros",
       bestSystem: "Melhor Sistema",
-      savingsVsPrice: "Economia vs Price"
+      savingsVsPrice: "Economia vs Price",
+      // Rent vs Buy
+      totalCostBuy: "Custo Total da Compra",
+      totalCostRent: "Custo Total do Aluguel",
+      crossoverYear: "Ano do Cruzamento (Virada)",
+      buyEquity: "Patrimônio Comprador",
+      rentWealth: "Patrimônio Inquilino",
+      bestOption: "Melhor Opção"
     };
 
     const enLabels: Record<string, string> = {
@@ -390,7 +398,14 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       savingsVsPrice: "Savings vs Price",
       // Rule of Three
       resultX: "Unknown Value (X)",
-      ratio: "Proportion Ratio"
+      ratio: "Proportion Ratio",
+      // Rent vs Buy
+      totalCostBuy: "Total Buying Cost",
+      totalCostRent: "Total Renting Cost",
+      crossoverYear: "Crossover Year (Break-even)",
+      buyEquity: "Buyer's Equity",
+      rentWealth: "Renter's Wealth",
+      bestOption: "Best Option"
     };
 
     const labels = lang === 'pt' ? ptLabels : enLabels;
@@ -683,6 +698,37 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
             : `📚 **Classic school example:** 5 machines in 4 hours produce 200 parts. What do 8 machines in 6 hours produce? Machines: direct. Hours: direct. X = 200 × (8/5) × (6/4) = **480 parts**. Follow this same logic!`
         );
       }
+    }
+
+    if (calcId === 'rent_vs_buy') {
+      const cross = results.crossoverYear || 0;
+      const horizon = inputs.horizonYears || 20;
+
+      if (cross > 0) {
+        insights.push(
+          lang === 'pt'
+            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas verde e azul se cruzam exatamente no **ano ${cross}**. Isso significa que se você morar na casa por mais de ${cross} anos, você termina mais rico comprando. Se for se mudar antes disso, alugar e investir a diferença no banco daria mais lucro.`
+            : `🏆 **The Break-Even Point:** Look at the chart! The green and blue lines cross exactly at **year ${cross}**. This means if you stay in the house for more than ${cross} years, you end up wealthier buying. If you move out before that, renting and investing the difference would be better.`
+        );
+      } else {
+        insights.push(
+          lang === 'pt'
+            ? `⚠️ **Nem sempre comprar é melhor:** Neste cenário (em ${horizon} anos), alugar e investir a diferença foi mais vantajoso o tempo todo. Isso acontece porque o juro do financiamento está comendo todo o lucro, enquanto a poupança do inquilino está rendendo limpo.`
+            : `⚠️ **Renting Wins:** In this ${horizon}-year scenario, renting and investing the difference remained better the whole time. This happens because high mortgage interest eats up the buyer's profits, while the renter's investments compound cleanly.`
+        );
+      }
+
+      insights.push(
+        lang === 'pt'
+          ? `🧱 **Tijolos vs Banco (Explicado para uma criança):** O "Comprador" guarda seu dinheiro em formato de tijolos (a casa). O "Inquilino" paga pela moradia e guarda o que sobra em formato de números no banco. Qual carteira fica mais gorda? Depende de quem cresce mais rápido: o valor da casa ou os juros do banco.`
+          : `🧱 **Bricks vs Bank (Explained for a kid):** The "Buyer" stores their money in the shape of bricks (the home). The "Renter" pays for shelter and stores the leftover money as numbers in the bank. Whose wallet gets fatter? It depends on what grows faster: the value of the house, or the bank's compound interest.`
+      );
+
+      insights.push(
+        lang === 'pt'
+          ? `🔧 **O Ralo Invisível:** Ao comprar, você para de pagar aluguel, mas começa a pagar o "aluguel do seu próprio dinheiro" (juros ao banco) e o "aluguel da casa" (IPTU, condomínio, consertos). O inquilino não tem essas dores de cabeça.`
+          : `🔧 **The Invisible Drain:** When you buy, you stop paying rent to a landlord, but start paying "money rent" (interest to the bank) and "house rent" (property taxes, insurance, repairs). The renter doesn't have these headaches.`
+      );
     }
 
     return insights.length > 0 ? insights : null;
