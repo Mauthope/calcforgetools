@@ -329,6 +329,7 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       const invReturn = (parseFloat(inputs.investmentReturn) || 0) / 100;
       const maintPct = (parseFloat(inputs.maintenancePct) || 0) / 100;
       const horizon = parseInt(inputs.horizonYears) || 20;
+      const extraYearlyAmortization = parseFloat(inputs.extraYearlyAmortization) || 0;
 
       const fgtsReturn = 0.04; // 3% + TR approx
       const itbiCost = propVal * itbiPct;
@@ -400,6 +401,15 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
             yearAmortization += principal;
             yearInsurance += insurance;
           }
+        }
+
+        // Apply yearly extra amortization if balance > 0
+        if (balance > 0 && extraYearlyAmortization > 0) {
+          let extraAmort = extraYearlyAmortization;
+          if (extraAmort > balance) extraAmort = balance;
+          balance -= extraAmort;
+          yearAmortization += extraAmort;
+          yearPayments += extraAmort;
         }
 
         const maintenance = currentPropVal * maintPct;

@@ -85,6 +85,13 @@
       "defaultValue": 30
     },
     {
+      "name": "extraYearlyAmortization",
+      "label": "Amortização Anual Extra (R$)",
+      "type": "number",
+      "defaultValue": 0,
+      "tooltip": "Coloque aqui aquele dinheiro extra que você planeja injetar no banco todo fim de ano (como 13º salário, bônus ou FGTS extra) para matar a dívida mais rápido."
+    },
+    {
       "name": "monthlyRent",
       "label": "Aluguel Mensal Atual do Imóvel (R$)",
       "type": "number",

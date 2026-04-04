@@ -744,6 +744,12 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
       insights.push(
         lang === 'pt'
+          ? `📊 **Anatomia do Gráfico:** Este não é um gráfico comum! A linha **azul** mostra a riqueza total do Inquilino (rendas do dinheiro investido). A linha **verde** marca seu Patrimônio Líquido se comprasse. Porém, note as "ondas coloridas" subindo a partir de zero: elas representam a decomposição do dinheiro destruído pelo caminho (Impostos em laranja, Custos em vermelho, Juros/MIP em roxo e Amortizações em verde claro).`
+          : `📊 **Chart Anatomy:** The blue line shows renter wealth. The green line is the buyer's liquid equity. The colored waves underneath represent "destroyed wealth" (taxes, interest, maintenance). When green crosses blue, buying wins.`
+      );
+
+      insights.push(
+        lang === 'pt'
           ? `🧱 **Tijolos vs Banco (Explicado para uma criança):** O "Comprador" guarda dinheiro em formato de tijolos. O "Inquilino" paga pela moradia e foca 100% no rendimento dos números no banco. Quem vence? Depende de quem crescer mais rápido: seu FipeZAP ou a Selic.`
           : `🧱 **Bricks vs Bank:** The Buyer stores wealth in bricks, the Renter in bank numbers.`
       );
