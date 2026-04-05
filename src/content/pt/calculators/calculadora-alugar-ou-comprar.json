@@ -55,17 +55,6 @@
       "tooltip": "Inclui ITBI (Imposto de Transmissão), taxas de cartório, registro e despachante. Costuma girar entre 4% a 6% do valor total da casa no Brasil."
     },
     {
-      "name": "amortizationSystem",
-      "label": "Sistema de Amortização",
-      "type": "select",
-      "options": [
-        { "label": "Tabela SAC (Parcelas Decrescentes)", "value": "SAC" },
-        { "label": "Tabela PRICE (Parcelas Fixas)", "value": "PRICE" }
-      ],
-      "defaultValue": "SAC",
-      "tooltip": "SAC (Sistema de Amortização Constante): Parcelas começam altas e diminuem com o tempo. \nPRICE: Parcelas fixas do início ao fim, mas você paga muito mais juros."
-    },
-    {
       "name": "loanRate",
       "label": "Taxa Efetiva de Juros do Financiamento (% ao ano)",
       "type": "number",

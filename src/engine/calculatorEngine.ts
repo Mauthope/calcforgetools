@@ -432,6 +432,8 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
         const renterDeficit = currentRent > buyerMonthlyCost ? (currentRent - buyerMonthlyCost) * 12 : 0;
 
         renterCashInvested = renterCashInvested * (1 + invReturn) + renterSavings - renterDeficit;
+        if (renterCashInvested < 0) renterCashInvested = 0;
+        
         renterFgtsVal *= (1 + fgtsReturn);
         
         currentRent *= (1 + rentIncr);

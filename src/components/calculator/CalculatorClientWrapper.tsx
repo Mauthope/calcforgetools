@@ -727,7 +727,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       if (cross > 0) {
         insights.push(
           lang === 'pt'
-            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas verde e azul se cruzam exatamente no **ano ${cross}**. Isso significa que se você morar na casa por mais de ${cross} anos, comprar com amortização ${inputs.amortizationSystem || 'SAC'} vence matemática e vira patrimônio. Se for se mudar antes, alugar dá mais lucro.`
+            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas verde e azul se cruzam exatamente no **ano ${cross}**. Isso significa que se você morar na casa por mais de ${cross} anos, comprar com amortização SAC vence a matemática e vira patrimônio. Se for se mudar antes, alugar dá mais lucro.`
             : `🏆 **The Break-Even Point:** Look at the chart! The green and blue lines cross exactly at **year ${cross}**. This means if you stay in the house longer than that, you end up wealthier buying.`
         );
       } else {
