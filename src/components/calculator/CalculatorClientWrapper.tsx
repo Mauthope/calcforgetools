@@ -880,12 +880,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
               </React.Fragment>
             ))}
             
-            <PrimaryButton 
-              type="submit" 
-              className={`mt-2 w-full text-base py-3 transition-all duration-300 shadow-[0_8px_30px_rgb(0,122,255,0.2)]`}
-            >
-               {lang === 'en' ? 'Save Simulation & Get Report' : 'Simular Agora'}
-            </PrimaryButton>
+            {/* Calculate Button Removed */}
 
             {results && !results.error && Object.keys(results).length > 0 && (
               <button 
@@ -899,8 +894,8 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
             )}
             </form>
 
-            {/* Post-Save Upsell Dashboard */}
-            {hasSaved && (
+            {/* Post-Save Upsell Dashboard (Now always visible if results exist) */}
+            {results && !results.error && Object.keys(results).length > 0 && (
               <motion.div 
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
@@ -909,7 +904,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                 <div className="bg-green-50 border border-green-200 rounded-[var(--radius-apple)] p-5">
                   <h4 className="flex items-center gap-2 font-bold text-green-800 mb-2">
                     <Check className="w-5 h-5 text-green-600" /> 
-                    {lang === 'en' ? 'Simulation Saved Successfully!' : 'Simulação Salva com Sucesso!'}
+                    {lang === 'en' ? 'Simulation Completed!' : 'Simulação Concluída!'}
                   </h4>
                   <p className="text-sm text-green-700 mb-4 font-medium opacity-90">
                     {lang === 'en' ? 'What would you like to do next?' : 'O que você gostaria de fazer agora?'}
@@ -1001,13 +996,22 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
                    let displayValue = formatOutput(outKey, results[outKey]);
                    let displayLabel = formatOutputLabel(outKey);
+                   
+                   // Global cleanup for bestOption strings
+                   if (outKey === 'bestOption') {
+                     if (results[outKey] === 'buy' || results[outKey] === 'COMPRAR') {
+                       displayValue = lang === 'pt' ? 'COMPRAR' : 'BUY';
+                     } else if (results[outKey] === 'rent' || results[outKey] === 'ALUGAR') {
+                       displayValue = lang === 'pt' ? 'ALUGAR' : 'RENT';
+                     }
+                   }
 
                    // Custom cleanup for rent vs buy: Hide crossover heavily if renting wins long term
                    if (config.calculator_id === 'rent_vs_buy_br' && outKey === 'crossoverYear') {
                      const finalOption = results.bestOption === 'buy' || results.bestOption === 'COMPRAR' ? 'COMPRAR' : 'ALUGAR';
                      if (finalOption === 'ALUGAR') {
-                       displayValue = lang === 'pt' ? 'Inquilino venceu a longo prazo' : 'Renter won long term';
-                       displayLabel = lang === 'pt' ? 'Conclusão' : 'Conclusion';
+                       displayValue = lang === 'pt' ? 'Inquilino vence' : 'Renter wins';
+                       displayLabel = lang === 'pt' ? 'Longo Prazo' : 'Long Term';
                      }
                    }
 
