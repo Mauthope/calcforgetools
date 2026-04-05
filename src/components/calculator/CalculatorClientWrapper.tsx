@@ -845,7 +845,13 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
             {config.inputs.map((input: any) => (
               <React.Fragment key={input.name}>
                 {renderInlineInsight(input.name)}
-                <div className={input.name === 'extraPayment' ? "p-4 -mx-2 mt-2 mb-2 rounded-2xl bg-gradient-to-br from-blue-50/80 to-indigo-50/50 border border-blue-200/60 shadow-[0_4px_25px_rgba(0,122,255,0.15)] backdrop-blur-md transition-all duration-500 focus-within:shadow-[0_8px_30px_rgba(0,122,255,0.25)] ring-1 ring-blue-100" : ""}>
+                <div className={
+                  input.name === 'extraPayment' 
+                    ? "p-4 -mx-2 mt-2 mb-2 rounded-2xl bg-gradient-to-br from-blue-50/80 to-indigo-50/50 border border-blue-200/60 shadow-[0_4px_25px_rgba(0,122,255,0.15)] backdrop-blur-md transition-all duration-500 focus-within:shadow-[0_8px_30px_rgba(0,122,255,0.25)] ring-1 ring-blue-100" 
+                  : (input.name === 'propertyAppreciation' || input.name === 'investmentReturn') 
+                    ? "p-4 -mx-2 mt-2 mb-2 rounded-2xl bg-gradient-to-br from-amber-50/80 to-yellow-50/50 border border-amber-200/60 shadow-sm transition-all duration-300 focus-within:shadow-md ring-1 ring-amber-100"
+                  : ""
+                }>
                   {input.type === 'select' ? (
                     <SelectField
                       name={input.name}
@@ -872,7 +878,13 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                       step="any"
                       value={inputs[input.name] === undefined ? '' : inputs[input.name]}
                       onChange={handleChange}
-                      className={input.name === 'extraPayment' ? "border-blue-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 bg-white shadow-inner font-semibold text-blue-900 placeholder:text-blue-300 bg-opacity-90" : ""}
+                      className={
+                        input.name === 'extraPayment' 
+                          ? "border-blue-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 bg-white shadow-inner font-semibold text-blue-900 placeholder:text-blue-300 bg-opacity-90" 
+                        : (input.name === 'propertyAppreciation' || input.name === 'investmentReturn') 
+                          ? "border-amber-300 focus:border-amber-500 focus:ring-4 focus:ring-amber-500/20 bg-white shadow-inner font-bold text-amber-900 placeholder:text-amber-300"
+                        : ""
+                      }
                       tooltip={input.tooltip}
                     />
                   )}
@@ -933,12 +945,12 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                         </div>
                       ) : (
                         <>
-                          <div className="flex flex-col sm:flex-row gap-2 mt-1">
+                          <div className="flex flex-col gap-2 mt-2 w-full">
                             <input 
                               type="email" 
                               required 
                               placeholder={lang === 'en' ? 'Your best email...' : 'Seu melhor e-mail...'}
-                              className={`bg-gray-50 border ${emailError ? 'border-red-400' : 'border-gray-200'} focus:outline-none focus:border-blue-500 rounded-lg flex-1 text-sm py-2 px-3 transition-colors text-gray-800`}
+                              className={`bg-gray-50 border ${emailError ? 'border-red-400' : 'border-gray-200'} focus:outline-none focus:border-blue-500 rounded-lg w-full text-sm py-3 px-4 transition-colors text-gray-800`}
                               value={email}
                               onChange={(e) => {
                                 setEmail(e.target.value);
@@ -950,7 +962,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                               type="button" 
                               onClick={handleEmailSubmit}
                               disabled={isEmailSending}
-                              className={`bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-2 px-4 w-full sm:w-auto flex items-center justify-center transition-colors shadow-sm ${isEmailSending ? 'opacity-70 cursor-wait' : ''}`}
+                              className={`bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 px-4 w-full flex items-center justify-center transition-colors shadow-sm ${isEmailSending ? 'opacity-70 cursor-wait' : ''}`}
                             >
                               {isEmailSending ? (
                                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-1"></div>
