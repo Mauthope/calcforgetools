@@ -361,6 +361,7 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       let totalAmortizationPaid = totalDown;
       let totalInterestPaid = 0;
       let totalMaintenancePaid = 0;
+      let buyerCashInvested = 0; // Surplus cash from decreasing SAC payments
 
       // --- RENT STATE ---
       // Renter only has access to the cash they didn't spend on down payment + ITBI
@@ -412,33 +413,39 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
           yearPayments += extraAmort;
         }
 
-        const maintenance = currentPropVal * maintPct;
+        let maintenance = currentPropVal * maintPct;
+        if (y % 10 === 0) maintenance += currentPropVal * 0.02; // Choque decenal de reforma
         
         totalAmortizationPaid += yearAmortization;
         totalInterestPaid += yearInterest + yearInsurance; // combining insurance into "interest/fees" cost
         totalMaintenancePaid += maintenance;
 
         currentPropVal *= (1 + propAppr);
-        const buyEquity = currentPropVal - balance;
 
         // RENT 12 months
         let yearRent = currentRent * 12;
         totalRentCost += yearRent;
 
-        // Savings: buyer out-of-pocket (payments + maintenance) minus rent
-        const buyerMonthlyCost = (yearPayments + maintenance) / 12;
-        const renterSavings = buyerMonthlyCost > currentRent ? (buyerMonthlyCost - currentRent) * 12 : 0;
-        // If rent is more expensive than buying, renter draws from investments (negative savings)
-        const renterDeficit = currentRent > buyerMonthlyCost ? (currentRent - buyerMonthlyCost) * 12 : 0;
+        // Symmetric Capacity Model: both start with identical monthly financial strength
+        const buyerYearlyCost = yearPayments + maintenance;
+        const renterYearlyCost = yearRent;
+        const yearlyCapacity = Math.max(buyerYearlyCost, renterYearlyCost);
+        
+        const buyerSavings = yearlyCapacity - buyerYearlyCost;
+        const renterSavings = yearlyCapacity - renterYearlyCost;
 
-        renterCashInvested = renterCashInvested * (1 + invReturn) + renterSavings - renterDeficit;
-        if (renterCashInvested < 0) renterCashInvested = 0;
+        // Yield Net of IR (15% on profits)
+        const yieldRate = invReturn * 0.85;
+
+        renterCashInvested = renterCashInvested + (renterCashInvested * yieldRate) + renterSavings;
+        buyerCashInvested = buyerCashInvested + (buyerCashInvested * yieldRate) + buyerSavings;
         
         renterFgtsVal *= (1 + fgtsReturn);
         
         currentRent *= (1 + rentIncr);
 
-        // Assume total wealth = Cash Invested + FGTS
+        // 6% Broker fee applied to property value to find liquid equity on exit
+        const buyEquity = (currentPropVal * 0.94) - balance + buyerCashInvested;
         const rentWealth = renterCashInvested + renterFgtsVal;
 
         timeline.push({ 

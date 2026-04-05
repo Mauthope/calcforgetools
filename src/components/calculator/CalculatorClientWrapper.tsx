@@ -750,6 +750,12 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
       insights.push(
         lang === 'pt'
+          ? `⚖️ **Calculadora 100% Realista:** O nosso algoritmo pune quem aluga descontando 15% de IR sobre a rentabilidade dos investimentos. Porém, também pune quem compra retirando **6% do valor do imóvel** (comissão de corretagem padrão) na hora da possível venda, revelando a dura verdade sobre a liquidez de tijolos. Nota: O ganho de capital do imóvel está simulado como isento de IR (assumindo a compra de outro imóvel em 180 dias).`
+          : `⚖️ **100% Realistic Math:** Our algorithm takes 15% income tax off the renter's yields, but also slashes 6% broker fees off the buyer's liquid equity upon selling. Net wealth only.`
+      );
+
+      insights.push(
+        lang === 'pt'
           ? `🧱 **Tijolos vs Banco (Explicado para uma criança):** O "Comprador" guarda dinheiro em formato de tijolos. O "Inquilino" paga pela moradia e foca 100% no rendimento dos números no banco. Quem vence? Depende de quem crescer mais rápido: seu FipeZAP ou a Selic.`
           : `🧱 **Bricks vs Bank:** The Buyer stores wealth in bricks, the Renter in bank numbers.`
       );
