@@ -119,6 +119,17 @@
       "label": "Tempo Desejado no Imóvel (Anos)",
       "type": "number",
       "defaultValue": 15
+    },
+    {
+      "name": "discountInflation",
+      "label": "Trazer a Valores Presentes? (Descontar Inflação)",
+      "type": "select",
+      "options": [
+        { "label": "Não (Mostrar Valores Futuros Brutos)", "value": "no" },
+        { "label": "Sim (Descontar Inflação e Exibir Valor Real)", "value": "yes" }
+      ],
+      "defaultValue": "no",
+      "tooltip": "Ao projetar 30 anos, os números atingem milhões de Reais desvalorizados. Ative para abater a inflação projetada e ver o patrimônio futuro com o poder de compra que o dinheiro tem Hoje."
     }
   ],
   "formula": "Comprar = ITBI + Σ(Parcelas + Seguros + Manutenção) − Valorização | Alugar = Σ(Aluguéis Infacionados) − Rendimento(Entrada + Economias)",

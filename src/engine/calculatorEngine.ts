@@ -445,8 +445,15 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
         currentRent *= (1 + rentIncr);
 
         // 6% Broker fee applied to property value to find liquid equity on exit
-        const buyEquity = (currentPropVal * 0.94) - balance + buyerCashInvested;
-        const rentWealth = renterCashInvested + renterFgtsVal;
+        let buyEquity = (currentPropVal * 0.94) - balance + buyerCashInvested;
+        let rentWealth = renterCashInvested + renterFgtsVal;
+
+        if (inputs.discountInflation === 'yes') {
+          // Deflate values back to year 0 purchasing power using the rentIncr (IPCA/IGPM proxy)
+          const deflator = Math.pow(1 + rentIncr, y);
+          buyEquity = buyEquity / deflator;
+          rentWealth = rentWealth / deflator;
+        }
 
         timeline.push({ 
           year: y, 
