@@ -416,15 +416,28 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
         let maintenance = currentPropVal * maintPct;
         if (y % 10 === 0) maintenance += currentPropVal * 0.02; // Choque decenal de reforma
         
-        totalAmortizationPaid += yearAmortization;
-        totalInterestPaid += yearInterest + yearInsurance; // combining insurance into "interest/fees" cost
-        totalMaintenancePaid += maintenance;
-
         currentPropVal *= (1 + propAppr);
 
         // RENT 12 months
         let yearRent = currentRent * 12;
-        totalRentCost += yearRent;
+
+        let pvAmortization = yearAmortization;
+        let pvInterest = yearInterest + yearInsurance;
+        let pvMaintenance = maintenance;
+        let pvRent = yearRent;
+
+        if (inputs.discountInflation === 'yes') {
+          const cvDeflator = Math.pow(1 + rentIncr, y);
+          pvAmortization /= cvDeflator;
+          pvInterest /= cvDeflator;
+          pvMaintenance /= cvDeflator;
+          pvRent /= cvDeflator;
+        }
+
+        totalAmortizationPaid += pvAmortization;
+        totalInterestPaid += pvInterest; // combining insurance into "interest/fees" cost
+        totalMaintenancePaid += pvMaintenance;
+        totalRentCost += pvRent;
 
         // Symmetric Capacity Model: both start with identical monthly financial strength
         const buyerYearlyCost = yearPayments + maintenance;
