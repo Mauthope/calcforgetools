@@ -467,9 +467,13 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       result.totalCostBuy = Math.round(totalAmortizationPaid + totalInterestPaid + totalMaintenancePaid + itbiCost);
       result.totalCostRent = Math.round(totalRentCost);
       result.crossoverYear = crossoverYear;
-      result.buyEquity = Math.round(currentPropVal - balance);
-      result.rentWealth = Math.round(renterCashInvested + renterFgtsVal);
-      result.bestOption = result.buyEquity > result.rentWealth ? 'COMPRAR' : 'ALUGAR';
+      
+      const finalEntry = timeline[timeline.length - 1];
+      result.buyEquity = finalEntry.buyEquity;
+      result.rentWealth = finalEntry.rentWealth;
+      
+      // Winner is strictly decided by final horizon wealth
+      result.bestOption = finalEntry.buyEquity > finalEntry.rentWealth ? 'buy' : 'rent';
       result.rentVsBuyTimeline = timeline;
       break;
     }

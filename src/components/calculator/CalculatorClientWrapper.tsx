@@ -724,17 +724,25 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       const cross = results.crossoverYear || 0;
       const horizon = inputs.horizonYears || 20;
 
-      if (cross > 0) {
+      const finalWinner = results.bestOption === 'buy' ? 'COMPRAR' : 'ALUGAR';
+
+      if (cross > 0 && finalWinner === 'COMPRAR') {
         insights.push(
           lang === 'pt'
-            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas verde e azul se cruzam exatamente no **ano ${cross}**. Isso significa que se você morar na casa por mais de ${cross} anos, comprar com amortização SAC vence a matemática e vira patrimônio. Se for se mudar antes, alugar dá mais lucro.`
-            : `🏆 **The Break-Even Point:** Look at the chart! The green and blue lines cross exactly at **year ${cross}**. This means if you stay in the house longer than that, you end up wealthier buying.`
+            ? `🏆 **O Ponto de Virada:** Olhe para o gráfico! As linhas se cruzam exatamente no ano ${cross}. A partir daí, a redução da sua dívida e a valorização do imóvel vencem a rentabilidade do banco. Se você for morar na casa por mais de ${cross} anos, comprar vira patrimônio.`
+            : `🏆 **The Break-Even Point:** Look at the chart! The lines cross exactly at year ${cross}. If you stay in the house longer than that, you end up wealthier buying.`
+        );
+      } else if (cross > 0 && finalWinner === 'ALUGAR') {
+        insights.push(
+          lang === 'pt'
+            ? `🔥 **A Armadilha do Longo Prazo:** Houve um cruzamento no ano ${cross}, onde a compra parecia empatar. Porém, olhe o gráfico até o final: a longo prazo, o efeito "bola de neve" dos juros compostos na conta do inquilino disparou, tornando o ALUGUEL a opção mais lucrativa ao final de ${horizon} anos.`
+            : `🔥 **The Long-Term Trap:** There was a crossover around year ${cross}. But ultimately, compounding interest caused RENTING to be the most lucrative option over ${horizon} years.`
         );
       } else {
         insights.push(
           lang === 'pt'
-            ? `⚠️ **Neste cenário, alugar venceu:** Para um horizonte de ${horizon} anos, investir a diferença superou a compra. Por quê? A Taxa de ITBI, Manutenção e Juros corroeram o patrimônio mais rápido do que a valorização do imóvel.`
-            : `⚠️ **Renting Wins:** In this ${horizon}-year scenario, renting and investing the difference remained better the whole time.`
+            ? `🏁 **Vitória de Ponta a Ponta:** Não houve ponto de virada. As taxas, impostos e custos de manutenção (ou perfil de juros) fizeram com que a opção de ${finalWinner} dominasse a simulação do início ao fim.`
+            : `🏁 **Absolute Victory:** No break-even point occurred. Due to the rates and taxes, ${finalWinner} dominates the simulation entirely.`
         );
       }
 
@@ -990,13 +998,26 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 print:grid-cols-3">
                 {config.outputs?.map((outKey: string, idx: number) => {
                    if(results[outKey] === undefined) return null;
+
+                   let displayValue = formatOutput(outKey, results[outKey]);
+                   let displayLabel = formatOutputLabel(outKey);
+
+                   // Custom cleanup for rent vs buy: Hide crossover heavily if renting wins long term
+                   if (config.calculator_id === 'rent_vs_buy_br' && outKey === 'crossoverYear') {
+                     const finalOption = results.bestOption === 'buy' || results.bestOption === 'COMPRAR' ? 'COMPRAR' : 'ALUGAR';
+                     if (finalOption === 'ALUGAR') {
+                       displayValue = lang === 'pt' ? 'Inquilino venceu a longo prazo' : 'Renter won long term';
+                       displayLabel = lang === 'pt' ? 'Conclusão' : 'Conclusion';
+                     }
+                   }
+
                    return (
                      <ResultPanel
                        key={outKey}
-                       title={formatOutputLabel(outKey)}
-                       value={formatOutput(outKey, results[outKey])}
+                       title={displayLabel}
+                       value={displayValue}
                        highlight={idx === 0} // highlight the first primary result
-                       className={(outKey === 'bestOption' && results[outKey] === 'COMPRAR') ? 'bg-green-100/50 text-green-900 border-green-200' : (outKey === 'bestOption' && results[outKey] === 'ALUGAR') ? 'bg-blue-100/50 text-blue-900 border-blue-200' : ''}
+                       className={(outKey === 'bestOption' && (results[outKey] === 'COMPRAR' || results[outKey] === 'buy')) ? 'bg-green-100/50 text-green-900 border-green-200' : (outKey === 'bestOption' && (results[outKey] === 'ALUGAR' || results[outKey] === 'rent')) ? 'bg-blue-100/50 text-blue-900 border-blue-200' : ''}
                      />
                    );
                 })}
