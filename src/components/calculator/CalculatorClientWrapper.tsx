@@ -1034,100 +1034,100 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
                        let customClass = '';
                        if (item.key === 'bestOption') {
-                         customClass = (displayValue === 'COMPRAR' || displayValue === 'BUY') ? 'bg-green-100/50 text-green-950 border-green-200' : 'bg-blue-100/50 text-blue-950 border-blue-200';
+                         customClass = (displayValue === 'COMPRAR' || displayValue === 'BUY') ? '!bg-green-100/70 !text-green-900 !border-green-300' : '!bg-blue-100/70 !text-blue-900 !border-blue-300';
                        }
                        
                        return <ResultPanel key={item.key} title={displayLabel} value={displayValue} highlight={item.highlight} className={customClass} />;
                     })}
                   </div>
 
-                  {/* Colunas Comprador vs Inquilino - APPLE INSPIRED MINIMALISM */}
+                  {/* Colunas Comprador vs Inquilino - HIGH CONTRAST APPLE */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     {/* Comprador Panel */}
-                    <div className="flex flex-col gap-0 bg-slate-50/50 dark:bg-slate-800/20 rounded-3xl border border-slate-200/60 dark:border-slate-700/50 overflow-hidden">
-                      <div className="p-6 pb-4">
-                        <h4 className="font-semibold text-[19px] tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                           <span className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-500 flex items-center justify-center text-sm">🏢</span>
+                    <div className="flex flex-col gap-0 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] shadow-sm overflow-hidden">
+                      <div className="p-6 pb-4 bg-gray-50/50 dark:bg-white/5">
+                        <h4 className="font-semibold text-lg tracking-tight text-[var(--color-text-primary)] flex items-center gap-2">
+                           <span className="w-8 h-8 rounded-full bg-green-100 text-green-700 flex items-center justify-center text-sm">🏢</span>
                            {lang === 'pt' ? 'Cenário de Compra' : 'Buying Scenario'}
                         </h4>
                       </div>
                       
                       <div className="px-6 flex flex-col gap-0">
                          {/* Custo Perdido */}
-                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50">
-                            <div className="text-[13px] font-medium text-slate-500 dark:text-slate-400 mb-1">
+                         <div className="py-4 border-t border-[var(--color-border)]">
+                            <div className="text-[13px] font-medium text-[var(--color-text-secondary)] mb-1">
                                {lang === 'pt' ? 'Despesas Bancárias e Taxas (Perda)' : 'Lost Money (Interest, Fees, Taxes)'}
                             </div>
-                            <div className="text-xl font-semibold tracking-tight text-red-500 dark:text-red-400">
+                            <div className="text-xl font-bold tracking-tight text-red-600 dark:text-red-400">
                                {formatOutput('totalCostBuy', results['totalCostBuy'])}
                             </div>
                          </div>
 
                          {/* Ativos */}
-                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50">
-                            <div className="flex items-center gap-1 text-[13px] font-medium text-slate-500 dark:text-slate-400 mb-3">
+                         <div className="py-4 border-t border-[var(--color-border)]">
+                            <div className="flex items-center gap-1 text-[13px] font-medium text-[var(--color-text-secondary)] mb-3">
                                {lang === 'pt' ? 'Patrimônio Físico vs Financeiro' : 'Physical vs Liquid Assets'}
                             </div>
                             <div className="flex flex-col gap-3">
                                 <div className="flex justify-between items-center transition-opacity hover:opacity-80">
-                                   <span className="text-[15px] text-slate-700 dark:text-slate-300">{formatOutputLabel('buyerPropertyFinalValue')}</span>
-                                   <span className="text-[15px] font-medium text-slate-900 dark:text-slate-100">{formatOutput('buyerPropertyFinalValue', results['buyerPropertyFinalValue'])}</span>
+                                   <span className="text-[14px] text-[var(--color-text-secondary)]">{formatOutputLabel('buyerPropertyFinalValue')}</span>
+                                   <span className="text-[15px] font-bold text-[var(--color-text-primary)]">{formatOutput('buyerPropertyFinalValue', results['buyerPropertyFinalValue'])}</span>
                                 </div>
                                 <div className="flex justify-between items-center transition-opacity hover:opacity-80">
-                                   <span className="text-[15px] text-slate-700 dark:text-slate-300">{formatOutputLabel('buyerInvestmentsFinalValue')}</span>
-                                   <span className="text-[15px] font-medium text-slate-900 dark:text-slate-100">{formatOutput('buyerInvestmentsFinalValue', results['buyerInvestmentsFinalValue'])}</span>
+                                   <span className="text-[14px] text-[var(--color-text-secondary)]">{formatOutputLabel('buyerInvestmentsFinalValue')}</span>
+                                   <span className="text-[15px] font-bold text-[var(--color-text-primary)]">{formatOutput('buyerInvestmentsFinalValue', results['buyerInvestmentsFinalValue'])}</span>
                                 </div>
                             </div>
                          </div>
                       </div>
 
                       {/* Total */}
-                      <div className="mt-auto bg-green-500/10 dark:bg-green-500/5 p-6 border-t border-green-500/20 dark:border-green-500/10">
-                          <div className="text-[13px] font-semibold text-green-700 dark:text-green-500 tracking-wide uppercase mb-1">
+                      <div className="mt-auto bg-green-50 dark:bg-green-900/10 p-6 border-t border-green-200 dark:border-green-800/30">
+                          <div className="text-[13px] font-bold text-green-800 dark:text-green-400 tracking-wide uppercase mb-1">
                              {lang === 'pt' ? 'Patrimônio Total Líquido' : 'Final Net Wealth'}
                           </div>
-                          <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+                          <div className="text-3xl font-black tracking-tight text-green-950 dark:text-green-50">
                              {formatOutput('buyEquity', results['buyEquity'])}
                           </div>
                       </div>
                     </div>
 
                     {/* Inquilino Panel */}
-                    <div className="flex flex-col gap-0 bg-slate-50/50 dark:bg-slate-800/20 rounded-3xl border border-slate-200/60 dark:border-slate-700/50 overflow-hidden">
-                      <div className="p-6 pb-4">
-                        <h4 className="font-semibold text-[19px] tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                           <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-500 flex items-center justify-center text-sm">🔑</span>
+                    <div className="flex flex-col gap-0 bg-[var(--color-surface)] rounded-3xl border border-[var(--color-border)] shadow-sm overflow-hidden">
+                      <div className="p-6 pb-4 bg-gray-50/50 dark:bg-white/5">
+                        <h4 className="font-semibold text-lg tracking-tight text-[var(--color-text-primary)] flex items-center gap-2">
+                           <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm">🔑</span>
                            {lang === 'pt' ? 'Cenário de Aluguel' : 'Renting Scenario'}
                         </h4>
                       </div>
                       
                       <div className="px-6 flex flex-col gap-0">
                          {/* Custo Perdido */}
-                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50">
-                            <div className="text-[13px] font-medium text-slate-500 dark:text-slate-400 mb-1">
+                         <div className="py-4 border-t border-[var(--color-border)]">
+                            <div className="text-[13px] font-medium text-[var(--color-text-secondary)] mb-1">
                                {lang === 'pt' ? 'Total Gasto com Aluguel (Perda)' : 'Total Paid in Rent (Lost Money)'}
                             </div>
-                            <div className="text-xl font-semibold tracking-tight text-red-500 dark:text-red-400">
+                            <div className="text-xl font-bold tracking-tight text-red-600 dark:text-red-400">
                                {formatOutput('totalCostRent', results['totalCostRent'])}
                             </div>
                          </div>
 
                          {/* Espaçador invisível preciso para manter a simetria com a coluna de compra */}
-                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50 opacity-0 pointer-events-none">
+                         <div className="py-4 border-t border-[var(--color-border)] opacity-0 pointer-events-none">
                             <div className="text-[13px] mb-3">Spacer Spacer</div>
                             <div className="flex flex-col gap-3">
-                                <div className="flex justify-between"><span className="text-[15px]">SP</span><span className="text-[15px]">SP</span></div>
-                                <div className="flex justify-between"><span className="text-[15px]">SP</span><span className="text-[15px]">SP</span></div>
+                                <div className="flex justify-between"><span className="text-[14px]">SP</span><span className="text-[15px]">SP</span></div>
+                                <div className="flex justify-between"><span className="text-[14px]">SP</span><span className="text-[15px]">SP</span></div>
                             </div>
                          </div>
                       </div>
 
                       {/* Total */}
-                      <div className="mt-auto bg-blue-500/10 dark:bg-blue-500/5 p-6 border-t border-blue-500/20 dark:border-blue-500/10">
-                          <div className="text-[13px] font-semibold text-blue-700 dark:text-blue-500 tracking-wide uppercase mb-1">
+                      <div className="mt-auto bg-blue-50 dark:bg-blue-900/10 p-6 border-t border-blue-200 dark:border-blue-800/30">
+                          <div className="text-[13px] font-bold text-blue-800 dark:text-blue-400 tracking-wide uppercase mb-1">
                              {lang === 'pt' ? 'Patrimônio Total Líquido' : 'Final Net Wealth'}
                           </div>
-                          <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+                          <div className="text-3xl font-black tracking-tight text-blue-950 dark:text-blue-50">
                              {formatOutput('rentWealth', results['rentWealth'])}
                           </div>
                       </div>
