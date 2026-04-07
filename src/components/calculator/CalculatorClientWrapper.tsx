@@ -177,7 +177,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     // Time outputs — plain integer (no currency)
     if (lower.includes('month') || lower.includes('mês') || lower.includes('mes')
         || lower.includes('year') || lower.includes('ano') || lower === 'enjoyeddays'
-        || lower === 'crossoveryear') {
+        || lower === 'crossoveryear' || lower === 'payoffyear') {
       return Math.round(val).toString();
     }
 
@@ -214,6 +214,9 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       monthsSaved: "Meses Adiantados",
       totalPayment: "Pagamento Total",
       totalInterestPaid: "Total de Juros Pagos",
+      payoffYear: "Ano da Quitação",
+      buyerPropertyFinalValue: "Valor Físico (Imóvel Quitado)",
+      buyerInvestmentsFinalValue: "Aplicações Financeiras (Sobras)",
       finalAmount: "Montante Final",
       monthsToPayoff: "Meses até Quitação",
       totalPaid: "Total Pago",
@@ -329,6 +332,9 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
       monthsSaved: "Months Saved",
       totalPayment: "Total Payment",
       totalInterestPaid: "Total Interest Paid",
+      payoffYear: "Payoff Year",
+      buyerPropertyFinalValue: "Liquid Property Value",
+      buyerInvestmentsFinalValue: "Liquid Investments Value",
       finalAmount: "Final Amount",
       monthsToPayoff: "Months to Payoff",
       totalPaid: "Total Paid",

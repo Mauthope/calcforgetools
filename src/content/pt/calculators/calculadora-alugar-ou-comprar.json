@@ -137,7 +137,10 @@
     "totalCostBuy",
     "totalCostRent",
     "crossoverYear",
+    "payoffYear",
     "buyEquity",
+    "buyerPropertyFinalValue",
+    "buyerInvestmentsFinalValue",
     "rentWealth",
     "bestOption"
   ],

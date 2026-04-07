@@ -373,6 +373,11 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
 
       let crossoverYear = 0;
       let buyerAhead = false;
+      let payoffYear: number | string = "Não quitou";
+
+      if (loanPrincipal <= 0) {
+        payoffYear = "À Vista";
+      }
 
       for (let y = 1; y <= horizon; y++) {
         // 12 months passing
@@ -411,6 +416,10 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
           balance -= extraAmort;
           yearAmortization += extraAmort;
           yearPayments += extraAmort;
+        }
+
+        if (balance <= 0 && payoffYear === "Não quitou") {
+          payoffYear = y;
         }
 
         let maintenance = currentPropVal * maintPct;
@@ -487,10 +496,23 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       result.totalCostBuy = Math.round(totalAmortizationPaid + totalInterestPaid + totalMaintenancePaid + itbiCost);
       result.totalCostRent = Math.round(totalRentCost);
       result.crossoverYear = crossoverYear;
+      result.payoffYear = payoffYear;
       
       const finalEntry = timeline[timeline.length - 1];
       result.buyEquity = finalEntry.buyEquity;
       result.rentWealth = finalEntry.rentWealth;
+
+      let finalPropVal = currentPropVal * 0.94;
+      let finalInvTotal = buyerCashInvested;
+
+      if (inputs.discountInflation === 'yes') {
+         const deflator = Math.pow(1 + rentIncr, horizon);
+         finalPropVal /= deflator;
+         finalInvTotal /= deflator;
+      }
+
+      result.buyerPropertyFinalValue = Math.round(finalPropVal);
+      result.buyerInvestmentsFinalValue = Math.round(finalInvTotal);
       
       // Winner is strictly decided by final horizon wealth
       result.bestOption = finalEntry.buyEquity > finalEntry.rentWealth ? 'buy' : 'rent';
