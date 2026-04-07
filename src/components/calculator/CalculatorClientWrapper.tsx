@@ -1008,42 +1008,91 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                 <h3 className="text-xl font-bold">{lang === 'pt' ? 'Resultados Finais' : 'Overview'}</h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 print:grid-cols-3">
-                {config.outputs?.map((outKey: string, idx: number) => {
-                   if(results[outKey] === undefined) return null;
+              {config.calculator_id === 'rent_vs_buy_br' ? (
+                <div className="flex flex-col gap-6">
+                  {/* Geral / Resumo */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {[
+                      { key: 'bestOption', highlight: true },
+                      { key: 'crossoverYear', highlight: false },
+                      { key: 'payoffYear', highlight: false }
+                    ].map(item => {
+                       if(results[item.key] === undefined) return null;
+                       let displayValue = formatOutput(item.key, results[item.key]);
+                       let displayLabel = formatOutputLabel(item.key);
+                       
+                       if (item.key === 'bestOption') {
+                         displayValue = (results[item.key] === 'buy' || results[item.key] === 'COMPRAR') ? (lang === 'pt' ? 'COMPRAR' : 'BUY') : (lang === 'pt' ? 'ALUGAR' : 'RENT');
+                       }
+                       if (item.key === 'crossoverYear') {
+                         const finalOption = results.bestOption === 'buy' || results.bestOption === 'COMPRAR' ? 'COMPRAR' : 'ALUGAR';
+                         if (finalOption === 'ALUGAR') {
+                           displayValue = lang === 'pt' ? 'Inquilino vence' : 'Renter wins';
+                           displayLabel = lang === 'pt' ? 'Longo Prazo' : 'Long Term';
+                         }
+                       }
 
-                   let displayValue = formatOutput(outKey, results[outKey]);
-                   let displayLabel = formatOutputLabel(outKey);
-                   
-                   // Global cleanup for bestOption strings
-                   if (outKey === 'bestOption') {
-                     if (results[outKey] === 'buy' || results[outKey] === 'COMPRAR') {
-                       displayValue = lang === 'pt' ? 'COMPRAR' : 'BUY';
-                     } else if (results[outKey] === 'rent' || results[outKey] === 'ALUGAR') {
-                       displayValue = lang === 'pt' ? 'ALUGAR' : 'RENT';
+                       let customClass = '';
+                       if (item.key === 'bestOption') {
+                         customClass = (displayValue === 'COMPRAR' || displayValue === 'BUY') ? 'bg-green-100/50 text-green-950 border-green-200' : 'bg-blue-100/50 text-blue-950 border-blue-200';
+                       }
+                       
+                       return <ResultPanel key={item.key} title={displayLabel} value={displayValue} highlight={item.highlight} className={customClass} />;
+                    })}
+                  </div>
+
+                  {/* Colunas Comprador vs Inquilino */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Comprador */}
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-green-50/80 to-transparent border border-green-100/60 shadow-sm flex flex-col gap-3">
+                      <h4 className="font-bold text-green-900 flex items-center gap-2">
+                        🏢 {lang === 'pt' ? 'Cenário Comprador' : 'Buyer Scenario'}
+                      </h4>
+                      {['totalCostBuy', 'buyerPropertyFinalValue', 'buyerInvestmentsFinalValue', 'buyEquity'].map(outKey => {
+                        if(results[outKey] === undefined) return null;
+                        return <ResultPanel key={outKey} title={formatOutputLabel(outKey)} value={formatOutput(outKey, results[outKey])} className="bg-white/60" />;
+                      })}
+                    </div>
+                    {/* Inquilino */}
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-50/80 to-transparent border border-blue-100/60 shadow-sm flex flex-col gap-3">
+                      <h4 className="font-bold text-blue-900 flex items-center gap-2">
+                        🔑 {lang === 'pt' ? 'Cenário Inquilino' : 'Renter Scenario'}
+                      </h4>
+                      {['totalCostRent', 'rentWealth'].map(outKey => {
+                        if(results[outKey] === undefined) return null;
+                        return <ResultPanel key={outKey} title={formatOutputLabel(outKey)} value={formatOutput(outKey, results[outKey])} className="bg-white/60" />;
+                      })}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 print:grid-cols-3">
+                  {config.outputs?.map((outKey: string, idx: number) => {
+                     if(results[outKey] === undefined) return null;
+
+                     let displayValue = formatOutput(outKey, results[outKey]);
+                     let displayLabel = formatOutputLabel(outKey);
+                     
+                     if (outKey === 'bestOption') {
+                       if (results[outKey] === 'buy' || results[outKey] === 'COMPRAR') {
+                         displayValue = lang === 'pt' ? 'COMPRAR' : 'BUY';
+                       } else if (results[outKey] === 'rent' || results[outKey] === 'ALUGAR') {
+                         displayValue = lang === 'pt' ? 'ALUGAR' : 'RENT';
+                       }
                      }
-                   }
 
-                   // Custom cleanup for rent vs buy: Hide crossover heavily if renting wins long term
-                   if (config.calculator_id === 'rent_vs_buy_br' && outKey === 'crossoverYear') {
-                     const finalOption = results.bestOption === 'buy' || results.bestOption === 'COMPRAR' ? 'COMPRAR' : 'ALUGAR';
-                     if (finalOption === 'ALUGAR') {
-                       displayValue = lang === 'pt' ? 'Inquilino vence' : 'Renter wins';
-                       displayLabel = lang === 'pt' ? 'Longo Prazo' : 'Long Term';
-                     }
-                   }
-
-                   return (
-                     <ResultPanel
-                       key={outKey}
-                       title={displayLabel}
-                       value={displayValue}
-                       highlight={idx === 0} // highlight the first primary result
-                       className={(outKey === 'bestOption' && (results[outKey] === 'COMPRAR' || results[outKey] === 'buy')) ? 'bg-green-100/50 text-green-900 border-green-200' : (outKey === 'bestOption' && (results[outKey] === 'ALUGAR' || results[outKey] === 'rent')) ? 'bg-blue-100/50 text-blue-900 border-blue-200' : ''}
-                     />
-                   );
-                })}
-              </div>
+                     return (
+                       <ResultPanel
+                         key={outKey}
+                         title={displayLabel}
+                         value={displayValue}
+                         highlight={idx === 0}
+                         className={(outKey === 'bestOption' && (results[outKey] === 'COMPRAR' || results[outKey] === 'buy')) ? 'bg-green-100/50 text-green-900 border-green-200' : (outKey === 'bestOption' && (results[outKey] === 'ALUGAR' || results[outKey] === 'rent')) ? 'bg-blue-100/50 text-blue-900 border-blue-200' : ''}
+                       />
+                     );
+                  })}
+                </div>
+              )}
 
               {/* Smart Insights Injection */}
               {generateInsight() && (
