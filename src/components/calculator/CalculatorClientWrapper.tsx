@@ -1041,81 +1041,95 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                     })}
                   </div>
 
-                  {/* Colunas Comprador vs Inquilino */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
-                    {/* Comprador */}
-                    <div className="p-5 md:p-6 rounded-3xl bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex flex-col gap-4 relative overflow-hidden group hover:shadow-[0_8px_30px_rgba(34,197,94,0.12)] transition-all duration-500">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-green-400/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+                  {/* Colunas Comprador vs Inquilino - APPLE INSPIRED MINIMALISM */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    {/* Comprador Panel */}
+                    <div className="flex flex-col gap-0 bg-slate-50/50 dark:bg-slate-800/20 rounded-3xl border border-slate-200/60 dark:border-slate-700/50 overflow-hidden">
+                      <div className="p-6 pb-4">
+                        <h4 className="font-semibold text-[19px] tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                           <span className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-500 flex items-center justify-center text-sm">🏢</span>
+                           {lang === 'pt' ? 'Cenário de Compra' : 'Buying Scenario'}
+                        </h4>
+                      </div>
                       
-                      <h4 className="font-bold text-xl text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-1 z-10">
-                        <span className="p-2 bg-green-100 dark:bg-green-900/50 rounded-xl text-green-700 dark:text-green-400">🏢</span> 
-                        {lang === 'pt' ? 'Cenário Comprador' : 'Buyer Scenario'}
-                      </h4>
-                      
-                      {/* Saídas */}
-                      <ResultPanel 
-                         title={lang === 'pt' ? 'Dinheiro Perdido (Juros, Taxas, Manutenção)' : 'Total Accumulated Cost'}
-                         value={formatOutput('totalCostBuy', results['totalCostBuy'])} 
-                         className="!bg-red-50/50 dark:!bg-red-900/10 !backdrop-blur-md border !border-red-100/50 dark:!border-red-900/30 !text-red-900 dark:!text-red-400 shadow-sm z-10" 
-                      />
-                      
-                      {/* Ativos Isolados */}
-                      <div className="my-1 p-5 rounded-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-white/50 dark:border-slate-700/50 shadow-sm z-10">
-                         <h5 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                           {lang === 'pt' ? 'Composição dos Ativos' : 'Asset Breakdown'} 
-                           <span title={lang === 'pt' ? 'Desmembramento: Quanto você tem no Imóvel Físico vs Quanto tem no Banco das "sobras" mensais.' : 'Details your physical vs active investments'} className="cursor-help bg-slate-200/80 dark:bg-slate-700/80 rounded-full w-[18px] h-[18px] flex items-center justify-center text-[10px] text-slate-600 dark:text-slate-300 transition-colors hover:bg-slate-300">?</span>
-                         </h5>
-                         <div className="flex flex-col gap-3">
-                             <div className="flex justify-between items-center text-sm">
-                                <span className="text-slate-600 dark:text-slate-300 font-medium">{formatOutputLabel('buyerPropertyFinalValue')}</span>
-                                <span className="font-bold text-slate-900 dark:text-white drop-shadow-sm">{formatOutput('buyerPropertyFinalValue', results['buyerPropertyFinalValue'])}</span>
-                             </div>
-                             <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-700/50"></div>
-                             <div className="flex justify-between items-center text-sm">
-                                <span className="text-slate-600 dark:text-slate-300 font-medium">{formatOutputLabel('buyerInvestmentsFinalValue')}</span>
-                                <span className="font-bold text-slate-900 dark:text-white drop-shadow-sm">{formatOutput('buyerInvestmentsFinalValue', results['buyerInvestmentsFinalValue'])}</span>
-                             </div>
+                      <div className="px-6 flex flex-col gap-0">
+                         {/* Custo Perdido */}
+                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50">
+                            <div className="text-[13px] font-medium text-slate-500 dark:text-slate-400 mb-1">
+                               {lang === 'pt' ? 'Despesas Bancárias e Taxas (Perda)' : 'Lost Money (Interest, Fees, Taxes)'}
+                            </div>
+                            <div className="text-xl font-semibold tracking-tight text-red-500 dark:text-red-400">
+                               {formatOutput('totalCostBuy', results['totalCostBuy'])}
+                            </div>
+                         </div>
+
+                         {/* Ativos */}
+                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50">
+                            <div className="flex items-center gap-1 text-[13px] font-medium text-slate-500 dark:text-slate-400 mb-3">
+                               {lang === 'pt' ? 'Patrimônio Físico vs Financeiro' : 'Physical vs Liquid Assets'}
+                            </div>
+                            <div className="flex flex-col gap-3">
+                                <div className="flex justify-between items-center transition-opacity hover:opacity-80">
+                                   <span className="text-[15px] text-slate-700 dark:text-slate-300">{formatOutputLabel('buyerPropertyFinalValue')}</span>
+                                   <span className="text-[15px] font-medium text-slate-900 dark:text-slate-100">{formatOutput('buyerPropertyFinalValue', results['buyerPropertyFinalValue'])}</span>
+                                </div>
+                                <div className="flex justify-between items-center transition-opacity hover:opacity-80">
+                                   <span className="text-[15px] text-slate-700 dark:text-slate-300">{formatOutputLabel('buyerInvestmentsFinalValue')}</span>
+                                   <span className="text-[15px] font-medium text-slate-900 dark:text-slate-100">{formatOutput('buyerInvestmentsFinalValue', results['buyerInvestmentsFinalValue'])}</span>
+                                </div>
+                            </div>
                          </div>
                       </div>
 
-                      {/* Total Patrimônio */}
-                      <div className="mt-auto pt-2 z-10">
-                        <ResultPanel 
-                           title={lang === 'pt' ? '💎 PATRIMÔNIO LÍQUIDO TOTAL' : '💎 FINAL NET WEALTH'}
-                           value={formatOutput('buyEquity', results['buyEquity'])} 
-                           className="!bg-gradient-to-br !from-green-500/90 !to-emerald-600/90 !backdrop-blur-xl !text-white shadow-[0_8px_20px_rgba(34,197,94,0.3)] !border-none"
-                        />
+                      {/* Total */}
+                      <div className="mt-auto bg-green-500/10 dark:bg-green-500/5 p-6 border-t border-green-500/20 dark:border-green-500/10">
+                          <div className="text-[13px] font-semibold text-green-700 dark:text-green-500 tracking-wide uppercase mb-1">
+                             {lang === 'pt' ? 'Patrimônio Total Líquido' : 'Final Net Wealth'}
+                          </div>
+                          <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+                             {formatOutput('buyEquity', results['buyEquity'])}
+                          </div>
                       </div>
                     </div>
 
-                    {/* Inquilino */}
-                    <div className="p-5 md:p-6 rounded-3xl bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/60 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.06)] flex flex-col gap-4 relative overflow-hidden group hover:shadow-[0_8px_30px_rgba(59,130,246,0.12)] transition-all duration-500">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+                    {/* Inquilino Panel */}
+                    <div className="flex flex-col gap-0 bg-slate-50/50 dark:bg-slate-800/20 rounded-3xl border border-slate-200/60 dark:border-slate-700/50 overflow-hidden">
+                      <div className="p-6 pb-4">
+                        <h4 className="font-semibold text-[19px] tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                           <span className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-500 flex items-center justify-center text-sm">🔑</span>
+                           {lang === 'pt' ? 'Cenário de Aluguel' : 'Renting Scenario'}
+                        </h4>
+                      </div>
+                      
+                      <div className="px-6 flex flex-col gap-0">
+                         {/* Custo Perdido */}
+                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50">
+                            <div className="text-[13px] font-medium text-slate-500 dark:text-slate-400 mb-1">
+                               {lang === 'pt' ? 'Total Gasto com Aluguel (Perda)' : 'Total Paid in Rent (Lost Money)'}
+                            </div>
+                            <div className="text-xl font-semibold tracking-tight text-red-500 dark:text-red-400">
+                               {formatOutput('totalCostRent', results['totalCostRent'])}
+                            </div>
+                         </div>
 
-                      <h4 className="font-bold text-xl text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-1 z-10">
-                        <span className="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-xl text-blue-700 dark:text-blue-400">🔑</span> 
-                        {lang === 'pt' ? 'Cenário Inquilino' : 'Renter Scenario'}
-                      </h4>
-
-                      <ResultPanel 
-                         title={lang === 'pt' ? 'Dinheiro Perdido (Total de Aluguel Pago)' : 'Total Rent Paid'}
-                         value={formatOutput('totalCostRent', results['totalCostRent'])} 
-                         className="!bg-red-50/50 dark:!bg-red-900/10 !backdrop-blur-md border !border-red-100/50 dark:!border-red-900/30 !text-red-900 dark:!text-red-400 shadow-sm z-10" 
-                      />
-
-                      {/* Espaçador para manter simetria com a caixa ao lado */}
-                      <div className="my-1 p-5 pointer-events-none opacity-0">
-                         <h5 className="text-xs mb-4">Spacer</h5>
-                         <div className="flex flex-col gap-3"><div className="text-sm">spacer</div><div className="h-[1px]"></div><div className="text-sm">spacer</div></div>
+                         {/* Espaçador invisível preciso para manter a simetria com a coluna de compra */}
+                         <div className="py-4 border-t border-slate-200/60 dark:border-slate-700/50 opacity-0 pointer-events-none">
+                            <div className="text-[13px] mb-3">Spacer Spacer</div>
+                            <div className="flex flex-col gap-3">
+                                <div className="flex justify-between"><span className="text-[15px]">SP</span><span className="text-[15px]">SP</span></div>
+                                <div className="flex justify-between"><span className="text-[15px]">SP</span><span className="text-[15px]">SP</span></div>
+                            </div>
+                         </div>
                       </div>
 
-                      {/* Total Patrimônio */}
-                      <div className="mt-auto pt-2 z-10">
-                        <ResultPanel 
-                           title={lang === 'pt' ? '💎 PATRIMÔNIO LÍQUIDO TOTAL' : '💎 FINAL NET WEALTH'}
-                           value={formatOutput('rentWealth', results['rentWealth'])} 
-                           className="!bg-gradient-to-br !from-blue-500/90 !to-indigo-600/90 !backdrop-blur-xl !text-white shadow-[0_8px_20px_rgba(59,130,246,0.3)] !border-none"
-                        />
+                      {/* Total */}
+                      <div className="mt-auto bg-blue-500/10 dark:bg-blue-500/5 p-6 border-t border-blue-500/20 dark:border-blue-500/10">
+                          <div className="text-[13px] font-semibold text-blue-700 dark:text-blue-500 tracking-wide uppercase mb-1">
+                             {lang === 'pt' ? 'Patrimônio Total Líquido' : 'Final Net Wealth'}
+                          </div>
+                          <div className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
+                             {formatOutput('rentWealth', results['rentWealth'])}
+                          </div>
                       </div>
                     </div>
                   </div>
