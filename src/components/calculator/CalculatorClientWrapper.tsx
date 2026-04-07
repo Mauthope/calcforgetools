@@ -1044,24 +1044,73 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
                   {/* Colunas Comprador vs Inquilino */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Comprador */}
-                    <div className="p-5 rounded-2xl bg-gradient-to-br from-green-50/80 to-transparent border border-green-100/60 shadow-sm flex flex-col gap-3">
-                      <h4 className="font-bold text-green-900 flex items-center gap-2">
+                    <div className="p-5 md:p-6 rounded-2xl bg-white dark:bg-slate-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-2 border-green-500/20 flex flex-col gap-4">
+                      <h4 className="font-bold text-xl text-green-700 dark:text-green-500 flex items-center gap-2 mb-1">
                         🏢 {lang === 'pt' ? 'Cenário Comprador' : 'Buyer Scenario'}
                       </h4>
-                      {['totalCostBuy', 'buyerPropertyFinalValue', 'buyerInvestmentsFinalValue', 'buyEquity'].map(outKey => {
-                        if(results[outKey] === undefined) return null;
-                        return <ResultPanel key={outKey} title={formatOutputLabel(outKey)} value={formatOutput(outKey, results[outKey])} className="bg-white/60" />;
-                      })}
+                      
+                      {/* Saídas */}
+                      <ResultPanel 
+                         title={lang === 'pt' ? 'Custo Final (Dinheiro Perdido em Juros, Taxas e Manutenção)' : 'Total Accumulated Cost'}
+                         value={formatOutput('totalCostBuy', results['totalCostBuy'])} 
+                         className="!bg-red-50/80 !text-red-900 !border-red-200" 
+                      />
+                      
+                      {/* Ativos Isolados */}
+                      <div className="my-1 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                         <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2">
+                           {lang === 'pt' ? 'Composição dos Ativos' : 'Asset Breakdown'} 
+                           <span title={lang === 'pt' ? 'Esta caixa desmembra o seu patrimônio final entre quanto de pedra/tijolo você tem vs quanto dinheiro você acumulou em conta corretora pelas "sobras".' : 'Details your physical vs active investments'} className="cursor-help bg-slate-200 dark:bg-slate-600 rounded-full w-4 h-4 flex items-center justify-center text-[10px]">?</span>
+                         </h5>
+                         <div className="flex flex-col gap-3">
+                             <div className="flex justify-between items-center text-sm">
+                                <span className="text-slate-600 dark:text-slate-300 font-medium">{formatOutputLabel('buyerPropertyFinalValue')}</span>
+                                <span className="font-bold text-slate-900 dark:text-white">{formatOutput('buyerPropertyFinalValue', results['buyerPropertyFinalValue'])}</span>
+                             </div>
+                             <div className="h-[1px] w-full bg-slate-200 dark:bg-slate-700 opacity-50"></div>
+                             <div className="flex justify-between items-center text-sm">
+                                <span className="text-slate-600 dark:text-slate-300 font-medium">{formatOutputLabel('buyerInvestmentsFinalValue')}</span>
+                                <span className="font-bold text-slate-900 dark:text-white">{formatOutput('buyerInvestmentsFinalValue', results['buyerInvestmentsFinalValue'])}</span>
+                             </div>
+                         </div>
+                      </div>
+
+                      {/* Total Patrimônio */}
+                      <div className="mt-auto pt-2">
+                        <ResultPanel 
+                           title={lang === 'pt' ? '💎 PATRIMÔNIO TOTAL ACUMULADO' : '💎 FINAL NET WEALTH'}
+                           value={formatOutput('buyEquity', results['buyEquity'])} 
+                           className="!bg-gradient-to-r !from-green-600 !to-emerald-500 !text-white shadow-lg border-none"
+                        />
+                      </div>
                     </div>
+
                     {/* Inquilino */}
-                    <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-50/80 to-transparent border border-blue-100/60 shadow-sm flex flex-col gap-3">
-                      <h4 className="font-bold text-blue-900 flex items-center gap-2">
+                    <div className="p-5 md:p-6 rounded-2xl bg-white dark:bg-slate-900 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border-2 border-blue-500/20 flex flex-col gap-4">
+                      <h4 className="font-bold text-xl text-blue-700 dark:text-blue-500 flex items-center gap-2 mb-1">
                         🔑 {lang === 'pt' ? 'Cenário Inquilino' : 'Renter Scenario'}
                       </h4>
-                      {['totalCostRent', 'rentWealth'].map(outKey => {
-                        if(results[outKey] === undefined) return null;
-                        return <ResultPanel key={outKey} title={formatOutputLabel(outKey)} value={formatOutput(outKey, results[outKey])} className="bg-white/60" />;
-                      })}
+
+                      <ResultPanel 
+                         title={lang === 'pt' ? 'Custo Final (Dinheiro Perdido em Aluguel)' : 'Total Rent Paid'}
+                         value={formatOutput('totalCostRent', results['totalCostRent'])} 
+                         className="!bg-red-50/80 !text-red-900 !border-red-200" 
+                      />
+
+                      {/* Espaçador invisível para igualar base de altura */}
+                      <div className="my-1 p-4 flex-grow opacity-0 pointer-events-none">
+                         <h5 className="text-xs mb-3">Spacer</h5>
+                         <div className="flex flex-col gap-3"><div className="text-sm">spacer</div><div className="h-[1px]"></div><div className="text-sm">spacer</div></div>
+                      </div>
+
+                      {/* Total Patrimônio */}
+                      <div className="mt-auto pt-2">
+                        <ResultPanel 
+                           title={lang === 'pt' ? '💎 PATRIMÔNIO TOTAL ACUMULADO' : '💎 FINAL NET WEALTH'}
+                           value={formatOutput('rentWealth', results['rentWealth'])} 
+                           className="!bg-gradient-to-r !from-blue-600 !to-indigo-500 !text-white shadow-lg border-none"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
