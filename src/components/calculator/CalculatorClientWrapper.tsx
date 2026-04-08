@@ -1083,10 +1083,10 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
                       {/* Total */}
                       <div className="mt-auto bg-green-50 dark:bg-green-900/10 p-6 border-t border-green-200 dark:border-green-800/30">
-                          <div className="text-[13px] font-bold text-green-800 dark:text-green-400 tracking-wide uppercase mb-1">
+                          <div className="text-[13px] font-bold text-green-700 dark:text-green-400 tracking-wide uppercase mb-1">
                              {lang === 'pt' ? 'Patrimônio Total Líquido' : 'Final Net Wealth'}
                           </div>
-                          <div className="text-3xl font-black tracking-tight text-green-950 dark:text-green-50">
+                          <div className="text-3xl font-black tracking-tight text-[var(--color-text-primary)]">
                              {formatOutput('buyEquity', results['buyEquity'])}
                           </div>
                       </div>
@@ -1124,10 +1124,10 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
 
                       {/* Total */}
                       <div className="mt-auto bg-blue-50 dark:bg-blue-900/10 p-6 border-t border-blue-200 dark:border-blue-800/30">
-                          <div className="text-[13px] font-bold text-blue-800 dark:text-blue-400 tracking-wide uppercase mb-1">
+                          <div className="text-[13px] font-bold text-blue-700 dark:text-blue-400 tracking-wide uppercase mb-1">
                              {lang === 'pt' ? 'Patrimônio Total Líquido' : 'Final Net Wealth'}
                           </div>
-                          <div className="text-3xl font-black tracking-tight text-blue-950 dark:text-blue-50">
+                          <div className="text-3xl font-black tracking-tight text-[var(--color-text-primary)]">
                              {formatOutput('rentWealth', results['rentWealth'])}
                           </div>
                       </div>
