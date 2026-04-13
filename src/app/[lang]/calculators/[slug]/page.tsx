@@ -11,6 +11,7 @@ import { CalculatorClientWrapper } from '@/components/calculator/CalculatorClien
 import { SourcesBlock } from '@/components/calculator/SourcesBlock';
 import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
 import { YouTubeEmbed } from '@/components/ui/YouTubeEmbed';
+import { EmbedSnippetGenerator } from '@/components/ui/EmbedSnippetGenerator';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -176,6 +177,9 @@ export default async function CalculatorPage({ params }: { params: Promise<{ lan
 
           {/* FAQ */}
           {data.faq && <FAQ items={data.faq} title={lang === 'pt' ? 'Perguntas Frequentes' : 'Frequently Asked Questions'} />}
+
+          {/* Embed Widget */}
+          <EmbedSnippetGenerator lang={lang as 'en' | 'pt'} slug={slug} calculatorTitle={data.title} />
 
           {/* Related Tools */}
           {data.related_tools && (
