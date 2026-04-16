@@ -164,7 +164,7 @@ export function ChartView({ type, labels, datasets, title }: ChartViewProps) {
       intersect: false,
     },
     animation: {
-      duration: 800,
+      duration: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : 400,
       easing: 'easeOutQuart' as const,
     }
   }), [title]);

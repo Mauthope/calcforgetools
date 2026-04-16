@@ -13,6 +13,7 @@ import { ScrollReveal } from '@/components/ui/motion/ScrollReveal';
 import { Check, Share2, FileSpreadsheet, Send, MessageCircle } from 'lucide-react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { ChalkboardCalculation } from '@/components/ui/ChalkboardCalculation';
+import { GamifiedRuleOfThree } from '@/components/calculator/GamifiedRuleOfThree';
 
 interface CalculatorClientWrapperProps {
   config: any;
@@ -45,10 +46,10 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     }
   }, [config]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement> | any) => {
     const { name, value } = e.target;
-    setInputs(prev => {
-      const newInputs = { ...prev, [name]: value };
+    setInputs((prev: Record<string, any>) => {
+      const newInputs: Record<string, any> = { ...prev, [name]: value };
 
       // Auto-population for FipeZAP Geolocation mock
       if (name === 'estadoFipezap') {
@@ -74,14 +75,19 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
     });
   };
 
+  const chartTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
   const calculate = (currentInputs = inputs) => {
     if(!config) return;
     const res = executeCalculation(config.calculator_id, currentInputs);
     setResults(res);
     
     if(res && !res.error && config.chart_type) {
-        const chart = buildChartData(config.calculator_id, currentInputs, res, lang);
-        setChartData(chart);
+        if (chartTimeoutRef.current) clearTimeout(chartTimeoutRef.current);
+        chartTimeoutRef.current = setTimeout(() => {
+          const chart = buildChartData(config.calculator_id, currentInputs, res, lang);
+          setChartData(chart);
+        }, 150);
     } else {
         setChartData(null);
     }
@@ -841,7 +847,14 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
         {/* Inputs Column */}
         <ScrollReveal direction="up" className="w-full lg:w-1/3 shrink-0 print:hidden">
         <div className="flex flex-col gap-6 w-full">
-          <div className="apple-card p-5 lg:p-6 w-full">
+          <div className={`apple-card p-5 lg:p-6 w-full ${config.calculator_id === 'rule_of_three' ? 'border-none p-0 bg-transparent shadow-none' : ''}`}>
+            {config.calculator_id === 'rule_of_three' ? (
+              <GamifiedRuleOfThree 
+                inputs={inputs} 
+                onChange={handleChange} 
+                lang={lang} 
+              />
+            ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <h2 className="text-xl font-semibold -mb-2 text-[var(--color-text-primary)] tracking-tight">
                 {lang === 'en' ? 'Inputs' : 'Valores'}
@@ -911,6 +924,7 @@ export function CalculatorClientWrapper({ config, lang, premiumTemplate, childre
               </button>
             )}
             </form>
+            )}
 
             {/* Post-Save Upsell Dashboard (Now always visible if results exist) */}
             {results && !results.error && Object.keys(results).length > 0 && (

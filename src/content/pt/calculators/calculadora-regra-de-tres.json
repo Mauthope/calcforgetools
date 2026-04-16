@@ -15,51 +15,41 @@
       "label": "Tipo de Cálculo",
       "type": "select",
       "options": [
-        { "label": "Simples Direta — A aumenta e B aumenta junto", "value": "simples_direta" },
-        { "label": "Simples Inversa — A aumenta e B diminui", "value": "simples_inversa" },
-        { "label": "Composta (2 fatores) — vários valores relacionados ao resultado", "value": "composta" }
+        { "label": "Simples Direta", "value": "simples_direta" },
+        { "label": "Simples Inversa", "value": "simples_inversa" }
       ],
       "defaultValue": "simples_direta"
     },
     {
       "name": "a1",
-      "label": "Valor A (conhecido)",
+      "label": "A",
       "type": "number",
       "defaultValue": 4
     },
     {
       "name": "b1",
-      "label": "Valor B (conhecido — correspondente a A)",
+      "label": "B",
       "type": "number",
       "defaultValue": 20
     },
     {
       "name": "a2",
-      "label": "Valor C (novo valor de A — a incógnita surgirá aqui)",
+      "label": "C",
       "type": "number",
       "defaultValue": 7
     },
     {
-      "name": "c1",
-      "label": "Fator 2 valor inicial (apenas para Composta)",
+      "name": "b2",
+      "label": "D",
       "type": "number",
-      "defaultValue": 3
+      "defaultValue": 35
     },
     {
-      "name": "c2",
-      "label": "Fator 2 novo valor (apenas para Composta)",
-      "type": "number",
-      "defaultValue": 6
-    },
-    {
-      "name": "fator2Tipo",
-      "label": "Relação do Fator 2 com o resultado (apenas Composta)",
+      "name": "targetVariable",
+      "label": "Incógnita",
       "type": "select",
-      "options": [
-        { "label": "Direta — Fator 2 aumenta → resultado aumenta", "value": "direta" },
-        { "label": "Inversa — Fator 2 aumenta → resultado diminui", "value": "inversa" }
-      ],
-      "defaultValue": "direta"
+      "options": [],
+      "defaultValue": "b2"
     }
   ],
   "formula": "Direta: X = (B × C) / A | Inversa: X = (A × B) / C | Composta: X = B × (C/A) × ratio_f2",
