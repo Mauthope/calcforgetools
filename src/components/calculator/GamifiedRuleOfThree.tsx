@@ -38,16 +38,28 @@ export function GamifiedRuleOfThree({ inputs, onChange, lang = 'pt' }: GamifiedR
           "relative flex flex-col items-center justify-center p-3 rounded-2xl border-2 transition-all duration-300 w-full md:w-32",
           isTarget 
             ? "border-emerald-400/60 bg-emerald-400/10 shadow-[0_0_20px_rgba(52,211,153,0.15)]" 
-            : "border-white/10 hover:border-white/25 bg-black/40 cursor-pointer"
+            : "border-white/10 hover:border-white/25 bg-black/40"
         )}
-        onClick={() => !isTarget && setTarget(name)}
       >
-        <span className="text-[10px] uppercase tracking-widest text-white/40 mb-2 font-mono">{label}</span>
+        <div className="flex items-center justify-between w-full mb-1">
+          <span className="text-[10px] uppercase tracking-widest text-white/40 font-mono">{label}</span>
+          {!isTarget && (
+            <button
+              type="button"
+              onClick={() => setTarget(name)}
+              title="Isolar Incógnita (X)"
+              className="text-white/20 hover:text-emerald-400 bg-white/5 hover:bg-white/10 rounded px-1.5 py-0.5 text-[8px] font-bold tracking-widest uppercase transition-colors"
+            >
+              Definir X
+            </button>
+          )}
+        </div>
+
         {isTarget ? (
           <motion.div 
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="text-4xl font-bold font-mono text-emerald-300 drop-shadow-[0_0_12px_rgba(52,211,153,0.6)] h-12 flex items-center justify-center"
+            className="text-4xl font-bold font-mono text-emerald-300 drop-shadow-[0_0_12px_rgba(52,211,153,0.6)] h-14 flex items-center justify-center"
           >
             X
           </motion.div>
@@ -58,8 +70,7 @@ export function GamifiedRuleOfThree({ inputs, onChange, lang = 'pt' }: GamifiedR
             value={inputs[name] ?? ''}
             onChange={handleInputChange}
             placeholder="0"
-            onClick={(e) => e.stopPropagation()}
-            className="bg-transparent border-b border-white/20 focus:border-emerald-400/50 outline-none w-full text-center text-2xl font-bold font-mono text-white placeholder-white/20 h-12"
+            className="bg-transparent border-b-2 border-white/20 focus:border-emerald-400/50 outline-none w-full text-center text-2xl font-bold font-mono text-white placeholder-white/20 h-14"
           />
         )}
       </div>
@@ -89,7 +100,7 @@ export function GamifiedRuleOfThree({ inputs, onChange, lang = 'pt' }: GamifiedR
            </div>
            
            {/* Mode Toggles */}
-           <div className="ml-auto flex bg-black/40 rounded-xl p-1 border border-white/5 relative z-10">
+           <div className="ml-auto flex bg-black/40 rounded-xl p-1 border border-white/5 relative z-10 flex-wrap justify-end gap-1">
              <button
                 type="button"
                 onClick={() => setType('simples_direta')}
@@ -110,53 +121,85 @@ export function GamifiedRuleOfThree({ inputs, onChange, lang = 'pt' }: GamifiedR
              >
                 {lang === 'pt' ? 'Inversa' : 'Inverse'}
              </button>
+             <button
+                type="button"
+                onClick={() => setType('composta')}
+                className={cn(
+                  "px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all",
+                  type === 'composta' ? "bg-purple-500/20 text-purple-300 shadow-sm" : "text-white/40 hover:text-white/70"
+                )}
+             >
+                {lang === 'pt' ? 'Composta' : 'Compound'}
+             </button>
            </div>
         </div>
 
         {/* Board Content */}
-        <div className="p-8 md:p-12 relative flex flex-col items-center">
+        <div className="p-8 md:p-12 relative flex flex-col items-center overflow-x-auto">
           
           <div className="w-full max-w-lg mb-8 text-center text-white/50 font-mono text-sm">
              {lang === 'pt' 
-               ? 'Clique na caixa que você deseja descobrir (A incógnita X) e preencha os demais valores.'
-               : 'Click on the box you want to find (The unknown X) and fill in the other values.'}
+               ? 'Clique em "Definir X" na caixa que você deseja descobrir e preencha as demais!'
+               : 'Click "Set as X" on the unknown box and fill in the other values!'}
           </div>
 
-          <div className="flex flex-col gap-6 md:gap-12 w-full max-w-md items-center relative z-10">
-            {/* Top Row: A1 -> B1 */}
+          <div className="flex flex-col gap-6 md:gap-12 w-full max-w-2xl min-w-max items-center relative z-10">
+            {/* Top Row: A1 -> B1 -> (C1) */}
             <div className="flex items-center gap-4 md:gap-8 w-full justify-between">
-               {renderSlot('a1', 'Valor 1')}
+               {renderSlot('a1', 'Fator 1')}
                
                <div className="flex flex-col items-center text-white/30">
-                  {type === 'simples_direta' ? (
+                  {type === 'simples_direta' || type === 'composta' ? (
                     <ArrowRight className="w-8 h-8 opacity-50" />
                   ) : (
-                    <ArrowRightLeft className="w-8 h-8 opacity-50 text-amber-400" />
+                     <ArrowRightLeft className="w-8 h-8 opacity-50 text-amber-400" />
                   )}
                </div>
 
-               {renderSlot('b1', 'Correspondente')}
+               {renderSlot('b1', 'Fator 2')}
+
+               {type === 'composta' && (
+                 <>
+                   <div className="flex flex-col items-center text-white/30">
+                      <ArrowRight className="w-8 h-8 opacity-50 text-purple-400" />
+                   </div>
+                   {renderSlot('c1', 'Resultado')}
+                 </>
+               )}
             </div>
 
             {/* Middle connecting lines (visual only) */}
-            <div className="flex items-center gap-4 md:gap-8 w-full justify-between px-16 absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none opacity-20">
-               <MoveDown className="w-6 h-6 ml-4" />
-               <MoveDown className="w-6 h-6 mr-4" />
+            <div className={cn(
+              "flex items-center w-full justify-between absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none opacity-20",
+              type === 'composta' ? "px-[10%]" : "px-16 gap-4 md:gap-8"
+            )}>
+               <MoveDown className="w-6 h-6" />
+               <MoveDown className="w-6 h-6" />
+               {type === 'composta' && <MoveDown className="w-6 h-6" />}
             </div>
 
-            {/* Bottom Row: A2 -> B2 */}
+            {/* Bottom Row: A2 -> B2 -> (C2) */}
             <div className="flex items-center gap-4 md:gap-8 w-full justify-between">
-               {renderSlot('a2', 'Novo Valor 1')}
+               {renderSlot('a2', 'Novo F1')}
                
                <div className="flex flex-col items-center text-white/30">
-                  {type === 'simples_direta' ? (
+                  {type === 'simples_direta' || type === 'composta' ? (
                     <ArrowRight className="w-8 h-8 opacity-50" />
                   ) : (
                     <ArrowRightLeft className="w-8 h-8 opacity-50 text-amber-400" />
                   )}
                </div>
 
-               {renderSlot('b2', 'Novo Correspond')}
+               {renderSlot('b2', 'Novo F2')}
+               
+               {type === 'composta' && (
+                 <>
+                   <div className="flex flex-col items-center text-white/30">
+                      <ArrowRight className="w-8 h-8 opacity-50 text-purple-400" />
+                   </div>
+                   {renderSlot('c2', 'Novo Result')}
+                 </>
+               )}
             </div>
           </div>
           

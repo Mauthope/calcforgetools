@@ -16,7 +16,8 @@
       "type": "select",
       "options": [
         { "label": "Simples Direta", "value": "simples_direta" },
-        { "label": "Simples Inversa", "value": "simples_inversa" }
+        { "label": "Simples Inversa", "value": "simples_inversa" },
+        { "label": "Composta", "value": "composta" }
       ],
       "defaultValue": "simples_direta"
     },
@@ -34,15 +35,27 @@
     },
     {
       "name": "a2",
-      "label": "C",
+      "label": "A2",
       "type": "number",
       "defaultValue": 7
     },
     {
       "name": "b2",
-      "label": "D",
+      "label": "B2",
       "type": "number",
       "defaultValue": 35
+    },
+    {
+      "name": "c1",
+      "label": "C",
+      "type": "number",
+      "defaultValue": 10
+    },
+    {
+      "name": "c2",
+      "label": "C2",
+      "type": "number",
+      "defaultValue": 50
     },
     {
       "name": "targetVariable",

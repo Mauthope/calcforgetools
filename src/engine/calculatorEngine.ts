@@ -526,8 +526,10 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
       
       const a1 = parseFloat(inputs.a1) || 0;
       const b1 = parseFloat(inputs.b1) || 0;
+      const c1 = parseFloat(inputs.c1) || 0;
       const a2 = parseFloat(inputs.a2) || 0;
       const b2 = parseFloat(inputs.b2) || 0;
+      const c2 = parseFloat(inputs.c2) || 0;
 
       const fmt = (n: number) => new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 4 }).format(n);
 
@@ -573,6 +575,31 @@ export function executeCalculation(calcId: string, inputs: Record<string, any>):
           },
           {
             label: 'Verificação do Produto',
+            expression: verification,
+            result: '✔ Válido',
+          }
+        ];
+      } else if (type === 'composta') {
+        // Composta Direta (A e B diretamente proporcionais a C): (A1 * B1) / C1 = (A2 * B2) / C2 
+        // => Cross multiply: A1 * B1 * C2 = A2 * B2 * C1
+        if (targetVar === 'a1') { x = (b1 * c2) !== 0 ? (a2 * b2 * c1) / (b1 * c2) : 0; expression = `(${fmt(a2)} × ${fmt(b2)} × ${fmt(c1)}) ÷ (${fmt(b1)} × ${fmt(c2)})`; verification = `(${fmt(x)} × ${fmt(b1)}) ÷ ${fmt(c1)} = (${fmt(a2)} × ${fmt(b2)}) ÷ ${fmt(c2)}`; }
+        if (targetVar === 'b1') { x = (a1 * c2) !== 0 ? (a2 * b2 * c1) / (a1 * c2) : 0; expression = `(${fmt(a2)} × ${fmt(b2)} × ${fmt(c1)}) ÷ (${fmt(a1)} × ${fmt(c2)})`; verification = `(${fmt(a1)} × ${fmt(x)}) ÷ ${fmt(c1)} = (${fmt(a2)} × ${fmt(b2)}) ÷ ${fmt(c2)}`; }
+        if (targetVar === 'c1') { x = (a2 * b2) !== 0 ? (a1 * b1 * c2) / (a2 * b2) : 0; expression = `(${fmt(a1)} × ${fmt(b1)} × ${fmt(c2)}) ÷ (${fmt(a2)} × ${fmt(b2)})`; verification = `(${fmt(a1)} × ${fmt(b1)}) ÷ ${fmt(x)} = (${fmt(a2)} × ${fmt(b2)}) ÷ ${fmt(c2)}`; }
+        
+        if (targetVar === 'a2') { x = (b2 * c1) !== 0 ? (a1 * b1 * c2) / (b2 * c1) : 0; expression = `(${fmt(a1)} × ${fmt(b1)} × ${fmt(c2)}) ÷ (${fmt(b2)} × ${fmt(c1)})`; verification = `(${fmt(a1)} × ${fmt(b1)}) ÷ ${fmt(c1)} = (${fmt(x)} × ${fmt(b2)}) ÷ ${fmt(c2)}`; }
+        if (targetVar === 'b2') { x = (a2 * c1) !== 0 ? (a1 * b1 * c2) / (a2 * c1) : 0; expression = `(${fmt(a1)} × ${fmt(b1)} × ${fmt(c2)}) ÷ (${fmt(a2)} × ${fmt(c1)})`; verification = `(${fmt(a1)} × ${fmt(b1)}) ÷ ${fmt(c1)} = (${fmt(a2)} × ${fmt(x)}) ÷ ${fmt(c2)}`; }
+        if (targetVar === 'c2') { x = (a1 * b1) !== 0 ? (a2 * b2 * c1) / (a1 * b1) : 0; expression = `(${fmt(a2)} × ${fmt(b2)} × ${fmt(c1)}) ÷ (${fmt(a1)} × ${fmt(b1)})`; verification = `(${fmt(a1)} × ${fmt(b1)}) ÷ ${fmt(c1)} = (${fmt(a2)} × ${fmt(b2)}) ÷ ${fmt(x)}`; }
+
+        result.resultX = x;
+        result.chalk_steps = [
+          {
+            label: 'Equação Proporcional Composta ((A₁ × B₁) ÷ C₁ = (A₂ × B₂) ÷ C₂)',
+            expression: `Isolando X: X = ${expression}`,
+            result: fmt(x),
+            highlight: true,
+          },
+          {
+            label: 'Verificação da Equivalência',
             expression: verification,
             result: '✔ Válido',
           }
